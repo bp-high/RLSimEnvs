@@ -12,7 +12,7 @@ The recipe:
 3. Prove the best answer with an exact solver.
 4. Grade the agent deterministically against it. The grader is pure Python, and the agent acts only through MCP tools.
 
-Working notes for agents (what was done, how to run things, what is next) are in [`claude-sessions/`](claude-sessions/).
+
 
 ## Licence
 
