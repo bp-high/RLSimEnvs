@@ -170,6 +170,8 @@ body.clean #left, body.clean #right { display: none; }
   #bottom { left: 6px; right: 6px; bottom: 6px; }
   .costwrap { display: none; }
   .chart-h .muted { display: none; }
-  .chart-h { padding-left: 4px; }
-  .chart-h .credit { font-size: 10px; }
+  .chart-h { padding-left: 4px; align-items: flex-start; }
+  .chart-h b { white-space: nowrap; }
+  /* the credit wraps rather than being cut off: it must stay readable */
+  .chart-h .credit { font-size: 10px; line-height: 1.25; white-space: normal; overflow: visible; text-align: right; }
 }
