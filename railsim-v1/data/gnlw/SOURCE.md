@@ -4,6 +4,8 @@ Everything RailSimEnv v1 knows about the line, where it comes from, and what is 
 
 ## Sources and licences
 
+These files keep their sources' licences; the repository's MIT licence covers the code, not them.
+
 | file | what | source | licence |
 |---|---|---|---|
 | `services_2025h1.csv.gz` | every stop of every Arriva train that runs only between Leeuwarden and Groningen, 1 January - 30 June 2025: schedule, arrival and departure delay, cancellations, planned and actual platform (144,787 stops, 22,700 services, 181 days) | [Rijden de Treinen train archive](https://www.rijdendetreinen.nl/en/open-data/train-archive) (`services-2025-MM.csv.gz`), built from NS real-time data | CC BY 4.0, "Rijden de Treinen" |

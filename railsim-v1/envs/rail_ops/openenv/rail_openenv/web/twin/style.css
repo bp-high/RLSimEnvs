@@ -111,6 +111,11 @@ body.clean #left, body.clean #right { display: none; }
 .graphwrap { position: relative; flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
 .costwrap { position: relative; flex: 0 0 340px; }
 .chart-h { display: flex; gap: 10px; align-items: baseline; font-size: 12px; padding-left: 44px; }
+/* the map's and the data's credit (ODbL, CC BY): on screen whenever the map is, panels shown or not */
+.chart-h .credit { margin-left: auto; color: var(--muted); font-size: 11px; white-space: nowrap; overflow: hidden;
+  text-overflow: ellipsis; min-width: 0; }
+.chart-h .credit a { color: var(--text-secondary); text-decoration: none; }
+.chart-h .credit a:hover { text-decoration: underline; }
 #graph { flex: 1; width: 100%; min-height: 0; cursor: crosshair; touch-action: none; }
 #cost { width: 100%; height: 100%; cursor: crosshair; }
 .tip { position: absolute; pointer-events: none; background: #f2f1ec; color: #0b0b0b; padding: 4px 8px; border-radius: 6px;
@@ -165,4 +170,6 @@ body.clean #left, body.clean #right { display: none; }
   #bottom { left: 6px; right: 6px; bottom: 6px; }
   .costwrap { display: none; }
   .chart-h .muted { display: none; }
+  .chart-h { padding-left: 4px; }
+  .chart-h .credit { font-size: 10px; }
 }

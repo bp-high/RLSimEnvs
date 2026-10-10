@@ -36,6 +36,7 @@ def build(out: Path = OUT) -> Path:
     out.mkdir(parents=True)
     for name in ("README.md", "app.py", "requirements.txt"):
         shutil.copy2(ROOT / "space" / name, out / name)
+    shutil.copy2(ROOT.parent / "LICENSE", out / "LICENSE")          # the code's MIT licence (the card lists the data's)
     _copytree(ENV / "core" / "rail_core", out / "core" / "rail_core")
     _copytree(ENV / "openenv" / "rail_openenv", out / "openenv" / "rail_openenv")
     spec = (ENV / "openenv" / "openenv.yaml").read_text()

@@ -248,11 +248,16 @@ railsim-v1/
 
 ## Data and licences
 
-| data | source | licence |
-|---|---|---|
-| trains, timetables, delays, cancellations, platforms; disruptions | [Rijden de Treinen](https://www.rijdendetreinen.nl/en/open-data) open data | CC BY 4.0 ("Rijden de Treinen") |
-| track layout (single/double, junctions) | © OpenStreetMap contributors (with ProRail track-section references) | ODbL 1.0 |
-| the map replay: track, platforms, buildings, land cover, water, roads, trees, landmarks | © OpenStreetMap contributors | ODbL 1.0 |
+The code is [MIT](../LICENSE). The data keep their sources' licences:
+
+| data | files | source | licence |
+|---|---|---|---|
+| trains, timetables, delays, cancellations, platforms; disruptions | `data/gnlw/` (all but `network.json`), the trains and disruptions in the task packs | [Rijden de Treinen](https://www.rijdendetreinen.nl/en/open-data) open data | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) ("Rijden de Treinen") |
+| track layout (single/double, junctions) | `data/gnlw/network.json`, and its copy in every task | © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright) (with ProRail track-section references) | [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/) |
+| the map replay: track, platforms, buildings, land cover, water, roads, trees, landmarks | `envs/rail_ops/openenv/rail_openenv/web/twin/twin.json.gz` | © OpenStreetMap contributors | ODbL 1.0 |
+
+The OpenStreetMap-derived files stay under ODbL when reused or adapted. The 3D replay and the train graph credit both
+sources on screen.
 
 The rolling-stock circulation, the disruption effects by cause and the cost weights are modelling choices, listed
 in `SOURCE.md`.

@@ -39,6 +39,8 @@
   nav.site a:hover { color: var(--ink); }
   nav.site a[aria-current] { color: var(--ink); border-bottom-color: var(--accent); }
   main { padding: 12px 16px 24px; max-width: 1440px; margin: 0 auto; }
+  footer.credit { color: var(--muted); font-size: 12px; margin-top: 14px; }
+  footer.credit a { color: var(--ink-2); }
   .controls { display: flex; gap: 8px 12px; flex-wrap: wrap; align-items: end; margin-bottom: 14px; }
   .controls label { display: grid; gap: 2px; font-size: 12px; color: var(--ink-2); min-width: 0; }
   .controls select { font: inherit; font-size: 14px; color: var(--ink); background: var(--surface); border: 1px solid var(--axis);
@@ -124,6 +126,9 @@
       <div class="tablewrap"><table id="table"></table></div>
     </details>
   </section>
+  <footer class="credit" id="credit">Data: <a href="https://www.rijdendetreinen.nl/en/open-data">Rijden de Treinen</a> open data
+    (CC BY 4.0, "Rijden de Treinen"); line layout © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap
+    contributors</a> (ODbL 1.0).</footer>
 </main>
 <script>
 "use strict";
@@ -562,7 +567,9 @@ async function refresh() {
 
 (async () => {
   if (EMBED) $("#nav").hidden = true;
-  if (FIGURE) { document.body.classList.add("figure"); $("#controls").hidden = true; $("#tablebox").hidden = true; }
+  if (FIGURE) {
+    document.body.classList.add("figure"); $("#controls").hidden = true; $("#tablebox").hidden = true; $("#credit").hidden = true;
+  }
   if (params.get("theme")) document.documentElement.dataset.theme = params.get("theme");
   try {
     S.tasks = await json("/api/tasks");

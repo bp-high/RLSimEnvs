@@ -20,4 +20,3 @@ Quick facts:
 - **No model prices** anywhere (docs, boards, code): costs depend on prompt caching and are not comparable. Report
   tokens and time instead.
 - **Data licences:** Rijden de Treinen data is CC BY 4.0 (credit "Rijden de Treinen"); OSM-derived files are ODbL.
-  **Never use the OpenSky aircraft database:** its licence forbids redistribution.

@@ -7,6 +7,7 @@ sdk: gradio
 sdk_version: 6.29.1
 python_version: "3.12"
 app_file: app.py
+license: mit
 pinned: false
 short_description: Dispatch trains on a real single-track Dutch line
 tags: [openenv, simulation, rl-environment, railway, scheduling, operations-research]
@@ -88,11 +89,18 @@ plan = [{"train": "37413", "to": "HDG"}, {"train": "37324", "from": "HDG"}]
 print(env.step(CallToolAction(tool_name="check_plan", arguments={"plan": plan})).observation)
 ```
 
-## Data and licences
+## Licences
+
+The code is MIT. The data keep their sources' licences:
 
 | data | source | licence |
 |---|---|---|
 | trains, timetables, delays, cancellations, platforms; disruptions | [Rijden de Treinen](https://www.rijdendetreinen.nl/en/open-data) open data | CC BY 4.0 ("Rijden de Treinen") |
 | track layout; the 3D replay's map (track, platforms, buildings, land cover, water, roads) | © OpenStreetMap contributors | ODbL 1.0 |
+
+The OpenStreetMap-derived data in this Space (the 3D map, `openenv/rail_openenv/web/twin/twin.json.gz`, and the line
+layout inside every task in `tasks/`) is licensed under the [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/),
+not MIT, and stays so when reused or adapted. The 3D replay and the train graph credit OpenStreetMap and Rijden de
+Treinen on screen.
 
 The rolling-stock circulation, the disruption effects by cause and the cost weights are modelling choices.

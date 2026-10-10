@@ -3,6 +3,10 @@
 `twin.json.gz` is built by `envs/rail_ops/tools/twin/build_twin.py` (`fetch`, then `build`). Frame: metres east and
 north of 53.22 N, 6.19 E (equirectangular), stored as integer decimetres.
 
+`twin.json.gz` is an OpenStreetMap-derived database: it is licensed under the
+[ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/), © OpenStreetMap contributors, not under the repository's
+MIT licence (which covers this directory's code). The replay shows the credit on screen, in its bottom panel.
+
 | What | Source and licence |
 |---|---|
 | track (every rail way near the line: main line, passing loops, yards), platforms, level crossings, station positions | © OpenStreetMap contributors, [ODbL 1.0](https://www.openstreetmap.org/copyright) (Overpass API, data of July-October 2026) |
