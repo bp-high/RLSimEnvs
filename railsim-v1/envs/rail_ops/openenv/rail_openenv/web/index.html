@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RailSimEnv train graph</title>
+<link rel="icon" href="data:,">
+<style>
+  :root {
+    color-scheme: light;
+    --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+    --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11, 11, 11, 0.10);
+    --stop: #2a78d6; --fast: #eb6834; --critical: #d03b3b; --warning: #fab219; --serious: #ec835a; --good: #0ca30c;
+    --good-text: #006300; --single: #f1efe9; --after: rgba(11, 11, 11, 0.035); --accent: #2a78d6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+      --grid: #2c2c2a; --axis: #383835; --ring: rgba(255, 255, 255, 0.10);
+      --stop: #3987e5; --fast: #d95926; --good-text: #0ca30c; --single: #232321; --after: rgba(255, 255, 255, 0.03);
+      --accent: #3987e5;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255, 255, 255, 0.10);
+    --stop: #3987e5; --fast: #d95926; --good-text: #0ca30c; --single: #232321; --after: rgba(255, 255, 255, 0.03);
+    --accent: #3987e5;
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body { margin: 0; background: var(--page); color: var(--ink); font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  a { color: var(--accent); }
+  nav.site { display: flex; gap: 4px 18px; flex-wrap: wrap; align-items: baseline; padding: 12px 16px 0; }
+  nav.site b { font-size: 15px; margin-right: 6px; }
+  nav.site a { color: var(--ink-2); text-decoration: none; padding: 2px 0; border-bottom: 2px solid transparent; }
+  nav.site a:hover { color: var(--ink); }
+  nav.site a[aria-current] { color: var(--ink); border-bottom-color: var(--accent); }
+  main { padding: 12px 16px 24px; max-width: 1440px; margin: 0 auto; }
+  .controls { display: flex; gap: 8px 12px; flex-wrap: wrap; align-items: end; margin-bottom: 14px; }
+  .controls label { display: grid; gap: 2px; font-size: 12px; color: var(--ink-2); min-width: 0; }
+  .controls select { font: inherit; font-size: 14px; color: var(--ink); background: var(--surface); border: 1px solid var(--axis);
+                     border-radius: 6px; padding: 6px 8px; max-width: min(92vw, 460px); }
+  .controls .open3d { margin-left: auto; padding: 7px 12px; border-radius: 6px; border: 1px solid var(--axis); text-decoration: none;
+                      color: var(--ink); background: var(--surface); white-space: nowrap; }
+  .card { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; padding: 16px; }
+  .head { display: flex; gap: 12px 24px; flex-wrap: wrap; justify-content: space-between; align-items: start; }
+  .head h1 { font-size: 20px; line-height: 1.25; margin: 0 0 4px; font-weight: 650; }
+  .head .sub { color: var(--ink-2); margin: 0; max-width: 78ch; }
+  .stats { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 14px 0 6px; }
+  .stat { display: grid; gap: 0; }
+  .stat .k { font-size: 12px; color: var(--ink-2); }
+  .stat .v { font-size: 20px; font-weight: 600; }
+  .stat .v small { font-size: 13px; font-weight: 400; color: var(--ink-2); margin-left: 4px; }
+  .badge { display: inline-flex; gap: 6px; align-items: center; font-size: 13px; font-weight: 600; padding: 3px 10px;
+           border-radius: 999px; border: 1px solid var(--ring); white-space: nowrap; }
+  .badge.ok i { color: var(--good); font-style: normal; }
+  .badge.bad i { color: var(--critical); font-style: normal; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 12px 0 4px; font-size: 13px; color: var(--ink-2); }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .legend svg { flex: none; }
+  .chartwrap { position: relative; overflow-x: auto; margin-top: 4px; }
+  #chart { display: block; }
+  #chart text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .halo { paint-order: stroke; stroke: var(--surface); stroke-width: 4px; stroke-linejoin: round; }
+  .num { font-variant-numeric: tabular-nums; }
+  .paths.focus .run:not(.on) { opacity: 0.18; }
+  .paths.focus .run.on path.line { stroke-width: 3; }
+  .tip { position: absolute; pointer-events: none; background: var(--surface); color: var(--ink); border: 1px solid var(--ring);
+         border-radius: 8px; padding: 8px 10px; font-size: 13px; line-height: 1.4; box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+         max-width: 300px; z-index: 2; }
+  .tip b { font-size: 14px; }
+  .tip .key { display: inline-block; width: 14px; height: 0; border-top: 2px solid; vertical-align: middle; margin-right: 6px; }
+  .tip .m { color: var(--ink-2); }
+  details { margin-top: 14px; }
+  summary { cursor: pointer; color: var(--ink-2); }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; margin-top: 8px; }
+  th, td { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+  th { color: var(--ink-2); font-weight: 600; }
+  td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+  .tablewrap { overflow-x: auto; }
+  .breaks { margin: 10px 0 0; padding-left: 18px; color: var(--ink-2); font-size: 13px; }
+  .err { color: var(--critical); }
+  body.figure main { padding: 0; max-width: none; }
+  body.figure .card { border: 0; border-radius: 0; padding: 22px 26px 18px; }
+  body.figure .head h1 { font-size: 22px; }
+  body.figure .sub { font-size: 15px; }
+  body.figure .legend { font-size: 14px; }
+</style>
+</head>
+<body>
+<nav class="site" id="nav">
+  <b>RailSimEnv</b>
+  <a href="/explorer/">Eval explorer</a>
+  <a href="/twin/">3D replay</a>
+  <a href="/viewer/" aria-current="page">Train graph</a>
+  <a href="/web">Environment</a>
+</nav>
+<main>
+  <div class="controls" id="controls">
+    <label>Task<select id="task" aria-label="Task"></select></label>
+    <label>Plan<select id="plan" aria-label="Plan"></select></label>
+    <a class="open3d" id="open3d" href="/twin/">Watch it in 3D ↗</a>
+  </div>
+  <section class="card" aria-live="polite">
+    <div class="head">
+      <div>
+        <h1 id="title">Loading…</h1>
+        <p class="sub" id="sub"></p>
+      </div>
+      <div id="badge"></div>
+    </div>
+    <div class="stats" id="stats"></div>
+    <ol class="breaks" id="breaks" hidden></ol>
+    <div class="legend" id="legend"></div>
+    <div class="chartwrap" id="chartwrap">
+      <svg id="chart" role="img" aria-labelledby="title"></svg>
+      <div class="tip" id="tip" hidden></div>
+    </div>
+    <details id="tablebox">
+      <summary>Every train as a table</summary>
+      <div class="tablewrap"><table id="table"></table></div>
+    </details>
+  </section>
+</main>
+<script>
+"use strict";
+const $ = (s) => document.querySelector(s);
+const params = new URLSearchParams(location.search);
+const FIGURE = params.has("figure");
+const EMBED = FIGURE || params.has("embed");
+const FEATURED = "gnlw-2025-05-01-0800-180m-blockage-0";
+const TIER = { real: "real disruption", blockage: "blockage", loop: "lost passing track", compound: "compound" };
+const WHAT = { closed: "closed", slow: "slow running", track: "a platform track out of use" };
+const S = { tasks: [], R: null, paths: [], geo: null };
+
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const hhmm = (m) => { m = Math.round(m); const d = ((m % 1440) + 1440) % 1440; return `${String(Math.floor(d / 60)).padStart(2, "0")}:${String(d % 60).padStart(2, "0")}`; };
+const fmt = (n) => (n === null || n === undefined ? "–" : Number(n).toLocaleString("en-GB"));
+async function json(url) {
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(`${url}: HTTP ${r.status}`);
+  return r.json();
+}
+function longDay(day) {
+  return new Date(`${day}T12:00:00Z`).toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+}
+function shortDay(day) {
+  return new Date(`${day}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
+}
+const shortName = (p) => (p.kind === "junction" ? p.name.replace(/ (east|west) junction$/, " jn.") : p.name);
+function orderText(o) {
+  if (!o) return "";
+  const out = [];
+  if (o.cancel) out.push("cancelled");
+  if (o.from) out.push(`starts at ${o.from}`);
+  if (o.to) out.push(`turns back at ${o.to}`);
+  for (const [c, t] of Object.entries(o.hold || {})) out.push(`held at ${c} until ${t}`);
+  return out.join("; ");
+}
+
+// ---- geometry ------------------------------------------------------------------------------------------------
+
+const measure = (() => {
+  const g = document.createElement("canvas").getContext("2d");
+  return (text, px, weight = 400) => { g.font = `${weight} ${px}px system-ui, -apple-system, "Segoe UI", sans-serif`; return g.measureText(text).width; };
+})();
+
+function pathOf(r, km) {
+  const pts = [];
+  if (r.started && r.fixed_from !== null && r.fixed_from !== undefined) pts.push([r.fixed_from, km[r.route[r.fixed_to - 1]]]);
+  const from = r.started ? r.fixed_to : r.first;
+  for (let i = from; i <= r.last; i++) {
+    const k = km[r.route[i]];
+    if (r.arr[i] !== null && r.arr[i] !== undefined && !(i === from && !r.started)) pts.push([r.arr[i], k]);
+    if (r.dep[i] !== null && r.dep[i] !== undefined && i < r.last) pts.push([r.dep[i], k]);
+  }
+  return pts;
+}
+
+function timetablePath(r, km) {
+  const pts = [];
+  for (let i = 0; i < r.route.length; i++) {
+    if (r.sched_arr[i] !== null && i > 0) pts.push([r.sched_arr[i], km[r.route[i]]]);
+    if (r.sched_dep[i] !== null && i < r.route.length - 1) pts.push([r.sched_dep[i], km[r.route[i]]]);
+  }
+  return pts;
+}
+
+function holdsOf(r, km) {
+  const out = [];
+  for (const code of Object.keys((r.order && r.order.hold) || {})) {
+    for (let i = r.first; i <= r.last; i++) {
+      if (r.route[i] !== code) continue;
+      const a = r.arr[i] ?? r.sched_dep[i], d = r.dep[i];
+      if (a !== null && d !== null && d > a) out.push([a, d, km[code]]);
+    }
+  }
+  return out;
+}
+
+function segHitsBox(ax, ay, bx, by, b) {            // Liang-Barsky: does segment a-b cross box b?
+  let t0 = 0, t1 = 1;
+  const dx = bx - ax, dy = by - ay;
+  for (const [p, q] of [[-dx, ax - b.x0], [dx, b.x1 - ax], [-dy, ay - b.y0], [dy, b.y1 - ay]]) {
+    if (p === 0) { if (q < 0) return false; continue; }
+    const r = q / p;
+    if (p < 0) { if (r > t1) return false; if (r > t0) t0 = r; } else { if (r < t0) return false; if (r < t1) t1 = r; }
+  }
+  return true;
+}
+const overlap = (a, b) => a.x0 < b.x1 && b.x0 < a.x1 && a.y0 < b.y1 && b.y0 < a.y1;
+
+// ---- the chart -----------------------------------------------------------------------------------------------
+
+function draw() {
+  const R = S.R;
+  if (!R) return;
+  const wrap = $("#chartwrap");
+  const W = FIGURE ? Math.floor(wrap.clientWidth) : Math.max(760, Math.floor(wrap.clientWidth));
+  const fs = FIGURE ? 14 : 13, fsSmall = fs - 2, fsTrain = FIGURE ? 12.5 : 12;
+  const km = Object.fromEntries(R.points.map((p) => [p.code, p.km]));
+  const kmMax = Math.max(...R.points.map((p) => p.km));
+  const compact = W < 900 && !FIGURE;
+  const label = (p) => (compact ? p.code : shortName(p));
+  const nameW = Math.max(...R.points.map((p) => measure(label(p), p.kind === "junction" ? fsSmall : fs, p.kind === "terminal" ? 600 : 400)
+    + (compact || p.kind === "junction" ? 0 : measure(` ${p.code}`, fsSmall))));
+  const L = Math.ceil(nameW) + 44, Rm = 18, T = 38, B = 34;
+  const H = FIGURE ? 600 : Math.max(520, Math.min(680, Math.round(W * 0.5)));
+  const paths = R.runs.filter((r) => !r.cancelled).map((r) => ({ r, pts: pathOf(r, km) })).filter((p) => p.pts.length > 1);
+  const allT = paths.flatMap((p) => p.pts.map((q) => q[0]));
+  const t0 = Math.min(R.start - 10, ...allT.filter((t) => t >= R.start - 30)) - 2;
+  const t1 = Math.min(R.end + 75, Math.max(R.end + 15, ...allT)) + 3;
+  const x = (t) => L + (t - t0) / (t1 - t0) * (W - L - Rm);
+  const y = (k) => T + k / kmMax * (H - T - B);
+  const s = [];
+
+  s.push(`<defs>
+    <clipPath id="plot"><rect x="${L}" y="${T - 6}" width="${W - L - Rm}" height="${H - T - B + 12}"/></clipPath>
+    <pattern id="hatch-closed" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="7" height="7" fill="var(--critical)" fill-opacity="0.10"/><line x1="0" y1="0" x2="0" y2="7" stroke="var(--critical)" stroke-opacity="0.55" stroke-width="2"/></pattern>
+    <pattern id="hatch-slow" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="7" height="7" fill="var(--warning)" fill-opacity="0.14"/><line x1="0" y1="0" x2="0" y2="7" stroke="var(--warning)" stroke-opacity="0.75" stroke-width="2"/></pattern>
+    <pattern id="hatch-track" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(135)">
+      <rect width="7" height="7" fill="var(--serious)" fill-opacity="0.12"/><line x1="0" y1="0" x2="0" y2="7" stroke="var(--serious)" stroke-opacity="0.7" stroke-width="2"/></pattern>
+  </defs>`);
+
+  // single-track rows, the time grid, the window
+  R.sections.forEach((sec) => {
+    if (!sec.single) return;
+    s.push(`<rect x="${L}" y="${y(km[sec.a])}" width="${W - L - Rm}" height="${y(km[sec.b]) - y(km[sec.a])}" fill="var(--single)"/>`);
+  });
+  if (R.end < t1) s.push(`<rect x="${x(R.end)}" y="${T}" width="${x(t1) - x(R.end)}" height="${H - T - B}" fill="var(--after)"/>`);
+  for (const p of R.points) s.push(`<line x1="${L}" x2="${W - Rm}" y1="${y(p.km)}" y2="${y(p.km)}" stroke="var(--grid)"/>`);
+  const step = (W - L - Rm) / (t1 - t0) * 30 < 46 ? 60 : 30;
+  for (let t = Math.ceil(t0 / step) * step; t <= t1; t += step) {
+    const hour = t % 60 === 0;
+    s.push(`<line x1="${x(t)}" x2="${x(t)}" y1="${T}" y2="${H - B}" stroke="${hour ? "var(--axis)" : "var(--grid)"}"/>`);
+    if (x(t) + measure(hhmm(t), fs, 600) / 2 > W) continue;
+    for (const yy of [T - 12, H - B + 21]) {
+      s.push(`<text x="${x(t)}" y="${yy}" text-anchor="middle" font-size="${hour ? fs : fsSmall}" font-weight="${hour ? 600 : 400}" fill="${hour ? "var(--ink-2)" : "var(--muted)"}" class="num">${hhmm(t)}</text>`);
+    }
+  }
+
+  // stations and the track: one line for single track, two for double
+  const tx = L - 18;
+  R.sections.forEach((sec) => {
+    const ya = y(km[sec.a]), yb = y(km[sec.b]);
+    if (sec.single) s.push(`<line x1="${tx}" x2="${tx}" y1="${ya}" y2="${yb}" stroke="var(--ink-2)" stroke-width="2.5"/>`);
+    else for (const d of [-2.6, 2.6]) s.push(`<line x1="${tx + d}" x2="${tx + d}" y1="${ya}" y2="${yb}" stroke="var(--ink-2)" stroke-width="1.3"/>`);
+  });
+  for (const p of R.points) {
+    const yy = y(p.km);
+    if (p.kind === "terminal") s.push(`<rect x="${tx - 6}" y="${yy - 2.5}" width="12" height="5" rx="1.5" fill="var(--ink)"/>`);
+    else if (p.kind === "station") s.push(`<circle cx="${tx}" cy="${yy}" r="4.6" fill="var(--surface)" stroke="var(--ink)" stroke-width="1.6"/>`);
+    else if (p.kind === "halt") s.push(`<circle cx="${tx}" cy="${yy}" r="3" fill="var(--ink)"/>`);
+    const junction = p.kind === "junction";
+    const code = compact || junction ? "" : ` <tspan font-size="${fsSmall}" fill="var(--muted)">${esc(p.code)}</tspan>`;
+    s.push(`<text x="${tx - 14}" y="${yy + fs * 0.36}" text-anchor="end" font-size="${junction ? fsSmall : fs}" font-weight="${p.kind === "terminal" ? 600 : 400}" fill="${junction ? "var(--muted)" : "var(--ink)"}"><title>${esc(p.name)} (${esc(p.code)}${p.tracks ? `, ${p.tracks} platform track${p.tracks > 1 ? "s" : ""}` : ""})</title>${esc(label(p))}${code}</text>`);
+  }
+
+  // disruptions
+  const boxes = [];
+  const closures = [];
+  for (const c of R.closures) {
+    const a = km[c.where[0]], b = km[c.where[c.where.length - 1]];
+    const k0 = c.kind === "track" ? a - 0.55 : Math.min(a, b), k1 = c.kind === "track" ? a + 0.55 : Math.max(a, b);
+    const bx = x(Math.max(c.start, t0)), bw = x(Math.min(c.end, t1)) - bx, by = y(k0), bh = Math.max(8, y(k1) - y(k0));
+    s.push(`<rect x="${bx}" y="${by}" width="${bw}" height="${bh}" fill="url(#hatch-${c.kind})" stroke="${c.kind === "closed" ? "var(--critical)" : c.kind === "slow" ? "var(--warning)" : "var(--serious)"}" stroke-width="1.2" clip-path="url(#plot)"><title>${esc(c.cause)}: ${WHAT[c.kind] || c.kind} ${hhmm(c.start)}–${hhmm(c.end)}</title></rect>`);
+    closures.push({ c, bx, bw, by, bh });
+  }
+
+  // trains
+  const geo = [];
+  const series = (r) => (r.problems && r.problems.length ? "var(--critical)" : r.kind === "fast" ? "var(--fast)" : "var(--stop)");
+  s.push(`<g class="paths" id="paths" clip-path="url(#plot)">`);
+  for (const r of R.runs.filter((r) => r.cancelled)) {
+    const pts = timetablePath(r, km);
+    if (pts.length < 2) continue;
+    const d = pts.map((q, i) => `${i ? "L" : "M"}${x(q[0]).toFixed(1)},${y(q[1]).toFixed(1)}`).join("");
+    s.push(`<g class="run" data-unit="${esc(r.unit)}"><path d="${d}" fill="none" stroke="var(--muted)" stroke-width="1.3" stroke-dasharray="2 4" stroke-linecap="round"/></g>`);
+    geo.push({ r, xy: pts.map((q) => [x(q[0]), y(q[1])]), cancelled: true });
+  }
+  for (const { r, pts } of paths) {
+    const xy = pts.map((q) => [x(q[0]), y(q[1])]);
+    const d = xy.map((q, i) => `${i ? "L" : "M"}${q[0].toFixed(1)},${q[1].toFixed(1)}`).join("");
+    const col = series(r), bad = r.problems && r.problems.length;
+    const parts = [`<path class="line" d="${d}" fill="none" stroke="${col}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"${bad ? ' stroke-dasharray="7 4"' : ""}/>`];
+    for (const [a, b, k] of holdsOf(r, km)) parts.push(`<line x1="${x(a)}" x2="${x(b)}" y1="${y(k)}" y2="${y(k)}" stroke="${col}" stroke-width="6" stroke-linecap="round"/>`);
+    const o = r.order || {};
+    if (o.to) { const q = xy[xy.length - 1]; parts.push(`<circle cx="${q[0]}" cy="${q[1]}" r="5" fill="var(--surface)" stroke="${col}" stroke-width="2.4"/>`); }
+    if (o.from) { const q = xy[0]; parts.push(`<circle cx="${q[0]}" cy="${q[1]}" r="5" fill="var(--surface)" stroke="${col}" stroke-width="2.4"/>`); }
+    s.push(`<g class="run" data-unit="${esc(r.unit)}">${parts.join("")}</g>`);
+    geo.push({ r, xy });
+  }
+  s.push(`</g>`);
+
+  // labels: closures first, then each train once, where it collides least
+  const plot = { x0: L + 2, x1: W - Rm - 2, y0: T + 1, y1: H - B - 1 };
+  const labels = [];
+  for (const { c, bx, bw, by, bh } of closures) {
+    // a tag with the closure's kind, time and cause: inside the hatched area when it fits (wrapped), else beside it
+    const head = c.kind === "closed" ? "Closed" : c.kind === "slow" ? `Slow, +${c.extra} min` : "Track out of use";
+    const lh = fsSmall + 4;
+    const wrap = (words, maxW) => words.reduce((ls, wd) => {
+      const last = ls[ls.length - 1];
+      if (last && measure(`${last} ${wd}`, fsSmall) <= maxW) ls[ls.length - 1] = `${last} ${wd}`; else ls.push(wd);
+      return ls;
+    }, []);
+    let lines = [[head, 600], [`${hhmm(c.start)}–${hhmm(c.end)}`, 400], ...wrap((c.cause || "").split(/\s+/).filter(Boolean), bw - 22).map((t) => [t, 400])];
+    let w = Math.max(...lines.map(([t, wt]) => measure(t, fsSmall, wt))) + 14, h = lines.length * lh + 8;
+    let lx = bx + 6, ly = by + 6;
+    const stroke = c.kind === "closed" ? "var(--critical)" : c.kind === "slow" ? "var(--warning)" : "var(--serious)";
+    const tag = (ls, cx, cy, rot) => {                   // a tag of lines centred on (cx, cy), upright when rot
+      const tw = Math.max(...ls.map(([t, wt]) => measure(t, fsSmall, wt))) + 14, th = ls.length * lh + 8;
+      const [bw2, bh2] = rot ? [th, tw] : [tw, th];
+      boxes.push({ x0: cx - bw2 / 2, x1: cx + bw2 / 2, y0: cy - bh2 / 2, y1: cy + bh2 / 2 });
+      labels.push(`<g transform="translate(${cx} ${cy})${rot ? " rotate(-90)" : ""}"><rect x="${-tw / 2}" y="${-th / 2}" width="${tw}" height="${th}" rx="5" fill="var(--surface)" stroke="${stroke}" stroke-width="1"/>`
+        + ls.map(([t, wt], i) => `<text x="${-tw / 2 + 7}" y="${-th / 2 + 4 + i * lh + lh / 2 + fsSmall * 0.36}" font-size="${fsSmall}" font-weight="${wt}" fill="${i ? "var(--ink-2)" : "var(--ink)"}">${esc(t)}</text>`).join("") + "</g>");
+    };
+    if (w <= bw - 10 && h <= bh - 10) { tag(lines, bx + 6 + w / 2, by + 6 + h / 2, false); continue; }
+    const two = [[`${head} ${hhmm(c.start)}–${hhmm(c.end)}`, 600], ...(c.cause ? [[c.cause, 400]] : [])];
+    const tw = Math.max(...two.map(([t, wt]) => measure(t, fsSmall, wt))) + 14, th = two.length * lh + 8;
+    if (tw <= bw - 10 && th <= bh - 2) { tag(two, bx + 6 + tw / 2, by + bh / 2, false); continue; }
+    if (bw >= th + 8 && bh >= tw + 12) { tag(two, bx + bw / 2, by + bh / 2, true); continue; }
+    lines = [[`${head} · ${hhmm(c.start)}–${hhmm(c.end)}${c.cause ? ` · ${c.cause}` : ""}`, 600]];
+    w = measure(lines[0][0], fsSmall, 600) + 14; h = lh + 8;
+    lx = bx + bw + 6; ly = by + bh / 2 - h / 2;
+    if (lx + w > plot.x1) lx = Math.max(plot.x0, bx - w - 6);
+    boxes.push({ x0: lx, x1: lx + w, y0: ly, y1: ly + h });
+    labels.push(`<rect x="${lx}" y="${ly}" width="${w}" height="${h}" rx="5" fill="var(--surface)" stroke="${stroke}" stroke-width="1"/>`
+      + lines.map(([t, wt], i) => `<text x="${lx + 7}" y="${ly + 4 + i * lh + lh / 2 + fsSmall * 0.36}" font-size="${fsSmall}" font-weight="${wt}" fill="${i ? "var(--ink-2)" : "var(--ink)"}">${esc(t)}</text>`).join(""));
+  }
+  for (const yy of [x(R.start), x(R.end)]) boxes.push({ x0: yy - 1, x1: yy + 1, y0: T - 30, y1: T });
+  const segs = geo.filter((g) => !g.cancelled).flatMap((g, gi) => g.xy.slice(1).map((q, i) => [g.xy[i][0], g.xy[i][1], q[0], q[1], gi]));
+  const trainBox = [];
+  geo.forEach((g, gi) => {
+    if (g.cancelled) return;
+    const text = g.r.train, w = measure(text, fsTrain, 500) + 4, h = fsTrain + 2;
+    const cands = [];
+    let acc = 0;
+    const total = g.xy.slice(1).reduce((a, q, i) => a + Math.hypot(q[0] - g.xy[i][0], q[1] - g.xy[i][1]), 0);
+    for (let i = 1; i < g.xy.length; i++) {
+      const [ax, ay] = g.xy[i - 1], [bx, by] = g.xy[i];
+      const len = Math.hypot(bx - ax, by - ay);
+      if (len < 1) continue;
+      const ux = (bx - ax) / len, uy = (by - ay) / len, nx = uy, ny = -ux;   // the normal on the upper side
+      for (let d = 0; d <= len; d += 12) {
+        const px = ax + ux * d, py = ay + uy * d;
+        const off = Math.abs(nx) * w / 2 + Math.abs(ny) * h / 2 + 3;
+        const cx = px + nx * off, cy = py + ny * off;
+        cands.push({ box: { x0: cx - w / 2, x1: cx + w / 2, y0: cy - h / 2, y1: cy + h / 2 }, s: (acc + d) / Math.max(1, total) });
+      }
+      acc += len;
+    }
+    let best = null;
+    for (const c of cands) {
+      const b = c.box;
+      if (b.x0 < plot.x0 || b.x1 > plot.x1 || b.y0 < plot.y0 || b.y1 > plot.y1) continue;
+      if (boxes.some((o) => overlap(o, b)) || trainBox.some((o) => overlap(o, b))) continue;
+      let pen = c.s * 4;
+      for (const [ax, ay, bx, by, gj] of segs) {
+        if (Math.max(ax, bx) < b.x0 || Math.min(ax, bx) > b.x1 || Math.max(ay, by) < b.y0 || Math.min(ay, by) > b.y1) continue;
+        if (segHitsBox(ax, ay, bx, by, b)) pen += gj === gi ? 6 : 3;
+      }
+      if (!best || pen < best.pen) best = { ...c, pen };
+    }
+    if (!best) return;
+    trainBox.push({ x0: best.box.x0 - 2, x1: best.box.x1 + 2, y0: best.box.y0 - 1, y1: best.box.y1 + 1 });
+    labels.push(`<text x="${(best.box.x0 + best.box.x1) / 2}" y="${(best.box.y0 + best.box.y1) / 2 + fsTrain * 0.36}" text-anchor="middle" font-size="${fsTrain}" font-weight="500" fill="var(--ink-2)" class="halo num">${esc(text)}</text>`);
+  });
+
+  // the window's edges
+  s.push(`<line x1="${x(R.start)}" x2="${x(R.start)}" y1="${T - 4}" y2="${H - B}" stroke="var(--ink)" stroke-width="1.4"/>`);
+  if (R.end < t1) s.push(`<line x1="${x(R.end)}" x2="${x(R.end)}" y1="${T - 4}" y2="${H - B}" stroke="var(--ink)" stroke-width="1.4"/>`);
+  s.push(`<text x="${x(R.start) + 6}" y="${T - 27}" font-size="${fsSmall}" fill="var(--ink-2)">window opens</text>`);
+  if (R.end < t1) {
+    const msg = "window closes · lateness after it is handed on";
+    const right = x(R.end) + 6 + measure(msg, fsSmall) < W - Rm;
+    s.push(`<text x="${right ? x(R.end) + 6 : x(R.end) - 6}" y="${T - 27}" text-anchor="${right ? "start" : "end"}" font-size="${fsSmall}" fill="var(--ink-2)">${right ? msg : "window closes"}</text>`);
+  }
+  s.push(labels.join(""));
+
+  const svg = $("#chart");
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  svg.setAttribute("width", W);
+  svg.setAttribute("height", H);
+  svg.innerHTML = s.join("");
+  S.geo = geo;
+  S.frame = { x, y, t0, t1, L, T, W, H, B, Rm, km };
+}
+
+// ---- hover: the nearest train, and its train set ---------------------------------------------------------------
+
+function nearest(mx, my) {
+  let best = null, bd = 12;
+  for (const g of S.geo || []) {
+    for (let i = 1; i < g.xy.length; i++) {
+      const [ax, ay] = g.xy[i - 1], [bx, by] = g.xy[i];
+      const dx = bx - ax, dy = by - ay, L2 = dx * dx + dy * dy || 1;
+      const u = Math.max(0, Math.min(1, ((mx - ax) * dx + (my - ay) * dy) / L2));
+      const d = Math.hypot(mx - ax - u * dx, my - ay - u * dy);
+      if (d < bd) { bd = d; best = g; }
+    }
+  }
+  return best;
+}
+
+function tipHTML(r) {
+  const col = r.problems && r.problems.length ? "var(--critical)" : r.kind === "fast" ? "var(--fast)" : "var(--stop)";
+  const origin = r.route[0], dest = r.route[r.route.length - 1];
+  const dep = r.sched_dep[0] !== null ? hhmm(r.sched_dep[0]) : "";
+  const lines = [`<div><span class="key" style="border-color:${col}"></span><b class="num">${esc(r.train)}</b> <span class="m">${r.kind === "fast" ? "fast" : "stopping"} train · set ${esc(r.unit)}</span></div>`,
+    `<div class="m">${esc(origin)} ${dep} → ${esc(dest)}</div>`];
+  if (r.cancelled) lines.push(`<div><b>cancelled</b> · ${r.unserved} stops not served</div>`);
+  else lines.push(`<div><b class="num">${fmt(r.delay)}</b> <span class="m">stop-minutes late</span> · <b class="num">${fmt(r.unserved)}</b> <span class="m">stops not served</span></div>`);
+  const o = orderText(r.order);
+  if (o) lines.push(`<div><span class="m">plan:</span> ${esc(o)}</div>`);
+  if (r.problems && r.problems.length) lines.push(`<div style="color:var(--critical)">breaks: ${esc(r.problems.join(", "))}</div>`);
+  return lines.join("");
+}
+
+function onMove(e) {
+  const svg = $("#chart"), tip = $("#tip"), wrap = $("#chartwrap");
+  const rect = svg.getBoundingClientRect();
+  const sx = S.frame ? S.frame.W / rect.width : 1;
+  const mx = (e.clientX - rect.left) * sx, my = (e.clientY - rect.top) * sx;
+  const g = nearest(mx, my);
+  const group = $("#paths");
+  if (!g) { tip.hidden = true; group && group.classList.remove("focus"); return; }
+  group.classList.add("focus");
+  for (const el of group.querySelectorAll(".run")) el.classList.toggle("on", el.dataset.unit === g.r.unit);
+  tip.innerHTML = tipHTML(g.r);
+  tip.hidden = false;
+  const wr = wrap.getBoundingClientRect();
+  const left = e.clientX - wr.left + wrap.scrollLeft + 14, top = e.clientY - wr.top + 14;
+  tip.style.left = `${Math.min(left, wrap.scrollLeft + wr.width - tip.offsetWidth - 4)}px`;
+  tip.style.top = `${top}px`;
+}
+
+// ---- the panels around the chart -----------------------------------------------------------------------------
+
+function legendKey(kind) {
+  const line = (stroke, dash = "", w = 2) => `<svg width="22" height="10" aria-hidden="true"><line x1="1" y1="5" x2="21" y2="5" stroke="${stroke}" stroke-width="${w}" stroke-linecap="round" ${dash ? `stroke-dasharray="${dash}"` : ""}/></svg>`;
+  const rect = (fill, stroke) => `<svg width="20" height="12" aria-hidden="true"><rect x="1" y="1" width="18" height="10" rx="2" fill="${fill}" stroke="${stroke}"/></svg>`;
+  return {
+    stop: line("var(--stop)"), fast: line("var(--fast)"), bad: line("var(--critical)", "7 4"), cancel: line("var(--muted)", "2 4", 1.4),
+    hold: line("var(--ink-2)", "", 6), turn: `<svg width="14" height="14" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="var(--surface)" stroke="var(--ink-2)" stroke-width="2.2"/></svg>`,
+    single: rect("var(--single)", "var(--grid)"), closed: rect("url(#lg-closed)", "var(--critical)"),
+    slow: rect("var(--warning)", "var(--warning)"), track: rect("var(--serious)", "var(--serious)"),
+  }[kind];
+}
+
+function renderPanels(R) {
+  const where = (c) => {
+    const names = Object.fromEntries(R.points.map((p) => [p.code, p.name]));
+    const a = c.where[0], b = c.where[c.where.length - 1];
+    return a === b ? names[a] : `${names[a]} – ${names[b]}`;
+  };
+  const dis = R.closures.map((c) => `${where(c)} ${WHAT[c.kind] || c.kind}${c.kind === "slow" ? ` (+${c.extra} min)` : ""} ${hhmm(c.start)}–${hhmm(c.end)}${c.cause ? ` (${c.cause})` : ""}`);
+  $("#title").textContent = `${longDay(R.day)}, ${hhmm(R.start)}–${hhmm(R.end)}`;
+  const turned = R.short_turned, cx = R.cancelled;
+  const decisions = [turned ? `${turned} short-turn${turned === 1 ? "" : "s"}` : "", cx ? `${cx} cancellation${cx === 1 ? "" : "s"}` : ""].filter(Boolean).join(", ");
+  $("#sub").textContent = `${dis.join("; ") || "No closures"} · ${TIER[R.difficulty] || R.difficulty} · ${R.runs.length} trains. `
+    + (FIGURE ? `${R.plan_id === "optimal" ? "The proven-optimal plan (CP-SAT)" : R.plan}: cost ${fmt(R.cost)} stop-minutes${decisions ? `, ${decisions}` : ""}.` : `Plan: ${R.plan}.`);
+  const nb = R.violations.length;
+  $("#badge").innerHTML = R.feasible ? `<span class="badge ok"><i>✓</i>legal plan</span>`
+    : `<span class="badge bad"><i>✕</i>${nb} rule break${nb === 1 ? "" : "s"}: scores under 0.2</span>`;
+  const over = R.cost !== null && R.optimal_cost ? R.cost - R.optimal_cost : null;
+  const stat = (k, v, small = "") => `<div class="stat"><span class="k">${k}</span><span class="v num">${v}${small ? `<small>${small}</small>` : ""}</span></div>`;
+  $("#stats").innerHTML = FIGURE ? "" : [
+    stat("Reward", R.reward.toFixed(3)),
+    stat("Cost, stop-minutes", R.cost !== null ? fmt(R.cost) : `${fmt(R.cost_if_legal)}`, R.cost === null ? "if it were legal" : over > 0 ? `+${fmt(over)} over the optimum` : "the optimum"),
+    stat("Optimum", fmt(R.optimal_cost), `floor ${fmt(R.floor_cost)}`),
+    stat("Delay", fmt(R.cost_parts.delay), "stop-min"),
+    stat("Stops not served", fmt(R.cost_parts.unserved / (R.rules.cancel_cost || 30))),
+    stat("Short-turns", fmt(R.short_turned)), stat("Cancelled", fmt(R.cancelled)),
+  ].join("");
+  const br = $("#breaks");
+  br.hidden = !nb;
+  br.innerHTML = R.violations.slice(0, 12).map((v) => `<li>${esc(v.time || "")} ${esc((v.rule || "").replace(/_/g, " "))}: ${esc(v.detail || "")}</li>`).join("")
+    + (nb > 12 ? `<li>… and ${nb - 12} more</li>` : "");
+
+  const kinds = new Set(R.closures.map((c) => c.kind));
+  const anyHold = R.runs.some((r) => r.order && r.order.hold && Object.keys(r.order.hold).length);
+  const anyTurn = R.runs.some((r) => r.order && (r.order.to || r.order.from));
+  const items = [["stop", "stopping train"], ["fast", "fast train"]];
+  if (R.runs.some((r) => r.problems && r.problems.length)) items.push(["bad", "breaks a rule"]);
+  if (anyHold) items.push(["hold", "held by the plan"]);
+  if (anyTurn) items.push(["turn", "short-turn (run ends or starts early)"]);
+  if (R.cancelled) items.push(["cancel", "cancelled (its timetable path)"]);
+  items.push(["single", "single track"]);
+  for (const k of ["closed", "slow", "track"]) if (kinds.has(k)) items.push([k, WHAT[k]]);
+  $("#legend").innerHTML = `<svg width="0" height="0" style="position:absolute"><defs><pattern id="lg-closed" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="5" height="5" fill="var(--critical)" fill-opacity="0.12"/><line x1="0" y1="0" x2="0" y2="5" stroke="var(--critical)" stroke-opacity="0.6" stroke-width="1.6"/></pattern></defs></svg>`
+    + items.map(([k, t]) => `<span>${legendKey(k)}${esc(t)}</span>`).join("");
+
+  const rows = [...R.runs].sort((a, b) => (a.sched_dep[0] ?? 0) - (b.sched_dep[0] ?? 0));
+  $("#table").innerHTML = `<thead><tr><th>Train</th><th>Set</th><th>Type</th><th>Timetable</th><th>Plan</th><th class="n">Delay (stop-min)</th><th class="n">Stops not served</th><th>Rule breaks</th></tr></thead><tbody>`
+    + rows.map((r) => `<tr><td class="num">${esc(r.train)}</td><td>${esc(r.unit)}</td><td>${r.kind === "fast" ? "fast" : "stopping"}</td>`
+      + `<td>${esc(r.route[0])} ${r.sched_dep[0] !== null ? hhmm(r.sched_dep[0]) : ""} → ${esc(r.route[r.route.length - 1])}</td><td>${esc(orderText(r.order))}</td>`
+      + `<td class="n">${fmt(r.delay)}</td><td class="n">${fmt(r.unserved)}</td><td>${esc((r.problems || []).join(", "))}</td></tr>`).join("") + "</tbody>";
+}
+
+// ---- loading ---------------------------------------------------------------------------------------------------
+
+function setURL() {
+  if (EMBED && !params.has("embed")) return;
+  const p = new URLSearchParams();
+  if (params.has("embed")) p.set("embed", "1");
+  p.set("task", $("#task").value);
+  p.set("plan", $("#plan").value);
+  history.replaceState(null, "", `?${p}`);
+}
+
+async function loadPlans(taskId, want) {
+  const plans = await json(`/api/tasks/${encodeURIComponent(taskId)}/plans`);
+  const groups = { ref: [], model: [], live: [] };
+  for (const p of plans) {
+    const g = p.id.startsWith("run:") ? "model" : p.id.startsWith("episode:") ? "live" : "ref";
+    const r = p.reward === null || p.reward === undefined ? "" : ` · ${Number(p.reward).toFixed(3)}`;
+    groups[g].push(`<option value="${esc(p.id)}">${esc(p.label)}${r}</option>`);
+  }
+  $("#plan").innerHTML = [["ref", "References"], ["model", "Models' submitted plans"], ["live", "Live episodes"]]
+    .filter(([k]) => groups[k].length).map(([k, n]) => `<optgroup label="${n}">${groups[k].join("")}</optgroup>`).join("");
+  $("#plan").value = plans.some((p) => p.id === want) ? want : "optimal";
+}
+
+async function refresh() {
+  const task = $("#task").value, plan = $("#plan").value;
+  $("#open3d").href = `/twin/?task=${encodeURIComponent(task)}&plan=${encodeURIComponent(plan)}`;
+  setURL();
+  try {
+    S.R = await json(`/api/tasks/${encodeURIComponent(task)}/replay?plan=${encodeURIComponent(plan)}`);
+    renderPanels(S.R);
+    draw();
+  } catch (err) {
+    $("#title").innerHTML = `<span class="err">${esc(err.message)}</span>`;
+  }
+}
+
+(async () => {
+  if (EMBED) $("#nav").hidden = true;
+  if (FIGURE) { document.body.classList.add("figure"); $("#controls").hidden = true; $("#tablebox").hidden = true; }
+  if (params.get("theme")) document.documentElement.dataset.theme = params.get("theme");
+  try {
+    S.tasks = await json("/api/tasks");
+  } catch (err) {
+    $("#title").innerHTML = `<span class="err">${esc(err.message)}</span>`;
+    return;
+  }
+  const group = (split) => S.tasks.filter((t) => t.split === split).map((t) =>
+    `<option value="${esc(t.task_id)}">${shortDay(t.day)} ${t.start}–${t.end} · ${esc(TIER[t.difficulty] || t.difficulty)} · ${t.runs} trains</option>`).join("");
+  const splits = [...new Set(S.tasks.map((t) => t.split))].sort((a, b) => (a === "eval" ? -1 : b === "eval" ? 1 : a.localeCompare(b)));
+  $("#task").innerHTML = splits.map((sp) => `<optgroup label="${esc(sp)} split">${group(sp)}</optgroup>`).join("");
+  const want = params.get("task") || FEATURED;
+  $("#task").value = S.tasks.some((t) => t.task_id === want) ? want : S.tasks[0].task_id;
+  await loadPlans($("#task").value, params.get("plan") || "optimal");
+  $("#task").onchange = async () => { await loadPlans($("#task").value, $("#plan").value); refresh(); };
+  $("#plan").onchange = refresh;
+  const svg = $("#chart");
+  svg.addEventListener("pointermove", onMove);
+  svg.addEventListener("pointerleave", () => { $("#tip").hidden = true; $("#paths")?.classList.remove("focus"); });
+  let rt;
+  window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(draw, 120); });
+  await refresh();
+  document.body.dataset.ready = "1";
+})();
+</script>
+</body>
+</html>

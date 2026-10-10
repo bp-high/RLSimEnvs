@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+.venv/
+.pytest_cache/
+
+# railsim: pack-build resume state, rollout transcripts (index.json and board.md per run are committed)
+railsim-v1/envs/rail_ops/tasks/*/partial/
+railsim-v1/results/rollouts/*/*/
+railsim-v1/results/rollouts/*/*.jsonl
+railsim-v1/results/rollouts/pilot-*/
+railsim-v1/dist/

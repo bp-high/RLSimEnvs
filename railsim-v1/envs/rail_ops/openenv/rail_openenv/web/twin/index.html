@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RailSimEnv line twin</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+<div id="stage"></div>
+
+<header id="bar">
+  <div class="grp what">
+  <div class="brand"><b>RailSimEnv</b><span>Leeuwarden – Groningen</span></div>
+  <label class="pick"><span>Task</span><select id="task" aria-label="Task"></select></label>
+  <label class="pick"><span>Plan</span><select id="plan" aria-label="Plan"></select></label>
+  </div>
+  <div class="grp controls">
+  <div class="transport">
+    <button id="restart" title="Back to the start (Home)" aria-label="Back to the start">⏮</button>
+    <button id="play" title="Play / pause (Space)" aria-label="Play">▶</button>
+    <select id="speed" title="Playback speed" aria-label="Playback speed">
+      <option value="1">1×</option><option value="10">10×</option><option value="30">30×</option>
+      <option value="60" selected>60×</option><option value="120">120×</option><option value="300">300×</option>
+    </select>
+    <div id="clock" aria-live="off"><b>--:--</b><span></span></div>
+  </div>
+  <div class="cams" role="group" aria-label="Camera">
+    <button id="cam-map" class="on" title="The whole line (M)">Line</button>
+    <button id="cam-follow" title="Follow the selected train (F)">Follow</button>
+    <button id="cam-cab" title="Driver's view of the selected train (C)">Cab</button>
+    <select id="station" aria-label="Go to a station"><option value="">Station…</option></select>
+  </div>
+  <button id="panels" title="Hide or show the panels (H)">Panels</button>
+  <a class="graphlink" id="graphlink" href="/viewer/" title="This plan on the train graph">Train graph ↗</a>
+  <a class="graphlink" href="/explorer/" title="Every model's plan on every eval task">Eval explorer ↗</a>
+  </div>
+</header>
+
+<aside id="left" class="panel">
+  <section id="scenario"></section>
+  <section id="result"></section>
+  <section class="legend">
+    <div><i class="chip" style="background:#3987e5"></i>Stopping train <i class="chip" style="background:#d95926"></i>Fast train</div>
+    <div><i class="bar closed"></i>Closed <i class="bar slow"></i>Slow <i class="bar track"></i>Track out of use</div>
+    <div><i class="bar single"></i>Single track <i class="bar double"></i>Double track (from far away)</div>
+    <div class="muted">Signals guard each single-track section: red while a train is in it or it is closed.</div>
+  </section>
+</aside>
+
+<aside id="right" class="panel">
+  <h2>Trains <span id="ntrains" class="muted"></span></h2>
+  <ol id="trains"></ol>
+  <h3 id="cxl-h" hidden>Cancelled</h3>
+  <ol id="cancelled"></ol>
+</aside>
+
+<footer id="bottom" class="panel">
+  <div class="graphwrap">
+    <div class="chart-h"><b>Train graph</b><span class="muted">time across, distance down · click to jump, hover to read</span></div>
+    <canvas id="graph"></canvas>
+    <div id="gtip" class="tip" hidden></div>
+  </div>
+  <div class="costwrap">
+    <canvas id="cost"></canvas>
+    <div id="ctip" class="tip" hidden></div>
+  </div>
+</footer>
+
+<div id="toasts" aria-live="polite"></div>
+<div id="loading"><div><b>Building the line</b><p id="loadmsg">OpenStreetMap: track, stations, buildings…</p></div></div>
+<noscript>The line twin needs JavaScript and WebGL.</noscript>
+<script type="module" src="app.js"></script>
+</body>
+</html>

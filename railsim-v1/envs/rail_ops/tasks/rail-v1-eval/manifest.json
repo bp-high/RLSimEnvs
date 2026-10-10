@@ -1,0 +1,92 @@
+{
+  "name": "rail-v1-eval",
+  "split": "eval",
+  "tasks": 45,
+  "file": "tasks.jsonl",
+  "tiers": {
+    "blockage": 20,
+    "compound": 17,
+    "loop": 4,
+    "real": 4
+  },
+  "sha256": "2b4347efbc1b0aef26225aeebd451e64f4a3bf427f41a0a7e4618795d5db034b",
+  "candidates": 134,
+  "days": [
+    "2025-01-20",
+    "2025-01-21",
+    "2025-01-22",
+    "2025-01-23",
+    "2025-01-25",
+    "2025-01-26",
+    "2025-02-11",
+    "2025-02-12",
+    "2025-02-13",
+    "2025-02-14",
+    "2025-02-15",
+    "2025-02-16",
+    "2025-03-10",
+    "2025-03-11",
+    "2025-03-12",
+    "2025-03-13",
+    "2025-03-16",
+    "2025-04-23",
+    "2025-04-25",
+    "2025-04-26",
+    "2025-04-27",
+    "2025-05-26",
+    "2025-05-27",
+    "2025-05-28",
+    "2025-05-30",
+    "2025-05-31",
+    "2025-06-22"
+  ],
+  "proven_optimal": 45,
+  "runs": [
+    15,
+    38
+  ],
+  "source": "Rijden de Treinen train archive and disruptions, 2024-2025 (CC BY 4.0); OpenStreetMap (ODbL); see data/gnlw/SOURCE.md",
+  "selected_from": "pool-eval",
+  "selection": {
+    "calibration_episodes": 16,
+    "features": [
+      "runs",
+      "conflicts",
+      "decisions",
+      "holds",
+      "short_turns",
+      "turn_points",
+      "avoidable",
+      "slow_min",
+      "track_min",
+      "single_closed"
+    ],
+    "lambda": 3.0,
+    "weights": {
+      "intercept": 0.5618,
+      "runs": 0.0715,
+      "conflicts": 0.0631,
+      "decisions": -0.0708,
+      "holds": -0.0433,
+      "short_turns": -0.0466,
+      "turn_points": -0.1022,
+      "avoidable": 0.0245,
+      "slow_min": -0.0429,
+      "track_min": 0.1,
+      "single_closed": 0.0544
+    },
+    "loo_mae": 0.1343,
+    "loo_spearman": 0.6676,
+    "calibration_mean_reward": 0.5572,
+    "pool": 72,
+    "chosen": 45,
+    "per_tier": {
+      "blockage": 20,
+      "compound": 17,
+      "loop": 4,
+      "real": 4
+    },
+    "predicted_mean_chosen": 0.443,
+    "predicted_mean_pool": 0.5628
+  }
+}

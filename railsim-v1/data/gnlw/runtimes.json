@@ -1,0 +1,176 @@
+{
+ "source": "Rijden de Treinen services, 1 January - 30 June 2025 (CC BY 4.0)",
+ "rule": "5th percentile of actual stop-to-stop running time, capped at the scheduled time",
+ "stop": {
+  "BP>DWE": {
+   "min": 5,
+   "sched": 6,
+   "n": 5676,
+   "p50": 6
+  },
+  "BP>GK": {
+   "min": 7,
+   "sched": 7,
+   "n": 5676,
+   "p50": 7
+  },
+  "DWE>BP": {
+   "min": 5,
+   "sched": 6,
+   "n": 5673,
+   "p50": 6
+  },
+  "DWE>FWD": {
+   "min": 3,
+   "sched": 3,
+   "n": 5676,
+   "p50": 3
+  },
+  "FWD>DWE": {
+   "min": 3,
+   "sched": 3,
+   "n": 5673,
+   "p50": 4
+  },
+  "FWD>HDG": {
+   "min": 3,
+   "sched": 4,
+   "n": 5675,
+   "p50": 4
+  },
+  "GK>BP": {
+   "min": 7,
+   "sched": 7,
+   "n": 5680,
+   "p50": 8
+  },
+  "GK>ZH": {
+   "min": 5,
+   "sched": 6,
+   "n": 5676,
+   "p50": 6
+  },
+  "GN>ZH": {
+   "min": 8,
+   "sched": 8,
+   "n": 5472,
+   "p50": 9
+  },
+  "HDG>FWD": {
+   "min": 3,
+   "sched": 4,
+   "n": 5673,
+   "p50": 4
+  },
+  "HDG>LWC": {
+   "min": 5,
+   "sched": 5,
+   "n": 5660,
+   "p50": 5
+  },
+  "LW>LWC": {
+   "min": 3,
+   "sched": 3,
+   "n": 5667,
+   "p50": 4
+  },
+  "LWC>HDG": {
+   "min": 4,
+   "sched": 5,
+   "n": 5664,
+   "p50": 4
+  },
+  "LWC>LW": {
+   "min": 3,
+   "sched": 6,
+   "n": 5660,
+   "p50": 5
+  },
+  "ZH>GK": {
+   "min": 5,
+   "sched": 6,
+   "n": 5681,
+   "p50": 6
+  },
+  "ZH>GN": {
+   "min": 8,
+   "sched": 9,
+   "n": 5469,
+   "p50": 9
+  }
+ },
+ "fast": {
+  "BP>FWD": {
+   "min": 7,
+   "sched": 7,
+   "n": 3103,
+   "p50": 7
+  },
+  "BP>GN": {
+   "min": 17,
+   "sched": 18,
+   "n": 2776,
+   "p50": 18
+  },
+  "BP>ZH": {
+   "min": 10,
+   "sched": 11,
+   "n": 336,
+   "p50": 11
+  },
+  "FWD>BP": {
+   "min": 7,
+   "sched": 8,
+   "n": 3110,
+   "p50": 8
+  },
+  "FWD>LW": {
+   "min": 8,
+   "sched": 11,
+   "n": 5120,
+   "p50": 10
+  },
+  "FWD>ZH": {
+   "min": 15,
+   "sched": 16,
+   "n": 2044,
+   "p50": 16
+  },
+  "GN>BP": {
+   "min": 17,
+   "sched": 17,
+   "n": 2768,
+   "p50": 17
+  },
+  "GN>ZH": {
+   "min": 8,
+   "sched": 8,
+   "n": 1844,
+   "p50": 9
+  },
+  "LW>FWD": {
+   "min": 8,
+   "sched": 8,
+   "n": 5134,
+   "p50": 8
+  },
+  "ZH>BP": {
+   "min": 10,
+   "sched": 11,
+   "n": 339,
+   "p50": 11
+  },
+  "ZH>FWD": {
+   "min": 15,
+   "sched": 16,
+   "n": 2041,
+   "p50": 15
+  },
+  "ZH>GN": {
+   "min": 8,
+   "sched": 10,
+   "n": 1843,
+   "p50": 9
+  }
+ }
+}

@@ -1,0 +1,5381 @@
+{
+ "run": "2026-10-08-deepseek-v4-1-flash-eval45",
+ "episodes": [
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-01-20-1800-180m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-20",
+   "runs": 24,
+   "reward": 0.116667,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 664,
+   "floor_cost": 539,
+   "greedy_cost": 2501,
+   "real_cost": 64,
+   "hardness": {
+    "runs": 24,
+    "sets": 6,
+    "stops": 147,
+    "conflicts": 11,
+    "single_track": 5,
+    "headway": 3,
+    "platforms": 0,
+    "closed": 3,
+    "decisions": 43,
+    "holds": 36,
+    "short_turns": 7,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 125,
+    "optimal": 664,
+    "greedy_gap": 0.7999,
+    "closed_min": 46,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 1
+   },
+   "violations": 7,
+   "agent_turns": 11,
+   "checks": 9,
+   "seconds": 816.0,
+   "input_tokens": 1131382,
+   "cache_read_tokens": 958976,
+   "cache_write_tokens": 0,
+   "output_tokens": 191606,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": "[{\"train\":\"37357\",\"to\":\"HDG\",\"hold\":{\"FWD\":\"18:51\"}},{\"train\":\"37459\",\"to\":\"HDG\",\"hold\":{\"FWD\":\"18:54\"}},{\"train\":\"37468\",\"from\":\"HDG\"},{\"train\":\"37461\",\"hold\":{\"ZH\":\"18:40\",\"DWE\":\"18:59\"}},{\"train\":\"37359\",\"to\":\"HDG\",\"hold\":{\"FWD\":\"19:06\"}},{\"train\":\"37370\",\"from\":\"HDG\",\"hold\":{\"HDG\":\"19:09\"}},{\"train\":\"37361\",\"hold\":{\"FWD\":\"19:12\",\"HDG\":\"19:17\"}},{\"train\":\"37470\",\"from\":\"HDG\",\"hold\":{\"HDG\":\"19:15\"}},{\"train\":\"37365\",\"hold\":{\"GN\":\"19:46\",\"ZH\":\"19:59\"}},{\"train\":\"37465\",\"hold\":{\"GN\":\"19:40\"}},{\"train\":\"37463\",\"hold\":{\"HDG\":\"19:31\"}},{\"train\":\"37467\",\"hold\":{\"GN\":\"20:00\"}}]"
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-01-21-0626-180m-real-0",
+   "split": "eval",
+   "difficulty": "real",
+   "day": "2025-01-21",
+   "runs": 29,
+   "reward": 0.597899,
+   "submitted": true,
+   "feasible": true,
+   "cost": 511,
+   "optimal_cost": 445,
+   "floor_cost": 356,
+   "greedy_cost": 1980,
+   "real_cost": 1308,
+   "hardness": {
+    "runs": 29,
+    "sets": 7,
+    "stops": 199,
+    "conflicts": 18,
+    "single_track": 14,
+    "headway": 4,
+    "platforms": 0,
+    "closed": 0,
+    "decisions": 21,
+    "holds": 17,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 89,
+    "optimal": 445,
+    "greedy_gap": 0.8,
+    "closed_min": 0,
+    "slow_min": 69,
+    "track_min": 0,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 12,
+   "checks": 10,
+   "seconds": 586.6,
+   "input_tokens": 1514877,
+   "cache_read_tokens": 1266432,
+   "cache_write_tokens": 0,
+   "output_tokens": 194779,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "hold": {
+      "ZH": "06:35"
+     },
+     "train": "37418"
+    },
+    {
+     "hold": {
+      "ZH": "06:43"
+     },
+     "train": "37413"
+    },
+    {
+     "hold": {
+      "ZH": "06:56"
+     },
+     "train": "37313"
+    },
+    {
+     "hold": {
+      "GN": "06:59"
+     },
+     "train": "37415"
+    },
+    {
+     "hold": {
+      "GN": "07:13"
+     },
+     "train": "37315"
+    },
+    {
+     "hold": {
+      "FWD": "07:06"
+     },
+     "train": "37322"
+    },
+    {
+     "hold": {
+      "LW": "07:21",
+      "BP": "07:37"
+     },
+     "train": "37324"
+    },
+    {
+     "hold": {
+      "LW": "06:57",
+      "HDG": "07:06"
+     },
+     "train": "37422"
+    },
+    {
+     "hold": {
+      "LW": "07:52"
+     },
+     "train": "37326"
+    },
+    {
+     "hold": {
+      "FWD": "08:06"
+     },
+     "train": "37317"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-01-22-1600-240m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-22",
+   "runs": 38,
+   "reward": 0.314498,
+   "submitted": true,
+   "feasible": true,
+   "cost": 809,
+   "optimal_cost": 670,
+   "floor_cost": 627,
+   "greedy_cost": 5661,
+   "real_cost": 112,
+   "hardness": {
+    "runs": 38,
+    "sets": 7,
+    "stops": 252,
+    "conflicts": 28,
+    "single_track": 7,
+    "headway": 10,
+    "platforms": 0,
+    "closed": 11,
+    "decisions": 24,
+    "holds": 18,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 43,
+    "optimal": 670,
+    "greedy_gap": 0.8,
+    "closed_min": 36,
+    "slow_min": 33,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 11,
+   "checks": 9,
+   "seconds": 625.5,
+   "input_tokens": 1161507,
+   "cache_read_tokens": 997632,
+   "cache_write_tokens": 0,
+   "output_tokens": 172079,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "to": "ZH",
+     "train": "37358"
+    },
+    {
+     "from": "ZH",
+     "train": "37353"
+    },
+    {
+     "to": "ZH",
+     "train": "37458"
+    },
+    {
+     "from": "ZH",
+     "train": "37455"
+    },
+    {
+     "hold": {
+      "GN": "17:21"
+     },
+     "to": "ZH",
+     "train": "37453"
+    },
+    {
+     "from": "ZH",
+     "train": "37364"
+    },
+    {
+     "hold": {
+      "GN": "16:46"
+     },
+     "to": "ZH",
+     "train": "37351"
+    },
+    {
+     "from": "ZH",
+     "train": "37462"
+    },
+    {
+     "hold": {
+      "BP": "16:43"
+     },
+     "train": "37360"
+    },
+    {
+     "hold": {
+      "BP": "16:46"
+     },
+     "train": "37460"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-01-22-1800-150m-loop-0",
+   "split": "eval",
+   "difficulty": "loop",
+   "day": "2025-01-22",
+   "runs": 25,
+   "reward": 0.556794,
+   "submitted": true,
+   "feasible": true,
+   "cost": 462,
+   "optimal_cost": 397,
+   "floor_cost": 336,
+   "greedy_cost": 562,
+   "real_cost": 79,
+   "hardness": {
+    "runs": 25,
+    "sets": 7,
+    "stops": 158,
+    "conflicts": 18,
+    "single_track": 18,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 0,
+    "decisions": 19,
+    "holds": 19,
+    "short_turns": 0,
+    "cancels": 0,
+    "turn_points": 0,
+    "avoidable": 61,
+    "optimal": 397,
+    "greedy_gap": 0.697,
+    "closed_min": 0,
+    "slow_min": 138,
+    "track_min": 10,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 11,
+   "checks": 10,
+   "seconds": 586.0,
+   "input_tokens": 1620350,
+   "cache_read_tokens": 1368064,
+   "cache_write_tokens": 0,
+   "output_tokens": 198244,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": "[{\"train\": \"37459\", \"hold\": {\"FWD\": \"18:33\"}}, {\"train\": \"37461\", \"hold\": {\"FWD\": \"19:03\"}}, {\"train\": \"37372\", \"hold\": {\"LW\": \"19:20\"}}, {\"train\": \"37463\", \"hold\": {\"FWD\": \"19:33\"}}, {\"train\": \"37374\", \"hold\": {\"LW\": \"19:52\"}}, {\"train\": \"37363\", \"hold\": {\"GN\": \"19:12\"}}, {\"train\": \"37465\", \"hold\": {\"GN\": \"19:27\", \"FWD\": \"20:05\"}}, {\"train\": \"37367\", \"hold\": {\"GN\": \"20:15\"}}, {\"train\": \"37368\", \"hold\": {\"BP\": \"18:38\"}}, {\"train\": \"37467\", \"hold\": {\"FWD\": \"20:28\"}}, {\"train\": \"37466\", \"hold\": {\"ZH\": \"18:35\"}}, {\"train\": \"37470\", \"hold\": {\"ZH\": \"19:35\"}}]"
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-01-23-0800-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-23",
+   "runs": 34,
+   "reward": 0.147059,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 894,
+   "floor_cost": 841,
+   "greedy_cost": 4449,
+   "real_cost": 83,
+   "hardness": {
+    "runs": 34,
+    "sets": 7,
+    "stops": 226,
+    "conflicts": 51,
+    "single_track": 17,
+    "headway": 20,
+    "platforms": 0,
+    "closed": 14,
+    "decisions": 29,
+    "holds": 18,
+    "short_turns": 11,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 53,
+    "optimal": 894,
+    "greedy_gap": 0.8,
+    "closed_min": 24,
+    "slow_min": 69,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 10,
+   "agent_turns": 11,
+   "checks": 10,
+   "seconds": 913.4,
+   "input_tokens": 1821565,
+   "cache_read_tokens": 1481216,
+   "cache_write_tokens": 0,
+   "output_tokens": 249229,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37426",
+     "hold": {
+      "HDG": "08:01"
+     }
+    },
+    {
+     "train": "37317",
+     "hold": {
+      "FWD": "08:04"
+     }
+    },
+    {
+     "train": "37419",
+     "to": "BP"
+    },
+    {
+     "train": "37330",
+     "from": "BP",
+     "hold": {
+      "BP": "09:02"
+     }
+    },
+    {
+     "train": "37328",
+     "hold": {
+      "LW": "08:44"
+     }
+    },
+    {
+     "train": "37428",
+     "hold": {
+      "LW": "08:48",
+      "HDG": "08:59",
+      "ZH": "09:26"
+     }
+    },
+    {
+     "train": "37319",
+     "to": "HDG",
+     "hold": {
+      "GN": "08:40"
+     }
+    },
+    {
+     "train": "37430",
+     "from": "HDG",
+     "hold": {
+      "HDG": "09:20"
+     }
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "GN": "08:46"
+     }
+    },
+    {
+     "train": "37423",
+     "hold": {
+      "GN": "08:58"
+     }
+    },
+    {
+     "train": "37323",
+     "to": "HDG"
+    },
+    {
+     "train": "37434",
+     "from": "HDG"
+    },
+    {
+     "train": "37325",
+     "hold": {
+      "GN": "09:45"
+     }
+    },
+    {
+     "train": "37425",
+     "to": "HDG",
+     "hold": {
+      "GN": "09:51"
+     }
+    },
+    {
+     "train": "37336",
+     "from": "HDG",
+     "hold": {
+      "HDG": "10:36"
+     }
+    },
+    {
+     "train": "37332",
+     "hold": {
+      "LW": "09:26"
+     }
+    },
+    {
+     "train": "37432",
+     "hold": {
+      "LW": "09:45"
+     }
+    },
+    {
+     "train": "37427",
+     "hold": {
+      "GN": "09:54"
+     }
+    },
+    {
+     "train": "37429",
+     "hold": {
+      "GN": "10:29"
+     }
+    },
+    {
+     "train": "37334",
+     "hold": {
+      "LW": "09:55"
+     }
+    },
+    {
+     "train": "37338",
+     "hold": {
+      "LW": "10:46"
+     }
+    },
+    {
+     "train": "37438",
+     "hold": {
+      "LW": "10:50"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-01-23-0900-180m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-23",
+   "runs": 30,
+   "reward": 0.086667,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 853,
+   "floor_cost": 704,
+   "greedy_cost": 3025,
+   "real_cost": 61,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 41,
+    "single_track": 29,
+    "headway": 5,
+    "platforms": 0,
+    "closed": 7,
+    "decisions": 31,
+    "holds": 17,
+    "short_turns": 14,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 149,
+    "optimal": 853,
+    "greedy_gap": 0.8,
+    "closed_min": 23,
+    "slow_min": 150,
+    "track_min": 10,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 14,
+   "agent_turns": 12,
+   "checks": 10,
+   "seconds": 724.5,
+   "input_tokens": 1305922,
+   "cache_read_tokens": 1053696,
+   "cache_write_tokens": 0,
+   "output_tokens": 176006,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "to": "HDG",
+     "train": "37321"
+    },
+    {
+     "from": "HDG",
+     "train": "37432"
+    },
+    {
+     "cancel": true,
+     "train": "37332"
+    },
+    {
+     "cancel": true,
+     "train": "37327"
+    },
+    {
+     "hold": {
+      "LWC": "09:28"
+     },
+     "train": "37421"
+    },
+    {
+     "hold": {
+      "LWC": "09:37"
+     },
+     "train": "37423"
+    },
+    {
+     "hold": {
+      "HDG": "09:52"
+     },
+     "train": "37323"
+    },
+    {
+     "hold": {
+      "GN": "09:27"
+     },
+     "train": "37425"
+    },
+    {
+     "hold": {
+      "ZH": "09:57"
+     },
+     "train": "37325"
+    },
+    {
+     "hold": {
+      "FWD": "10:34",
+      "ZH": "10:11"
+     },
+     "train": "37427"
+    },
+    {
+     "hold": {
+      "ZH": "10:23"
+     },
+     "train": "37334"
+    },
+    {
+     "hold": {
+      "LWC": "10:04",
+      "ZH": "10:39"
+     },
+     "train": "37434"
+    },
+    {
+     "hold": {
+      "ZH": "10:44"
+     },
+     "train": "37429"
+    },
+    {
+     "hold": {
+      "ZH": "10:57"
+     },
+     "train": "37329"
+    },
+    {
+     "hold": {
+      "ZH": "11:00"
+     },
+     "train": "37336"
+    },
+    {
+     "hold": {
+      "GN": "10:59"
+     },
+     "train": "37431"
+    },
+    {
+     "hold": {
+      "GN": "11:13"
+     },
+     "train": "37331"
+    },
+    {
+     "hold": {
+      "GN": "11:27",
+      "ZH": "11:47"
+     },
+     "train": "37433"
+    },
+    {
+     "hold": {
+      "ZH": "11:45"
+     },
+     "train": "37438"
+    },
+    {
+     "hold": {
+      "ZH": "11:57"
+     },
+     "train": "37333"
+    },
+    {
+     "hold": {
+      "ZH": "11:50"
+     },
+     "train": "37340"
+    },
+    {
+     "hold": {
+      "ZH": "12:11"
+     },
+     "train": "37435"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-01-25-0630-180m-loop-0",
+   "split": "eval",
+   "difficulty": "loop",
+   "day": "2025-01-25",
+   "runs": 20,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 116,
+   "optimal_cost": 116,
+   "floor_cost": 102,
+   "greedy_cost": 518,
+   "real_cost": 62,
+   "hardness": {
+    "runs": 20,
+    "sets": 7,
+    "stops": 150,
+    "conflicts": 3,
+    "single_track": 3,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 0,
+    "decisions": 23,
+    "holds": 23,
+    "short_turns": 0,
+    "cancels": 0,
+    "turn_points": 0,
+    "avoidable": 14,
+    "optimal": 116,
+    "greedy_gap": 0.7993,
+    "closed_min": 0,
+    "slow_min": 69,
+    "track_min": 10,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 4,
+   "seconds": 485.7,
+   "input_tokens": 189398,
+   "cache_read_tokens": 140800,
+   "cache_write_tokens": 0,
+   "output_tokens": 92421,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37424",
+     "hold": {
+      "ZH": "08:01"
+     }
+    },
+    {
+     "train": "37426",
+     "hold": {
+      "HDG": "08:03"
+     }
+    },
+    {
+     "train": "37428",
+     "hold": {
+      "HDG": "08:33"
+     }
+    },
+    {
+     "train": "37319",
+     "hold": {
+      "FWD": "08:36"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-01-25-0730-180m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-25",
+   "runs": 26,
+   "reward": 0.299251,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1494,
+   "optimal_cost": 1302,
+   "floor_cost": 1218,
+   "greedy_cost": null,
+   "real_cost": 129,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 184,
+    "conflicts": 55,
+    "single_track": 10,
+    "headway": 19,
+    "platforms": 2,
+    "closed": 24,
+    "decisions": 26,
+    "holds": 11,
+    "short_turns": 15,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 84,
+    "optimal": 1302,
+    "greedy_gap": 0.8846,
+    "closed_min": 111,
+    "slow_min": 100,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 2
+   },
+   "violations": 0,
+   "agent_turns": 11,
+   "checks": 9,
+   "seconds": 953.0,
+   "input_tokens": 1168828,
+   "cache_read_tokens": 949504,
+   "cache_write_tokens": 0,
+   "output_tokens": 168841,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37415",
+     "to": "HDG"
+    },
+    {
+     "train": "37426",
+     "from": "HDG"
+    },
+    {
+     "train": "37417",
+     "to": "HDG"
+    },
+    {
+     "train": "37328",
+     "from": "HDG",
+     "hold": {
+      "HDG": "08:32"
+     }
+    },
+    {
+     "train": "37419",
+     "to": "HDG"
+    },
+    {
+     "train": "37330",
+     "from": "HDG",
+     "hold": {
+      "HDG": "08:58"
+     }
+    },
+    {
+     "train": "37319",
+     "to": "HDG"
+    },
+    {
+     "train": "37430",
+     "from": "HDG",
+     "hold": {
+      "HDG": "09:12"
+     }
+    },
+    {
+     "train": "37421",
+     "to": "HDG",
+     "hold": {
+      "GN": "08:27"
+     }
+    },
+    {
+     "train": "37332",
+     "from": "HDG",
+     "hold": {
+      "HDG": "09:26"
+     }
+    },
+    {
+     "train": "37321",
+     "to": "HDG",
+     "hold": {
+      "GN": "08:43"
+     }
+    },
+    {
+     "train": "37432",
+     "from": "HDG",
+     "hold": {
+      "HDG": "09:37"
+     }
+    },
+    {
+     "train": "37428",
+     "cancel": true
+    },
+    {
+     "train": "37425",
+     "cancel": true
+    },
+    {
+     "train": "37334",
+     "hold": {
+      "LW": "09:50"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-01-25-1700-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-01-25",
+   "runs": 30,
+   "reward": 0.12,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 320,
+   "floor_cost": 275,
+   "greedy_cost": 1591,
+   "real_cost": 74,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 11,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 11,
+    "decisions": 51,
+    "holds": 49,
+    "short_turns": 2,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 45,
+    "optimal": 320,
+    "greedy_gap": 0.8,
+    "closed_min": 15,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 8,
+   "agent_turns": 12,
+   "checks": 10,
+   "seconds": 536.5,
+   "input_tokens": 1517635,
+   "cache_read_tokens": 1296128,
+   "cache_write_tokens": 0,
+   "output_tokens": 239238,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37364",
+     "hold": {
+      "DWE": "17:45"
+     }
+    },
+    {
+     "train": "37464",
+     "hold": {
+      "HDG": "17:47"
+     }
+    },
+    {
+     "train": "37455",
+     "hold": {
+      "HDG": "17:45"
+     }
+    },
+    {
+     "train": "37355",
+     "hold": {
+      "BP": "17:45"
+     }
+    },
+    {
+     "train": "37457",
+     "hold": {
+      "BP": "17:48",
+      "FWD": "18:08"
+     }
+    },
+    {
+     "train": "37366",
+     "hold": {
+      "LW": "18:00"
+     }
+    },
+    {
+     "train": "37466",
+     "hold": {
+      "LW": "18:04"
+     }
+    },
+    {
+     "train": "37357",
+     "hold": {
+      "BP": "18:08"
+     }
+    },
+    {
+     "train": "37468",
+     "hold": {
+      "LW": "18:31"
+     }
+    },
+    {
+     "train": "37359",
+     "hold": {
+      "GN": "18:27"
+     }
+    },
+    {
+     "train": "37461",
+     "hold": {
+      "GN": "18:32"
+     }
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "GN": "18:54"
+     }
+    },
+    {
+     "train": "37463",
+     "hold": {
+      "GN": "18:58"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-01-26-1700-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-26",
+   "runs": 16,
+   "reward": 0.907357,
+   "submitted": true,
+   "feasible": true,
+   "cost": 626,
+   "optimal_cost": 618,
+   "floor_cost": 588,
+   "greedy_cost": 928,
+   "real_cost": 58,
+   "hardness": {
+    "runs": 16,
+    "sets": 3,
+    "stops": 104,
+    "conflicts": 10,
+    "single_track": 3,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 7,
+    "decisions": 21,
+    "holds": 12,
+    "short_turns": 9,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 30,
+    "optimal": 618,
+    "greedy_gap": 0.7932,
+    "closed_min": 104,
+    "slow_min": 100,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 10,
+   "checks": 8,
+   "seconds": 586.4,
+   "input_tokens": 617804,
+   "cache_read_tokens": 538880,
+   "cache_write_tokens": 0,
+   "output_tokens": 112018,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "to": "HDG",
+     "train": "37353"
+    },
+    {
+     "from": "HDG",
+     "train": "37364"
+    },
+    {
+     "to": "HDG",
+     "train": "37455"
+    },
+    {
+     "from": "HDG",
+     "train": "37466"
+    },
+    {
+     "hold": {
+      "GN": "17:46"
+     },
+     "to": "HDG",
+     "train": "37357"
+    },
+    {
+     "from": "HDG",
+     "train": "37368"
+    },
+    {
+     "to": "HDG",
+     "train": "37459"
+    },
+    {
+     "from": "HDG",
+     "train": "37470"
+    },
+    {
+     "hold": {
+      "GN": "18:46"
+     },
+     "to": "HDG",
+     "train": "37361"
+    },
+    {
+     "from": "HDG",
+     "train": "37372"
+    },
+    {
+     "hold": {
+      "GN": "19:40"
+     },
+     "train": "37365"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-02-11-0900-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-02-11",
+   "runs": 23,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 725,
+   "optimal_cost": 725,
+   "floor_cost": 721,
+   "greedy_cost": null,
+   "real_cost": 318,
+   "hardness": {
+    "runs": 23,
+    "sets": 6,
+    "stops": 152,
+    "conflicts": 32,
+    "single_track": 3,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 29,
+    "decisions": 37,
+    "holds": 23,
+    "short_turns": 14,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 4,
+    "optimal": 725,
+    "greedy_gap": 0.8174,
+    "closed_min": 120,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 6,
+   "checks": 4,
+   "seconds": 289.9,
+   "input_tokens": 298678,
+   "cache_read_tokens": 178432,
+   "cache_write_tokens": 0,
+   "output_tokens": 92995,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "hold": {
+      "FWD": "09:07"
+     },
+     "to": "HDG",
+     "train": "37321"
+    },
+    {
+     "hold": {
+      "ZH": "09:05"
+     },
+     "train": "37428"
+    },
+    {
+     "hold": {
+      "HDG": "11:10"
+     },
+     "train": "37429"
+    },
+    {
+     "hold": {
+      "LW": "11:23"
+     },
+     "train": "37340"
+    },
+    {
+     "to": "HDG",
+     "train": "37421"
+    },
+    {
+     "to": "HDG",
+     "train": "37323"
+    },
+    {
+     "to": "HDG",
+     "train": "37325"
+    },
+    {
+     "to": "HDG",
+     "train": "37327"
+    },
+    {
+     "to": "HDG",
+     "train": "37425"
+    },
+    {
+     "to": "HDG",
+     "train": "37427"
+    },
+    {
+     "from": "HDG",
+     "train": "37332"
+    },
+    {
+     "from": "HDG",
+     "train": "37336"
+    },
+    {
+     "from": "HDG",
+     "train": "37338"
+    },
+    {
+     "from": "HDG",
+     "train": "37432"
+    },
+    {
+     "from": "HDG",
+     "train": "37434"
+    },
+    {
+     "from": "HDG",
+     "train": "37436"
+    },
+    {
+     "from": "HDG",
+     "train": "37438"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-02-12-0900-180m-real-0",
+   "split": "eval",
+   "difficulty": "real",
+   "day": "2025-02-12",
+   "runs": 31,
+   "reward": 0.187097,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 643,
+   "floor_cost": 529,
+   "greedy_cost": null,
+   "real_cost": 363,
+   "hardness": {
+    "runs": 31,
+    "sets": 7,
+    "stops": 204,
+    "conflicts": 16,
+    "single_track": 8,
+    "headway": 3,
+    "platforms": 0,
+    "closed": 5,
+    "decisions": 38,
+    "holds": 32,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 114,
+    "optimal": 643,
+    "greedy_gap": 0.8452,
+    "closed_min": 30,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": false,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 1,
+   "agent_turns": 11,
+   "checks": 10,
+   "seconds": 873.7,
+   "input_tokens": 1891660,
+   "cache_read_tokens": 1551360,
+   "cache_write_tokens": 0,
+   "output_tokens": 267525,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37421",
+     "hold": {
+      "HDG": "09:05"
+     }
+    },
+    {
+     "train": "37328",
+     "hold": {
+      "GK": "09:03"
+     }
+    },
+    {
+     "train": "37423",
+     "hold": {
+      "ZH": "09:08",
+      "BP": "09:31"
+     }
+    },
+    {
+     "train": "37321",
+     "to": "HDG",
+     "hold": {
+      "DWE": "09:33"
+     }
+    },
+    {
+     "train": "37330",
+     "hold": {
+      "FWD": "09:30"
+     }
+    },
+    {
+     "train": "37430",
+     "hold": {
+      "FWD": "09:33"
+     }
+    },
+    {
+     "train": "37332",
+     "hold": {
+      "LW": "09:26",
+      "FWD": "09:41"
+     }
+    },
+    {
+     "train": "37432",
+     "from": "HDG",
+     "hold": {
+      "HDG": "09:48",
+      "GK": "10:07"
+     }
+    },
+    {
+     "train": "37323",
+     "hold": {
+      "GN": "09:22"
+     }
+    },
+    {
+     "train": "37425",
+     "hold": {
+      "GN": "09:26",
+      "FWD": "10:02"
+     }
+    },
+    {
+     "train": "37434",
+     "hold": {
+      "HDG": "10:05"
+     }
+    },
+    {
+     "train": "37334",
+     "hold": {
+      "FWD": "10:05"
+     }
+    },
+    {
+     "train": "37336",
+     "hold": {
+      "LW": "10:29",
+      "GK": "10:49"
+     }
+    },
+    {
+     "train": "37427",
+     "hold": {
+      "FWD": "10:37"
+     }
+    },
+    {
+     "train": "37327",
+     "hold": {
+      "GN": "10:21",
+      "FWD": "10:44"
+     }
+    },
+    {
+     "train": "37429",
+     "hold": {
+      "FWD": "10:57"
+     }
+    },
+    {
+     "train": "37338",
+     "hold": {
+      "LW": "10:54",
+      "FWD": "11:05"
+     }
+    },
+    {
+     "train": "37438",
+     "hold": {
+      "LW": "11:10"
+     }
+    },
+    {
+     "train": "37329",
+     "hold": {
+      "FWD": "11:20"
+     }
+    },
+    {
+     "train": "37431",
+     "hold": {
+      "ZH": "11:06"
+     }
+    },
+    {
+     "train": "37331",
+     "hold": {
+      "GN": "11:12",
+      "FWD": "11:37"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-02-13-0954-180m-real-0",
+   "split": "eval",
+   "difficulty": "real",
+   "day": "2025-02-13",
+   "runs": 30,
+   "reward": 0.525807,
+   "submitted": true,
+   "feasible": true,
+   "cost": 225,
+   "optimal_cost": 172,
+   "floor_cost": 154,
+   "greedy_cost": 1960,
+   "real_cost": 215,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 195,
+    "conflicts": 13,
+    "single_track": 3,
+    "headway": 7,
+    "platforms": 3,
+    "closed": 0,
+    "decisions": 45,
+    "holds": 45,
+    "short_turns": 0,
+    "cancels": 0,
+    "turn_points": 0,
+    "avoidable": 18,
+    "optimal": 172,
+    "greedy_gap": 0.8,
+    "closed_min": 0,
+    "slow_min": 25,
+    "track_min": 0,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 10,
+   "checks": 9,
+   "seconds": 625.3,
+   "input_tokens": 1242249,
+   "cache_read_tokens": 1174784,
+   "cache_write_tokens": 0,
+   "output_tokens": 191490,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37334",
+     "hold": {
+      "FWD": "09:57"
+     }
+    },
+    {
+     "train": "37432",
+     "hold": {
+      "ZH": "10:05"
+     }
+    },
+    {
+     "train": "37327",
+     "hold": {
+      "DWE": "10:39",
+      "FWD": "10:44"
+     }
+    },
+    {
+     "train": "37434",
+     "hold": {
+      "GK": "10:27"
+     }
+    },
+    {
+     "train": "37329",
+     "hold": {
+      "GN": "10:40",
+      "FWD": "11:06"
+     }
+    },
+    {
+     "train": "37429",
+     "hold": {
+      "HDG": "11:03"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-02-13-1530-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-02-13",
+   "runs": 30,
+   "reward": 0.093333,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 648,
+   "floor_cost": 588,
+   "greedy_cost": 1690,
+   "real_cost": 151,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 25,
+    "single_track": 5,
+    "headway": 5,
+    "platforms": 1,
+    "closed": 14,
+    "decisions": 37,
+    "holds": 29,
+    "short_turns": 8,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 60,
+    "optimal": 648,
+    "greedy_gap": 0.8,
+    "closed_min": 24,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 18,
+   "agent_turns": 11,
+   "checks": 10,
+   "seconds": 1331.2,
+   "input_tokens": 1717646,
+   "cache_read_tokens": 1387776,
+   "cache_write_tokens": 0,
+   "output_tokens": 243579,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37449",
+     "hold": {
+      "BP": "16:14"
+     }
+    },
+    {
+     "train": "37349",
+     "hold": {
+      "BP": "16:19"
+     }
+    },
+    {
+     "train": "37451",
+     "hold": {
+      "BP": "16:22"
+     }
+    },
+    {
+     "train": "37358",
+     "hold": {
+      "LW": "16:14"
+     }
+    },
+    {
+     "train": "37458",
+     "hold": {
+      "LW": "16:18"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-02-14-1730-210m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-02-14",
+   "runs": 33,
+   "reward": 0.078788,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 875,
+   "floor_cost": 776,
+   "greedy_cost": null,
+   "real_cost": 191,
+   "hardness": {
+    "runs": 33,
+    "sets": 7,
+    "stops": 208,
+    "conflicts": 33,
+    "single_track": 7,
+    "headway": 19,
+    "platforms": 3,
+    "closed": 4,
+    "decisions": 35,
+    "holds": 25,
+    "short_turns": 10,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 99,
+    "optimal": 875,
+    "greedy_gap": 0.8909,
+    "closed_min": 38,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": false,
+    "mid_line": true,
+    "late_sets": 1
+   },
+   "violations": 26,
+   "agent_turns": 12,
+   "checks": 10,
+   "seconds": 929.4,
+   "input_tokens": 1414484,
+   "cache_read_tokens": 1188864,
+   "cache_write_tokens": 0,
+   "output_tokens": 174148,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37457",
+     "hold": {
+      "GK": "18:08"
+     }
+    },
+    {
+     "train": "37459",
+     "hold": {
+      "ZH": "18:06"
+     }
+    },
+    {
+     "train": "37357",
+     "hold": {
+      "DWE": "18:27",
+      "HDG": "18:32",
+      "LWC": "18:41"
+     }
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "GN": "18:47"
+     }
+    },
+    {
+     "train": "37463",
+     "hold": {
+      "GN": "19:12"
+     }
+    },
+    {
+     "train": "37363",
+     "hold": {
+      "GN": "19:23"
+     }
+    },
+    {
+     "train": "37364",
+     "hold": {
+      "BP": "18:08"
+     }
+    },
+    {
+     "train": "37464",
+     "hold": {
+      "DWE": "18:06"
+     }
+    },
+    {
+     "train": "37366",
+     "hold": {
+      "LW": "18:03"
+     }
+    },
+    {
+     "train": "37368",
+     "hold": {
+      "LW": "18:41"
+     }
+    },
+    {
+     "train": "37468",
+     "hold": {
+      "LW": "18:49"
+     }
+    },
+    {
+     "train": "37470",
+     "hold": {
+      "LWC": "19:15"
+     }
+    },
+    {
+     "train": "37372",
+     "hold": {
+      "BP": "19:36"
+     }
+    },
+    {
+     "train": "37465",
+     "hold": {
+      "ZH": "19:43"
+     }
+    },
+    {
+     "train": "37367",
+     "hold": {
+      "ZH": "20:19"
+     }
+    },
+    {
+     "train": "37469",
+     "hold": {
+      "GN": "20:27"
+     }
+    },
+    {
+     "train": "37369",
+     "hold": {
+      "GN": "20:41"
+     }
+    },
+    {
+     "train": "37474",
+     "hold": {
+      "LW": "20:03"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-02-15-0630-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-02-15",
+   "runs": 20,
+   "reward": 0.383333,
+   "submitted": true,
+   "feasible": true,
+   "cost": 2507,
+   "optimal_cost": 2300,
+   "floor_cost": 2119,
+   "greedy_cost": null,
+   "real_cost": 61,
+   "hardness": {
+    "runs": 20,
+    "sets": 7,
+    "stops": 150,
+    "conflicts": 45,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 45,
+    "decisions": 31,
+    "holds": 13,
+    "short_turns": 18,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 181,
+    "optimal": 2300,
+    "greedy_gap": 0.87,
+    "closed_min": 160,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 10,
+   "checks": 9,
+   "seconds": 965.8,
+   "input_tokens": 1223560,
+   "cache_read_tokens": 943872,
+   "cache_write_tokens": 0,
+   "output_tokens": 198879,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "to": "BP",
+     "train": "37420"
+    },
+    {
+     "from": "BP",
+     "train": "37417"
+    },
+    {
+     "to": "BP",
+     "train": "37328"
+    },
+    {
+     "from": "BP",
+     "train": "37323"
+    },
+    {
+     "to": "BP",
+     "train": "37422"
+    },
+    {
+     "from": "BP",
+     "train": "37419"
+    },
+    {
+     "hold": {
+      "BP": "09:10"
+     },
+     "train": "37330"
+    },
+    {
+     "hold": {
+      "DWE": "09:18",
+      "FWD": "08:58"
+     },
+     "to": "BP",
+     "train": "37428"
+    },
+    {
+     "from": "BP",
+     "train": "37425"
+    },
+    {
+     "to": "ZH",
+     "train": "37413"
+    },
+    {
+     "from": "ZH",
+     "train": "37424"
+    },
+    {
+     "hold": {
+      "GN": "09:13"
+     },
+     "to": "ZH",
+     "train": "37421"
+    },
+    {
+     "from": "ZH",
+     "train": "37332"
+    },
+    {
+     "to": "ZH",
+     "train": "37415"
+    },
+    {
+     "from": "ZH",
+     "train": "37426"
+    },
+    {
+     "hold": {
+      "ZH": "09:10"
+     },
+     "train": "37423"
+    },
+    {
+     "to": "ZH",
+     "train": "37319"
+    },
+    {
+     "from": "ZH",
+     "train": "37430"
+    },
+    {
+     "hold": {
+      "GN": "09:22"
+     },
+     "to": "ZH",
+     "train": "37321"
+    },
+    {
+     "from": "ZH",
+     "train": "37432"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-02-15-0700-240m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-02-15",
+   "runs": 32,
+   "reward": 0.202871,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1345,
+   "optimal_cost": 858,
+   "floor_cost": 785,
+   "greedy_cost": 2986,
+   "real_cost": 76,
+   "hardness": {
+    "runs": 32,
+    "sets": 7,
+    "stops": 228,
+    "conflicts": 38,
+    "single_track": 4,
+    "headway": 21,
+    "platforms": 3,
+    "closed": 10,
+    "decisions": 37,
+    "holds": 31,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 73,
+    "optimal": 858,
+    "greedy_gap": 0.8,
+    "closed_min": 34,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 2
+   },
+   "violations": 0,
+   "agent_turns": 12,
+   "checks": 10,
+   "seconds": 874.1,
+   "input_tokens": 1690870,
+   "cache_read_tokens": 1362944,
+   "cache_write_tokens": 0,
+   "output_tokens": 239383,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "hold": {
+      "FWD": "07:34"
+     },
+     "train": "37422"
+    },
+    {
+     "hold": {
+      "LWC": "07:34"
+     },
+     "train": "37413"
+    },
+    {
+     "hold": {
+      "LW": "07:41"
+     },
+     "train": "37424"
+    },
+    {
+     "hold": {
+      "BP": "07:34",
+      "HDG": "07:48"
+     },
+     "train": "37415"
+    },
+    {
+     "hold": {
+      "HDG": "08:07"
+     },
+     "train": "37417"
+    },
+    {
+     "hold": {
+      "LW": "08:00"
+     },
+     "train": "37426"
+    },
+    {
+     "hold": {
+      "LW": "08:30"
+     },
+     "train": "37428"
+    },
+    {
+     "hold": {
+      "FWD": "08:57"
+     },
+     "train": "37421"
+    },
+    {
+     "hold": {
+      "GN": "08:42"
+     },
+     "train": "37319"
+    },
+    {
+     "hold": {
+      "LW": "09:22"
+     },
+     "train": "37430"
+    },
+    {
+     "hold": {
+      "GN": "09:45"
+     },
+     "train": "37325"
+    },
+    {
+     "hold": {
+      "LW": "10:18"
+     },
+     "train": "37336"
+    },
+    {
+     "hold": {
+      "GN": "10:16"
+     },
+     "train": "37327"
+    },
+    {
+     "hold": {
+      "FWD": "10:33"
+     },
+     "train": "37427"
+    },
+    {
+     "hold": {
+      "GK": "10:26"
+     },
+     "train": "37434"
+    },
+    {
+     "hold": {
+      "LW": "11:14"
+     },
+     "train": "37338"
+    },
+    {
+     "hold": {
+      "GN": "09:13"
+     },
+     "to": "HDG",
+     "train": "37321"
+    },
+    {
+     "from": "HDG",
+     "train": "37432"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-02-15-1630-150m-loop-0",
+   "split": "eval",
+   "difficulty": "loop",
+   "day": "2025-02-15",
+   "runs": 26,
+   "reward": 0.184615,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 275,
+   "floor_cost": 234,
+   "greedy_cost": 1464,
+   "real_cost": 35,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 174,
+    "conflicts": 10,
+    "single_track": 3,
+    "headway": 5,
+    "platforms": 2,
+    "closed": 0,
+    "decisions": 52,
+    "holds": 50,
+    "short_turns": 2,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 41,
+    "optimal": 275,
+    "greedy_gap": 0.8,
+    "closed_min": 0,
+    "slow_min": 25,
+    "track_min": 140,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 1,
+   "agent_turns": 12,
+   "checks": 10,
+   "seconds": 638.5,
+   "input_tokens": 1126301,
+   "cache_read_tokens": 904960,
+   "cache_write_tokens": 0,
+   "output_tokens": 172052,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37353",
+     "to": "HDG"
+    },
+    {
+     "train": "37464",
+     "from": "HDG",
+     "hold": {
+      "HDG": "17:36"
+     }
+    },
+    {
+     "train": "37455",
+     "hold": {
+      "GN": "16:57"
+     }
+    },
+    {
+     "train": "37362",
+     "hold": {
+      "GK": "17:16"
+     }
+    },
+    {
+     "train": "37355",
+     "hold": {
+      "GN": "17:19"
+     }
+    },
+    {
+     "train": "37360",
+     "hold": {
+      "ZH": "16:56"
+     }
+    },
+    {
+     "train": "37366",
+     "hold": {
+      "LW": "17:50"
+     }
+    },
+    {
+     "train": "37457",
+     "hold": {
+      "FWD": "17:58"
+     }
+    },
+    {
+     "train": "37357",
+     "hold": {
+      "FWD": "18:08"
+     }
+    },
+    {
+     "train": "37466",
+     "hold": {
+      "LW": "18:11"
+     }
+    },
+    {
+     "train": "37468",
+     "hold": {
+      "LW": "18:22"
+     }
+    },
+    {
+     "train": "37368",
+     "hold": {
+      "ZH": "18:46"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-02-16-1530-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-02-16",
+   "runs": 18,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 273,
+   "optimal_cost": 273,
+   "floor_cost": 269,
+   "greedy_cost": 2157,
+   "real_cost": 38,
+   "hardness": {
+    "runs": 18,
+    "sets": 3,
+    "stops": 122,
+    "conflicts": 5,
+    "single_track": 2,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 3,
+    "decisions": 9,
+    "holds": 5,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 4,
+    "optimal": 273,
+    "greedy_gap": 0.8,
+    "closed_min": 21,
+    "slow_min": 80,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 10,
+   "checks": 9,
+   "seconds": 629.3,
+   "input_tokens": 876404,
+   "cache_read_tokens": 840704,
+   "cache_write_tokens": 0,
+   "output_tokens": 146035,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37349",
+     "to": "HDG"
+    },
+    {
+     "train": "37360",
+     "from": "HDG"
+    },
+    {
+     "train": "37447",
+     "to": "HDG"
+    },
+    {
+     "train": "37458",
+     "from": "HDG"
+    },
+    {
+     "train": "37353",
+     "hold": {
+      "FWD": "17:05"
+     }
+    },
+    {
+     "train": "37455",
+     "hold": {
+      "FWD": "17:29"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-02-16-1700-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-02-16",
+   "runs": 16,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 796,
+   "optimal_cost": 796,
+   "floor_cost": 787,
+   "greedy_cost": 1089,
+   "real_cost": 90,
+   "hardness": {
+    "runs": 16,
+    "sets": 3,
+    "stops": 104,
+    "conflicts": 31,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 31,
+    "decisions": 13,
+    "holds": 6,
+    "short_turns": 6,
+    "cancels": 1,
+    "turn_points": 2,
+    "avoidable": 9,
+    "optimal": 796,
+    "greedy_gap": 0.7963,
+    "closed_min": 92,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 7,
+   "checks": 5,
+   "seconds": 439.1,
+   "input_tokens": 298568,
+   "cache_read_tokens": 274688,
+   "cache_write_tokens": 0,
+   "output_tokens": 78009,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37455",
+     "to": "ZH"
+    },
+    {
+     "train": "37466",
+     "cancel": true
+    },
+    {
+     "train": "37361",
+     "from": "ZH"
+    },
+    {
+     "train": "37462",
+     "to": "BP"
+    },
+    {
+     "train": "37357",
+     "from": "BP"
+    },
+    {
+     "train": "37368",
+     "hold": {
+      "BP": "18:43"
+     }
+    },
+    {
+     "train": "37364",
+     "to": "BP"
+    },
+    {
+     "train": "37459",
+     "from": "BP"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-02-16-1730-240m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-02-16",
+   "runs": 19,
+   "reward": 0.200001,
+   "submitted": true,
+   "feasible": true,
+   "cost": 2283,
+   "optimal_cost": 656,
+   "floor_cost": 652,
+   "greedy_cost": null,
+   "real_cost": 147,
+   "hardness": {
+    "runs": 19,
+    "sets": 3,
+    "stops": 126,
+    "conflicts": 14,
+    "single_track": 8,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 6,
+    "decisions": 21,
+    "holds": 11,
+    "short_turns": 10,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 4,
+    "optimal": 656,
+    "greedy_gap": 0.9579,
+    "closed_min": 36,
+    "slow_min": 210,
+    "track_min": 235,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 12,
+   "checks": 10,
+   "seconds": 774.7,
+   "input_tokens": 1216398,
+   "cache_read_tokens": 1059584,
+   "cache_write_tokens": 0,
+   "output_tokens": 179742,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "to": "ZH",
+     "train": "37364"
+    },
+    {
+     "from": "ZH",
+     "train": "37459"
+    },
+    {
+     "hold": {
+      "GN": "18:16"
+     },
+     "to": "BP",
+     "train": "37357"
+    },
+    {
+     "from": "BP",
+     "hold": {
+      "BP": "18:45"
+     },
+     "train": "37368"
+    },
+    {
+     "hold": {
+      "GN": "18:42"
+     },
+     "train": "37361"
+    },
+    {
+     "hold": {
+      "LW": "18:53"
+     },
+     "train": "37470"
+    },
+    {
+     "hold": {
+      "GN": "19:14"
+     },
+     "train": "37463"
+    },
+    {
+     "hold": {
+      "GN": "19:54"
+     },
+     "train": "37365"
+    },
+    {
+     "hold": {
+      "GN": "20:21"
+     },
+     "train": "37467"
+    },
+    {
+     "hold": {
+      "LW": "21:22"
+     },
+     "train": "37478"
+    },
+    {
+     "hold": {
+      "GN": "21:11"
+     },
+     "train": "37369"
+    },
+    {
+     "hold": {
+      "GN": "21:30"
+     },
+     "train": "37471"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-03-10-0700-210m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-03-10",
+   "runs": 34,
+   "reward": 0.070588,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 455,
+   "floor_cost": 386,
+   "greedy_cost": null,
+   "real_cost": 157,
+   "hardness": {
+    "runs": 34,
+    "sets": 7,
+    "stops": 226,
+    "conflicts": 17,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 32,
+    "holds": 26,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 69,
+    "optimal": 455,
+    "greedy_gap": 0.8294,
+    "closed_min": 23,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 15,
+   "agent_turns": 11,
+   "checks": 10,
+   "seconds": 1046.8,
+   "input_tokens": 1602890,
+   "cache_read_tokens": 1301504,
+   "cache_write_tokens": 0,
+   "output_tokens": 227284,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37422",
+     "hold": {
+      "HDG": "07:33"
+     }
+    },
+    {
+     "train": "37313",
+     "hold": {
+      "FWD": "07:36"
+     }
+    },
+    {
+     "train": "37315",
+     "hold": {
+      "GN": "07:39"
+     }
+    },
+    {
+     "train": "37415",
+     "hold": {
+      "BP": "07:48"
+     }
+    },
+    {
+     "train": "37324",
+     "hold": {
+      "LW": "07:46"
+     }
+    },
+    {
+     "train": "37424",
+     "hold": {
+      "LW": "07:52"
+     }
+    },
+    {
+     "train": "37417",
+     "hold": {
+      "GN": "07:56"
+     }
+    },
+    {
+     "train": "37317",
+     "hold": {
+      "GN": "08:09"
+     }
+    },
+    {
+     "train": "37326",
+     "hold": {
+      "LW": "08:16"
+     }
+    },
+    {
+     "train": "37426",
+     "hold": {
+      "LW": "08:22"
+     }
+    },
+    {
+     "train": "37419",
+     "hold": {
+      "GN": "08:26"
+     }
+    },
+    {
+     "train": "37319",
+     "hold": {
+      "GN": "08:40"
+     }
+    },
+    {
+     "train": "37328",
+     "hold": {
+      "LW": "08:46"
+     }
+    },
+    {
+     "train": "37428",
+     "hold": {
+      "LW": "08:52"
+     }
+    },
+    {
+     "train": "37421",
+     "hold": {
+      "GN": "08:56"
+     }
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "GN": "09:09"
+     }
+    },
+    {
+     "train": "37330",
+     "hold": {
+      "LW": "09:16"
+     }
+    },
+    {
+     "train": "37430",
+     "hold": {
+      "LW": "09:22"
+     }
+    },
+    {
+     "train": "37423",
+     "hold": {
+      "GN": "09:26"
+     }
+    },
+    {
+     "train": "37323",
+     "hold": {
+      "GN": "09:39"
+     }
+    },
+    {
+     "train": "37332",
+     "hold": {
+      "LW": "09:46"
+     }
+    },
+    {
+     "train": "37432",
+     "hold": {
+      "LW": "09:52"
+     }
+    },
+    {
+     "train": "37425",
+     "hold": {
+      "GN": "09:56"
+     }
+    },
+    {
+     "train": "37325",
+     "hold": {
+      "GN": "10:09"
+     }
+    },
+    {
+     "train": "37334",
+     "hold": {
+      "LW": "10:16"
+     }
+    },
+    {
+     "train": "37434",
+     "hold": {
+      "LW": "10:22"
+     }
+    },
+    {
+     "train": "37427",
+     "hold": {
+      "GN": "10:26"
+     }
+    },
+    {
+     "train": "37327",
+     "hold": {
+      "GN": "10:39"
+     }
+    },
+    {
+     "train": "37336",
+     "hold": {
+      "LW": "10:46"
+     }
+    },
+    {
+     "train": "37436",
+     "hold": {
+      "LW": "10:52"
+     }
+    },
+    {
+     "train": "37429",
+     "hold": {
+      "GN": "10:56"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-03-11-0730-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-03-11",
+   "runs": 26,
+   "reward": 0.21875,
+   "submitted": true,
+   "feasible": true,
+   "cost": 2591,
+   "optimal_cost": 2043,
+   "floor_cost": 1851,
+   "greedy_cost": null,
+   "real_cost": 201,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 174,
+    "conflicts": 72,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 72,
+    "decisions": 35,
+    "holds": 19,
+    "short_turns": 12,
+    "cancels": 4,
+    "turn_points": 2,
+    "avoidable": 192,
+    "optimal": 2043,
+    "greedy_gap": 0.9,
+    "closed_min": 130,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 11,
+   "checks": 10,
+   "seconds": 1113.5,
+   "input_tokens": 1791051,
+   "cache_read_tokens": 1508608,
+   "cache_write_tokens": 0,
+   "output_tokens": 233905,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "to": "BP",
+     "train": "37324"
+    },
+    {
+     "to": "BP",
+     "hold": {
+      "DWE": "07:41"
+     },
+     "train": "37424"
+    },
+    {
+     "to": "HDG",
+     "train": "37426"
+    },
+    {
+     "to": "BP",
+     "train": "37328"
+    },
+    {
+     "from": "BP",
+     "train": "37319"
+    },
+    {
+     "from": "BP",
+     "hold": {
+      "FWD": "09:03"
+     },
+     "train": "37421"
+    },
+    {
+     "from": "HDG",
+     "train": "37423"
+    },
+    {
+     "from": "BP",
+     "train": "37323"
+    },
+    {
+     "cancel": true,
+     "train": "37326"
+    },
+    {
+     "cancel": true,
+     "train": "37321"
+    },
+    {
+     "cancel": true,
+     "train": "37317"
+    },
+    {
+     "cancel": true,
+     "train": "37428"
+    },
+    {
+     "cancel": true,
+     "train": "37419"
+    },
+    {
+     "cancel": true,
+     "train": "37330"
+    },
+    {
+     "to": "BP",
+     "train": "37430"
+    },
+    {
+     "from": "BP",
+     "hold": {
+      "BP": "10:17"
+     },
+     "train": "37427"
+    },
+    {
+     "hold": {
+      "GN": "09:51"
+     },
+     "train": "37325"
+    },
+    {
+     "hold": {
+      "GN": "09:54"
+     },
+     "train": "37425"
+    },
+    {
+     "hold": {
+      "DWE": "09:55",
+      "HDG": "09:36",
+      "LW": "09:21"
+     },
+     "train": "37432"
+    },
+    {
+     "hold": {
+      "FWD": "10:00"
+     },
+     "train": "37332"
+    },
+    {
+     "hold": {
+      "FWD": "10:05"
+     },
+     "train": "37334"
+    },
+    {
+     "hold": {
+      "FWD": "10:08"
+     },
+     "train": "37434"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-03-12-1530-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-03-12",
+   "runs": 30,
+   "reward": 0.1,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 806,
+   "floor_cost": 730,
+   "greedy_cost": 1632,
+   "real_cost": 98,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 31,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 31,
+    "decisions": 36,
+    "holds": 28,
+    "short_turns": 8,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 76,
+    "optimal": 806,
+    "greedy_gap": 0.7999,
+    "closed_min": 25,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 16,
+   "agent_turns": 12,
+   "checks": 10,
+   "seconds": 729.7,
+   "input_tokens": 1406844,
+   "cache_read_tokens": 1135616,
+   "cache_write_tokens": 0,
+   "output_tokens": 207055,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37347",
+     "hold": {
+      "FWD": "16:00"
+     }
+    },
+    {
+     "train": "37447",
+     "hold": {
+      "LWC": "16:00"
+     }
+    },
+    {
+     "train": "37349",
+     "to": "HDG",
+     "hold": {
+      "ZH": "16:00"
+     }
+    },
+    {
+     "train": "37449",
+     "to": "HDG",
+     "hold": {
+      "ZH": "16:05"
+     }
+    },
+    {
+     "train": "37356",
+     "hold": {
+      "BP": "16:00"
+     }
+    },
+    {
+     "train": "37456",
+     "hold": {
+      "FWD": "16:00"
+     }
+    },
+    {
+     "train": "37358",
+     "hold": {
+      "LW": "16:08"
+     }
+    },
+    {
+     "train": "37458",
+     "hold": {
+      "LW": "16:12"
+     }
+    },
+    {
+     "train": "37460",
+     "from": "HDG",
+     "hold": {
+      "HDG": "16:30"
+     }
+    },
+    {
+     "train": "37360",
+     "from": "HDG",
+     "hold": {
+      "HDG": "16:36"
+     }
+    },
+    {
+     "train": "37451",
+     "hold": {
+      "ZH": "16:12"
+     }
+    },
+    {
+     "train": "37351",
+     "hold": {
+      "ZH": "16:31"
+     }
+    },
+    {
+     "train": "37453",
+     "hold": {
+      "ZH": "16:44"
+     }
+    },
+    {
+     "train": "37353",
+     "hold": {
+      "ZH": "16:52"
+     }
+    },
+    {
+     "train": "37362",
+     "hold": {
+      "LW": "16:54"
+     }
+    },
+    {
+     "train": "37462",
+     "hold": {
+      "LW": "17:04"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-03-12-1730-210m-loop-0",
+   "split": "eval",
+   "difficulty": "loop",
+   "day": "2025-03-12",
+   "runs": 33,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 166,
+   "optimal_cost": 166,
+   "floor_cost": 158,
+   "greedy_cost": 826,
+   "real_cost": 64,
+   "hardness": {
+    "runs": 33,
+    "sets": 7,
+    "stops": 208,
+    "conflicts": 11,
+    "single_track": 2,
+    "headway": 8,
+    "platforms": 1,
+    "closed": 0,
+    "decisions": 35,
+    "holds": 33,
+    "short_turns": 2,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 8,
+    "optimal": 166,
+    "greedy_gap": 0.8,
+    "closed_min": 0,
+    "slow_min": 0,
+    "track_min": 10,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 7,
+   "checks": 5,
+   "seconds": 340.8,
+   "input_tokens": 289633,
+   "cache_read_tokens": 211712,
+   "cache_write_tokens": 0,
+   "output_tokens": 59238,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "hold": {
+      "FWD": "18:29"
+     },
+     "to": "HDG",
+     "train": "37357"
+    },
+    {
+     "from": "HDG",
+     "train": "37468"
+    },
+    {
+     "hold": {
+      "ZH": "18:00"
+     },
+     "train": "37464"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-03-13-0706-180m-real-0",
+   "split": "eval",
+   "difficulty": "real",
+   "day": "2025-03-13",
+   "runs": 26,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 378,
+   "optimal_cost": 378,
+   "floor_cost": 378,
+   "greedy_cost": null,
+   "real_cost": 554,
+   "hardness": {
+    "runs": 26,
+    "sets": 6,
+    "stops": 177,
+    "conflicts": 18,
+    "single_track": 1,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 27,
+    "holds": 19,
+    "short_turns": 8,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 0,
+    "optimal": 378,
+    "greedy_gap": 0.8077,
+    "closed_min": 59,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 7,
+   "checks": 6,
+   "seconds": 345.6,
+   "input_tokens": 297677,
+   "cache_read_tokens": 228096,
+   "cache_write_tokens": 0,
+   "output_tokens": 54175,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": "[{\"train\": \"37413\", \"to\": \"HDG\"}, {\"train\": \"37313\", \"to\": \"HDG\"}, {\"train\": \"37415\", \"to\": \"HDG\"}, {\"train\": \"37315\", \"to\": \"HDG\"}, {\"train\": \"37324\", \"from\": \"HDG\"}, {\"train\": \"37424\", \"from\": \"HDG\"}, {\"train\": \"37326\", \"from\": \"HDG\"}, {\"train\": \"37426\", \"from\": \"HDG\"}, {\"train\": \"37417\", \"hold\": {\"HDG\": \"08:00\"}}]"
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-03-16-1630-180m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-03-16",
+   "runs": 15,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1259,
+   "optimal_cost": 1259,
+   "floor_cost": 1256,
+   "greedy_cost": null,
+   "real_cost": 73,
+   "hardness": {
+    "runs": 15,
+    "sets": 3,
+    "stops": 100,
+    "conflicts": 53,
+    "single_track": 3,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 50,
+    "decisions": 15,
+    "holds": 3,
+    "short_turns": 10,
+    "cancels": 2,
+    "turn_points": 2,
+    "avoidable": 3,
+    "optimal": 1259,
+    "greedy_gap": 0.8533,
+    "closed_min": 149,
+    "slow_min": 95,
+    "track_min": 31,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 4,
+   "checks": 3,
+   "seconds": 291.0,
+   "input_tokens": 133914,
+   "cache_read_tokens": 65536,
+   "cache_write_tokens": 0,
+   "output_tokens": 58378,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "to": "BP",
+     "train": "37360"
+    },
+    {
+     "from": "BP",
+     "train": "37455"
+    },
+    {
+     "to": "BP",
+     "train": "37466"
+    },
+    {
+     "from": "BP",
+     "train": "37361"
+    },
+    {
+     "to": "BP",
+     "train": "37462"
+    },
+    {
+     "from": "BP",
+     "hold": {
+      "FWD": "18:05"
+     },
+     "train": "37357"
+    },
+    {
+     "to": "BP",
+     "train": "37368"
+    },
+    {
+     "from": "BP",
+     "train": "37463"
+    },
+    {
+     "to": "ZH",
+     "train": "37353"
+    },
+    {
+     "cancel": true,
+     "train": "37364"
+    },
+    {
+     "cancel": true,
+     "train": "37459"
+    },
+    {
+     "from": "ZH",
+     "train": "37470"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-03-16-1700-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-03-16",
+   "runs": 16,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 529,
+   "optimal_cost": 529,
+   "floor_cost": 529,
+   "greedy_cost": 2995,
+   "real_cost": 86,
+   "hardness": {
+    "runs": 16,
+    "sets": 3,
+    "stops": 104,
+    "conflicts": 13,
+    "single_track": 8,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 5,
+    "decisions": 20,
+    "holds": 12,
+    "short_turns": 8,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 0,
+    "optimal": 529,
+    "greedy_gap": 0.8,
+    "closed_min": 35,
+    "slow_min": 210,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 9,
+   "checks": 7,
+   "seconds": 593.2,
+   "input_tokens": 567356,
+   "cache_read_tokens": 446976,
+   "cache_write_tokens": 0,
+   "output_tokens": 103629,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37353",
+     "to": "HDG"
+    },
+    {
+     "train": "37364",
+     "from": "HDG",
+     "hold": {
+      "HDG": "17:24"
+     }
+    },
+    {
+     "train": "37455",
+     "hold": {
+      "HDG": "17:35"
+     }
+    },
+    {
+     "train": "37357",
+     "to": "HDG"
+    },
+    {
+     "train": "37368",
+     "from": "HDG",
+     "hold": {
+      "HDG": "18:24"
+     }
+    },
+    {
+     "train": "37361",
+     "to": "HDG",
+     "hold": {
+      "FWD": "19:10"
+     }
+    },
+    {
+     "train": "37372",
+     "from": "HDG",
+     "hold": {
+      "HDG": "19:24"
+     }
+    },
+    {
+     "train": "37365",
+     "to": "HDG",
+     "hold": {
+      "FWD": "20:10"
+     }
+    },
+    {
+     "train": "37376",
+     "from": "HDG",
+     "hold": {
+      "HDG": "20:24"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-04-23-1630-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-04-23",
+   "runs": 26,
+   "reward": 0.48018,
+   "submitted": true,
+   "feasible": true,
+   "cost": 2054,
+   "optimal_cost": 1926,
+   "floor_cost": 1782,
+   "greedy_cost": null,
+   "real_cost": 40,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 174,
+    "conflicts": 18,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 18,
+    "decisions": 26,
+    "holds": 12,
+    "short_turns": 14,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 144,
+    "optimal": 1926,
+    "greedy_gap": 0.8385,
+    "closed_min": 120,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 8,
+   "checks": 6,
+   "seconds": 845.0,
+   "input_tokens": 704829,
+   "cache_read_tokens": 506880,
+   "cache_write_tokens": 0,
+   "output_tokens": 178353,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37368",
+     "from": "BP"
+    },
+    {
+     "train": "37468",
+     "from": "BP"
+    },
+    {
+     "train": "37366",
+     "from": "BP"
+    },
+    {
+     "train": "37466",
+     "from": "BP"
+    },
+    {
+     "train": "37464",
+     "from": "BP"
+    },
+    {
+     "train": "37359",
+     "from": "HDG"
+    },
+    {
+     "train": "37459",
+     "from": "HDG"
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "BP": "19:15"
+     }
+    },
+    {
+     "train": "37461",
+     "hold": {
+      "FWD": "19:16"
+     }
+    },
+    {
+     "train": "37463",
+     "hold": {
+      "GK": "19:11"
+     }
+    },
+    {
+     "train": "37370",
+     "hold": {
+      "HDG": "19:10"
+     }
+    },
+    {
+     "train": "37470",
+     "hold": {
+      "HDG": "19:13"
+     }
+    },
+    {
+     "train": "37355",
+     "to": "BP",
+     "hold": {
+      "GN": "17:49"
+     }
+    },
+    {
+     "train": "37357",
+     "to": "BP",
+     "hold": {
+      "GN": "17:58"
+     }
+    },
+    {
+     "train": "37457",
+     "to": "BP"
+    },
+    {
+     "train": "37455",
+     "to": "BP"
+    },
+    {
+     "train": "37353",
+     "to": "BP"
+    },
+    {
+     "train": "37364",
+     "to": "HDG"
+    },
+    {
+     "train": "37462",
+     "to": "HDG"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-04-25-1730-210m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-04-25",
+   "runs": 33,
+   "reward": 0.496874,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1427,
+   "optimal_cost": 1370,
+   "floor_cost": 1355,
+   "greedy_cost": null,
+   "real_cost": 51,
+   "hardness": {
+    "runs": 33,
+    "sets": 7,
+    "stops": 208,
+    "conflicts": 33,
+    "single_track": 5,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 28,
+    "decisions": 25,
+    "holds": 11,
+    "short_turns": 14,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 15,
+    "optimal": 1370,
+    "greedy_gap": 0.8424,
+    "closed_min": 66,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 11,
+   "checks": 9,
+   "seconds": 600.4,
+   "input_tokens": 985691,
+   "cache_read_tokens": 808448,
+   "cache_write_tokens": 0,
+   "output_tokens": 141519,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": "[{\"train\":\"37457\",\"to\":\"ZH\"},{\"train\":\"37368\",\"from\":\"ZH\"},{\"train\":\"37364\",\"to\":\"BP\"},{\"train\":\"37359\",\"from\":\"BP\"},{\"train\":\"37357\",\"to\":\"ZH\",\"hold\":{\"GN\":\"18:38\"}},{\"train\":\"37468\",\"from\":\"ZH\"},{\"train\":\"37459\",\"to\":\"ZH\"},{\"train\":\"37370\",\"from\":\"ZH\"},{\"train\":\"37366\",\"to\":\"BP\",\"hold\":{\"FWD\":\"18:40\"}},{\"train\":\"37361\",\"from\":\"BP\"},{\"train\":\"37466\",\"to\":\"BP\",\"hold\":{\"DWE\":\"18:23\"}},{\"train\":\"37463\",\"from\":\"BP\"},{\"train\":\"37464\",\"to\":\"BP\"},{\"train\":\"37461\",\"from\":\"BP\"}]"
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-04-26-0630-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-04-26",
+   "runs": 20,
+   "reward": 0.200613,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1646,
+   "optimal_cost": 1047,
+   "floor_cost": 980,
+   "greedy_cost": 3569,
+   "real_cost": 88,
+   "hardness": {
+    "runs": 20,
+    "sets": 7,
+    "stops": 150,
+    "conflicts": 35,
+    "single_track": 9,
+    "headway": 19,
+    "platforms": 1,
+    "closed": 6,
+    "decisions": 38,
+    "holds": 30,
+    "short_turns": 8,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 67,
+    "optimal": 1047,
+    "greedy_gap": 0.8,
+    "closed_min": 59,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 12,
+   "checks": 10,
+   "seconds": 1002.2,
+   "input_tokens": 1618192,
+   "cache_read_tokens": 1389824,
+   "cache_write_tokens": 0,
+   "output_tokens": 213006,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "from": "HDG",
+     "train": "37424"
+    },
+    {
+     "from": "HDG",
+     "hold": {
+      "HDG": "08:07"
+     },
+     "train": "37417"
+    },
+    {
+     "hold": {
+      "FWD": "07:41"
+     },
+     "train": "37415"
+    },
+    {
+     "hold": {
+      "FWD": "08:30"
+     },
+     "train": "37328"
+    },
+    {
+     "hold": {
+      "FWD": "09:14",
+      "GN": "08:42"
+     },
+     "train": "37321"
+    },
+    {
+     "hold": {
+      "GK": "07:56",
+      "LW": "07:29"
+     },
+     "train": "37422"
+    },
+    {
+     "hold": {
+      "GN": "08:32",
+      "HDG": "09:11"
+     },
+     "train": "37421"
+    },
+    {
+     "hold": {
+      "GN": "09:10"
+     },
+     "train": "37423"
+    },
+    {
+     "hold": {
+      "GN": "09:21"
+     },
+     "train": "37323"
+    },
+    {
+     "hold": {
+      "GN": "09:33"
+     },
+     "train": "37425"
+    },
+    {
+     "hold": {
+      "LW": "08:00"
+     },
+     "train": "37426"
+    },
+    {
+     "hold": {
+      "LW": "08:22"
+     },
+     "train": "37428"
+    },
+    {
+     "hold": {
+      "LW": "09:01"
+     },
+     "train": "37330"
+    },
+    {
+     "hold": {
+      "FWD": "09:16",
+      "LW": "09:04"
+     },
+     "train": "37430"
+    },
+    {
+     "hold": {
+      "LW": "09:24"
+     },
+     "train": "37332"
+    },
+    {
+     "hold": {
+      "LW": "09:28"
+     },
+     "train": "37432"
+    },
+    {
+     "to": "HDG",
+     "train": "37413"
+    },
+    {
+     "to": "HDG",
+     "train": "37420"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-04-26-1700-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-04-26",
+   "runs": 30,
+   "reward": 0.698163,
+   "submitted": true,
+   "feasible": true,
+   "cost": 474,
+   "optimal_cost": 447,
+   "floor_cost": 433,
+   "greedy_cost": 2402,
+   "real_cost": 59,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 10,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 10,
+    "decisions": 31,
+    "holds": 25,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 14,
+    "optimal": 447,
+    "greedy_gap": 0.8,
+    "closed_min": 36,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 12,
+   "checks": 10,
+   "seconds": 831.0,
+   "input_tokens": 1495137,
+   "cache_read_tokens": 1237248,
+   "cache_write_tokens": 0,
+   "output_tokens": 195546,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": "[{\"train\":\"37362\",\"to\":\"ZH\"},{\"train\":\"37357\",\"from\":\"ZH\"},{\"train\":\"37462\",\"to\":\"ZH\"},{\"train\":\"37459\",\"from\":\"ZH\"},{\"train\":\"37364\",\"hold\":{\"BP\":\"17:45\",\"ZH\":\"17:56\"}},{\"train\":\"37457\",\"to\":\"BP\",\"hold\":{\"GN\":\"18:04\"}},{\"train\":\"37368\",\"from\":\"BP\"},{\"train\":\"37464\",\"hold\":{\"BP\":\"17:48\"}}]"
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-04-27-0800-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-04-27",
+   "runs": 15,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 382,
+   "optimal_cost": 382,
+   "floor_cost": 378,
+   "greedy_cost": 1155,
+   "real_cost": 39,
+   "hardness": {
+    "runs": 15,
+    "sets": 3,
+    "stops": 100,
+    "conflicts": 20,
+    "single_track": 3,
+    "headway": 14,
+    "platforms": 0,
+    "closed": 3,
+    "decisions": 20,
+    "holds": 16,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 4,
+    "optimal": 382,
+    "greedy_gap": 0.8,
+    "closed_min": 36,
+    "slow_min": 80,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 7,
+   "checks": 6,
+   "seconds": 584.3,
+   "input_tokens": 551600,
+   "cache_read_tokens": 492288,
+   "cache_write_tokens": 0,
+   "output_tokens": 128126,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "hold": {
+      "ZH": "08:41"
+     },
+     "train": "37426"
+    },
+    {
+     "to": "BP",
+     "train": "37328"
+    },
+    {
+     "from": "BP",
+     "train": "37423"
+    },
+    {
+     "to": "HDG",
+     "train": "37321"
+    },
+    {
+     "from": "HDG",
+     "train": "37332"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-04-27-0830-210m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-04-27",
+   "runs": 18,
+   "reward": 0.314963,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1380,
+   "optimal_cost": 1283,
+   "floor_cost": 1283,
+   "greedy_cost": 1624,
+   "real_cost": 45,
+   "hardness": {
+    "runs": 18,
+    "sets": 3,
+    "stops": 122,
+    "conflicts": 10,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 10,
+    "decisions": 15,
+    "holds": 3,
+    "short_turns": 12,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 0,
+    "optimal": 1283,
+    "greedy_gap": 0.7991,
+    "closed_min": 157,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": false,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 4,
+   "checks": 2,
+   "seconds": 375.3,
+   "input_tokens": 169751,
+   "cache_read_tokens": 65024,
+   "cache_write_tokens": 0,
+   "output_tokens": 97092,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37430",
+     "to": "HDG"
+    },
+    {
+     "train": "37325",
+     "from": "HDG"
+    },
+    {
+     "train": "37336",
+     "to": "HDG"
+    },
+    {
+     "train": "37431",
+     "from": "HDG"
+    },
+    {
+     "train": "37321",
+     "to": "BP"
+    },
+    {
+     "train": "37332",
+     "from": "BP"
+    },
+    {
+     "train": "37427",
+     "to": "BP"
+    },
+    {
+     "train": "37438",
+     "from": "BP"
+    },
+    {
+     "train": "37423",
+     "to": "BP"
+    },
+    {
+     "train": "37434",
+     "from": "BP"
+    },
+    {
+     "train": "37329",
+     "to": "BP"
+    },
+    {
+     "train": "37340",
+     "from": "BP"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-05-26-0730-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-26",
+   "runs": 26,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 857,
+   "optimal_cost": 857,
+   "floor_cost": 848,
+   "greedy_cost": null,
+   "real_cost": 165,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 174,
+    "conflicts": 24,
+    "single_track": 3,
+    "headway": 4,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 32,
+    "holds": 14,
+    "short_turns": 18,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 9,
+    "optimal": 857,
+    "greedy_gap": 0.8231,
+    "closed_min": 130,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 7,
+   "checks": 5,
+   "seconds": 261.8,
+   "input_tokens": 326164,
+   "cache_read_tokens": 214528,
+   "cache_write_tokens": 0,
+   "output_tokens": 77311,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "to": "HDG",
+     "train": "37315"
+    },
+    {
+     "to": "HDG",
+     "train": "37417"
+    },
+    {
+     "to": "HDG",
+     "train": "37317"
+    },
+    {
+     "hold": {
+      "GN": "07:57"
+     },
+     "to": "HDG",
+     "train": "37419"
+    },
+    {
+     "to": "HDG",
+     "train": "37319"
+    },
+    {
+     "to": "HDG",
+     "train": "37421"
+    },
+    {
+     "to": "HDG",
+     "train": "37321"
+    },
+    {
+     "to": "HDG",
+     "train": "37423"
+    },
+    {
+     "to": "HDG",
+     "train": "37323"
+    },
+    {
+     "hold": {
+      "FWD": "07:56"
+     },
+     "train": "37326"
+    },
+    {
+     "from": "HDG",
+     "train": "37426"
+    },
+    {
+     "from": "HDG",
+     "train": "37328"
+    },
+    {
+     "from": "HDG",
+     "train": "37428"
+    },
+    {
+     "from": "HDG",
+     "train": "37330"
+    },
+    {
+     "from": "HDG",
+     "train": "37430"
+    },
+    {
+     "from": "HDG",
+     "train": "37332"
+    },
+    {
+     "from": "HDG",
+     "train": "37432"
+    },
+    {
+     "from": "HDG",
+     "train": "37334"
+    },
+    {
+     "from": "HDG",
+     "train": "37434"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-05-26-1630-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-26",
+   "runs": 26,
+   "reward": 0.910713,
+   "submitted": true,
+   "feasible": true,
+   "cost": 264,
+   "optimal_cost": 254,
+   "floor_cost": 185,
+   "greedy_cost": null,
+   "real_cost": 55,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 174,
+    "conflicts": 8,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 8,
+    "decisions": 27,
+    "holds": 25,
+    "short_turns": 2,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 69,
+    "optimal": 254,
+    "greedy_gap": 0.8,
+    "closed_min": 10,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 10,
+   "checks": 8,
+   "seconds": 720.7,
+   "input_tokens": 1129978,
+   "cache_read_tokens": 1006592,
+   "cache_write_tokens": 0,
+   "output_tokens": 192034,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "hold": {
+      "ZH": "17:00"
+     },
+     "train": "37360"
+    },
+    {
+     "hold": {
+      "GN": "17:00"
+     },
+     "train": "37455"
+    },
+    {
+     "hold": {
+      "BP": "17:04"
+     },
+     "train": "37460"
+    },
+    {
+     "hold": {
+      "FWD": "17:04"
+     },
+     "train": "37362"
+    },
+    {
+     "hold": {
+      "FWD": "17:07"
+     },
+     "train": "37462"
+    },
+    {
+     "from": "HDG",
+     "hold": {
+      "HDG": "17:31"
+     },
+     "train": "37464"
+    },
+    {
+     "hold": {
+      "ZH": "17:00"
+     },
+     "to": "HDG",
+     "train": "37353"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-05-26-1800-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-26",
+   "runs": 25,
+   "reward": 0.878733,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1026,
+   "optimal_cost": 1014,
+   "floor_cost": 968,
+   "greedy_cost": null,
+   "real_cost": 41,
+   "hardness": {
+    "runs": 25,
+    "sets": 7,
+    "stops": 158,
+    "conflicts": 17,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 31,
+    "holds": 17,
+    "short_turns": 12,
+    "cancels": 2,
+    "turn_points": 1,
+    "avoidable": 46,
+    "optimal": 1014,
+    "greedy_gap": 0.824,
+    "closed_min": 130,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 8,
+   "checks": 6,
+   "seconds": 582.2,
+   "input_tokens": 639189,
+   "cache_read_tokens": 470016,
+   "cache_write_tokens": 0,
+   "output_tokens": 138721,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "to": "HDG",
+     "train": "37357"
+    },
+    {
+     "to": "HDG",
+     "train": "37459"
+    },
+    {
+     "to": "HDG",
+     "train": "37359"
+    },
+    {
+     "to": "HDG",
+     "train": "37461"
+    },
+    {
+     "to": "HDG",
+     "train": "37361"
+    },
+    {
+     "to": "HDG",
+     "train": "37463"
+    },
+    {
+     "to": "HDG",
+     "train": "37465"
+    },
+    {
+     "cancel": true,
+     "train": "37363"
+    },
+    {
+     "cancel": true,
+     "train": "37368"
+    },
+    {
+     "from": "HDG",
+     "train": "37468"
+    },
+    {
+     "from": "HDG",
+     "train": "37370"
+    },
+    {
+     "from": "HDG",
+     "train": "37470"
+    },
+    {
+     "from": "HDG",
+     "train": "37372"
+    },
+    {
+     "from": "HDG",
+     "train": "37472"
+    },
+    {
+     "from": "HDG",
+     "train": "37374"
+    },
+    {
+     "from": "HDG",
+     "hold": {
+      "HDG": "20:26"
+     },
+     "train": "37376"
+    },
+    {
+     "hold": {
+      "FWD": "20:22"
+     },
+     "train": "37365"
+    },
+    {
+     "hold": {
+      "LWC": "20:15"
+     },
+     "train": "37474"
+    },
+    {
+     "hold": {
+      "FWD": "20:29"
+     },
+     "train": "37467"
+    },
+    {
+     "hold": {
+      "FWD": "20:36"
+     },
+     "train": "37367"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-05-27-0830-210m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-27",
+   "runs": 34,
+   "reward": 0.547223,
+   "submitted": true,
+   "feasible": true,
+   "cost": 848,
+   "optimal_cost": 795,
+   "floor_cost": 768,
+   "greedy_cost": null,
+   "real_cost": 285,
+   "hardness": {
+    "runs": 34,
+    "sets": 7,
+    "stops": 226,
+    "conflicts": 28,
+    "single_track": 1,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 27,
+    "decisions": 44,
+    "holds": 30,
+    "short_turns": 12,
+    "cancels": 2,
+    "turn_points": 1,
+    "avoidable": 27,
+    "optimal": 795,
+    "greedy_gap": 0.8529,
+    "closed_min": 98,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 10,
+   "checks": 9,
+   "seconds": 1042.7,
+   "input_tokens": 1118871,
+   "cache_read_tokens": 868096,
+   "cache_write_tokens": 0,
+   "output_tokens": 178741,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "hold": {
+      "HDG": "08:32"
+     },
+     "to": "ZH",
+     "train": "37428"
+    },
+    {
+     "hold": {
+      "FWD": "08:35"
+     },
+     "train": "37319"
+    },
+    {
+     "from": "ZH",
+     "train": "37425"
+    },
+    {
+     "hold": {
+      "BP": "09:28"
+     },
+     "to": "ZH",
+     "train": "37330"
+    },
+    {
+     "from": "ZH",
+     "train": "37325"
+    },
+    {
+     "to": "ZH",
+     "train": "37430"
+    },
+    {
+     "from": "ZH",
+     "train": "37427"
+    },
+    {
+     "hold": {
+      "BP": "10:03"
+     },
+     "to": "ZH",
+     "train": "37332"
+    },
+    {
+     "from": "ZH",
+     "train": "37327"
+    },
+    {
+     "to": "ZH",
+     "train": "37432"
+    },
+    {
+     "from": "ZH",
+     "train": "37429"
+    },
+    {
+     "to": "ZH",
+     "train": "37328"
+    },
+    {
+     "from": "ZH",
+     "train": "37323"
+    },
+    {
+     "to": "ZH",
+     "train": "37434"
+    },
+    {
+     "from": "ZH",
+     "train": "37431"
+    },
+    {
+     "cancel": true,
+     "train": "37423"
+    },
+    {
+     "cancel": true,
+     "train": "37334"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-05-27-1700-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-27",
+   "runs": 30,
+   "reward": 0.166667,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 791,
+   "floor_cost": 670,
+   "greedy_cost": null,
+   "real_cost": 253,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 17,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 27,
+    "holds": 21,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 121,
+    "optimal": 791,
+    "greedy_gap": 0.8467,
+    "closed_min": 35,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 6,
+   "agent_turns": 12,
+   "checks": 10,
+   "seconds": 1086.9,
+   "input_tokens": 1890559,
+   "cache_read_tokens": 1355776,
+   "cache_write_tokens": 0,
+   "output_tokens": 277615,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37355",
+     "to": "ZH"
+    },
+    {
+     "train": "37466",
+     "from": "ZH"
+    },
+    {
+     "train": "37457",
+     "to": "ZH",
+     "hold": {
+      "GN": "18:27"
+     }
+    },
+    {
+     "train": "37368",
+     "from": "ZH"
+    },
+    {
+     "train": "37462",
+     "to": "BP"
+    },
+    {
+     "train": "37459",
+     "from": "BP",
+     "hold": {
+      "BP": "18:20"
+     }
+    },
+    {
+     "train": "37357",
+     "hold": {
+      "GN": "17:48"
+     }
+    },
+    {
+     "train": "37364",
+     "hold": {
+      "BP": "17:55"
+     }
+    },
+    {
+     "train": "37464",
+     "hold": {
+      "FWD": "17:47"
+     }
+    },
+    {
+     "train": "37370",
+     "hold": {
+      "LW": "18:49"
+     }
+    },
+    {
+     "train": "37470",
+     "hold": {
+      "LW": "18:52"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-05-27-1830-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-27",
+   "runs": 27,
+   "reward": 0.745803,
+   "submitted": true,
+   "feasible": true,
+   "cost": 622,
+   "optimal_cost": 596,
+   "floor_cost": 560,
+   "greedy_cost": null,
+   "real_cost": 170,
+   "hardness": {
+    "runs": 27,
+    "sets": 7,
+    "stops": 162,
+    "conflicts": 25,
+    "single_track": 8,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 27,
+    "holds": 17,
+    "short_turns": 10,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 36,
+    "optimal": 596,
+    "greedy_gap": 0.8593,
+    "closed_min": 59,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 7,
+   "checks": 5,
+   "seconds": 596.4,
+   "input_tokens": 450429,
+   "cache_read_tokens": 279552,
+   "cache_write_tokens": 0,
+   "output_tokens": 135727,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "to": "HDG",
+     "train": "37459"
+    },
+    {
+     "to": "HDG",
+     "train": "37461"
+    },
+    {
+     "to": "HDG",
+     "train": "37463"
+    },
+    {
+     "to": "HDG",
+     "train": "37363"
+    },
+    {
+     "hold": {
+      "GN": "18:51"
+     },
+     "to": "HDG",
+     "train": "37361"
+    },
+    {
+     "hold": {
+      "FWD": "18:39"
+     },
+     "to": "HDG",
+     "train": "37359"
+    },
+    {
+     "from": "HDG",
+     "train": "37370"
+    },
+    {
+     "from": "HDG",
+     "train": "37372"
+    },
+    {
+     "from": "HDG",
+     "train": "37374"
+    },
+    {
+     "from": "HDG",
+     "train": "37474"
+    },
+    {
+     "from": "HDG",
+     "train": "37472"
+    },
+    {
+     "from": "HDG",
+     "train": "37470"
+    },
+    {
+     "hold": {
+      "BP": "18:42"
+     },
+     "train": "37368"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-05-28-1830-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-05-28",
+   "runs": 31,
+   "reward": 0.693218,
+   "submitted": true,
+   "feasible": true,
+   "cost": 473,
+   "optimal_cost": 436,
+   "floor_cost": 383,
+   "greedy_cost": 1271,
+   "real_cost": 69,
+   "hardness": {
+    "runs": 31,
+    "sets": 7,
+    "stops": 186,
+    "conflicts": 23,
+    "single_track": 10,
+    "headway": 11,
+    "platforms": 1,
+    "closed": 1,
+    "decisions": 36,
+    "holds": 32,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 53,
+    "optimal": 436,
+    "greedy_gap": 0.8,
+    "closed_min": 10,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 9,
+   "checks": 10,
+   "seconds": 579.6,
+   "input_tokens": 994697,
+   "cache_read_tokens": 861184,
+   "cache_write_tokens": 0,
+   "output_tokens": 156543,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "hold": {
+      "BP": "18:43"
+     },
+     "train": "37368"
+    },
+    {
+     "hold": {
+      "BP": "18:46"
+     },
+     "train": "37468"
+    },
+    {
+     "hold": {
+      "LW": "18:48"
+     },
+     "train": "37370"
+    },
+    {
+     "hold": {
+      "HDG": "19:11"
+     },
+     "train": "37461"
+    },
+    {
+     "hold": {
+      "FWD": "19:31",
+      "GN": "19:06"
+     },
+     "to": "HDG",
+     "train": "37361"
+    },
+    {
+     "from": "HDG",
+     "train": "37472"
+    },
+    {
+     "hold": {
+      "GK": "19:35"
+     },
+     "train": "37470"
+    },
+    {
+     "hold": {
+      "BP": "19:42",
+      "LW": "19:23"
+     },
+     "train": "37372"
+    },
+    {
+     "hold": {
+      "GN": "19:12"
+     },
+     "train": "37363"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-05-30-0630-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-30",
+   "runs": 29,
+   "reward": 0.068966,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 454,
+   "floor_cost": 385,
+   "greedy_cost": 1397,
+   "real_cost": 1128,
+   "hardness": {
+    "runs": 29,
+    "sets": 7,
+    "stops": 201,
+    "conflicts": 13,
+    "single_track": 1,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 12,
+    "decisions": 37,
+    "holds": 33,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 69,
+    "optimal": 454,
+    "greedy_gap": 0.8,
+    "closed_min": 28,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 27,
+   "agent_turns": 11,
+   "checks": 10,
+   "seconds": 1377.9,
+   "input_tokens": 2151640,
+   "cache_read_tokens": 1795584,
+   "cache_write_tokens": 0,
+   "output_tokens": 323080,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37313",
+     "hold": {
+      "GN": "07:00"
+     }
+    },
+    {
+     "train": "37413",
+     "hold": {
+      "ZH": "06:58"
+     }
+    },
+    {
+     "train": "37415",
+     "hold": {
+      "ZH": "07:10"
+     }
+    },
+    {
+     "train": "37320",
+     "hold": {
+      "BP": "07:07"
+     }
+    },
+    {
+     "train": "37420",
+     "hold": {
+      "HDG": "06:31",
+      "BP": "07:10"
+     }
+    },
+    {
+     "train": "37322",
+     "hold": {
+      "FWD": "07:13"
+     }
+    },
+    {
+     "train": "37422",
+     "hold": {
+      "FWD": "07:17"
+     }
+    },
+    {
+     "train": "37324",
+     "hold": {
+      "LW": "07:42"
+     }
+    },
+    {
+     "train": "37424",
+     "hold": {
+      "LW": "07:47"
+     }
+    },
+    {
+     "train": "37326",
+     "hold": {
+      "LW": "07:56"
+     }
+    },
+    {
+     "train": "37315",
+     "hold": {
+      "GN": "07:37"
+     }
+    },
+    {
+     "train": "37417",
+     "hold": {
+      "GN": "07:50"
+     }
+    },
+    {
+     "train": "37317",
+     "hold": {
+      "GN": "08:02"
+     }
+    },
+    {
+     "train": "37419",
+     "hold": {
+      "GN": "08:13"
+     }
+    },
+    {
+     "train": "37319",
+     "hold": {
+      "GN": "08:27"
+     }
+    },
+    {
+     "train": "37421",
+     "hold": {
+      "GN": "08:39"
+     }
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "GN": "08:46"
+     }
+    },
+    {
+     "train": "37423",
+     "hold": {
+      "GN": "09:05"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-05-31-0800-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-05-31",
+   "runs": 32,
+   "reward": 0.421887,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1347,
+   "optimal_cost": 1179,
+   "floor_cost": 1017,
+   "greedy_cost": 5859,
+   "real_cost": 90,
+   "hardness": {
+    "runs": 32,
+    "sets": 7,
+    "stops": 218,
+    "conflicts": 43,
+    "single_track": 6,
+    "headway": 16,
+    "platforms": 2,
+    "closed": 19,
+    "decisions": 30,
+    "holds": 20,
+    "short_turns": 10,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 162,
+    "optimal": 1179,
+    "greedy_gap": 0.8,
+    "closed_min": 39,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 2
+   },
+   "violations": 0,
+   "agent_turns": 11,
+   "checks": 9,
+   "seconds": 673.8,
+   "input_tokens": 1237571,
+   "cache_read_tokens": 1009408,
+   "cache_write_tokens": 0,
+   "output_tokens": 181177,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "to": "ZH",
+     "train": "37419"
+    },
+    {
+     "from": "ZH",
+     "hold": {
+      "ZH": "09:20"
+     },
+     "train": "37330"
+    },
+    {
+     "to": "BP",
+     "train": "37426"
+    },
+    {
+     "from": "BP",
+     "train": "37423"
+    },
+    {
+     "hold": {
+      "GN": "08:52"
+     },
+     "to": "BP",
+     "train": "37319"
+    },
+    {
+     "from": "BP",
+     "hold": {
+      "BP": "09:18"
+     },
+     "train": "37430"
+    },
+    {
+     "hold": {
+      "GN": "08:56"
+     },
+     "to": "BP",
+     "train": "37421"
+    },
+    {
+     "from": "BP",
+     "train": "37332"
+    },
+    {
+     "hold": {
+      "GN": "09:14"
+     },
+     "to": "BP",
+     "train": "37321"
+    },
+    {
+     "from": "BP",
+     "train": "37432"
+    },
+    {
+     "hold": {
+      "BP": "08:49"
+     },
+     "train": "37328"
+    },
+    {
+     "hold": {
+      "DWE": "08:55"
+     },
+     "train": "37428"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-05-31-0900-180m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-05-31",
+   "runs": 30,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 226,
+   "optimal_cost": 226,
+   "floor_cost": 216,
+   "greedy_cost": 1092,
+   "real_cost": 76,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 14,
+    "single_track": 3,
+    "headway": 5,
+    "platforms": 0,
+    "closed": 6,
+    "decisions": 49,
+    "holds": 45,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 10,
+    "optimal": 226,
+    "greedy_gap": 0.8,
+    "closed_min": 26,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 7,
+   "checks": 5,
+   "seconds": 453.3,
+   "input_tokens": 410252,
+   "cache_read_tokens": 340224,
+   "cache_write_tokens": 0,
+   "output_tokens": 90980,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "hold": {
+      "HDG": "09:01"
+     },
+     "train": "37430"
+    },
+    {
+     "hold": {
+      "FWD": "09:05"
+     },
+     "train": "37321"
+    },
+    {
+     "to": "HDG",
+     "train": "37323"
+    },
+    {
+     "hold": {
+      "GN": "09:27"
+     },
+     "train": "37425"
+    },
+    {
+     "to": "HDG",
+     "train": "37423"
+    },
+    {
+     "from": "HDG",
+     "train": "37334"
+    },
+    {
+     "from": "HDG",
+     "train": "37434"
+    }
+   ]
+  },
+  {
+   "model": "hf:deepseek-ai/DeepSeek-V4.1-Flash:baseten@default",
+   "task_id": "gnlw-2025-06-22-1600-240m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-06-22",
+   "runs": 18,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 668,
+   "optimal_cost": 668,
+   "floor_cost": 668,
+   "greedy_cost": null,
+   "real_cost": 27,
+   "hardness": {
+    "runs": 18,
+    "sets": 3,
+    "stops": 108,
+    "conflicts": 22,
+    "single_track": 1,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 21,
+    "decisions": 22,
+    "holds": 16,
+    "short_turns": 4,
+    "cancels": 2,
+    "turn_points": 1,
+    "avoidable": 0,
+    "optimal": 668,
+    "greedy_gap": 0.8444,
+    "closed_min": 92,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 3,
+   "seconds": 438.8,
+   "input_tokens": 234961,
+   "cache_read_tokens": 152320,
+   "cache_write_tokens": 0,
+   "output_tokens": 63838,
+   "served_by": [
+    "deepseek-ai/DeepSeek-V4.1-Flash"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "cancel": true,
+     "train": "37451"
+    },
+    {
+     "cancel": true,
+     "train": "37462"
+    },
+    {
+     "to": "BP",
+     "train": "37458"
+    },
+    {
+     "from": "BP",
+     "train": "37353"
+    },
+    {
+     "to": "BP",
+     "train": "37360"
+    },
+    {
+     "from": "BP",
+     "train": "37455"
+    },
+    {
+     "hold": {
+      "BP": "17:42"
+     },
+     "train": "37364"
+    }
+   ]
+  }
+ ]
+}

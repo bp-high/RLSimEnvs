@@ -1,0 +1,21 @@
+# Project manifest.
+name: rail-ops
+title: "Rail Dispatch"
+tagline: "Dispatch Arriva's trains on the single-track Groningen - Leeuwarden line on real 2025 days - real timetables, delays, breakdowns, collisions, signal and points failures - hold, short-turn and cancel trains, scored against the proven CP-SAT optimum. Eval tasks chosen for hardness."
+order: 1
+status: wip
+
+hub:
+  org: ""
+  spaces: []
+  datasets: []
+
+envs:
+  - name: rail_ops
+    summary: "Multi-turn train dispatching on real January-June 2025 days of the Groningen - Leeuwarden line (rail-v1): situation, budgeted plan checks, one graded submit."
+    backend: python-offline
+    tools: 3   # get_situation check_plan submit_plan
+    frameworks:
+      openenv:
+        transport: http-mcp
+        verified: true

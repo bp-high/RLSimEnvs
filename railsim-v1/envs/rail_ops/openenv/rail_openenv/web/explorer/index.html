@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RailSimEnv eval explorer</title>
+<link rel="icon" href="data:,">
+<style>
+  :root {
+    color-scheme: light;
+    --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+    --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11, 11, 11, 0.10); --wash: #f0efec;
+    --accent: #2a78d6; --critical: #d03b3b; --good: #0ca30c; --bar: #2a78d6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+      --grid: #2c2c2a; --axis: #383835; --ring: rgba(255, 255, 255, 0.10); --wash: #232321;
+      --accent: #3987e5; --bar: #3987e5;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255, 255, 255, 0.10); --wash: #232321;
+    --accent: #3987e5; --bar: #3987e5;
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body { margin: 0; background: var(--page); color: var(--ink); font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  a { color: var(--accent); }
+  nav.site { display: flex; gap: 4px 18px; flex-wrap: wrap; align-items: baseline; padding: 12px 16px 0; }
+  nav.site b { font-size: 15px; margin-right: 6px; }
+  nav.site a { color: var(--ink-2); text-decoration: none; padding: 2px 0; border-bottom: 2px solid transparent; }
+  nav.site a:hover { color: var(--ink); }
+  nav.site a[aria-current] { color: var(--ink); border-bottom-color: var(--accent); }
+  main { padding: 16px 16px 32px; max-width: 1320px; margin: 0 auto; }
+  h1 { font-size: 24px; line-height: 1.2; margin: 0 0 6px; font-weight: 650; }
+  h2 { font-size: 17px; margin: 0 0 4px; font-weight: 650; }
+  .lede { color: var(--ink-2); max-width: 88ch; margin: 0 0 16px; }
+  .card { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; padding: 16px; margin-bottom: 16px; }
+  .note { color: var(--ink-2); font-size: 13px; margin: 0 0 10px; }
+  .tablewrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th, td { padding: 7px 8px; border-bottom: 1px solid var(--grid); text-align: left; vertical-align: middle; white-space: nowrap; }
+  th { color: var(--ink-2); font-weight: 600; font-size: 12px; }
+  td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+  .meanbar { display: inline-flex; align-items: center; gap: 10px; }
+  .meanbar b { font-variant-numeric: tabular-nums; min-width: 40px; display: inline-block; }
+  .meanbar small { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  .bar { width: 160px; height: 14px; position: relative; flex: none; }
+  .bar .track { position: absolute; inset: 6px 0; background: var(--wash); border-radius: 2px; }
+  .bar .fill { position: absolute; left: 0; top: 3px; height: 8px; background: var(--bar); border-radius: 0 4px 4px 0; }
+  .bar .ci { position: absolute; top: 6px; height: 2px; background: var(--ink); opacity: 0.65; }
+  .bar .ci::before, .bar .ci::after { content: ""; position: absolute; top: -4px; width: 1.5px; height: 10px; background: var(--ink); }
+  .bar .ci::before { left: 0; } .bar .ci::after { right: 0; }
+  .filters { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin: 4px 0 12px; }
+  .chips { display: inline-flex; flex-wrap: wrap; gap: 6px; }
+  .chip { font: inherit; font-size: 13px; border: 1px solid var(--axis); background: var(--surface); color: var(--ink-2); border-radius: 999px; padding: 3px 11px; cursor: pointer; }
+  .chip[aria-pressed="true"] { border-color: var(--accent); color: var(--ink); box-shadow: inset 0 0 0 1px var(--accent); }
+  .ramp { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--ink-2); }
+  .ramp i { display: inline-block; width: 22px; height: 12px; }
+  .ramp i:first-of-type { border-radius: 3px 0 0 3px; } .ramp i:last-of-type { border-radius: 0 3px 3px 0; }
+  .key { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; color: var(--ink-2); }
+  #grid th.sort { cursor: pointer; user-select: none; }
+  #grid th.sort:hover { color: var(--ink); }
+  #grid th.sorted::after { content: " ↓"; }
+  #grid th.sorted.asc::after { content: " ↑"; }
+  #grid td.cell { padding: 3px; }
+  #grid td.cell button { width: 100%; min-width: 64px; font: inherit; font-size: 13px; font-variant-numeric: tabular-nums; border: 0; border-radius: 5px;
+                         padding: 5px 6px; cursor: pointer; text-align: right; outline-offset: 1px; }
+  #grid td.cell button:hover, #grid td.cell button:focus-visible { outline: 2px solid var(--ink); }
+  #grid td.cell button.sel { outline: 2px solid var(--accent); }
+  #grid td.cell button.illegal { background: var(--wash); color: var(--ink); }
+  #grid td.cell button.illegal::before { content: "✕ "; color: var(--critical); font-weight: 700; }
+  #grid td.cell button.none { background: transparent; color: var(--muted); border: 1px dashed var(--axis); }
+  .tier { display: inline-block; font-size: 11px; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--ring); color: var(--ink-2); }
+  .task small { color: var(--ink-2); }
+  #detail { position: sticky; bottom: 12px; z-index: 3; margin-top: 12px; box-shadow: 0 6px 24px rgba(0, 0, 0, 0.14); }
+  #detail .row { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: baseline; }
+  #detail .k { font-size: 12px; color: var(--ink-2); display: block; }
+  #detail .v { font-size: 17px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  #detail .links { margin-left: auto; display: flex; gap: 8px; }
+  #detail .links a { padding: 6px 12px; border: 1px solid var(--axis); border-radius: 6px; text-decoration: none; color: var(--ink); background: var(--surface); }
+  #detail .links a.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  #detail button.close { font: inherit; background: none; border: 0; color: var(--ink-2); cursor: pointer; font-size: 18px; }
+  footer { color: var(--muted); font-size: 12px; margin-top: 18px; }
+  .err { color: var(--critical); }
+</style>
+</head>
+<body>
+<nav class="site" id="nav">
+  <b>RailSimEnv</b>
+  <a href="/explorer/" aria-current="page">Eval explorer</a>
+  <a href="/twin/">3D replay</a>
+  <a href="/viewer/">Train graph</a>
+  <a href="/web">Environment</a>
+</nav>
+<main>
+  <h1>Eval explorer</h1>
+  <p class="lede">Each task is a real 2025 disruption on the single-track Groningen – Leeuwarden line: hold, short-turn and
+    cancel trains so opposing trains cross safely. Every plan is graded against a proven CP-SAT optimum (reward 1.0); a plan
+    that breaks a rule scores under 0.2. Pick any cell to watch that plan run in 3D or read it on the train graph.</p>
+
+  <section class="card">
+    <h2>Leaderboard</h2>
+    <p class="note" id="boardnote"></p>
+    <div class="tablewrap"><table id="board"></table></div>
+  </section>
+
+  <section class="card">
+    <h2>Every task, every model</h2>
+    <div class="filters">
+      <div class="chips" id="tiers" role="group" aria-label="Tier"></div>
+      <span class="ramp" id="ramp"></span>
+      <span class="key"><b style="color:var(--critical)">✕</b> breaks a rule</span>
+      <span class="key"><i style="display:inline-block;width:22px;height:12px;border:1px dashed var(--axis);border-radius:3px"></i> no plan submitted</span>
+    </div>
+    <div class="tablewrap"><table id="grid"></table></div>
+    <div class="card" id="detail" hidden></div>
+  </section>
+  <footer>Data: Rijden de Treinen open data (CC BY 4.0, "Rijden de Treinen"); track and map © OpenStreetMap contributors (ODbL 1.0).
+    Rewards are one rollout per model per task.</footer>
+</main>
+<script>
+"use strict";
+const $ = (s) => document.querySelector(s);
+const params = new URLSearchParams(location.search);
+const TIERS = ["real", "blockage", "loop", "compound"];
+const TIER = { real: "real disruption", blockage: "blockage", loop: "lost passing track", compound: "compound" };
+// sequential blue ramp (light to dark) for rewards from 0.2 (legal) to 1.0 (the optimum)
+const RAMP = [["#cde2fb", 0.2], ["#9ec5f4", 0.3], ["#6da7ec", 0.4], ["#3987e5", 0.55], ["#256abf", 0.7], ["#184f95", 0.85], ["#0d366b", 0.999]];
+const S = { runs: null, tasks: [], byTask: {}, tier: "all", sort: { key: "mean", asc: true }, sel: null };
+
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const f3 = (x) => (x === null || x === undefined ? "–" : Number(x).toFixed(3));
+const mean = (xs) => xs.reduce((a, b) => a + b, 0) / Math.max(1, xs.length);
+const shortName = (n) => n.replace(/ \(.*\)$/, "");
+const day = (d) => new Date(`${d}T12:00:00Z`).toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" });
+async function json(url) {
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(`${url}: HTTP ${r.status}`);
+  return r.json();
+}
+function rampColor(r) {
+  let c = RAMP[0][0];
+  for (const [hex, lo] of RAMP) if (r >= lo) c = hex;
+  return c;
+}
+function textOn(hex) {
+  const n = parseInt(hex.slice(1), 16), rgb = [n >> 16, (n >> 8) & 255, n & 255].map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; });
+  return 0.2126 * rgb[0] + 0.7152 * rgb[1] + 0.0722 * rgb[2] > 0.3 ? "#0b0b0b" : "#ffffff";
+}
+const bar = (m, ci) => `<span class="bar"><span class="track"></span><span class="fill" style="width:${(m * 100).toFixed(1)}%"></span>`
+  + (ci ? `<span class="ci" style="left:${(ci[0] * 100).toFixed(1)}%;width:${((ci[1] - ci[0]) * 100).toFixed(1)}%"></span>` : "") + `</span>`;
+
+// the models' runs on the eval tasks (calibration runs on train tasks are not shown here)
+function models() {
+  return S.runs.models.filter((m) => m.split === "eval");
+}
+
+function taskIds() {
+  const runs = new Set(models().map((m) => m.run));
+  return [...new Set(S.runs.episodes.filter((e) => runs.has(e.run)).map((e) => e.task_id))];
+}
+
+function renderBoard() {
+  const ms = models();
+  const tiers = TIERS.filter((t) => ms.some((m) => t in m.tiers));
+  const ids = taskIds(), tasks = ids.map((id) => S.byTask[id]).filter(Boolean);
+  $("#boardnote").textContent = `${tasks.length} tasks, one rollout per model, the same rules for every model: 12 turns, 64k output tokens per turn, `
+    + `10 checks of a draft, one graded submit. 95% bootstrap intervals.`;
+  const head = `<thead><tr><th>#</th><th>Model</th><th>Mean reward (95% CI)</th>${tiers.map((t) => `<th class="n">${esc(t)}</th>`).join("")}`
+    + `<th class="n">Legal plans</th><th class="n">Optimal</th><th class="n">No plan</th><th class="n">Median turns</th></tr></thead>`;
+  const rows = ms.map((m, i) => `<tr><td class="n">${i + 1}</td><td><b>${esc(m.name)}</b></td>`
+    + `<td><span class="meanbar"><b>${f3(m.mean)}</b>${bar(m.mean, m.ci)}<small>${f3(m.ci[0])}–${f3(m.ci[1])}</small></span></td>`
+    + tiers.map((t) => `<td class="n">${f3(m.tiers[t])}</td>`).join("")
+    + `<td class="n">${m.feasible} / ${m.n}</td><td class="n">${m.optimal}</td><td class="n">${m.no_submit}</td><td class="n">${m.median_turns}</td></tr>`);
+  $("#board").innerHTML = head + `<tbody>${rows.join("")}</tbody>`;
+}
+
+function renderGrid() {
+  const ms = models();
+  const ids = taskIds();
+  const ep = {};
+  for (const e of S.runs.episodes) ep[`${e.run}|${e.model}|${e.task_id}`] = e;
+  const tiers = TIERS.filter((t) => ids.some((id) => S.byTask[id] && S.byTask[id].difficulty === t));
+  $("#tiers").innerHTML = ["all", ...tiers].map((t) => {
+    const n = t === "all" ? ids.length : ids.filter((id) => S.byTask[id] && S.byTask[id].difficulty === t).length;
+    return `<button type="button" class="chip" data-tier="${t}" aria-pressed="${S.tier === t}">${t === "all" ? "All" : esc(TIER[t])} · ${n}</button>`;
+  }).join("");
+  for (const b of $("#tiers").querySelectorAll("button")) b.onclick = () => { S.tier = b.dataset.tier; renderGrid(); };
+  $("#ramp").innerHTML = `0.2 ${RAMP.map(([c]) => `<i style="background:${c}"></i>`).join("")} 1.0 (the optimum)`;
+
+  let rows = ids.map((id) => {
+    const t = S.byTask[id];
+    const cells = ms.map((m) => ep[`${m.run}|${m.model}|${id}`] || null);
+    const rs = cells.filter(Boolean).map((e) => e.reward);
+    return { id, t, cells, mean: rs.length ? mean(rs) : null };
+  }).filter((r) => r.t && (S.tier === "all" || r.t.difficulty === S.tier));
+  const k = S.sort.key, dir = S.sort.asc ? 1 : -1;
+  const val = (r) => (k === "mean" ? r.mean : k === "task" ? `${r.t.day} ${r.t.start}`
+    : k === "runs" ? r.t.runs : r.cells[+k] ? r.cells[+k].reward : -1);
+  rows.sort((a, b) => { const x = val(a), y = val(b); return (x < y ? -1 : x > y ? 1 : 0) * dir || a.id.localeCompare(b.id); });
+
+  const th = (key, label, cls = "") => `<th class="sort ${cls}${S.sort.key === key ? ` sorted${S.sort.asc ? " asc" : ""}` : ""}" data-key="${key}" scope="col">${label}</th>`;
+  const head = `<thead><tr>${th("task", "Task")}${th("runs", "Trains", "n")}${ms.map((m, i) => th(String(i), esc(shortName(m.name)), "n")).join("")}`
+    + `${th("mean", "Mean of models", "n")}<th>Watch</th></tr></thead>`;
+  const body = rows.map((r) => {
+    const cause = (r.t.causes || []).join(", ");
+    const cells = r.cells.map((e, i) => {
+      if (!e) return `<td class="cell"><button type="button" class="none" disabled>–</button></td>`;
+      const sel = S.sel && S.sel.task === r.id && S.sel.i === i ? " sel" : "";
+      const title = `${shortName(ms[i].name)}: reward ${f3(e.reward)}, ${e.submitted ? (e.feasible ? "legal plan" : `${e.violations} rule breaks`) : "no plan submitted"}`;
+      if (!e.submitted || !e.plan_id) return `<td class="cell"><button type="button" class="none${sel}" data-task="${esc(r.id)}" data-i="${i}" title="${esc(title)}">no plan</button></td>`;
+      if (!e.feasible) return `<td class="cell"><button type="button" class="illegal${sel}" data-task="${esc(r.id)}" data-i="${i}" title="${esc(title)}">${f3(e.reward)}</button></td>`;
+      const c = rampColor(e.reward);
+      return `<td class="cell"><button type="button" class="${sel.trim()}" style="background:${c};color:${textOn(c)}" data-task="${esc(r.id)}" data-i="${i}" title="${esc(title)}">${e.reward >= 0.999 ? "★ " : ""}${f3(e.reward)}</button></td>`;
+    }).join("");
+    return `<tr><td class="task"><b>${esc(day(r.t.day))}</b> ${esc(r.t.start)}–${esc(r.t.end)} <span class="tier">${esc(TIER[r.t.difficulty] || r.t.difficulty)}</span><br><small>${esc(cause)}</small></td>`
+      + `<td class="n">${r.t.runs}</td>${cells}<td class="n">${f3(r.mean)}</td>`
+      + `<td><a href="/twin/?task=${encodeURIComponent(r.id)}">3D</a> · <a href="/viewer/?task=${encodeURIComponent(r.id)}&plan=optimal">graph</a></td></tr>`;
+  }).join("");
+  $("#grid").innerHTML = head + `<tbody>${body}</tbody>`;
+  for (const h of $("#grid").querySelectorAll("th.sort")) h.onclick = () => {
+    const key = h.dataset.key;
+    S.sort = { key, asc: S.sort.key === key ? !S.sort.asc : key === "task" || key === "runs" ? true : key === "mean" };
+    renderGrid();
+  };
+  for (const b of $("#grid").querySelectorAll("td.cell button[data-task]")) b.onclick = () => { S.sel = { task: b.dataset.task, i: +b.dataset.i }; renderGrid(); renderDetail(); };
+}
+
+function renderDetail() {
+  const box = $("#detail");
+  if (!S.sel) { box.hidden = true; return; }
+  const m = models()[S.sel.i], t = S.byTask[S.sel.task];
+  const e = S.runs.episodes.find((x) => x.run === m.run && x.model === m.model && x.task_id === S.sel.task);
+  if (!e || !t) { box.hidden = true; return; }
+  const over = e.feasible && e.cost !== null && e.optimal_cost ? Math.round((e.cost / e.optimal_cost - 1) * 100) : null;
+  const outcome = !e.submitted ? "no plan submitted" : e.feasible ? (over === 0 ? "the proven optimum" : `legal, ${over}% over the optimum`) : `${e.violations} rule break${e.violations === 1 ? "" : "s"}`;
+  const plan = e.plan_id ? encodeURIComponent(e.plan_id) : "optimal";
+  const task = encodeURIComponent(t.task_id);
+  box.innerHTML = `<div class="row">
+      <div><span class="k">${esc(day(t.day))} ${esc(t.start)}–${esc(t.end)} · ${esc(TIER[t.difficulty] || t.difficulty)}</span><span class="v">${esc(m.name)}</span></div>
+      <div><span class="k">Reward</span><span class="v">${f3(e.reward)}</span></div>
+      <div><span class="k">Outcome</span><span class="v">${esc(outcome)}</span></div>
+      <div><span class="k">Cost / optimum</span><span class="v">${e.cost ?? "–"} / ${e.optimal_cost}</span></div>
+      <div><span class="k">Turns · checks</span><span class="v">${e.agent_turns} · ${e.checks}</span></div>
+      <div class="links">${e.plan_id ? `<a class="primary" href="/twin/?task=${task}&plan=${plan}">Watch in 3D</a><a href="/viewer/?task=${task}&plan=${plan}">Train graph</a>` : ""}
+        <a href="/viewer/?task=${task}&plan=optimal">The optimum</a><button class="close" type="button" aria-label="Close">×</button></div>
+    </div>`;
+  box.hidden = false;
+  box.querySelector(".close").onclick = () => { S.sel = null; renderGrid(); renderDetail(); };
+}
+
+function render() {
+  renderBoard();
+  renderGrid();
+  renderDetail();
+}
+
+(async () => {
+  if (params.has("embed")) $("#nav").hidden = true;
+  if (params.get("theme")) document.documentElement.dataset.theme = params.get("theme");
+  try {
+    const [runs, tasks] = await Promise.all([json("/api/runs"), json("/api/tasks")]);
+    S.runs = runs;
+    S.tasks = tasks;
+    S.byTask = Object.fromEntries(tasks.map((t) => [t.task_id, t]));
+  } catch (err) {
+    $("main").insertAdjacentHTML("afterbegin", `<p class="err">${esc(err.message)}</p>`);
+    return;
+  }
+  if (!S.runs.models.length) {
+    $("main").insertAdjacentHTML("afterbegin", `<p class="note">No model runs on this server (results/rollouts/*/index.json, or RAIL_RUNS_DIR).</p>`);
+    return;
+  }
+  render();
+  document.body.dataset.ready = "1";
+})();
+</script>
+</body>
+</html>

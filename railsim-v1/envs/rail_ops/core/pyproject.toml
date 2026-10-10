@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rail-core"
+version = "0.1.0"
+description = "Rail dispatch tasks from Arriva's real 2025 days on the single-track Groningen - Leeuwarden line: physics, checker, CP-SAT references, reward"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+solve = ["ortools>=9.10"]   # only to build tasks and their reference plans
+dev = ["pytest>=8", "ortools>=9.10"]
+
+[tool.setuptools.packages.find]
+include = ["rail_core*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

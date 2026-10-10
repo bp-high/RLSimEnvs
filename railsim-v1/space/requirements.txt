@@ -1,0 +1,2 @@
+openenv==0.7.0
+fastmcp>=3,<4

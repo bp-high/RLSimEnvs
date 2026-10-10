@@ -1,0 +1,5781 @@
+{
+ "run": "2026-10-07-sonnet-5-5-eval45",
+ "episodes": [
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-01-20-1800-180m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-20",
+   "runs": 24,
+   "reward": 0.200059,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1735,
+   "optimal_cost": 664,
+   "floor_cost": 539,
+   "greedy_cost": 2501,
+   "real_cost": 64,
+   "hardness": {
+    "runs": 24,
+    "sets": 6,
+    "stops": 147,
+    "conflicts": 11,
+    "single_track": 5,
+    "headway": 3,
+    "platforms": 0,
+    "closed": 3,
+    "decisions": 43,
+    "holds": 36,
+    "short_turns": 7,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 125,
+    "optimal": 664,
+    "greedy_gap": 0.7999,
+    "closed_min": 46,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 7,
+   "checks": 6,
+   "seconds": 505.3,
+   "input_tokens": 403240,
+   "cache_read_tokens": 314518,
+   "cache_write_tokens": 88694,
+   "output_tokens": 64360,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37357",
+     "hold": {
+      "FWD": "18:51"
+     }
+    },
+    {
+     "train": "37359",
+     "hold": {
+      "GN": "18:31"
+     }
+    },
+    {
+     "train": "37459",
+     "hold": {
+      "FWD": "19:16"
+     }
+    },
+    {
+     "train": "37461",
+     "hold": {
+      "BP": "19:09",
+      "FWD": "19:19"
+     }
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "GN": "19:03",
+      "FWD": "19:35"
+     }
+    },
+    {
+     "train": "37372",
+     "cancel": true
+    },
+    {
+     "train": "37367",
+     "cancel": true
+    },
+    {
+     "train": "37370",
+     "cancel": true
+    },
+    {
+     "train": "37365",
+     "cancel": true
+    },
+    {
+     "train": "37472",
+     "hold": {
+      "LW": "19:49"
+     }
+    },
+    {
+     "train": "37467",
+     "hold": {
+      "FWD": "20:36"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-01-21-0626-180m-real-0",
+   "split": "eval",
+   "difficulty": "real",
+   "day": "2025-01-21",
+   "runs": 29,
+   "reward": 0.374304,
+   "submitted": true,
+   "feasible": true,
+   "cost": 589,
+   "optimal_cost": 445,
+   "floor_cost": 356,
+   "greedy_cost": 1980,
+   "real_cost": 1308,
+   "hardness": {
+    "runs": 29,
+    "sets": 7,
+    "stops": 199,
+    "conflicts": 18,
+    "single_track": 14,
+    "headway": 4,
+    "platforms": 0,
+    "closed": 0,
+    "decisions": 21,
+    "holds": 17,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 89,
+    "optimal": 445,
+    "greedy_gap": 0.8,
+    "closed_min": 0,
+    "slow_min": 69,
+    "track_min": 0,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 7,
+   "checks": 6,
+   "seconds": 195.9,
+   "input_tokens": 257328,
+   "cache_read_tokens": 199317,
+   "cache_write_tokens": 57983,
+   "output_tokens": 26859,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37413",
+     "hold": {
+      "ZH": "06:43",
+      "FWD": "07:06"
+     }
+    },
+    {
+     "train": "37313",
+     "hold": {
+      "GN": "06:43"
+     }
+    },
+    {
+     "train": "37322",
+     "hold": {
+      "LW": "06:55",
+      "HDG": "07:03",
+      "FWD": "07:15"
+     }
+    },
+    {
+     "train": "37415",
+     "hold": {
+      "GN": "06:59",
+      "FWD": "07:38"
+     }
+    },
+    {
+     "train": "37315",
+     "hold": {
+      "GN": "07:13",
+      "ZH": "07:30"
+     }
+    },
+    {
+     "train": "37324",
+     "hold": {
+      "LW": "07:24"
+     }
+    },
+    {
+     "train": "37326",
+     "hold": {
+      "LW": "07:53"
+     }
+    },
+    {
+     "train": "37317",
+     "hold": {
+      "FWD": "08:07"
+     }
+    },
+    {
+     "train": "37424",
+     "hold": {
+      "GK": "07:55"
+     }
+    },
+    {
+     "train": "37419",
+     "hold": {
+      "GN": "07:56",
+      "FWD": "08:27"
+     }
+    },
+    {
+     "train": "37417",
+     "hold": {
+      "FWD": "08:01"
+     }
+    },
+    {
+     "train": "37426",
+     "hold": {
+      "HDG": "08:04"
+     }
+    },
+    {
+     "train": "37328",
+     "hold": {
+      "LW": "08:19"
+     }
+    },
+    {
+     "train": "37428",
+     "hold": {
+      "HDG": "08:31"
+     }
+    },
+    {
+     "train": "37319",
+     "hold": {
+      "FWD": "08:34"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-01-22-1600-240m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-22",
+   "runs": 38,
+   "reward": 0.718555,
+   "submitted": true,
+   "feasible": true,
+   "cost": 701,
+   "optimal_cost": 670,
+   "floor_cost": 627,
+   "greedy_cost": 5661,
+   "real_cost": 112,
+   "hardness": {
+    "runs": 38,
+    "sets": 7,
+    "stops": 252,
+    "conflicts": 28,
+    "single_track": 7,
+    "headway": 10,
+    "platforms": 0,
+    "closed": 11,
+    "decisions": 24,
+    "holds": 18,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 43,
+    "optimal": 670,
+    "greedy_gap": 0.8,
+    "closed_min": 36,
+    "slow_min": 33,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 7,
+   "checks": 6,
+   "seconds": 422.5,
+   "input_tokens": 354382,
+   "cache_read_tokens": 263466,
+   "cache_write_tokens": 90888,
+   "output_tokens": 52213,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37358",
+     "to": "ZH"
+    },
+    {
+     "train": "37353",
+     "from": "ZH"
+    },
+    {
+     "train": "37458",
+     "to": "ZH"
+    },
+    {
+     "train": "37455",
+     "from": "ZH",
+     "hold": {
+      "ZH": "17:03"
+     }
+    },
+    {
+     "train": "37351",
+     "to": "BP",
+     "hold": {
+      "GN": "16:48"
+     }
+    },
+    {
+     "train": "37462",
+     "from": "BP"
+    },
+    {
+     "train": "37453",
+     "to": "BP",
+     "hold": {
+      "GN": "16:51",
+      "ZH": "17:06"
+     }
+    },
+    {
+     "train": "37364",
+     "from": "BP"
+    },
+    {
+     "train": "37360",
+     "hold": {
+      "BP": "16:44"
+     }
+    },
+    {
+     "train": "37460",
+     "hold": {
+      "BP": "16:47"
+     }
+    },
+    {
+     "train": "37362",
+     "hold": {
+      "FWD": "16:57"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-01-22-1800-150m-loop-0",
+   "split": "eval",
+   "difficulty": "loop",
+   "day": "2025-01-22",
+   "runs": 25,
+   "reward": 0.74431,
+   "submitted": true,
+   "feasible": true,
+   "cost": 428,
+   "optimal_cost": 397,
+   "floor_cost": 336,
+   "greedy_cost": 562,
+   "real_cost": 79,
+   "hardness": {
+    "runs": 25,
+    "sets": 7,
+    "stops": 158,
+    "conflicts": 18,
+    "single_track": 18,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 0,
+    "decisions": 19,
+    "holds": 19,
+    "short_turns": 0,
+    "cancels": 0,
+    "turn_points": 0,
+    "avoidable": 61,
+    "optimal": 397,
+    "greedy_gap": 0.697,
+    "closed_min": 0,
+    "slow_min": 138,
+    "track_min": 10,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 4,
+   "seconds": 137.5,
+   "input_tokens": 119729,
+   "cache_read_tokens": 83196,
+   "cache_write_tokens": 36513,
+   "output_tokens": 16828,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37459",
+     "hold": {
+      "FWD": "18:33"
+     }
+    },
+    {
+     "train": "37368",
+     "hold": {
+      "BP": "18:39"
+     }
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "GN": "18:40"
+     }
+    },
+    {
+     "train": "37370",
+     "hold": {
+      "FWD": "19:00"
+     }
+    },
+    {
+     "train": "37461",
+     "hold": {
+      "FWD": "19:03"
+     }
+    },
+    {
+     "train": "37363",
+     "hold": {
+      "GN": "19:10"
+     }
+    },
+    {
+     "train": "37372",
+     "hold": {
+      "LW": "19:20"
+     }
+    },
+    {
+     "train": "37374",
+     "hold": {
+      "LW": "19:49",
+      "FWD": "20:00"
+     }
+    },
+    {
+     "train": "37463",
+     "hold": {
+      "FWD": "19:34"
+     }
+    },
+    {
+     "train": "37465",
+     "hold": {
+      "FWD": "20:03"
+     }
+    },
+    {
+     "train": "37365",
+     "hold": {
+      "GN": "19:40"
+     }
+    },
+    {
+     "train": "37376",
+     "hold": {
+      "LW": "20:20"
+     }
+    },
+    {
+     "train": "37367",
+     "hold": {
+      "GN": "20:10"
+     }
+    },
+    {
+     "train": "37467",
+     "hold": {
+      "FWD": "20:28"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-01-23-0800-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-23",
+   "runs": 34,
+   "reward": 0.39497,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1002,
+   "optimal_cost": 894,
+   "floor_cost": 841,
+   "greedy_cost": 4449,
+   "real_cost": 83,
+   "hardness": {
+    "runs": 34,
+    "sets": 7,
+    "stops": 226,
+    "conflicts": 51,
+    "single_track": 17,
+    "headway": 20,
+    "platforms": 0,
+    "closed": 14,
+    "decisions": 29,
+    "holds": 18,
+    "short_turns": 11,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 53,
+    "optimal": 894,
+    "greedy_gap": 0.8,
+    "closed_min": 24,
+    "slow_min": 69,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 4,
+   "seconds": 394.6,
+   "input_tokens": 229910,
+   "cache_read_tokens": 148486,
+   "cache_write_tokens": 81404,
+   "output_tokens": 51803,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37426",
+     "hold": {
+      "HDG": "08:06"
+     }
+    },
+    {
+     "train": "37419",
+     "hold": {
+      "BP": "08:44"
+     }
+    },
+    {
+     "train": "37328",
+     "to": "ZH",
+     "hold": {
+      "LW": "08:44"
+     }
+    },
+    {
+     "train": "37323",
+     "from": "ZH",
+     "hold": {
+      "ZH": "09:18",
+      "FWD": "09:37"
+     }
+    },
+    {
+     "train": "37428",
+     "to": "ZH",
+     "hold": {
+      "LW": "08:47",
+      "HDG": "08:55"
+     }
+    },
+    {
+     "train": "37425",
+     "from": "ZH",
+     "hold": {
+      "ZH": "09:33"
+     }
+    },
+    {
+     "train": "37421",
+     "hold": {
+      "BP": "08:50"
+     }
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "GN": "08:41",
+      "FWD": "09:14"
+     }
+    },
+    {
+     "train": "37319",
+     "to": "BP",
+     "hold": {
+      "GN": "08:44"
+     }
+    },
+    {
+     "train": "37430",
+     "from": "BP"
+    },
+    {
+     "train": "37330",
+     "to": "ZH",
+     "hold": {
+      "LW": "09:10"
+     }
+    },
+    {
+     "train": "37325",
+     "from": "ZH",
+     "hold": {
+      "ZH": "09:48"
+     }
+    },
+    {
+     "train": "37332",
+     "hold": {
+      "LW": "09:23"
+     }
+    },
+    {
+     "train": "37432",
+     "hold": {
+      "LW": "09:27"
+     }
+    },
+    {
+     "train": "37423",
+     "hold": {
+      "FWD": "09:31"
+     }
+    },
+    {
+     "train": "37427",
+     "hold": {
+      "GN": "09:55"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-01-23-0900-180m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-23",
+   "runs": 30,
+   "reward": 0.410878,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1019,
+   "optimal_cost": 853,
+   "floor_cost": 704,
+   "greedy_cost": 3025,
+   "real_cost": 61,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 41,
+    "single_track": 29,
+    "headway": 5,
+    "platforms": 0,
+    "closed": 7,
+    "decisions": 31,
+    "holds": 17,
+    "short_turns": 14,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 149,
+    "optimal": 853,
+    "greedy_gap": 0.8,
+    "closed_min": 23,
+    "slow_min": 150,
+    "track_min": 10,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 11,
+   "checks": 10,
+   "seconds": 929.9,
+   "input_tokens": 1299857,
+   "cache_read_tokens": 1105559,
+   "cache_write_tokens": 194254,
+   "output_tokens": 128632,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37421",
+     "hold": {
+      "LWC": "09:28"
+     }
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "HDG": "09:28"
+     }
+    },
+    {
+     "train": "37423",
+     "hold": {
+      "HDG": "09:32"
+     }
+    },
+    {
+     "train": "37323",
+     "hold": {
+      "FWD": "09:48"
+     }
+    },
+    {
+     "train": "37425",
+     "hold": {
+      "GN": "09:27",
+      "FWD": "10:04"
+     }
+    },
+    {
+     "train": "37332",
+     "to": "ZH",
+     "hold": {
+      "LW": "09:40"
+     }
+    },
+    {
+     "train": "37432",
+     "to": "ZH",
+     "hold": {
+      "LW": "09:43",
+      "GK": "10:13"
+     }
+    },
+    {
+     "train": "37429",
+     "from": "ZH"
+    },
+    {
+     "train": "37334",
+     "to": "ZH",
+     "hold": {
+      "LW": "09:56",
+      "FWD": "10:08"
+     }
+    },
+    {
+     "train": "37329",
+     "from": "ZH"
+    },
+    {
+     "train": "37434",
+     "to": "ZH",
+     "hold": {
+      "LW": "10:00",
+      "FWD": "10:11",
+      "GK": "10:35"
+     }
+    },
+    {
+     "train": "37431",
+     "from": "ZH"
+    },
+    {
+     "train": "37327",
+     "from": "ZH",
+     "hold": {
+      "ZH": "10:18"
+     }
+    },
+    {
+     "train": "37336",
+     "hold": {
+      "GK": "10:48"
+     }
+    },
+    {
+     "train": "37436",
+     "to": "ZH",
+     "hold": {
+      "HDG": "10:36"
+     }
+    },
+    {
+     "train": "37433",
+     "from": "ZH",
+     "hold": {
+      "ZH": "11:35",
+      "FWD": "11:59"
+     }
+    },
+    {
+     "train": "37331",
+     "hold": {
+      "GN": "11:12"
+     }
+    },
+    {
+     "train": "37438",
+     "to": "ZH",
+     "hold": {
+      "GK": "11:30"
+     }
+    },
+    {
+     "train": "37435",
+     "from": "ZH"
+    },
+    {
+     "train": "37440",
+     "hold": {
+      "GK": "11:56"
+     }
+    },
+    {
+     "train": "37342",
+     "hold": {
+      "LW": "11:51"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-01-25-0630-180m-loop-0",
+   "split": "eval",
+   "difficulty": "loop",
+   "day": "2025-01-25",
+   "runs": 20,
+   "reward": 0.871271,
+   "submitted": true,
+   "feasible": true,
+   "cost": 126,
+   "optimal_cost": 116,
+   "floor_cost": 102,
+   "greedy_cost": 518,
+   "real_cost": 62,
+   "hardness": {
+    "runs": 20,
+    "sets": 7,
+    "stops": 150,
+    "conflicts": 3,
+    "single_track": 3,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 0,
+    "decisions": 23,
+    "holds": 23,
+    "short_turns": 0,
+    "cancels": 0,
+    "turn_points": 0,
+    "avoidable": 14,
+    "optimal": 116,
+    "greedy_gap": 0.7993,
+    "closed_min": 0,
+    "slow_min": 69,
+    "track_min": 10,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 4,
+   "checks": 4,
+   "seconds": 39.2,
+   "input_tokens": 55991,
+   "cache_read_tokens": 36424,
+   "cache_write_tokens": 19551,
+   "output_tokens": 3833,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37319",
+     "hold": {
+      "GN": "08:13"
+     }
+    },
+    {
+     "train": "37426",
+     "hold": {
+      "HDG": "08:03",
+      "GK": "08:24"
+     }
+    },
+    {
+     "train": "37428",
+     "hold": {
+      "HDG": "08:33"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-01-25-0730-180m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-25",
+   "runs": 26,
+   "reward": 0.333104,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1467,
+   "optimal_cost": 1302,
+   "floor_cost": 1218,
+   "greedy_cost": null,
+   "real_cost": 129,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 184,
+    "conflicts": 55,
+    "single_track": 10,
+    "headway": 19,
+    "platforms": 2,
+    "closed": 24,
+    "decisions": 26,
+    "holds": 11,
+    "short_turns": 15,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 84,
+    "optimal": 1302,
+    "greedy_gap": 0.8846,
+    "closed_min": 111,
+    "slow_min": 100,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 2
+   },
+   "violations": 0,
+   "agent_turns": 8,
+   "checks": 7,
+   "seconds": 266.5,
+   "input_tokens": 339361,
+   "cache_read_tokens": 272459,
+   "cache_write_tokens": 66870,
+   "output_tokens": 33707,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37415",
+     "to": "HDG"
+    },
+    {
+     "train": "37426",
+     "from": "HDG"
+    },
+    {
+     "train": "37417",
+     "to": "HDG"
+    },
+    {
+     "train": "37328",
+     "from": "HDG"
+    },
+    {
+     "train": "37419",
+     "to": "HDG"
+    },
+    {
+     "train": "37330",
+     "from": "HDG"
+    },
+    {
+     "train": "37319",
+     "to": "HDG",
+     "hold": {
+      "GN": "08:28"
+     }
+    },
+    {
+     "train": "37430",
+     "from": "HDG"
+    },
+    {
+     "train": "37421",
+     "to": "HDG",
+     "hold": {
+      "GN": "08:31",
+      "FWD": "09:09"
+     }
+    },
+    {
+     "train": "37332",
+     "from": "HDG"
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "GN": "08:47"
+     }
+    },
+    {
+     "train": "37432",
+     "hold": {
+      "HDG": "09:38"
+     }
+    },
+    {
+     "train": "37423",
+     "hold": {
+      "GN": "08:59"
+     }
+    },
+    {
+     "train": "37323",
+     "hold": {
+      "ZH": "09:29"
+     }
+    },
+    {
+     "train": "37325",
+     "hold": {
+      "GN": "09:45"
+     }
+    },
+    {
+     "train": "37334",
+     "hold": {
+      "LW": "09:52"
+     }
+    },
+    {
+     "train": "37336",
+     "hold": {
+      "LW": "10:17"
+     }
+    },
+    {
+     "train": "37428",
+     "cancel": true
+    },
+    {
+     "train": "37425",
+     "cancel": true
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-01-25-1700-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-01-25",
+   "runs": 30,
+   "reward": 0.673652,
+   "submitted": true,
+   "feasible": true,
+   "cost": 358,
+   "optimal_cost": 320,
+   "floor_cost": 275,
+   "greedy_cost": 1591,
+   "real_cost": 74,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 11,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 11,
+    "decisions": 51,
+    "holds": 49,
+    "short_turns": 2,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 45,
+    "optimal": 320,
+    "greedy_gap": 0.8,
+    "closed_min": 15,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 4,
+   "seconds": 186.0,
+   "input_tokens": 120450,
+   "cache_read_tokens": 76607,
+   "cache_write_tokens": 43823,
+   "output_tokens": 22153,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37455",
+     "to": "HDG"
+    },
+    {
+     "train": "37366",
+     "from": "HDG",
+     "hold": {
+      "HDG": "17:52",
+      "FWD": "17:58"
+     }
+    },
+    {
+     "train": "37464",
+     "hold": {
+      "HDG": "17:45",
+      "GK": "18:05"
+     }
+    },
+    {
+     "train": "37355",
+     "hold": {
+      "BP": "17:50",
+      "FWD": "18:00"
+     },
+     "to": "HDG"
+    },
+    {
+     "train": "37466",
+     "from": "HDG"
+    },
+    {
+     "train": "37364",
+     "hold": {
+      "FWD": "17:45"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-01-26-1700-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-26",
+   "runs": 16,
+   "reward": 0.351877,
+   "submitted": true,
+   "feasible": true,
+   "cost": 726,
+   "optimal_cost": 618,
+   "floor_cost": 588,
+   "greedy_cost": 928,
+   "real_cost": 58,
+   "hardness": {
+    "runs": 16,
+    "sets": 3,
+    "stops": 104,
+    "conflicts": 10,
+    "single_track": 3,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 7,
+    "decisions": 21,
+    "holds": 12,
+    "short_turns": 9,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 30,
+    "optimal": 618,
+    "greedy_gap": 0.7932,
+    "closed_min": 104,
+    "slow_min": 100,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 6,
+   "checks": 5,
+   "seconds": 127.9,
+   "input_tokens": 113706,
+   "cache_read_tokens": 85105,
+   "cache_write_tokens": 28577,
+   "output_tokens": 14881,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37353",
+     "to": "HDG"
+    },
+    {
+     "train": "37364",
+     "from": "HDG"
+    },
+    {
+     "train": "37455",
+     "to": "HDG"
+    },
+    {
+     "train": "37357",
+     "to": "HDG",
+     "hold": {
+      "GN": "17:46"
+     }
+    },
+    {
+     "train": "37466",
+     "from": "HDG"
+    },
+    {
+     "train": "37459",
+     "to": "HDG"
+    },
+    {
+     "train": "37368",
+     "from": "HDG"
+    },
+    {
+     "train": "37470",
+     "from": "HDG"
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "GN": "18:48"
+     }
+    },
+    {
+     "train": "37463",
+     "hold": {
+      "HDG": "19:38"
+     }
+    },
+    {
+     "train": "37474",
+     "hold": {
+      "BP": "20:12"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-02-11-0900-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-02-11",
+   "runs": 23,
+   "reward": 0.940769,
+   "submitted": true,
+   "feasible": true,
+   "cost": 729,
+   "optimal_cost": 725,
+   "floor_cost": 721,
+   "greedy_cost": null,
+   "real_cost": 318,
+   "hardness": {
+    "runs": 23,
+    "sets": 6,
+    "stops": 152,
+    "conflicts": 32,
+    "single_track": 3,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 29,
+    "decisions": 37,
+    "holds": 23,
+    "short_turns": 14,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 4,
+    "optimal": 725,
+    "greedy_gap": 0.8174,
+    "closed_min": 120,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 4,
+   "checks": 3,
+   "seconds": 111.1,
+   "input_tokens": 76767,
+   "cache_read_tokens": 45832,
+   "cache_write_tokens": 30919,
+   "output_tokens": 14155,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37321",
+     "to": "HDG",
+     "hold": {
+      "FWD": "09:07"
+     }
+    },
+    {
+     "train": "37421",
+     "to": "HDG"
+    },
+    {
+     "train": "37432",
+     "from": "HDG"
+    },
+    {
+     "train": "37332",
+     "from": "HDG"
+    },
+    {
+     "train": "37323",
+     "to": "HDG",
+     "hold": {
+      "GN": "09:12"
+     }
+    },
+    {
+     "train": "37434",
+     "from": "HDG"
+    },
+    {
+     "train": "37425",
+     "to": "HDG"
+    },
+    {
+     "train": "37336",
+     "from": "HDG"
+    },
+    {
+     "train": "37325",
+     "to": "HDG"
+    },
+    {
+     "train": "37436",
+     "from": "HDG"
+    },
+    {
+     "train": "37427",
+     "to": "HDG"
+    },
+    {
+     "train": "37338",
+     "from": "HDG"
+    },
+    {
+     "train": "37327",
+     "to": "HDG"
+    },
+    {
+     "train": "37438",
+     "from": "HDG"
+    },
+    {
+     "train": "37429",
+     "hold": {
+      "HDG": "11:10"
+     }
+    },
+    {
+     "train": "37340",
+     "hold": {
+      "LW": "11:23"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-02-12-0900-180m-real-0",
+   "split": "eval",
+   "difficulty": "real",
+   "day": "2025-02-12",
+   "runs": 31,
+   "reward": 0.200383,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1461,
+   "optimal_cost": 643,
+   "floor_cost": 529,
+   "greedy_cost": null,
+   "real_cost": 363,
+   "hardness": {
+    "runs": 31,
+    "sets": 7,
+    "stops": 204,
+    "conflicts": 16,
+    "single_track": 8,
+    "headway": 3,
+    "platforms": 0,
+    "closed": 5,
+    "decisions": 38,
+    "holds": 32,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 114,
+    "optimal": 643,
+    "greedy_gap": 0.8452,
+    "closed_min": 30,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": false,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 10,
+   "checks": 9,
+   "seconds": 779.3,
+   "input_tokens": 1063957,
+   "cache_read_tokens": 881479,
+   "cache_write_tokens": 182438,
+   "output_tokens": 105954,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37421",
+     "hold": {
+      "HDG": "09:05"
+     }
+    },
+    {
+     "train": "37328",
+     "hold": {
+      "GK": "09:03"
+     }
+    },
+    {
+     "train": "37423",
+     "hold": {
+      "ZH": "09:08",
+      "GK": "09:23"
+     }
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "DWE": "09:32"
+     }
+    },
+    {
+     "train": "37330",
+     "hold": {
+      "FWD": "09:30"
+     }
+    },
+    {
+     "train": "37430",
+     "hold": {
+      "FWD": "09:36"
+     }
+    },
+    {
+     "train": "37332",
+     "hold": {
+      "LW": "09:23",
+      "FWD": "09:33"
+     }
+    },
+    {
+     "train": "37432",
+     "hold": {
+      "LW": "09:56"
+     }
+    },
+    {
+     "train": "37323",
+     "hold": {
+      "GN": "09:21"
+     }
+    },
+    {
+     "train": "37425",
+     "hold": {
+      "GK": "09:55"
+     }
+    },
+    {
+     "train": "37334",
+     "hold": {
+      "LW": "09:53"
+     }
+    },
+    {
+     "train": "37434",
+     "hold": {
+      "LW": "09:59"
+     }
+    },
+    {
+     "train": "37336",
+     "hold": {
+      "LW": "10:30"
+     }
+    },
+    {
+     "train": "37327",
+     "hold": {
+      "GN": "10:11",
+      "ZH": "10:29"
+     }
+    },
+    {
+     "train": "37427",
+     "hold": {
+      "FWD": "10:38"
+     }
+    },
+    {
+     "train": "37436",
+     "hold": {
+      "LW": "10:34"
+     }
+    },
+    {
+     "train": "37329",
+     "hold": {
+      "GN": "10:48"
+     }
+    },
+    {
+     "train": "37431",
+     "hold": {
+      "ZH": "11:04",
+      "FWD": "11:34"
+     }
+    },
+    {
+     "train": "37331",
+     "hold": {
+      "GN": "11:19"
+     }
+    },
+    {
+     "train": "37433",
+     "hold": {
+      "DWE": "12:01"
+     }
+    },
+    {
+     "train": "37333",
+     "hold": {
+      "BP": "12:03"
+     }
+    },
+    {
+     "train": "37342",
+     "hold": {
+      "LW": "11:50"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-02-13-0954-180m-real-0",
+   "split": "eval",
+   "difficulty": "real",
+   "day": "2025-02-13",
+   "runs": 30,
+   "reward": 0.251359,
+   "submitted": true,
+   "feasible": true,
+   "cost": 334,
+   "optimal_cost": 172,
+   "floor_cost": 154,
+   "greedy_cost": 1960,
+   "real_cost": 215,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 195,
+    "conflicts": 13,
+    "single_track": 3,
+    "headway": 7,
+    "platforms": 3,
+    "closed": 0,
+    "decisions": 45,
+    "holds": 45,
+    "short_turns": 0,
+    "cancels": 0,
+    "turn_points": 0,
+    "avoidable": 18,
+    "optimal": 172,
+    "greedy_gap": 0.8,
+    "closed_min": 0,
+    "slow_min": 25,
+    "track_min": 0,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 4,
+   "seconds": 220.3,
+   "input_tokens": 131738,
+   "cache_read_tokens": 82707,
+   "cache_write_tokens": 49011,
+   "output_tokens": 27193,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37334",
+     "hold": {
+      "FWD": "10:00"
+     }
+    },
+    {
+     "train": "37327",
+     "hold": {
+      "GN": "10:20",
+      "ZH": "10:30"
+     },
+     "to": "HDG"
+    },
+    {
+     "train": "37429",
+     "hold": {
+      "ZH": "10:33"
+     }
+    },
+    {
+     "train": "37427",
+     "to": "HDG"
+    },
+    {
+     "train": "37338",
+     "from": "HDG"
+    },
+    {
+     "train": "37438",
+     "from": "HDG"
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-02-13-1530-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-02-13",
+   "runs": 30,
+   "reward": 0.257952,
+   "submitted": true,
+   "feasible": true,
+   "cost": 858,
+   "optimal_cost": 648,
+   "floor_cost": 588,
+   "greedy_cost": 1690,
+   "real_cost": 151,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 25,
+    "single_track": 5,
+    "headway": 5,
+    "platforms": 1,
+    "closed": 14,
+    "decisions": 37,
+    "holds": 29,
+    "short_turns": 8,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 60,
+    "optimal": 648,
+    "greedy_gap": 0.8,
+    "closed_min": 24,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 8,
+   "checks": 7,
+   "seconds": 394.9,
+   "input_tokens": 433435,
+   "cache_read_tokens": 346860,
+   "cache_write_tokens": 86543,
+   "output_tokens": 49462,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37449",
+     "to": "BP"
+    },
+    {
+     "train": "37360",
+     "from": "BP"
+    },
+    {
+     "train": "37349",
+     "to": "BP",
+     "hold": {
+      "GN": "16:13"
+     }
+    },
+    {
+     "train": "37460",
+     "from": "BP"
+    },
+    {
+     "train": "37358",
+     "hold": {
+      "LW": "16:15"
+     }
+    },
+    {
+     "train": "37458",
+     "hold": {
+      "LW": "16:18"
+     }
+    },
+    {
+     "train": "37451",
+     "hold": {
+      "FWD": "16:28"
+     }
+    },
+    {
+     "train": "37353",
+     "hold": {
+      "GN": "16:51"
+     }
+    },
+    {
+     "train": "37455",
+     "hold": {
+      "ZH": "17:11"
+     }
+    },
+    {
+     "train": "37364",
+     "hold": {
+      "LW": "17:23",
+      "BP": "17:42"
+     }
+    },
+    {
+     "train": "37355",
+     "hold": {
+      "GN": "17:11",
+      "FWD": "17:37"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-02-14-1730-210m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-02-14",
+   "runs": 33,
+   "reward": 0.200096,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1773,
+   "optimal_cost": 875,
+   "floor_cost": 776,
+   "greedy_cost": null,
+   "real_cost": 191,
+   "hardness": {
+    "runs": 33,
+    "sets": 7,
+    "stops": 208,
+    "conflicts": 33,
+    "single_track": 7,
+    "headway": 19,
+    "platforms": 3,
+    "closed": 4,
+    "decisions": 35,
+    "holds": 25,
+    "short_turns": 10,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 99,
+    "optimal": 875,
+    "greedy_gap": 0.8909,
+    "closed_min": 38,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": false,
+    "mid_line": true,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 6,
+   "checks": 5,
+   "seconds": 621.2,
+   "input_tokens": 406464,
+   "cache_read_tokens": 279324,
+   "cache_write_tokens": 127116,
+   "output_tokens": 83802,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37364",
+     "to": "BP"
+    },
+    {
+     "train": "37359",
+     "from": "BP",
+     "hold": {
+      "FWD": "18:38"
+     }
+    },
+    {
+     "train": "37464",
+     "hold": {
+      "DWE": "18:06",
+      "BP": "18:11"
+     }
+    },
+    {
+     "train": "37366",
+     "hold": {
+      "FWD": "18:11"
+     }
+    },
+    {
+     "train": "37457",
+     "hold": {
+      "GK": "18:08"
+     }
+    },
+    {
+     "train": "37459",
+     "hold": {
+      "ZH": "18:05",
+      "GK": "18:11"
+     }
+    },
+    {
+     "train": "37357",
+     "hold": {
+      "BP": "18:22",
+      "FWD": "18:35"
+     }
+    },
+    {
+     "train": "37368",
+     "hold": {
+      "LW": "18:46"
+     }
+    },
+    {
+     "train": "37370",
+     "hold": {
+      "LW": "18:50",
+      "FWD": "18:59"
+     }
+    },
+    {
+     "train": "37468",
+     "hold": {
+      "LW": "18:53"
+     }
+    },
+    {
+     "train": "37470",
+     "hold": {
+      "LW": "18:56"
+     }
+    },
+    {
+     "train": "37466",
+     "cancel": true
+    },
+    {
+     "train": "37461",
+     "hold": {
+      "FWD": "19:07"
+     }
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "GN": "18:41",
+      "BP": "19:00",
+      "FWD": "19:13"
+     }
+    },
+    {
+     "train": "37463",
+     "cancel": true
+    },
+    {
+     "train": "37372",
+     "hold": {
+      "BP": "19:45"
+     }
+    },
+    {
+     "train": "37472",
+     "hold": {
+      "BP": "19:48"
+     }
+    },
+    {
+     "train": "37465",
+     "hold": {
+      "GN": "19:36",
+      "FWD": "20:07"
+     }
+    },
+    {
+     "train": "37365",
+     "hold": {
+      "GN": "19:42",
+      "BP": "20:01",
+      "FWD": "20:13"
+     }
+    },
+    {
+     "train": "37374",
+     "hold": {
+      "LW": "19:53"
+     }
+    },
+    {
+     "train": "37467",
+     "hold": {
+      "FWD": "20:30"
+     }
+    },
+    {
+     "train": "37376",
+     "hold": {
+      "BP": "20:42"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-02-15-0630-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-02-15",
+   "runs": 20,
+   "reward": 0.263035,
+   "submitted": true,
+   "feasible": true,
+   "cost": 2657,
+   "optimal_cost": 2300,
+   "floor_cost": 2119,
+   "greedy_cost": null,
+   "real_cost": 61,
+   "hardness": {
+    "runs": 20,
+    "sets": 7,
+    "stops": 150,
+    "conflicts": 45,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 45,
+    "decisions": 31,
+    "holds": 13,
+    "short_turns": 18,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 181,
+    "optimal": 2300,
+    "greedy_gap": 0.87,
+    "closed_min": 160,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 6,
+   "checks": 5,
+   "seconds": 335.5,
+   "input_tokens": 241505,
+   "cache_read_tokens": 183229,
+   "cache_write_tokens": 58252,
+   "output_tokens": 41939,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37420",
+     "to": "BP"
+    },
+    {
+     "train": "37413",
+     "to": "ZH"
+    },
+    {
+     "train": "37422",
+     "to": "BP"
+    },
+    {
+     "train": "37415",
+     "to": "ZH"
+    },
+    {
+     "train": "37424",
+     "from": "ZH"
+    },
+    {
+     "train": "37417",
+     "from": "BP"
+    },
+    {
+     "train": "37426",
+     "from": "ZH"
+    },
+    {
+     "train": "37419",
+     "from": "BP"
+    },
+    {
+     "train": "37319",
+     "to": "ZH"
+    },
+    {
+     "train": "37328",
+     "cancel": true
+    },
+    {
+     "train": "37323",
+     "cancel": true
+    },
+    {
+     "train": "37428",
+     "to": "BP"
+    },
+    {
+     "train": "37425",
+     "from": "BP"
+    },
+    {
+     "train": "37430",
+     "from": "ZH"
+    },
+    {
+     "train": "37421",
+     "cancel": true
+    },
+    {
+     "train": "37332",
+     "cancel": true
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "GN": "09:03"
+     }
+    },
+    {
+     "train": "37423",
+     "hold": {
+      "GN": "09:06"
+     }
+    },
+    {
+     "train": "37330",
+     "hold": {
+      "LW": "08:57"
+     }
+    },
+    {
+     "train": "37432",
+     "hold": {
+      "LW": "09:45"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-02-15-0700-240m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-02-15",
+   "runs": 32,
+   "reward": 0.224938,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1158,
+   "optimal_cost": 858,
+   "floor_cost": 785,
+   "greedy_cost": 2986,
+   "real_cost": 76,
+   "hardness": {
+    "runs": 32,
+    "sets": 7,
+    "stops": 228,
+    "conflicts": 38,
+    "single_track": 4,
+    "headway": 21,
+    "platforms": 3,
+    "closed": 10,
+    "decisions": 37,
+    "holds": 31,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 73,
+    "optimal": 858,
+    "greedy_gap": 0.8,
+    "closed_min": 34,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 2
+   },
+   "violations": 0,
+   "agent_turns": 7,
+   "checks": 5,
+   "seconds": 558.1,
+   "input_tokens": 493416,
+   "cache_read_tokens": 373661,
+   "cache_write_tokens": 119727,
+   "output_tokens": 75886,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37413",
+     "hold": {
+      "LWC": "07:34"
+     }
+    },
+    {
+     "train": "37415",
+     "hold": {
+      "BP": "07:34",
+      "HDG": "07:48"
+     }
+    },
+    {
+     "train": "37422",
+     "hold": {
+      "FWD": "07:34"
+     }
+    },
+    {
+     "train": "37417",
+     "hold": {
+      "HDG": "08:07"
+     }
+    },
+    {
+     "train": "37428",
+     "hold": {
+      "LW": "08:22"
+     }
+    },
+    {
+     "train": "37319",
+     "hold": {
+      "ZH": "08:44"
+     }
+    },
+    {
+     "train": "37421",
+     "hold": {
+      "FWD": "09:02"
+     }
+    },
+    {
+     "train": "37430",
+     "hold": {
+      "LW": "09:13"
+     }
+    },
+    {
+     "train": "37332",
+     "hold": {
+      "LW": "09:19",
+      "BP": "09:36",
+      "ZH": "09:47"
+     }
+    },
+    {
+     "train": "37423",
+     "hold": {
+      "FWD": "09:27"
+     }
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "GN": "09:11"
+     }
+    },
+    {
+     "train": "37323",
+     "hold": {
+      "GN": "09:15"
+     }
+    },
+    {
+     "train": "37432",
+     "hold": {
+      "LW": "09:49"
+     },
+     "to": "ZH"
+    },
+    {
+     "train": "37429",
+     "from": "ZH"
+    },
+    {
+     "train": "37434",
+     "hold": {
+      "LW": "09:52"
+     }
+    },
+    {
+     "train": "37425",
+     "hold": {
+      "FWD": "10:03"
+     }
+    },
+    {
+     "train": "37325",
+     "hold": {
+      "GN": "09:40",
+      "FWD": "10:09"
+     }
+    },
+    {
+     "train": "37327",
+     "hold": {
+      "ZH": "10:19"
+     }
+    },
+    {
+     "train": "37427",
+     "hold": {
+      "FWD": "10:26"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-02-15-1630-150m-loop-0",
+   "split": "eval",
+   "difficulty": "loop",
+   "day": "2025-02-15",
+   "runs": 26,
+   "reward": 0.324768,
+   "submitted": true,
+   "feasible": true,
+   "cost": 406,
+   "optimal_cost": 275,
+   "floor_cost": 234,
+   "greedy_cost": 1464,
+   "real_cost": 35,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 174,
+    "conflicts": 10,
+    "single_track": 3,
+    "headway": 5,
+    "platforms": 2,
+    "closed": 0,
+    "decisions": 52,
+    "holds": 50,
+    "short_turns": 2,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 41,
+    "optimal": 275,
+    "greedy_gap": 0.8,
+    "closed_min": 0,
+    "slow_min": 25,
+    "track_min": 140,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 9,
+   "checks": 8,
+   "seconds": 300.5,
+   "input_tokens": 366771,
+   "cache_read_tokens": 294932,
+   "cache_write_tokens": 71803,
+   "output_tokens": 35446,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37353",
+     "to": "HDG"
+    },
+    {
+     "train": "37464",
+     "from": "HDG"
+    },
+    {
+     "train": "37455",
+     "hold": {
+      "GN": "17:07",
+      "FWD": "17:36"
+     }
+    },
+    {
+     "train": "37355",
+     "to": "HDG",
+     "hold": {
+      "GK": "17:26",
+      "FWD": "17:40"
+     }
+    },
+    {
+     "train": "37466",
+     "from": "HDG",
+     "hold": {
+      "HDG": "18:00"
+     }
+    },
+    {
+     "train": "37457",
+     "hold": {
+      "FWD": "18:03"
+     }
+    },
+    {
+     "train": "37357",
+     "hold": {
+      "DWE": "18:02",
+      "FWD": "18:09"
+     }
+    },
+    {
+     "train": "37459",
+     "hold": {
+      "FWD": "18:26"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-02-16-1530-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-02-16",
+   "runs": 18,
+   "reward": 0.216445,
+   "submitted": true,
+   "feasible": true,
+   "cost": 475,
+   "optimal_cost": 273,
+   "floor_cost": 269,
+   "greedy_cost": 2157,
+   "real_cost": 38,
+   "hardness": {
+    "runs": 18,
+    "sets": 3,
+    "stops": 122,
+    "conflicts": 5,
+    "single_track": 2,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 3,
+    "decisions": 9,
+    "holds": 5,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 4,
+    "optimal": 273,
+    "greedy_gap": 0.8,
+    "closed_min": 21,
+    "slow_min": 80,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 9,
+   "checks": 8,
+   "seconds": 153.8,
+   "input_tokens": 264887,
+   "cache_read_tokens": 220969,
+   "cache_write_tokens": 43882,
+   "output_tokens": 17552,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37349",
+     "to": "HDG"
+    },
+    {
+     "train": "37360",
+     "from": "HDG"
+    },
+    {
+     "train": "37458",
+     "to": "BP",
+     "hold": {
+      "LW": "16:12"
+     }
+    },
+    {
+     "train": "37353",
+     "from": "BP",
+     "hold": {
+      "FWD": "17:11"
+     }
+    },
+    {
+     "train": "37451",
+     "hold": {
+      "FWD": "16:30"
+     }
+    },
+    {
+     "train": "37364",
+     "hold": {
+      "LW": "17:26"
+     }
+    },
+    {
+     "train": "37357",
+     "hold": {
+      "GN": "17:44"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-02-16-1700-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-02-16",
+   "runs": 16,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 796,
+   "optimal_cost": 796,
+   "floor_cost": 787,
+   "greedy_cost": 1089,
+   "real_cost": 90,
+   "hardness": {
+    "runs": 16,
+    "sets": 3,
+    "stops": 104,
+    "conflicts": 31,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 31,
+    "decisions": 13,
+    "holds": 6,
+    "short_turns": 6,
+    "cancels": 1,
+    "turn_points": 2,
+    "avoidable": 9,
+    "optimal": 796,
+    "greedy_gap": 0.7963,
+    "closed_min": 92,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 4,
+   "checks": 3,
+   "seconds": 81.5,
+   "input_tokens": 54846,
+   "cache_read_tokens": 35834,
+   "cache_write_tokens": 18996,
+   "output_tokens": 8849,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37462",
+     "to": "BP"
+    },
+    {
+     "train": "37357",
+     "from": "BP"
+    },
+    {
+     "train": "37364",
+     "to": "BP"
+    },
+    {
+     "train": "37459",
+     "from": "BP"
+    },
+    {
+     "train": "37455",
+     "to": "ZH"
+    },
+    {
+     "train": "37466",
+     "cancel": true
+    },
+    {
+     "train": "37361",
+     "from": "ZH"
+    },
+    {
+     "train": "37368",
+     "hold": {
+      "BP": "18:43"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-02-16-1730-240m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-02-16",
+   "runs": 19,
+   "reward": 0.205288,
+   "submitted": true,
+   "feasible": true,
+   "cost": 917,
+   "optimal_cost": 656,
+   "floor_cost": 652,
+   "greedy_cost": null,
+   "real_cost": 147,
+   "hardness": {
+    "runs": 19,
+    "sets": 3,
+    "stops": 126,
+    "conflicts": 14,
+    "single_track": 8,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 6,
+    "decisions": 21,
+    "holds": 11,
+    "short_turns": 10,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 4,
+    "optimal": 656,
+    "greedy_gap": 0.9579,
+    "closed_min": 36,
+    "slow_min": 210,
+    "track_min": 235,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 11,
+   "checks": 9,
+   "seconds": 264.1,
+   "input_tokens": 395073,
+   "cache_read_tokens": 335995,
+   "cache_write_tokens": 59034,
+   "output_tokens": 30550,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37364",
+     "to": "ZH"
+    },
+    {
+     "train": "37459",
+     "from": "ZH"
+    },
+    {
+     "train": "37357",
+     "cancel": true
+    },
+    {
+     "train": "37368",
+     "cancel": true
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "FWD": "19:05"
+     }
+    },
+    {
+     "train": "37463",
+     "to": "HDG"
+    },
+    {
+     "train": "37474",
+     "from": "HDG",
+     "hold": {
+      "GK": "20:20"
+     }
+    },
+    {
+     "train": "37467",
+     "to": "HDG"
+    },
+    {
+     "train": "37478",
+     "from": "HDG"
+    },
+    {
+     "train": "37376",
+     "to": "ZH"
+    },
+    {
+     "train": "37471",
+     "from": "ZH",
+     "hold": {
+      "HDG": "21:34"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-03-10-0700-210m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-03-10",
+   "runs": 34,
+   "reward": 0.200001,
+   "submitted": true,
+   "feasible": true,
+   "cost": 2463,
+   "optimal_cost": 455,
+   "floor_cost": 386,
+   "greedy_cost": null,
+   "real_cost": 157,
+   "hardness": {
+    "runs": 34,
+    "sets": 7,
+    "stops": 226,
+    "conflicts": 17,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 32,
+    "holds": 26,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 69,
+    "optimal": 455,
+    "greedy_gap": 0.8294,
+    "closed_min": 23,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 7,
+   "checks": 6,
+   "seconds": 757.7,
+   "input_tokens": 498426,
+   "cache_read_tokens": 354571,
+   "cache_write_tokens": 143827,
+   "output_tokens": 100406,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37422",
+     "hold": {
+      "DWE": "07:37"
+     }
+    },
+    {
+     "train": "37324",
+     "hold": {
+      "LW": "07:33"
+     }
+    },
+    {
+     "train": "37313",
+     "hold": {
+      "FWD": "07:41"
+     }
+    },
+    {
+     "train": "37315",
+     "hold": {
+      "ZH": "07:29"
+     }
+    },
+    {
+     "train": "37415",
+     "hold": {
+      "BP": "07:41"
+     }
+    },
+    {
+     "train": "37424",
+     "hold": {
+      "LW": "08:00"
+     }
+    },
+    {
+     "train": "37426",
+     "hold": {
+      "LW": "08:03"
+     }
+    },
+    {
+     "train": "37326",
+     "hold": {
+      "LW": "08:10",
+      "FWD": "08:21"
+     }
+    },
+    {
+     "train": "37417",
+     "hold": {
+      "GK": "08:03"
+     }
+    },
+    {
+     "train": "37317",
+     "hold": {
+      "GN": "08:05"
+     }
+    },
+    {
+     "train": "37419",
+     "hold": {
+      "GN": "08:08"
+     }
+    },
+    {
+     "train": "37319",
+     "hold": {
+      "GN": "08:11",
+      "ZH": "08:23",
+      "GK": "08:28",
+      "FWD": "08:42"
+     }
+    },
+    {
+     "train": "37328",
+     "hold": {
+      "LW": "08:50"
+     }
+    },
+    {
+     "train": "37330",
+     "hold": {
+      "LW": "08:55"
+     }
+    },
+    {
+     "train": "37428",
+     "hold": {
+      "LW": "08:58"
+     }
+    },
+    {
+     "train": "37430",
+     "hold": {
+      "LW": "09:01"
+     }
+    },
+    {
+     "train": "37421",
+     "hold": {
+      "GN": "08:44"
+     }
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "GN": "08:54"
+     }
+    },
+    {
+     "train": "37423",
+     "hold": {
+      "GN": "08:57",
+      "FWD": "09:40"
+     }
+    },
+    {
+     "train": "37334",
+     "hold": {
+      "LW": "09:57"
+     }
+    },
+    {
+     "train": "37325",
+     "hold": {
+      "FWD": "10:11"
+     }
+    },
+    {
+     "train": "37425",
+     "hold": {
+      "GN": "09:44",
+      "FWD": "10:15"
+     }
+    },
+    {
+     "train": "37427",
+     "hold": {
+      "GN": "10:12"
+     }
+    },
+    {
+     "train": "37327",
+     "hold": {
+      "GN": "10:16",
+      "GK": "10:31",
+      "FWD": "10:46"
+     }
+    },
+    {
+     "train": "37436",
+     "hold": {
+      "LW": "10:26"
+     }
+    },
+    {
+     "train": "37336",
+     "hold": {
+      "LW": "10:31",
+      "FWD": "10:45"
+     }
+    },
+    {
+     "train": "37429",
+     "hold": {
+      "GN": "10:29"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-03-11-0730-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-03-11",
+   "runs": 26,
+   "reward": 0.426861,
+   "submitted": true,
+   "feasible": true,
+   "cost": 2227,
+   "optimal_cost": 2043,
+   "floor_cost": 1851,
+   "greedy_cost": null,
+   "real_cost": 201,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 174,
+    "conflicts": 72,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 72,
+    "decisions": 35,
+    "holds": 19,
+    "short_turns": 12,
+    "cancels": 4,
+    "turn_points": 2,
+    "avoidable": 192,
+    "optimal": 2043,
+    "greedy_gap": 0.9,
+    "closed_min": 130,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 4,
+   "seconds": 403.6,
+   "input_tokens": 223949,
+   "cache_read_tokens": 157739,
+   "cache_write_tokens": 66190,
+   "output_tokens": 50744,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37424",
+     "to": "BP",
+     "hold": {
+      "DWE": "07:42"
+     }
+    },
+    {
+     "train": "37421",
+     "from": "BP"
+    },
+    {
+     "train": "37324",
+     "to": "BP"
+    },
+    {
+     "train": "37319",
+     "from": "BP"
+    },
+    {
+     "train": "37317",
+     "cancel": true
+    },
+    {
+     "train": "37428",
+     "cancel": true
+    },
+    {
+     "train": "37419",
+     "cancel": true
+    },
+    {
+     "train": "37330",
+     "cancel": true
+    },
+    {
+     "train": "37326",
+     "cancel": true
+    },
+    {
+     "train": "37321",
+     "cancel": true
+    },
+    {
+     "train": "37325",
+     "hold": {
+      "GN": "09:50"
+     }
+    },
+    {
+     "train": "37425",
+     "hold": {
+      "GN": "09:53"
+     }
+    },
+    {
+     "train": "37426",
+     "to": "BP",
+     "hold": {
+      "FWD": "08:20"
+     }
+    },
+    {
+     "train": "37423",
+     "from": "BP"
+    },
+    {
+     "train": "37328",
+     "to": "BP",
+     "hold": {
+      "FWD": "08:39"
+     }
+    },
+    {
+     "train": "37323",
+     "from": "BP"
+    },
+    {
+     "train": "37430",
+     "to": "BP",
+     "hold": {
+      "FWD": "09:08"
+     }
+    },
+    {
+     "train": "37427",
+     "from": "BP",
+     "hold": {
+      "BP": "10:16"
+     }
+    },
+    {
+     "train": "37332",
+     "hold": {
+      "BP": "09:44"
+     }
+    },
+    {
+     "train": "37432",
+     "hold": {
+      "DWE": "09:41",
+      "BP": "09:57"
+     }
+    },
+    {
+     "train": "37334",
+     "hold": {
+      "FWD": "09:57"
+     }
+    },
+    {
+     "train": "37434",
+     "hold": {
+      "FWD": "10:06"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-03-12-1530-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-03-12",
+   "runs": 30,
+   "reward": 0.221319,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1125,
+   "optimal_cost": 806,
+   "floor_cost": 730,
+   "greedy_cost": 1632,
+   "real_cost": 98,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 31,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 31,
+    "decisions": 36,
+    "holds": 28,
+    "short_turns": 8,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 76,
+    "optimal": 806,
+    "greedy_gap": 0.7999,
+    "closed_min": 25,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 6,
+   "checks": 5,
+   "seconds": 469.3,
+   "input_tokens": 302505,
+   "cache_read_tokens": 208792,
+   "cache_write_tokens": 93689,
+   "output_tokens": 61976,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37347",
+     "hold": {
+      "FWD": "16:00"
+     }
+    },
+    {
+     "train": "37447",
+     "hold": {
+      "LWC": "16:00"
+     }
+    },
+    {
+     "train": "37456",
+     "hold": {
+      "FWD": "16:00",
+      "ZH": "16:21"
+     }
+    },
+    {
+     "train": "37356",
+     "hold": {
+      "BP": "16:04"
+     }
+    },
+    {
+     "train": "37449",
+     "hold": {
+      "ZH": "16:04",
+      "FWD": "16:25"
+     }
+    },
+    {
+     "train": "37349",
+     "hold": {
+      "GN": "15:54",
+      "FWD": "16:22"
+     }
+    },
+    {
+     "train": "37358",
+     "hold": {
+      "LW": "16:08"
+     }
+    },
+    {
+     "train": "37451",
+     "hold": {
+      "GN": "15:57",
+      "ZH": "16:07",
+      "FWD": "16:28"
+     }
+    },
+    {
+     "train": "37453",
+     "hold": {
+      "ZH": "16:42",
+      "FWD": "17:04"
+     }
+    },
+    {
+     "train": "37360",
+     "hold": {
+      "LW": "16:40"
+     }
+    },
+    {
+     "train": "37460",
+     "hold": {
+      "LW": "16:43"
+     }
+    },
+    {
+     "train": "37362",
+     "hold": {
+      "LW": "16:56"
+     }
+    },
+    {
+     "train": "37353",
+     "hold": {
+      "FWD": "17:10"
+     }
+    },
+    {
+     "train": "37455",
+     "hold": {
+      "ZH": "17:05",
+      "FWD": "17:27"
+     }
+    },
+    {
+     "train": "37464",
+     "hold": {
+      "HDG": "17:30"
+     }
+    },
+    {
+     "train": "37457",
+     "hold": {
+      "GN": "17:27"
+     }
+    },
+    {
+     "train": "37462",
+     "hold": {
+      "GK": "17:26"
+     }
+    },
+    {
+     "train": "37366",
+     "hold": {
+      "LW": "17:47"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-03-12-1730-210m-loop-0",
+   "split": "eval",
+   "difficulty": "loop",
+   "day": "2025-03-12",
+   "runs": 33,
+   "reward": 0.211952,
+   "submitted": true,
+   "feasible": true,
+   "cost": 393,
+   "optimal_cost": 166,
+   "floor_cost": 158,
+   "greedy_cost": 826,
+   "real_cost": 64,
+   "hardness": {
+    "runs": 33,
+    "sets": 7,
+    "stops": 208,
+    "conflicts": 11,
+    "single_track": 2,
+    "headway": 8,
+    "platforms": 1,
+    "closed": 0,
+    "decisions": 35,
+    "holds": 33,
+    "short_turns": 2,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 8,
+    "optimal": 166,
+    "greedy_gap": 0.8,
+    "closed_min": 0,
+    "slow_min": 0,
+    "track_min": 10,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 7,
+   "checks": 6,
+   "seconds": 187.9,
+   "input_tokens": 251225,
+   "cache_read_tokens": 192504,
+   "cache_write_tokens": 58693,
+   "output_tokens": 22136,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37357",
+     "cancel": true
+    },
+    {
+     "train": "37468",
+     "cancel": true
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-03-13-0706-180m-real-0",
+   "split": "eval",
+   "difficulty": "real",
+   "day": "2025-03-13",
+   "runs": 26,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 378,
+   "optimal_cost": 378,
+   "floor_cost": 378,
+   "greedy_cost": null,
+   "real_cost": 554,
+   "hardness": {
+    "runs": 26,
+    "sets": 6,
+    "stops": 177,
+    "conflicts": 18,
+    "single_track": 1,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 27,
+    "holds": 19,
+    "short_turns": 8,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 0,
+    "optimal": 378,
+    "greedy_gap": 0.8077,
+    "closed_min": 59,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 3,
+   "checks": 2,
+   "seconds": 34.5,
+   "input_tokens": 37118,
+   "cache_read_tokens": 21915,
+   "cache_write_tokens": 15191,
+   "output_tokens": 3407,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37413",
+     "to": "HDG"
+    },
+    {
+     "train": "37324",
+     "from": "HDG"
+    },
+    {
+     "train": "37313",
+     "to": "HDG"
+    },
+    {
+     "train": "37424",
+     "from": "HDG"
+    },
+    {
+     "train": "37415",
+     "to": "HDG"
+    },
+    {
+     "train": "37326",
+     "from": "HDG"
+    },
+    {
+     "train": "37315",
+     "to": "HDG"
+    },
+    {
+     "train": "37426",
+     "from": "HDG"
+    },
+    {
+     "train": "37417",
+     "hold": {
+      "HDG": "08:00"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-03-16-1630-180m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-03-16",
+   "runs": 15,
+   "reward": 0.331471,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1352,
+   "optimal_cost": 1259,
+   "floor_cost": 1256,
+   "greedy_cost": null,
+   "real_cost": 73,
+   "hardness": {
+    "runs": 15,
+    "sets": 3,
+    "stops": 100,
+    "conflicts": 53,
+    "single_track": 3,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 50,
+    "decisions": 15,
+    "holds": 3,
+    "short_turns": 10,
+    "cancels": 2,
+    "turn_points": 2,
+    "avoidable": 3,
+    "optimal": 1259,
+    "greedy_gap": 0.8533,
+    "closed_min": 149,
+    "slow_min": 95,
+    "track_min": 31,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 4,
+   "checks": 3,
+   "seconds": 111.0,
+   "input_tokens": 74022,
+   "cache_read_tokens": 48136,
+   "cache_write_tokens": 25870,
+   "output_tokens": 13021,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37353",
+     "cancel": true
+    },
+    {
+     "train": "37364",
+     "cancel": true
+    },
+    {
+     "train": "37459",
+     "cancel": true
+    },
+    {
+     "train": "37470",
+     "cancel": true
+    },
+    {
+     "train": "37360",
+     "to": "BP"
+    },
+    {
+     "train": "37455",
+     "from": "BP"
+    },
+    {
+     "train": "37462",
+     "to": "BP"
+    },
+    {
+     "train": "37466",
+     "to": "BP"
+    },
+    {
+     "train": "37357",
+     "from": "BP",
+     "hold": {
+      "FWD": "18:10"
+     }
+    },
+    {
+     "train": "37368",
+     "to": "BP"
+    },
+    {
+     "train": "37361",
+     "from": "BP"
+    },
+    {
+     "train": "37463",
+     "from": "BP"
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-03-16-1700-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-03-16",
+   "runs": 16,
+   "reward": 0.953412,
+   "submitted": true,
+   "feasible": true,
+   "cost": 532,
+   "optimal_cost": 529,
+   "floor_cost": 529,
+   "greedy_cost": 2995,
+   "real_cost": 86,
+   "hardness": {
+    "runs": 16,
+    "sets": 3,
+    "stops": 104,
+    "conflicts": 13,
+    "single_track": 8,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 5,
+    "decisions": 20,
+    "holds": 12,
+    "short_turns": 8,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 0,
+    "optimal": 529,
+    "greedy_gap": 0.8,
+    "closed_min": 35,
+    "slow_min": 210,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 4,
+   "checks": 3,
+   "seconds": 192.2,
+   "input_tokens": 73245,
+   "cache_read_tokens": 43533,
+   "cache_write_tokens": 29696,
+   "output_tokens": 23967,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37353",
+     "to": "HDG"
+    },
+    {
+     "train": "37364",
+     "from": "HDG"
+    },
+    {
+     "train": "37455",
+     "to": "HDG"
+    },
+    {
+     "train": "37466",
+     "from": "HDG"
+    },
+    {
+     "train": "37357",
+     "to": "HDG"
+    },
+    {
+     "train": "37368",
+     "from": "HDG"
+    },
+    {
+     "train": "37361",
+     "to": "HDG"
+    },
+    {
+     "train": "37372",
+     "from": "HDG"
+    },
+    {
+     "train": "37365",
+     "to": "HDG",
+     "hold": {
+      "FWD": "20:10"
+     }
+    },
+    {
+     "train": "37376",
+     "from": "HDG"
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-04-23-1630-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-04-23",
+   "runs": 26,
+   "reward": 0.265132,
+   "submitted": true,
+   "feasible": true,
+   "cost": 2232,
+   "optimal_cost": 1926,
+   "floor_cost": 1782,
+   "greedy_cost": null,
+   "real_cost": 40,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 174,
+    "conflicts": 18,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 18,
+    "decisions": 26,
+    "holds": 12,
+    "short_turns": 14,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 144,
+    "optimal": 1926,
+    "greedy_gap": 0.8385,
+    "closed_min": 120,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 4,
+   "seconds": 434.4,
+   "input_tokens": 200383,
+   "cache_read_tokens": 129490,
+   "cache_write_tokens": 70873,
+   "output_tokens": 54728,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37353",
+     "to": "BP"
+    },
+    {
+     "train": "37464",
+     "from": "BP"
+    },
+    {
+     "train": "37455",
+     "to": "BP"
+    },
+    {
+     "train": "37366",
+     "from": "BP"
+    },
+    {
+     "train": "37457",
+     "to": "BP"
+    },
+    {
+     "train": "37368",
+     "from": "BP"
+    },
+    {
+     "train": "37355",
+     "to": "BP",
+     "hold": {
+      "GN": "17:49"
+     }
+    },
+    {
+     "train": "37466",
+     "from": "BP"
+    },
+    {
+     "train": "37357",
+     "to": "BP",
+     "hold": {
+      "GN": "17:58"
+     }
+    },
+    {
+     "train": "37468",
+     "from": "BP"
+    },
+    {
+     "train": "37462",
+     "to": "HDG"
+    },
+    {
+     "train": "37459",
+     "cancel": true
+    },
+    {
+     "train": "37370",
+     "from": "HDG",
+     "hold": {
+      "HDG": "19:19"
+     }
+    },
+    {
+     "train": "37364",
+     "cancel": true
+    },
+    {
+     "train": "37359",
+     "cancel": true
+    },
+    {
+     "train": "37470",
+     "hold": {
+      "LW": "19:03"
+     }
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "FWD": "19:13"
+     }
+    },
+    {
+     "train": "37461",
+     "hold": {
+      "BP": "19:08"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-04-25-1730-210m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-04-25",
+   "runs": 33,
+   "reward": 0.200095,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1890,
+   "optimal_cost": 1370,
+   "floor_cost": 1355,
+   "greedy_cost": null,
+   "real_cost": 51,
+   "hardness": {
+    "runs": 33,
+    "sets": 7,
+    "stops": 208,
+    "conflicts": 33,
+    "single_track": 5,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 28,
+    "decisions": 25,
+    "holds": 11,
+    "short_turns": 14,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 15,
+    "optimal": 1370,
+    "greedy_gap": 0.8424,
+    "closed_min": 66,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 8,
+   "checks": 7,
+   "seconds": 289.2,
+   "input_tokens": 347662,
+   "cache_read_tokens": 281422,
+   "cache_write_tokens": 66208,
+   "output_tokens": 34686,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37457",
+     "to": "ZH"
+    },
+    {
+     "train": "37368",
+     "cancel": true
+    },
+    {
+     "train": "37363",
+     "from": "ZH"
+    },
+    {
+     "train": "37364",
+     "to": "BP"
+    },
+    {
+     "train": "37359",
+     "from": "BP"
+    },
+    {
+     "train": "37357",
+     "cancel": true
+    },
+    {
+     "train": "37468",
+     "cancel": true
+    },
+    {
+     "train": "37459",
+     "to": "ZH"
+    },
+    {
+     "train": "37370",
+     "cancel": true
+    },
+    {
+     "train": "37365",
+     "from": "ZH"
+    },
+    {
+     "train": "37366",
+     "cancel": true
+    },
+    {
+     "train": "37361",
+     "cancel": true
+    },
+    {
+     "train": "37464",
+     "to": "BP"
+    },
+    {
+     "train": "37461",
+     "from": "BP"
+    },
+    {
+     "train": "37466",
+     "to": "BP",
+     "hold": {
+      "LW": "18:10"
+     }
+    },
+    {
+     "train": "37463",
+     "from": "BP"
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-04-26-0630-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-04-26",
+   "runs": 20,
+   "reward": 0.268684,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1252,
+   "optimal_cost": 1047,
+   "floor_cost": 980,
+   "greedy_cost": 3569,
+   "real_cost": 88,
+   "hardness": {
+    "runs": 20,
+    "sets": 7,
+    "stops": 150,
+    "conflicts": 35,
+    "single_track": 9,
+    "headway": 19,
+    "platforms": 1,
+    "closed": 6,
+    "decisions": 38,
+    "holds": 30,
+    "short_turns": 8,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 67,
+    "optimal": 1047,
+    "greedy_gap": 0.8,
+    "closed_min": 59,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 9,
+   "checks": 8,
+   "seconds": 478.0,
+   "input_tokens": 529628,
+   "cache_read_tokens": 437057,
+   "cache_write_tokens": 92535,
+   "output_tokens": 60483,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37413",
+     "to": "HDG"
+    },
+    {
+     "train": "37424",
+     "from": "HDG"
+    },
+    {
+     "train": "37420",
+     "to": "HDG"
+    },
+    {
+     "train": "37417",
+     "from": "HDG"
+    },
+    {
+     "train": "37422",
+     "cancel": true
+    },
+    {
+     "train": "37419",
+     "cancel": true
+    },
+    {
+     "train": "37415",
+     "hold": {
+      "HDG": "07:31"
+     }
+    },
+    {
+     "train": "37319",
+     "to": "HDG",
+     "hold": {
+      "GN": "08:36",
+      "FWD": "08:59"
+     }
+    },
+    {
+     "train": "37430",
+     "from": "HDG",
+     "hold": {
+      "HDG": "09:06"
+     }
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "GN": "08:40"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-04-26-1700-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-04-26",
+   "runs": 30,
+   "reward": 0.224802,
+   "submitted": true,
+   "feasible": true,
+   "cost": 645,
+   "optimal_cost": 447,
+   "floor_cost": 433,
+   "greedy_cost": 2402,
+   "real_cost": 59,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 10,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 10,
+    "decisions": 31,
+    "holds": 25,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 14,
+    "optimal": 447,
+    "greedy_gap": 0.8,
+    "closed_min": 36,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 6,
+   "checks": 5,
+   "seconds": 161.2,
+   "input_tokens": 169981,
+   "cache_read_tokens": 124867,
+   "cache_write_tokens": 45090,
+   "output_tokens": 18161,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37362",
+     "to": "ZH"
+    },
+    {
+     "train": "37357",
+     "from": "ZH"
+    },
+    {
+     "train": "37462",
+     "to": "ZH"
+    },
+    {
+     "train": "37459",
+     "from": "ZH"
+    },
+    {
+     "train": "37364",
+     "to": "ZH",
+     "hold": {
+      "BP": "17:43"
+     }
+    },
+    {
+     "train": "37359",
+     "from": "ZH"
+    },
+    {
+     "train": "37457",
+     "cancel": true
+    },
+    {
+     "train": "37368",
+     "cancel": true
+    },
+    {
+     "train": "37464",
+     "hold": {
+      "BP": "18:04"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-04-27-0800-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-04-27",
+   "runs": 15,
+   "reward": 0.776911,
+   "submitted": true,
+   "feasible": true,
+   "cost": 399,
+   "optimal_cost": 382,
+   "floor_cost": 378,
+   "greedy_cost": 1155,
+   "real_cost": 39,
+   "hardness": {
+    "runs": 15,
+    "sets": 3,
+    "stops": 100,
+    "conflicts": 20,
+    "single_track": 3,
+    "headway": 14,
+    "platforms": 0,
+    "closed": 3,
+    "decisions": 20,
+    "holds": 16,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 4,
+    "optimal": 382,
+    "greedy_gap": 0.8,
+    "closed_min": 36,
+    "slow_min": 80,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 4,
+   "checks": 3,
+   "seconds": 74.5,
+   "input_tokens": 53752,
+   "cache_read_tokens": 35541,
+   "cache_write_tokens": 18195,
+   "output_tokens": 8391,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37426",
+     "to": "ZH"
+    },
+    {
+     "train": "37321",
+     "from": "ZH",
+     "hold": {
+      "HDG": "09:07"
+     }
+    },
+    {
+     "train": "37328",
+     "to": "BP"
+    },
+    {
+     "train": "37423",
+     "from": "BP"
+    },
+    {
+     "train": "37325",
+     "hold": {
+      "GN": "09:44"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-04-27-0830-210m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-04-27",
+   "runs": 18,
+   "reward": 0.314963,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1380,
+   "optimal_cost": 1283,
+   "floor_cost": 1283,
+   "greedy_cost": 1624,
+   "real_cost": 45,
+   "hardness": {
+    "runs": 18,
+    "sets": 3,
+    "stops": 122,
+    "conflicts": 10,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 10,
+    "decisions": 15,
+    "holds": 3,
+    "short_turns": 12,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 0,
+    "optimal": 1283,
+    "greedy_gap": 0.7991,
+    "closed_min": 157,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": false,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 2,
+   "checks": 1,
+   "seconds": 108.2,
+   "input_tokens": 23343,
+   "cache_read_tokens": 8037,
+   "cache_write_tokens": 15298,
+   "output_tokens": 12985,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37430",
+     "to": "HDG"
+    },
+    {
+     "train": "37325",
+     "from": "HDG"
+    },
+    {
+     "train": "37336",
+     "to": "HDG"
+    },
+    {
+     "train": "37431",
+     "from": "HDG"
+    },
+    {
+     "train": "37321",
+     "to": "BP"
+    },
+    {
+     "train": "37332",
+     "from": "BP"
+    },
+    {
+     "train": "37423",
+     "to": "BP"
+    },
+    {
+     "train": "37434",
+     "from": "BP"
+    },
+    {
+     "train": "37427",
+     "to": "BP"
+    },
+    {
+     "train": "37438",
+     "from": "BP"
+    },
+    {
+     "train": "37329",
+     "to": "BP"
+    },
+    {
+     "train": "37340",
+     "from": "BP"
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-05-26-0730-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-26",
+   "runs": 26,
+   "reward": 0.985455,
+   "submitted": true,
+   "feasible": true,
+   "cost": 858,
+   "optimal_cost": 857,
+   "floor_cost": 848,
+   "greedy_cost": null,
+   "real_cost": 165,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 174,
+    "conflicts": 24,
+    "single_track": 3,
+    "headway": 4,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 32,
+    "holds": 14,
+    "short_turns": 18,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 9,
+    "optimal": 857,
+    "greedy_gap": 0.8231,
+    "closed_min": 130,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 4,
+   "checks": 3,
+   "seconds": 88.6,
+   "input_tokens": 70289,
+   "cache_read_tokens": 44644,
+   "cache_write_tokens": 25629,
+   "output_tokens": 10573,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37326",
+     "hold": {
+      "GK": "08:08"
+     }
+    },
+    {
+     "train": "37315",
+     "to": "HDG"
+    },
+    {
+     "train": "37426",
+     "from": "HDG"
+    },
+    {
+     "train": "37317",
+     "to": "HDG"
+    },
+    {
+     "train": "37419",
+     "to": "HDG",
+     "hold": {
+      "GN": "07:57"
+     }
+    },
+    {
+     "train": "37417",
+     "to": "HDG"
+    },
+    {
+     "train": "37328",
+     "from": "HDG"
+    },
+    {
+     "train": "37428",
+     "from": "HDG"
+    },
+    {
+     "train": "37321",
+     "to": "HDG"
+    },
+    {
+     "train": "37432",
+     "from": "HDG"
+    },
+    {
+     "train": "37319",
+     "to": "HDG"
+    },
+    {
+     "train": "37430",
+     "from": "HDG"
+    },
+    {
+     "train": "37421",
+     "to": "HDG"
+    },
+    {
+     "train": "37332",
+     "from": "HDG"
+    },
+    {
+     "train": "37423",
+     "to": "HDG"
+    },
+    {
+     "train": "37334",
+     "from": "HDG"
+    },
+    {
+     "train": "37323",
+     "to": "HDG"
+    },
+    {
+     "train": "37434",
+     "from": "HDG"
+    },
+    {
+     "train": "37330",
+     "from": "HDG"
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-05-26-1630-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-26",
+   "runs": 26,
+   "reward": 0.2526,
+   "submitted": true,
+   "feasible": true,
+   "cost": 484,
+   "optimal_cost": 254,
+   "floor_cost": 185,
+   "greedy_cost": null,
+   "real_cost": 55,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 174,
+    "conflicts": 8,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 8,
+    "decisions": 27,
+    "holds": 25,
+    "short_turns": 2,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 69,
+    "optimal": 254,
+    "greedy_gap": 0.8,
+    "closed_min": 10,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 11,
+   "checks": 10,
+   "seconds": 402.2,
+   "input_tokens": 596350,
+   "cache_read_tokens": 499536,
+   "cache_write_tokens": 96770,
+   "output_tokens": 50408,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37360",
+     "hold": {
+      "ZH": "17:00"
+     }
+    },
+    {
+     "train": "37460",
+     "hold": {
+      "BP": "17:04"
+     }
+    },
+    {
+     "train": "37353",
+     "hold": {
+      "ZH": "17:00"
+     }
+    },
+    {
+     "train": "37455",
+     "hold": {
+      "GN": "17:00",
+      "HDG": "17:32"
+     }
+    },
+    {
+     "train": "37362",
+     "hold": {
+      "FWD": "17:04"
+     }
+    },
+    {
+     "train": "37462",
+     "hold": {
+      "FWD": "17:07"
+     }
+    },
+    {
+     "train": "37364",
+     "hold": {
+      "LW": "17:26",
+      "BP": "17:42"
+     }
+    },
+    {
+     "train": "37464",
+     "hold": {
+      "LW": "17:49"
+     }
+    },
+    {
+     "train": "37466",
+     "hold": {
+      "LW": "17:52"
+     }
+    },
+    {
+     "train": "37457",
+     "hold": {
+      "FWD": "18:03"
+     }
+    },
+    {
+     "train": "37357",
+     "hold": {
+      "BP": "18:02"
+     }
+    },
+    {
+     "train": "37359",
+     "hold": {
+      "ZH": "18:19"
+     }
+    },
+    {
+     "train": "37459",
+     "hold": {
+      "FWD": "18:26"
+     }
+    },
+    {
+     "train": "37468",
+     "hold": {
+      "HDG": "18:30"
+     }
+    },
+    {
+     "train": "37368",
+     "hold": {
+      "BP": "18:36"
+     }
+    },
+    {
+     "train": "37470",
+     "hold": {
+      "HDG": "19:02"
+     }
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "FWD": "19:05"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-05-26-1800-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-26",
+   "runs": 25,
+   "reward": 0.681912,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1051,
+   "optimal_cost": 1014,
+   "floor_cost": 968,
+   "greedy_cost": null,
+   "real_cost": 41,
+   "hardness": {
+    "runs": 25,
+    "sets": 7,
+    "stops": 158,
+    "conflicts": 17,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 31,
+    "holds": 17,
+    "short_turns": 12,
+    "cancels": 2,
+    "turn_points": 1,
+    "avoidable": 46,
+    "optimal": 1014,
+    "greedy_gap": 0.824,
+    "closed_min": 130,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 4,
+   "seconds": 150.5,
+   "input_tokens": 116931,
+   "cache_read_tokens": 80731,
+   "cache_write_tokens": 36180,
+   "output_tokens": 18766,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37357",
+     "to": "HDG"
+    },
+    {
+     "train": "37459",
+     "to": "HDG"
+    },
+    {
+     "train": "37359",
+     "to": "HDG"
+    },
+    {
+     "train": "37461",
+     "to": "HDG"
+    },
+    {
+     "train": "37361",
+     "to": "HDG"
+    },
+    {
+     "train": "37463",
+     "to": "HDG"
+    },
+    {
+     "train": "37368",
+     "cancel": true
+    },
+    {
+     "train": "37363",
+     "cancel": true
+    },
+    {
+     "train": "37474",
+     "hold": {
+      "LW": "20:12"
+     }
+    },
+    {
+     "train": "37468",
+     "from": "HDG"
+    },
+    {
+     "train": "37370",
+     "from": "HDG"
+    },
+    {
+     "train": "37470",
+     "from": "HDG"
+    },
+    {
+     "train": "37372",
+     "from": "HDG"
+    },
+    {
+     "train": "37472",
+     "from": "HDG"
+    },
+    {
+     "train": "37374",
+     "from": "HDG"
+    },
+    {
+     "train": "37465",
+     "to": "HDG"
+    },
+    {
+     "train": "37376",
+     "from": "HDG",
+     "hold": {
+      "HDG": "20:29"
+     }
+    },
+    {
+     "train": "37365",
+     "hold": {
+      "FWD": "20:22"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-05-27-0830-210m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-27",
+   "runs": 34,
+   "reward": 0.831685,
+   "submitted": true,
+   "feasible": true,
+   "cost": 810,
+   "optimal_cost": 795,
+   "floor_cost": 768,
+   "greedy_cost": null,
+   "real_cost": 285,
+   "hardness": {
+    "runs": 34,
+    "sets": 7,
+    "stops": 226,
+    "conflicts": 28,
+    "single_track": 1,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 27,
+    "decisions": 44,
+    "holds": 30,
+    "short_turns": 12,
+    "cancels": 2,
+    "turn_points": 1,
+    "avoidable": 27,
+    "optimal": 795,
+    "greedy_gap": 0.8529,
+    "closed_min": 98,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 4,
+   "seconds": 261.2,
+   "input_tokens": 175025,
+   "cache_read_tokens": 119291,
+   "cache_write_tokens": 55714,
+   "output_tokens": 31821,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37428",
+     "to": "ZH",
+     "hold": {
+      "HDG": "08:32"
+     }
+    },
+    {
+     "train": "37319",
+     "hold": {
+      "FWD": "08:35"
+     }
+    },
+    {
+     "train": "37328",
+     "to": "ZH"
+    },
+    {
+     "train": "37330",
+     "to": "ZH",
+     "hold": {
+      "GK": "09:18"
+     }
+    },
+    {
+     "train": "37430",
+     "to": "ZH",
+     "hold": {
+      "GK": "09:35"
+     }
+    },
+    {
+     "train": "37332",
+     "to": "ZH",
+     "hold": {
+      "BP": "09:43"
+     }
+    },
+    {
+     "train": "37432",
+     "to": "ZH",
+     "hold": {
+      "BP": "09:46",
+      "GK": "10:05"
+     }
+    },
+    {
+     "train": "37434",
+     "hold": {
+      "ZH": "10:38"
+     }
+    },
+    {
+     "train": "37423",
+     "cancel": true
+    },
+    {
+     "train": "37334",
+     "cancel": true
+    },
+    {
+     "train": "37323",
+     "from": "ZH"
+    },
+    {
+     "train": "37425",
+     "from": "ZH"
+    },
+    {
+     "train": "37325",
+     "from": "ZH"
+    },
+    {
+     "train": "37427",
+     "from": "ZH"
+    },
+    {
+     "train": "37327",
+     "from": "ZH"
+    },
+    {
+     "train": "37429",
+     "from": "ZH"
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-05-27-1700-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-27",
+   "runs": 30,
+   "reward": 0.312259,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1008,
+   "optimal_cost": 791,
+   "floor_cost": 670,
+   "greedy_cost": null,
+   "real_cost": 253,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 17,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 27,
+    "holds": 21,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 121,
+    "optimal": 791,
+    "greedy_gap": 0.8467,
+    "closed_min": 35,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 7,
+   "checks": 6,
+   "seconds": 422.5,
+   "input_tokens": 348363,
+   "cache_read_tokens": 265378,
+   "cache_write_tokens": 82957,
+   "output_tokens": 52674,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37462",
+     "to": "BP"
+    },
+    {
+     "train": "37459",
+     "from": "BP",
+     "hold": {
+      "HDG": "18:31"
+     }
+    },
+    {
+     "train": "37355",
+     "to": "ZH"
+    },
+    {
+     "train": "37466",
+     "from": "ZH"
+    },
+    {
+     "train": "37457",
+     "cancel": true
+    },
+    {
+     "train": "37368",
+     "cancel": true
+    },
+    {
+     "train": "37357",
+     "hold": {
+      "GN": "17:48"
+     }
+    },
+    {
+     "train": "37364",
+     "hold": {
+      "BP": "17:55"
+     }
+    },
+    {
+     "train": "37464",
+     "hold": {
+      "DWE": "17:57"
+     }
+    },
+    {
+     "train": "37366",
+     "hold": {
+      "LW": "17:54"
+     }
+    },
+    {
+     "train": "37370",
+     "hold": {
+      "LW": "18:47"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-05-27-1830-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-27",
+   "runs": 27,
+   "reward": 0.692413,
+   "submitted": true,
+   "feasible": true,
+   "cost": 629,
+   "optimal_cost": 596,
+   "floor_cost": 560,
+   "greedy_cost": null,
+   "real_cost": 170,
+   "hardness": {
+    "runs": 27,
+    "sets": 7,
+    "stops": 162,
+    "conflicts": 25,
+    "single_track": 8,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 27,
+    "holds": 17,
+    "short_turns": 10,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 36,
+    "optimal": 596,
+    "greedy_gap": 0.8593,
+    "closed_min": 59,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 4,
+   "seconds": 184.3,
+   "input_tokens": 153595,
+   "cache_read_tokens": 108169,
+   "cache_write_tokens": 45406,
+   "output_tokens": 22865,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37459",
+     "to": "HDG"
+    },
+    {
+     "train": "37359",
+     "to": "HDG",
+     "hold": {
+      "FWD": "18:38"
+     }
+    },
+    {
+     "train": "37370",
+     "from": "HDG",
+     "hold": {
+      "FWD": "18:56"
+     }
+    },
+    {
+     "train": "37470",
+     "from": "HDG"
+    },
+    {
+     "train": "37461",
+     "to": "HDG"
+    },
+    {
+     "train": "37361",
+     "to": "HDG",
+     "hold": {
+      "GN": "18:51"
+     }
+    },
+    {
+     "train": "37463",
+     "to": "HDG",
+     "hold": {
+      "GN": "18:57"
+     }
+    },
+    {
+     "train": "37372",
+     "from": "HDG"
+    },
+    {
+     "train": "37472",
+     "from": "HDG"
+    },
+    {
+     "train": "37363",
+     "to": "HDG"
+    },
+    {
+     "train": "37474",
+     "from": "HDG"
+    },
+    {
+     "train": "37374",
+     "from": "HDG"
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-05-28-1830-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-05-28",
+   "runs": 31,
+   "reward": 0.280155,
+   "submitted": true,
+   "feasible": true,
+   "cost": 612,
+   "optimal_cost": 436,
+   "floor_cost": 383,
+   "greedy_cost": 1271,
+   "real_cost": 69,
+   "hardness": {
+    "runs": 31,
+    "sets": 7,
+    "stops": 186,
+    "conflicts": 23,
+    "single_track": 10,
+    "headway": 11,
+    "platforms": 1,
+    "closed": 1,
+    "decisions": 36,
+    "holds": 32,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 53,
+    "optimal": 436,
+    "greedy_gap": 0.8,
+    "closed_min": 10,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 6,
+   "checks": 5,
+   "seconds": 356.2,
+   "input_tokens": 276952,
+   "cache_read_tokens": 203693,
+   "cache_write_tokens": 73235,
+   "output_tokens": 45793,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37368",
+     "hold": {
+      "BP": "18:43"
+     }
+    },
+    {
+     "train": "37468",
+     "hold": {
+      "BP": "18:46"
+     }
+    },
+    {
+     "train": "37370",
+     "hold": {
+      "HDG": "18:56"
+     }
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "GN": "19:02",
+      "BP": "19:20"
+     }
+    },
+    {
+     "train": "37463",
+     "hold": {
+      "BP": "19:23"
+     }
+    },
+    {
+     "train": "37461",
+     "hold": {
+      "HDG": "19:11"
+     }
+    },
+    {
+     "train": "37363",
+     "hold": {
+      "GN": "19:14"
+     }
+    },
+    {
+     "train": "37465",
+     "hold": {
+      "ZH": "19:34",
+      "FWD": "19:59"
+     }
+    },
+    {
+     "train": "37365",
+     "hold": {
+      "GN": "19:42"
+     }
+    },
+    {
+     "train": "37472",
+     "hold": {
+      "LW": "19:49"
+     }
+    },
+    {
+     "train": "37474",
+     "hold": {
+      "LW": "19:52",
+      "HDG": "20:02"
+     }
+    },
+    {
+     "train": "37467",
+     "hold": {
+      "GN": "19:55"
+     }
+    },
+    {
+     "train": "37367",
+     "hold": {
+      "ZH": "20:19"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-05-30-0630-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-30",
+   "runs": 29,
+   "reward": 0.213975,
+   "submitted": true,
+   "feasible": true,
+   "cost": 796,
+   "optimal_cost": 454,
+   "floor_cost": 385,
+   "greedy_cost": 1397,
+   "real_cost": 1128,
+   "hardness": {
+    "runs": 29,
+    "sets": 7,
+    "stops": 201,
+    "conflicts": 13,
+    "single_track": 1,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 12,
+    "decisions": 37,
+    "holds": 33,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 69,
+    "optimal": 454,
+    "greedy_gap": 0.8,
+    "closed_min": 28,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 9,
+   "checks": 8,
+   "seconds": 533.8,
+   "input_tokens": 573063,
+   "cache_read_tokens": 463074,
+   "cache_write_tokens": 109953,
+   "output_tokens": 68499,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37420",
+     "hold": {
+      "HDG": "06:31",
+      "BP": "07:08"
+     }
+    },
+    {
+     "train": "37320",
+     "hold": {
+      "BP": "07:01"
+     }
+    },
+    {
+     "train": "37413",
+     "hold": {
+      "ZH": "07:01"
+     }
+    },
+    {
+     "train": "37313",
+     "hold": {
+      "GN": "06:51"
+     }
+    },
+    {
+     "train": "37415",
+     "hold": {
+      "ZH": "07:04"
+     }
+    },
+    {
+     "train": "37322",
+     "hold": {
+      "FWD": "06:59"
+     }
+    },
+    {
+     "train": "37422",
+     "hold": {
+      "ZH": "07:28"
+     }
+    },
+    {
+     "train": "37315",
+     "to": "HDG",
+     "hold": {
+      "FWD": "07:56"
+     }
+    },
+    {
+     "train": "37426",
+     "from": "HDG"
+    },
+    {
+     "train": "37324",
+     "hold": {
+      "LW": "07:40"
+     }
+    },
+    {
+     "train": "37424",
+     "hold": {
+      "LW": "07:43"
+     }
+    },
+    {
+     "train": "37419",
+     "hold": {
+      "ZH": "08:05",
+      "FWD": "08:26"
+     }
+    },
+    {
+     "train": "37326",
+     "hold": {
+      "LW": "07:48",
+      "FWD": "08:01"
+     }
+    },
+    {
+     "train": "37317",
+     "hold": {
+      "FWD": "08:07"
+     }
+    },
+    {
+     "train": "37319",
+     "hold": {
+      "ZH": "08:27"
+     }
+    },
+    {
+     "train": "37430",
+     "hold": {
+      "HDG": "09:02"
+     }
+    },
+    {
+     "train": "37421",
+     "hold": {
+      "FWD": "08:58"
+     }
+    },
+    {
+     "train": "37330",
+     "hold": {
+      "LW": "08:50"
+     }
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "FWD": "09:05"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-05-31-0800-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-05-31",
+   "runs": 32,
+   "reward": 0.220658,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1658,
+   "optimal_cost": 1179,
+   "floor_cost": 1017,
+   "greedy_cost": 5859,
+   "real_cost": 90,
+   "hardness": {
+    "runs": 32,
+    "sets": 7,
+    "stops": 218,
+    "conflicts": 43,
+    "single_track": 6,
+    "headway": 16,
+    "platforms": 2,
+    "closed": 19,
+    "decisions": 30,
+    "holds": 20,
+    "short_turns": 10,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 162,
+    "optimal": 1179,
+    "greedy_gap": 0.8,
+    "closed_min": 39,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 2
+   },
+   "violations": 0,
+   "agent_turns": 6,
+   "checks": 5,
+   "seconds": 606.7,
+   "input_tokens": 377209,
+   "cache_read_tokens": 264253,
+   "cache_write_tokens": 112932,
+   "output_tokens": 82409,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37419",
+     "to": "BP",
+     "hold": {
+      "GK": "08:52"
+     }
+    },
+    {
+     "train": "37330",
+     "from": "BP",
+     "hold": {
+      "BP": "09:03"
+     }
+    },
+    {
+     "train": "37426",
+     "to": "BP"
+    },
+    {
+     "train": "37423",
+     "from": "BP",
+     "hold": {
+      "BP": "09:21"
+     }
+    },
+    {
+     "train": "37328",
+     "hold": {
+      "BP": "08:49"
+     }
+    },
+    {
+     "train": "37428",
+     "hold": {
+      "DWE": "08:47",
+      "BP": "08:56"
+     }
+    },
+    {
+     "train": "37421",
+     "hold": {
+      "GN": "08:51"
+     }
+    },
+    {
+     "train": "37319",
+     "cancel": true
+    },
+    {
+     "train": "37430",
+     "cancel": true
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "GN": "09:01"
+     }
+    },
+    {
+     "train": "37323",
+     "hold": {
+      "FWD": "09:34"
+     }
+    },
+    {
+     "train": "37332",
+     "hold": {
+      "LW": "09:44"
+     }
+    },
+    {
+     "train": "37334",
+     "hold": {
+      "LW": "09:47",
+      "FWD": "09:57"
+     }
+    },
+    {
+     "train": "37432",
+     "hold": {
+      "LW": "09:50"
+     }
+    },
+    {
+     "train": "37434",
+     "hold": {
+      "LW": "09:53"
+     }
+    },
+    {
+     "train": "37425",
+     "hold": {
+      "FWD": "10:03"
+     }
+    },
+    {
+     "train": "37325",
+     "hold": {
+      "BP": "10:02"
+     }
+    },
+    {
+     "train": "37427",
+     "hold": {
+      "FWD": "10:26"
+     }
+    },
+    {
+     "train": "37327",
+     "hold": {
+      "GN": "10:21"
+     }
+    },
+    {
+     "train": "37338",
+     "hold": {
+      "LW": "10:52"
+     }
+    },
+    {
+     "train": "37429",
+     "hold": {
+      "GN": "10:36"
+     }
+    },
+    {
+     "train": "37329",
+     "hold": {
+      "GN": "10:43",
+      "FWD": "11:10"
+     }
+    },
+    {
+     "train": "37438",
+     "hold": {
+      "HDG": "11:07"
+     }
+    },
+    {
+     "train": "37431",
+     "hold": {
+      "FWD": "11:27"
+     }
+    },
+    {
+     "train": "37440",
+     "hold": {
+      "HDG": "11:30"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-05-31-0900-180m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-05-31",
+   "runs": 30,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 226,
+   "optimal_cost": 226,
+   "floor_cost": 216,
+   "greedy_cost": 1092,
+   "real_cost": 76,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 14,
+    "single_track": 3,
+    "headway": 5,
+    "platforms": 0,
+    "closed": 6,
+    "decisions": 49,
+    "holds": 45,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 10,
+    "optimal": 226,
+    "greedy_gap": 0.8,
+    "closed_min": 26,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 4,
+   "seconds": 81.3,
+   "input_tokens": 100111,
+   "cache_read_tokens": 70056,
+   "cache_write_tokens": 30035,
+   "output_tokens": 9569,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37430",
+     "hold": {
+      "HDG": "09:01"
+     }
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "FWD": "09:04"
+     }
+    },
+    {
+     "train": "37423",
+     "to": "HDG"
+    },
+    {
+     "train": "37334",
+     "from": "HDG"
+    },
+    {
+     "train": "37323",
+     "to": "HDG"
+    },
+    {
+     "train": "37434",
+     "from": "HDG"
+    },
+    {
+     "train": "37425",
+     "hold": {
+      "GN": "09:27"
+     }
+    }
+   ]
+  },
+  {
+   "model": "claude-sonnet-5-5@high",
+   "task_id": "gnlw-2025-06-22-1600-240m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-06-22",
+   "runs": 18,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 668,
+   "optimal_cost": 668,
+   "floor_cost": 668,
+   "greedy_cost": null,
+   "real_cost": 27,
+   "hardness": {
+    "runs": 18,
+    "sets": 3,
+    "stops": 108,
+    "conflicts": 22,
+    "single_track": 1,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 21,
+    "decisions": 22,
+    "holds": 16,
+    "short_turns": 4,
+    "cancels": 2,
+    "turn_points": 1,
+    "avoidable": 0,
+    "optimal": 668,
+    "greedy_gap": 0.8444,
+    "closed_min": 92,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 2,
+   "checks": 1,
+   "seconds": 31.4,
+   "input_tokens": 15086,
+   "cache_read_tokens": 7772,
+   "cache_write_tokens": 7306,
+   "output_tokens": 3309,
+   "served_by": [
+    "claude-sonnet-5-5"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37451",
+     "cancel": true
+    },
+    {
+     "train": "37462",
+     "cancel": true
+    },
+    {
+     "train": "37458",
+     "to": "BP"
+    },
+    {
+     "train": "37353",
+     "from": "BP"
+    },
+    {
+     "train": "37360",
+     "to": "BP"
+    },
+    {
+     "train": "37455",
+     "from": "BP"
+    },
+    {
+     "train": "37364",
+     "hold": {
+      "BP": "17:42"
+     }
+    }
+   ]
+  }
+ ]
+}

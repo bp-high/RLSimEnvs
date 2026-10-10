@@ -1,0 +1,32 @@
+{
+  "line": "GN-LW",
+  "name": "Groningen - Leeuwarden (Staatslijn B, Arriva)",
+  "west": "LW",
+  "east": "GN",
+  "note": "Points run west to east. km from Leeuwarden along the track (OSM track geometry). Single or double track per section from the ProRail track-section references mapped in OSM (ref:ProRailSpoortak; a 'V' suffix is single track). Track counts per station from the planned platforms in the Rijden de Treinen record. Turn points are the stations where trains were really short-turned in January-June 2025. Junctions are where double track becomes single between two stations; trains cannot stop there.",
+  "points": [
+    {"code": "LW",  "name": "Leeuwarden",                 "km": 0.0,   "kind": "terminal", "tracks": null, "directional": false, "turn": true},
+    {"code": "LWC", "name": "Leeuwarden Camminghaburen",  "km": 4.24,  "kind": "halt",     "tracks": 1,    "directional": false, "turn": false},
+    {"code": "HDG", "name": "Hurdegaryp",                 "km": 10.69, "kind": "station",  "tracks": 2,    "directional": false, "turn": true},
+    {"code": "FWD", "name": "Feanwalden",                 "km": 14.75, "kind": "station",  "tracks": 2,    "directional": false, "turn": false},
+    {"code": "DWE", "name": "De Westereen",               "km": 18.12, "kind": "station",  "tracks": 2,    "directional": true,  "turn": false},
+    {"code": "BP",  "name": "Buitenpost",                 "km": 25.53, "kind": "station",  "tracks": 2,    "directional": false, "turn": true},
+    {"code": "GK",  "name": "Grijpskerk",                 "km": 36.54, "kind": "station",  "tracks": 2,    "directional": true,  "turn": false},
+    {"code": "J1",  "name": "Grijpskerk east junction",   "km": 38.29, "kind": "junction", "tracks": null, "directional": false, "turn": false},
+    {"code": "ZH",  "name": "Zuidhorn",                   "km": 43.14, "kind": "station",  "tracks": 2,    "directional": false, "turn": true},
+    {"code": "J2",  "name": "Groningen west junction",    "km": 51.44, "kind": "junction", "tracks": null, "directional": false, "turn": false},
+    {"code": "GN",  "name": "Groningen",                  "km": 54.99, "kind": "terminal", "tracks": null, "directional": false, "turn": true}
+  ],
+  "sections": [
+    {"a": "LW",  "b": "LWC", "single": true,  "prorail": "550_157V"},
+    {"a": "LWC", "b": "HDG", "single": true,  "prorail": "550_157V"},
+    {"a": "HDG", "b": "FWD", "single": true,  "prorail": "V (single)"},
+    {"a": "FWD", "b": "DWE", "single": false, "prorail": "double"},
+    {"a": "DWE", "b": "BP",  "single": false, "prorail": "double"},
+    {"a": "BP",  "b": "GK",  "single": false, "prorail": "double"},
+    {"a": "GK",  "b": "J1",  "single": false, "prorail": "002_357AL / 002_357BV"},
+    {"a": "J1",  "b": "ZH",  "single": true,  "prorail": "002_373V"},
+    {"a": "ZH",  "b": "J2",  "single": false, "prorail": "002_405L / 002_405R"},
+    {"a": "J2",  "b": "GN",  "single": true,  "prorail": "501_11BL"}
+  ]
+}

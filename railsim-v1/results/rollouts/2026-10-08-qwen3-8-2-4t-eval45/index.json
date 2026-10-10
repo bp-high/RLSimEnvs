@@ -1,0 +1,6149 @@
+{
+ "run": "2026-10-08-qwen3-8-2-4t-eval45",
+ "episodes": [
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-01-20-1800-180m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-20",
+   "runs": 24,
+   "reward": 0.23261,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1024,
+   "optimal_cost": 664,
+   "floor_cost": 539,
+   "greedy_cost": 2501,
+   "real_cost": 64,
+   "hardness": {
+    "runs": 24,
+    "sets": 6,
+    "stops": 147,
+    "conflicts": 11,
+    "single_track": 5,
+    "headway": 3,
+    "platforms": 0,
+    "closed": 3,
+    "decisions": 43,
+    "holds": 36,
+    "short_turns": 7,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 125,
+    "optimal": 664,
+    "greedy_gap": 0.7999,
+    "closed_min": 46,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 11,
+   "checks": 9,
+   "seconds": 1500.6,
+   "input_tokens": 1263012,
+   "cache_read_tokens": 825216,
+   "cache_write_tokens": 0,
+   "output_tokens": 148325,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37357",
+     "to": "HDG",
+     "hold": {
+      "FWD": "18:51"
+     }
+    },
+    {
+     "train": "37359",
+     "to": "HDG",
+     "hold": {
+      "FWD": "18:54"
+     }
+    },
+    {
+     "train": "37459",
+     "to": "HDG",
+     "hold": {
+      "FWD": "19:04"
+     }
+    },
+    {
+     "train": "37468",
+     "from": "HDG",
+     "hold": {
+      "HDG": "18:58"
+     }
+    },
+    {
+     "train": "37470",
+     "from": "HDG",
+     "hold": {
+      "HDG": "19:01"
+     }
+    },
+    {
+     "train": "37370",
+     "from": "HDG",
+     "hold": {
+      "HDG": "19:11",
+      "BP": "19:23",
+      "ZH": "19:36"
+     }
+    },
+    {
+     "train": "37461",
+     "to": "HDG",
+     "hold": {
+      "ZH": "18:45",
+      "BP": "19:00",
+      "FWD": "19:08"
+     }
+    },
+    {
+     "train": "37361",
+     "to": "HDG",
+     "hold": {
+      "ZH": "18:50",
+      "BP": "19:07",
+      "FWD": "19:14"
+     }
+    },
+    {
+     "train": "37372",
+     "from": "HDG"
+    },
+    {
+     "train": "37472",
+     "from": "HDG"
+    },
+    {
+     "train": "37465",
+     "hold": {
+      "GN": "19:37",
+      "ZH": "19:45"
+     }
+    },
+    {
+     "train": "37365",
+     "hold": {
+      "GN": "19:52"
+     }
+    },
+    {
+     "train": "37467",
+     "hold": {
+      "GN": "19:55",
+      "ZH": "20:11",
+      "FWD": "20:33"
+     }
+    },
+    {
+     "train": "37367",
+     "hold": {
+      "BP": "20:29",
+      "FWD": "20:39"
+     }
+    },
+    {
+     "train": "37376",
+     "hold": {
+      "LW": "20:24",
+      "BP": "20:43"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-01-21-0626-180m-real-0",
+   "split": "eval",
+   "difficulty": "real",
+   "day": "2025-01-21",
+   "runs": 29,
+   "reward": 0.310584,
+   "submitted": true,
+   "feasible": true,
+   "cost": 632,
+   "optimal_cost": 445,
+   "floor_cost": 356,
+   "greedy_cost": 1980,
+   "real_cost": 1308,
+   "hardness": {
+    "runs": 29,
+    "sets": 7,
+    "stops": 199,
+    "conflicts": 18,
+    "single_track": 14,
+    "headway": 4,
+    "platforms": 0,
+    "closed": 0,
+    "decisions": 21,
+    "holds": 17,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 89,
+    "optimal": 445,
+    "greedy_gap": 0.8,
+    "closed_min": 0,
+    "slow_min": 69,
+    "track_min": 0,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 12,
+   "checks": 10,
+   "seconds": 1309.4,
+   "input_tokens": 1277801,
+   "cache_read_tokens": 830784,
+   "cache_write_tokens": 0,
+   "output_tokens": 132211,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37411",
+     "to": "HDG"
+    },
+    {
+     "train": "37322",
+     "from": "HDG"
+    },
+    {
+     "train": "37413",
+     "hold": {
+      "ZH": "06:43"
+     }
+    },
+    {
+     "train": "37418",
+     "hold": {
+      "ZH": "06:35"
+     }
+    },
+    {
+     "train": "37313",
+     "hold": {
+      "ZH": "06:56"
+     }
+    },
+    {
+     "train": "37415",
+     "hold": {
+      "GN": "06:59"
+     }
+    },
+    {
+     "train": "37315",
+     "hold": {
+      "ZH": "07:27"
+     }
+    },
+    {
+     "train": "37324",
+     "hold": {
+      "LW": "07:21"
+     }
+    },
+    {
+     "train": "37317",
+     "hold": {
+      "ZH": "07:46",
+      "FWD": "08:04"
+     }
+    },
+    {
+     "train": "37417",
+     "hold": {
+      "GN": "07:42"
+     },
+     "to": "HDG"
+    },
+    {
+     "train": "37420",
+     "hold": {
+      "ZH": "07:05"
+     }
+    },
+    {
+     "train": "37424",
+     "hold": {
+      "GK": "07:53"
+     }
+    },
+    {
+     "train": "37326",
+     "hold": {
+      "LW": "07:50"
+     }
+    },
+    {
+     "train": "37328",
+     "from": "HDG"
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-01-22-1600-240m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-22",
+   "runs": 38,
+   "reward": 0.22493,
+   "submitted": true,
+   "feasible": true,
+   "cost": 918,
+   "optimal_cost": 670,
+   "floor_cost": 627,
+   "greedy_cost": 5661,
+   "real_cost": 112,
+   "hardness": {
+    "runs": 38,
+    "sets": 7,
+    "stops": 252,
+    "conflicts": 28,
+    "single_track": 7,
+    "headway": 10,
+    "platforms": 0,
+    "closed": 11,
+    "decisions": 24,
+    "holds": 18,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 43,
+    "optimal": 670,
+    "greedy_gap": 0.8,
+    "closed_min": 36,
+    "slow_min": 33,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 11,
+   "checks": 9,
+   "seconds": 1422.2,
+   "input_tokens": 1349865,
+   "cache_read_tokens": 767360,
+   "cache_write_tokens": 0,
+   "output_tokens": 129196,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37358",
+     "to": "ZH"
+    },
+    {
+     "train": "37353",
+     "from": "ZH",
+     "hold": {
+      "ZH": "16:46"
+     }
+    },
+    {
+     "train": "37458",
+     "hold": {
+      "ZH": "16:46"
+     }
+    },
+    {
+     "train": "37360",
+     "hold": {
+      "BP": "16:45"
+     }
+    },
+    {
+     "train": "37460",
+     "hold": {
+      "BP": "16:48"
+     }
+    },
+    {
+     "train": "37351",
+     "hold": {
+      "GN": "16:47",
+      "ZH": "17:00"
+     }
+    },
+    {
+     "train": "37453",
+     "hold": {
+      "GN": "16:58"
+     },
+     "to": "BP"
+    },
+    {
+     "train": "37362",
+     "hold": {
+      "FWD": "17:02"
+     }
+    },
+    {
+     "train": "37364",
+     "from": "BP"
+    },
+    {
+     "train": "37462",
+     "to": "ZH",
+     "hold": {
+      "LW": "17:27",
+      "HDG": "17:36",
+      "GK": "17:55"
+     }
+    },
+    {
+     "train": "37455",
+     "hold": {
+      "HDG": "17:34"
+     }
+    },
+    {
+     "train": "37355",
+     "hold": {
+      "ZH": "17:19",
+      "FWD": "17:39"
+     }
+    },
+    {
+     "train": "37464",
+     "hold": {
+      "LW": "17:23",
+      "HDG": "17:33"
+     }
+    },
+    {
+     "train": "37459",
+     "from": "ZH"
+    },
+    {
+     "train": "37366",
+     "hold": {
+      "LW": "17:47"
+     }
+    },
+    {
+     "train": "37457",
+     "hold": {
+      "GN": "17:25",
+      "FWD": "17:56"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-01-22-1800-150m-loop-0",
+   "split": "eval",
+   "difficulty": "loop",
+   "day": "2025-01-22",
+   "runs": 25,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 397,
+   "optimal_cost": 397,
+   "floor_cost": 336,
+   "greedy_cost": 562,
+   "real_cost": 79,
+   "hardness": {
+    "runs": 25,
+    "sets": 7,
+    "stops": 158,
+    "conflicts": 18,
+    "single_track": 18,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 0,
+    "decisions": 19,
+    "holds": 19,
+    "short_turns": 0,
+    "cancels": 0,
+    "turn_points": 0,
+    "avoidable": 61,
+    "optimal": 397,
+    "greedy_gap": 0.697,
+    "closed_min": 0,
+    "slow_min": 138,
+    "track_min": 10,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 10,
+   "checks": 8,
+   "seconds": 1215.5,
+   "input_tokens": 737822,
+   "cache_read_tokens": 470976,
+   "cache_write_tokens": 0,
+   "output_tokens": 114497,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "hold": {
+      "FWD": "18:33"
+     },
+     "train": "37459"
+    },
+    {
+     "hold": {
+      "FWD": "19:03"
+     },
+     "train": "37461"
+    },
+    {
+     "hold": {
+      "FWD": "19:33"
+     },
+     "train": "37463"
+    },
+    {
+     "hold": {
+      "FWD": "20:03"
+     },
+     "train": "37465"
+    },
+    {
+     "hold": {
+      "ZH": "18:35"
+     },
+     "train": "37466"
+    },
+    {
+     "hold": {
+      "ZH": "19:05"
+     },
+     "train": "37468"
+    },
+    {
+     "hold": {
+      "ZH": "19:35"
+     },
+     "train": "37470"
+    },
+    {
+     "hold": {
+      "BP": "18:38"
+     },
+     "train": "37368"
+    },
+    {
+     "hold": {
+      "FWD": "18:59",
+      "LW": "18:48"
+     },
+     "train": "37370"
+    },
+    {
+     "hold": {
+      "LW": "19:19"
+     },
+     "train": "37372"
+    },
+    {
+     "hold": {
+      "LW": "19:48",
+      "ZH": "20:21"
+     },
+     "train": "37374"
+    },
+    {
+     "hold": {
+      "LW": "20:19"
+     },
+     "train": "37376"
+    },
+    {
+     "hold": {
+      "GN": "20:10",
+      "ZH": "20:19"
+     },
+     "train": "37367"
+    },
+    {
+     "hold": {
+      "BP": "20:18"
+     },
+     "train": "37474"
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-01-23-0800-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-23",
+   "runs": 34,
+   "reward": 0.238549,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1126,
+   "optimal_cost": 894,
+   "floor_cost": 841,
+   "greedy_cost": 4449,
+   "real_cost": 83,
+   "hardness": {
+    "runs": 34,
+    "sets": 7,
+    "stops": 226,
+    "conflicts": 51,
+    "single_track": 17,
+    "headway": 20,
+    "platforms": 0,
+    "closed": 14,
+    "decisions": 29,
+    "holds": 18,
+    "short_turns": 11,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 53,
+    "optimal": 894,
+    "greedy_gap": 0.8,
+    "closed_min": 24,
+    "slow_min": 69,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 11,
+   "checks": 9,
+   "seconds": 1272.7,
+   "input_tokens": 1436221,
+   "cache_read_tokens": 1308288,
+   "cache_write_tokens": 0,
+   "output_tokens": 160050,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37426",
+     "hold": {
+      "HDG": "08:06"
+     }
+    },
+    {
+     "train": "37419",
+     "to": "HDG",
+     "hold": {
+      "BP": "08:44"
+     }
+    },
+    {
+     "train": "37328",
+     "to": "ZH",
+     "hold": {
+      "LW": "08:44"
+     }
+    },
+    {
+     "train": "37428",
+     "to": "ZH",
+     "hold": {
+      "LW": "08:53",
+      "HDG": "09:02"
+     }
+    },
+    {
+     "train": "37421",
+     "hold": {
+      "BP": "08:47",
+      "HDG": "09:02"
+     }
+    },
+    {
+     "train": "37319",
+     "to": "HDG",
+     "hold": {
+      "GN": "08:45"
+     }
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "GN": "08:41"
+     }
+    },
+    {
+     "train": "37330",
+     "from": "HDG",
+     "hold": {
+      "HDG": "08:59"
+     }
+    },
+    {
+     "train": "37323",
+     "from": "ZH",
+     "hold": {
+      "FWD": "09:40",
+      "LWC": "09:47"
+     }
+    },
+    {
+     "train": "37425",
+     "from": "ZH",
+     "hold": {
+      "FWD": "09:58"
+     }
+    },
+    {
+     "train": "37423",
+     "hold": {
+      "HDG": "09:38"
+     }
+    },
+    {
+     "train": "37430",
+     "from": "HDG",
+     "hold": {
+      "HDG": "09:21"
+     }
+    },
+    {
+     "train": "37332",
+     "hold": {
+      "LW": "09:27"
+     }
+    },
+    {
+     "train": "37432",
+     "hold": {
+      "LW": "09:30"
+     }
+    },
+    {
+     "train": "37427",
+     "hold": {
+      "GN": "09:59"
+     }
+    },
+    {
+     "train": "37434",
+     "hold": {
+      "LW": "09:53",
+      "HDG": "10:01"
+     }
+    },
+    {
+     "train": "37325",
+     "hold": {
+      "FWD": "10:05"
+     }
+    },
+    {
+     "train": "37436",
+     "hold": {
+      "LW": "10:23"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-01-23-0900-180m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-23",
+   "runs": 30,
+   "reward": 0.200006,
+   "submitted": true,
+   "feasible": true,
+   "cost": 2325,
+   "optimal_cost": 853,
+   "floor_cost": 704,
+   "greedy_cost": 3025,
+   "real_cost": 61,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 41,
+    "single_track": 29,
+    "headway": 5,
+    "platforms": 0,
+    "closed": 7,
+    "decisions": 31,
+    "holds": 17,
+    "short_turns": 14,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 149,
+    "optimal": 853,
+    "greedy_gap": 0.8,
+    "closed_min": 23,
+    "slow_min": 150,
+    "track_min": 10,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 11,
+   "checks": 7,
+   "seconds": 1160.5,
+   "input_tokens": 996277,
+   "cache_read_tokens": 613760,
+   "cache_write_tokens": 0,
+   "output_tokens": 127692,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37421",
+     "hold": {
+      "LWC": "09:28"
+     }
+    },
+    {
+     "train": "37321",
+     "to": "HDG"
+    },
+    {
+     "train": "37432",
+     "from": "HDG",
+     "hold": {
+      "GK": "09:56"
+     }
+    },
+    {
+     "train": "37323",
+     "to": "HDG",
+     "hold": {
+      "FWD": "09:48"
+     }
+    },
+    {
+     "train": "37434",
+     "from": "HDG"
+    },
+    {
+     "train": "37332",
+     "hold": {
+      "LW": "09:40"
+     }
+    },
+    {
+     "train": "37425",
+     "hold": {
+      "GN": "09:27"
+     }
+    },
+    {
+     "train": "37427",
+     "hold": {
+      "ZH": "10:11",
+      "FWD": "10:33"
+     },
+     "to": "HDG"
+    },
+    {
+     "train": "37338",
+     "from": "HDG"
+    },
+    {
+     "train": "37333",
+     "hold": {
+      "GN": "11:55",
+      "FWD": "12:28"
+     }
+    },
+    {
+     "train": "37327",
+     "hold": {
+      "GN": "10:30"
+     },
+     "to": "HDG"
+    },
+    {
+     "train": "37438",
+     "from": "HDG",
+     "hold": {
+      "HDG": "11:13",
+      "GK": "11:34"
+     }
+    },
+    {
+     "train": "37429",
+     "hold": {
+      "GN": "10:27",
+      "ZH": "10:49"
+     },
+     "to": "HDG"
+    },
+    {
+     "train": "37340",
+     "from": "HDG",
+     "hold": {
+      "BP": "11:38",
+      "ZH": "11:53"
+     }
+    },
+    {
+     "train": "37329",
+     "hold": {
+      "GN": "10:44"
+     },
+     "to": "HDG"
+    },
+    {
+     "train": "37440",
+     "from": "HDG",
+     "hold": {
+      "GK": "12:05"
+     }
+    },
+    {
+     "train": "37431",
+     "hold": {
+      "GN": "11:01"
+     },
+     "to": "HDG"
+    },
+    {
+     "train": "37342",
+     "from": "HDG",
+     "hold": {
+      "HDG": "12:02"
+     }
+    },
+    {
+     "train": "37331",
+     "hold": {
+      "GN": "11:13",
+      "ZH": "11:42"
+     },
+     "to": "HDG"
+    },
+    {
+     "train": "37442",
+     "from": "HDG",
+     "hold": {
+      "HDG": "12:06",
+      "GK": "12:30"
+     }
+    },
+    {
+     "train": "37433",
+     "hold": {
+      "GN": "11:27",
+      "ZH": "12:02"
+     }
+    },
+    {
+     "train": "37336",
+     "hold": {
+      "LW": "10:20"
+     }
+    },
+    {
+     "train": "37435",
+     "hold": {
+      "GN": "12:10"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-01-25-0630-180m-loop-0",
+   "split": "eval",
+   "difficulty": "loop",
+   "day": "2025-01-25",
+   "runs": 20,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 116,
+   "optimal_cost": 116,
+   "floor_cost": 102,
+   "greedy_cost": 518,
+   "real_cost": 62,
+   "hardness": {
+    "runs": 20,
+    "sets": 7,
+    "stops": 150,
+    "conflicts": 3,
+    "single_track": 3,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 0,
+    "decisions": 23,
+    "holds": 23,
+    "short_turns": 0,
+    "cancels": 0,
+    "turn_points": 0,
+    "avoidable": 14,
+    "optimal": 116,
+    "greedy_gap": 0.7993,
+    "closed_min": 0,
+    "slow_min": 69,
+    "track_min": 10,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 3,
+   "seconds": 547.4,
+   "input_tokens": 120954,
+   "cache_read_tokens": 47936,
+   "cache_write_tokens": 0,
+   "output_tokens": 38627,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37424",
+     "hold": {
+      "ZH": "08:01"
+     }
+    },
+    {
+     "train": "37426",
+     "hold": {
+      "HDG": "08:03"
+     }
+    },
+    {
+     "train": "37428",
+     "hold": {
+      "HDG": "08:33"
+     }
+    },
+    {
+     "train": "37319",
+     "hold": {
+      "FWD": "08:36"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-01-25-0730-180m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-25",
+   "runs": 26,
+   "reward": 0.630543,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1359,
+   "optimal_cost": 1302,
+   "floor_cost": 1218,
+   "greedy_cost": null,
+   "real_cost": 129,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 184,
+    "conflicts": 55,
+    "single_track": 10,
+    "headway": 19,
+    "platforms": 2,
+    "closed": 24,
+    "decisions": 26,
+    "holds": 11,
+    "short_turns": 15,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 84,
+    "optimal": 1302,
+    "greedy_gap": 0.8846,
+    "closed_min": 111,
+    "slow_min": 100,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 2
+   },
+   "violations": 0,
+   "agent_turns": 9,
+   "checks": 7,
+   "seconds": 1088.6,
+   "input_tokens": 864275,
+   "cache_read_tokens": 538240,
+   "cache_write_tokens": 0,
+   "output_tokens": 117231,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37415",
+     "to": "HDG"
+    },
+    {
+     "train": "37417",
+     "to": "HDG"
+    },
+    {
+     "train": "37419",
+     "to": "HDG"
+    },
+    {
+     "train": "37319",
+     "to": "HDG"
+    },
+    {
+     "train": "37421",
+     "to": "HDG",
+     "hold": {
+      "GN": "08:27"
+     }
+    },
+    {
+     "train": "37321",
+     "to": "HDG",
+     "hold": {
+      "GN": "08:43"
+     }
+    },
+    {
+     "train": "37428",
+     "to": "HDG",
+     "hold": {
+      "LW": "09:21"
+     }
+    },
+    {
+     "train": "37426",
+     "from": "HDG"
+    },
+    {
+     "train": "37328",
+     "from": "HDG",
+     "hold": {
+      "BP": "08:41"
+     }
+    },
+    {
+     "train": "37330",
+     "from": "HDG"
+    },
+    {
+     "train": "37430",
+     "from": "HDG",
+     "hold": {
+      "HDG": "09:06",
+      "BP": "09:21"
+     }
+    },
+    {
+     "train": "37332",
+     "from": "HDG"
+    },
+    {
+     "train": "37432",
+     "from": "HDG",
+     "hold": {
+      "BP": "09:47"
+     }
+    },
+    {
+     "train": "37425",
+     "from": "HDG",
+     "hold": {
+      "HDG": "10:00"
+     }
+    },
+    {
+     "train": "37423",
+     "hold": {
+      "ZH": "09:11",
+      "FWD": "09:33"
+     }
+    },
+    {
+     "train": "37325",
+     "hold": {
+      "GN": "09:45"
+     }
+    },
+    {
+     "train": "37334",
+     "hold": {
+      "LW": "09:49"
+     }
+    },
+    {
+     "train": "37427",
+     "hold": {
+      "HDG": "10:29"
+     }
+    },
+    {
+     "train": "37336",
+     "hold": {
+      "LW": "10:17"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-01-25-1700-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-01-25",
+   "runs": 30,
+   "reward": 0.251408,
+   "submitted": true,
+   "feasible": true,
+   "cost": 519,
+   "optimal_cost": 320,
+   "floor_cost": 275,
+   "greedy_cost": 1591,
+   "real_cost": 74,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 11,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 11,
+    "decisions": 51,
+    "holds": 49,
+    "short_turns": 2,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 45,
+    "optimal": 320,
+    "greedy_gap": 0.8,
+    "closed_min": 15,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 11,
+   "checks": 10,
+   "seconds": 1256.1,
+   "input_tokens": 1170552,
+   "cache_read_tokens": 1066560,
+   "cache_write_tokens": 0,
+   "output_tokens": 129324,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "hold": {
+      "HDG": "17:45"
+     },
+     "train": "37455"
+    },
+    {
+     "hold": {
+      "FWD": "17:45"
+     },
+     "train": "37364"
+    },
+    {
+     "hold": {
+      "GK": "18:06",
+      "HDG": "17:45"
+     },
+     "train": "37464"
+    },
+    {
+     "hold": {
+      "BP": "17:45"
+     },
+     "train": "37355"
+    },
+    {
+     "hold": {
+      "BP": "17:48",
+      "HDG": "18:06"
+     },
+     "train": "37457"
+    },
+    {
+     "hold": {
+      "FWD": "18:09"
+     },
+     "train": "37357"
+    },
+    {
+     "hold": {
+      "LW": "18:00"
+     },
+     "train": "37366"
+    },
+    {
+     "hold": {
+      "LW": "18:18"
+     },
+     "train": "37368"
+    },
+    {
+     "hold": {
+      "GK": "18:48",
+      "HDG": "18:29",
+      "LW": "18:21"
+     },
+     "to": "ZH",
+     "train": "37466"
+    },
+    {
+     "hold": {
+      "FWD": "18:26",
+      "HDG": "18:31"
+     },
+     "train": "37459"
+    },
+    {
+     "hold": {
+      "HDG": "18:32",
+      "LW": "18:24"
+     },
+     "train": "37468"
+    },
+    {
+     "hold": {
+      "ZH": "18:23"
+     },
+     "train": "37359"
+    },
+    {
+     "from": "ZH",
+     "train": "37463"
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-01-26-1700-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-26",
+   "runs": 16,
+   "reward": 0.92946,
+   "submitted": true,
+   "feasible": true,
+   "cost": 624,
+   "optimal_cost": 618,
+   "floor_cost": 588,
+   "greedy_cost": 928,
+   "real_cost": 58,
+   "hardness": {
+    "runs": 16,
+    "sets": 3,
+    "stops": 104,
+    "conflicts": 10,
+    "single_track": 3,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 7,
+    "decisions": 21,
+    "holds": 12,
+    "short_turns": 9,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 30,
+    "optimal": 618,
+    "greedy_gap": 0.7932,
+    "closed_min": 104,
+    "slow_min": 100,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 11,
+   "checks": 9,
+   "seconds": 828.4,
+   "input_tokens": 570202,
+   "cache_read_tokens": 430272,
+   "cache_write_tokens": 0,
+   "output_tokens": 81057,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37353",
+     "to": "HDG"
+    },
+    {
+     "train": "37364",
+     "from": "HDG"
+    },
+    {
+     "train": "37455",
+     "to": "HDG"
+    },
+    {
+     "train": "37466",
+     "from": "HDG"
+    },
+    {
+     "train": "37357",
+     "to": "HDG",
+     "hold": {
+      "GN": "17:46"
+     }
+    },
+    {
+     "train": "37368",
+     "from": "HDG"
+    },
+    {
+     "train": "37459",
+     "to": "HDG"
+    },
+    {
+     "train": "37470",
+     "from": "HDG"
+    },
+    {
+     "train": "37361",
+     "to": "HDG",
+     "hold": {
+      "GN": "18:46"
+     }
+    },
+    {
+     "train": "37372",
+     "from": "HDG"
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-02-11-0900-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-02-11",
+   "runs": 23,
+   "reward": 0.472514,
+   "submitted": true,
+   "feasible": true,
+   "cost": 781,
+   "optimal_cost": 725,
+   "floor_cost": 721,
+   "greedy_cost": null,
+   "real_cost": 318,
+   "hardness": {
+    "runs": 23,
+    "sets": 6,
+    "stops": 152,
+    "conflicts": 32,
+    "single_track": 3,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 29,
+    "decisions": 37,
+    "holds": 23,
+    "short_turns": 14,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 4,
+    "optimal": 725,
+    "greedy_gap": 0.8174,
+    "closed_min": 120,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 3,
+   "seconds": 1130.3,
+   "input_tokens": 264880,
+   "cache_read_tokens": 232320,
+   "cache_write_tokens": 0,
+   "output_tokens": 107295,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37428",
+     "hold": {
+      "ZH": "09:05"
+     }
+    },
+    {
+     "train": "37421",
+     "to": "HDG"
+    },
+    {
+     "train": "37321",
+     "to": "HDG",
+     "hold": {
+      "FWD": "09:07"
+     }
+    },
+    {
+     "train": "37323",
+     "to": "HDG"
+    },
+    {
+     "train": "37425",
+     "to": "HDG"
+    },
+    {
+     "train": "37325",
+     "to": "HDG"
+    },
+    {
+     "train": "37427",
+     "to": "HDG"
+    },
+    {
+     "train": "37327",
+     "to": "HDG"
+    },
+    {
+     "train": "37429",
+     "to": "HDG"
+    },
+    {
+     "train": "37332",
+     "from": "HDG"
+    },
+    {
+     "train": "37432",
+     "from": "HDG",
+     "hold": {
+      "HDG": "09:30"
+     }
+    },
+    {
+     "train": "37434",
+     "from": "HDG",
+     "hold": {
+      "HDG": "10:00"
+     }
+    },
+    {
+     "train": "37336",
+     "from": "HDG"
+    },
+    {
+     "train": "37436",
+     "from": "HDG",
+     "hold": {
+      "HDG": "10:30"
+     }
+    },
+    {
+     "train": "37338",
+     "from": "HDG"
+    },
+    {
+     "train": "37438",
+     "from": "HDG",
+     "hold": {
+      "HDG": "11:00"
+     }
+    },
+    {
+     "train": "37340",
+     "from": "HDG"
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-02-12-0900-180m-real-0",
+   "split": "eval",
+   "difficulty": "real",
+   "day": "2025-02-12",
+   "runs": 31,
+   "reward": 0.200001,
+   "submitted": true,
+   "feasible": true,
+   "cost": 4091,
+   "optimal_cost": 643,
+   "floor_cost": 529,
+   "greedy_cost": null,
+   "real_cost": 363,
+   "hardness": {
+    "runs": 31,
+    "sets": 7,
+    "stops": 204,
+    "conflicts": 16,
+    "single_track": 8,
+    "headway": 3,
+    "platforms": 0,
+    "closed": 5,
+    "decisions": 38,
+    "holds": 32,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 114,
+    "optimal": 643,
+    "greedy_gap": 0.8452,
+    "closed_min": 30,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": false,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 12,
+   "checks": 9,
+   "seconds": 2079.9,
+   "input_tokens": 1811549,
+   "cache_read_tokens": 1177344,
+   "cache_write_tokens": 0,
+   "output_tokens": 216678,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37421",
+     "hold": {
+      "HDG": "09:05"
+     }
+    },
+    {
+     "train": "37430",
+     "hold": {
+      "FWD": "09:30"
+     }
+    },
+    {
+     "train": "37330",
+     "hold": {
+      "FWD": "09:39"
+     }
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "DWE": "09:30"
+     }
+    },
+    {
+     "train": "37423",
+     "hold": {
+      "ZH": "09:03",
+      "BP": "09:28",
+      "DWE": "09:37"
+     }
+    },
+    {
+     "train": "37328",
+     "hold": {
+      "GK": "09:07"
+     }
+    },
+    {
+     "train": "37332",
+     "hold": {
+      "LW": "09:29",
+      "FWD": "09:42"
+     }
+    },
+    {
+     "train": "37425",
+     "hold": {
+      "GN": "09:26",
+      "HDG": "10:15"
+     }
+    },
+    {
+     "train": "37432",
+     "hold": {
+      "LW": "09:55"
+     }
+    },
+    {
+     "train": "37334",
+     "hold": {
+      "LW": "10:05"
+     }
+    },
+    {
+     "train": "37434",
+     "hold": {
+      "LW": "10:08"
+     }
+    },
+    {
+     "train": "37427",
+     "hold": {
+      "GN": "10:09",
+      "FWD": "10:38"
+     }
+    },
+    {
+     "train": "37325",
+     "hold": {
+      "FWD": "10:35"
+     }
+    },
+    {
+     "train": "37327",
+     "hold": {
+      "GN": "10:12",
+      "ZH": "10:29",
+      "FWD": "10:55"
+     }
+    },
+    {
+     "train": "37336",
+     "hold": {
+      "BP": "10:47",
+      "GK": "11:00"
+     }
+    },
+    {
+     "train": "37436",
+     "hold": {
+      "LW": "10:50"
+     }
+    },
+    {
+     "train": "37429",
+     "hold": {
+      "GN": "10:47",
+      "FWD": "11:15",
+      "HDG": "11:23"
+     }
+    },
+    {
+     "train": "37329",
+     "hold": {
+      "FWD": "11:08"
+     }
+    },
+    {
+     "train": "37338",
+     "hold": {
+      "LW": "11:04",
+      "FWD": "11:13",
+      "GK": "11:27"
+     }
+    },
+    {
+     "train": "37438",
+     "hold": {
+      "LW": "11:16",
+      "GK": "11:44"
+     }
+    },
+    {
+     "train": "37440",
+     "hold": {
+      "LW": "12:20"
+     }
+    },
+    {
+     "train": "37431",
+     "hold": {
+      "ZH": "11:05",
+      "FWD": "11:26",
+      "HDG": "11:33"
+     }
+    },
+    {
+     "train": "37331",
+     "hold": {
+      "FWD": "11:46"
+     }
+    },
+    {
+     "train": "37340",
+     "hold": {
+      "LW": "11:42"
+     }
+    },
+    {
+     "train": "37333",
+     "hold": {
+      "ZH": "11:50",
+      "FWD": "12:09"
+     }
+    },
+    {
+     "train": "37435",
+     "hold": {
+      "ZH": "12:16"
+     }
+    },
+    {
+     "train": "37342",
+     "hold": {
+      "LW": "12:48"
+     }
+    },
+    {
+     "train": "37442",
+     "hold": {
+      "LW": "12:52"
+     }
+    },
+    {
+     "train": "37433",
+     "hold": {
+      "FWD": "12:02"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-02-13-0954-180m-real-0",
+   "split": "eval",
+   "difficulty": "real",
+   "day": "2025-02-13",
+   "runs": 30,
+   "reward": 0.673044,
+   "submitted": true,
+   "feasible": true,
+   "cost": 203,
+   "optimal_cost": 172,
+   "floor_cost": 154,
+   "greedy_cost": 1960,
+   "real_cost": 215,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 195,
+    "conflicts": 13,
+    "single_track": 3,
+    "headway": 7,
+    "platforms": 3,
+    "closed": 0,
+    "decisions": 45,
+    "holds": 45,
+    "short_turns": 0,
+    "cancels": 0,
+    "turn_points": 0,
+    "avoidable": 18,
+    "optimal": 172,
+    "greedy_gap": 0.8,
+    "closed_min": 0,
+    "slow_min": 25,
+    "track_min": 0,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 11,
+   "checks": 10,
+   "seconds": 843.8,
+   "input_tokens": 887632,
+   "cache_read_tokens": 669632,
+   "cache_write_tokens": 0,
+   "output_tokens": 106055,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37334",
+     "hold": {
+      "FWD": "09:59"
+     }
+    },
+    {
+     "train": "37432",
+     "hold": {
+      "ZH": "10:05"
+     }
+    },
+    {
+     "train": "37434",
+     "hold": {
+      "GK": "10:27"
+     }
+    },
+    {
+     "train": "37427",
+     "hold": {
+      "ZH": "10:12"
+     }
+    },
+    {
+     "train": "37327",
+     "hold": {
+      "FWD": "10:42"
+     }
+    },
+    {
+     "train": "37429",
+     "hold": {
+      "HDG": "11:03"
+     }
+    },
+    {
+     "train": "37329",
+     "hold": {
+      "GN": "10:40",
+      "FWD": "11:06"
+     }
+    },
+    {
+     "train": "37338",
+     "hold": {
+      "LW": "10:53"
+     }
+    },
+    {
+     "train": "37438",
+     "hold": {
+      "LW": "10:56"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-02-13-1530-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-02-13",
+   "runs": 30,
+   "reward": 0.347985,
+   "submitted": true,
+   "feasible": true,
+   "cost": 783,
+   "optimal_cost": 648,
+   "floor_cost": 588,
+   "greedy_cost": 1690,
+   "real_cost": 151,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 25,
+    "single_track": 5,
+    "headway": 5,
+    "platforms": 1,
+    "closed": 14,
+    "decisions": 37,
+    "holds": 29,
+    "short_turns": 8,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 60,
+    "optimal": 648,
+    "greedy_gap": 0.8,
+    "closed_min": 24,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 11,
+   "checks": 10,
+   "seconds": 1607.1,
+   "input_tokens": 1457796,
+   "cache_read_tokens": 827904,
+   "cache_write_tokens": 0,
+   "output_tokens": 150181,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37449",
+     "to": "BP"
+    },
+    {
+     "train": "37360",
+     "from": "BP",
+     "hold": {
+      "BP": "16:38"
+     }
+    },
+    {
+     "train": "37349",
+     "hold": {
+      "GN": "16:08"
+     },
+     "to": "HDG"
+    },
+    {
+     "train": "37460",
+     "from": "HDG",
+     "hold": {
+      "HDG": "16:39"
+     }
+    },
+    {
+     "train": "37358",
+     "hold": {
+      "LW": "16:44"
+     },
+     "to": "BP"
+    },
+    {
+     "train": "37353",
+     "from": "BP"
+    },
+    {
+     "train": "37458",
+     "hold": {
+      "LW": "16:14"
+     }
+    },
+    {
+     "train": "37451",
+     "hold": {
+      "BP": "16:18"
+     }
+    },
+    {
+     "train": "37351",
+     "hold": {
+      "GN": "16:13"
+     }
+    },
+    {
+     "train": "37362",
+     "hold": {
+      "LW": "16:52"
+     }
+    },
+    {
+     "train": "37453",
+     "hold": {
+      "FWD": "17:00"
+     }
+    },
+    {
+     "train": "37462",
+     "hold": {
+      "LW": "16:56"
+     }
+    },
+    {
+     "train": "37355",
+     "hold": {
+      "GN": "17:11"
+     }
+    },
+    {
+     "train": "37364",
+     "hold": {
+      "LW": "17:18"
+     }
+    },
+    {
+     "train": "37455",
+     "hold": {
+      "FWD": "17:26",
+      "HDG": "17:30"
+     }
+    },
+    {
+     "train": "37464",
+     "hold": {
+      "LW": "17:23"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-02-14-1730-210m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-02-14",
+   "runs": 33,
+   "reward": 0.084848,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 875,
+   "floor_cost": 776,
+   "greedy_cost": null,
+   "real_cost": 191,
+   "hardness": {
+    "runs": 33,
+    "sets": 7,
+    "stops": 208,
+    "conflicts": 33,
+    "single_track": 7,
+    "headway": 19,
+    "platforms": 3,
+    "closed": 4,
+    "decisions": 35,
+    "holds": 25,
+    "short_turns": 10,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 99,
+    "optimal": 875,
+    "greedy_gap": 0.8909,
+    "closed_min": 38,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": false,
+    "mid_line": true,
+    "late_sets": 1
+   },
+   "violations": 27,
+   "agent_turns": 12,
+   "checks": 8,
+   "seconds": 6148.0,
+   "input_tokens": 2446730,
+   "cache_read_tokens": 1407424,
+   "cache_write_tokens": 0,
+   "output_tokens": 409500,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37457",
+     "to": "HDG",
+     "hold": {
+      "GK": "18:11"
+     }
+    },
+    {
+     "train": "37368",
+     "from": "HDG"
+    },
+    {
+     "train": "37364",
+     "to": "ZH",
+     "hold": {
+      "BP": "18:11"
+     }
+    },
+    {
+     "train": "37464",
+     "to": "ZH",
+     "hold": {
+      "FWD": "18:11"
+     }
+    },
+    {
+     "train": "37359",
+     "from": "ZH",
+     "hold": {
+      "ZH": "18:26"
+     }
+    },
+    {
+     "train": "37461",
+     "from": "ZH",
+     "hold": {
+      "ZH": "18:46"
+     }
+    },
+    {
+     "train": "37355",
+     "to": "BP"
+    },
+    {
+     "train": "37466",
+     "from": "BP",
+     "hold": {
+      "BP": "18:26"
+     }
+    },
+    {
+     "train": "37357",
+     "to": "HDG",
+     "hold": {
+      "GK": "18:17"
+     }
+    },
+    {
+     "train": "37468",
+     "from": "HDG",
+     "hold": {
+      "HDG": "18:47",
+      "GK": "19:09"
+     }
+    },
+    {
+     "train": "37366",
+     "hold": {
+      "FWD": "18:17"
+     }
+    },
+    {
+     "train": "37459",
+     "hold": {
+      "ZH": "18:13"
+     }
+    },
+    {
+     "train": "37370",
+     "hold": {
+      "LW": "18:58"
+     }
+    },
+    {
+     "train": "37470",
+     "hold": {
+      "LW": "19:01",
+      "HDG": "19:11"
+     }
+    },
+    {
+     "train": "37363",
+     "hold": {
+      "GN": "19:18"
+     }
+    },
+    {
+     "train": "37372",
+     "hold": {
+      "LW": "19:29"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-02-15-0630-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-02-15",
+   "runs": 20,
+   "reward": 0.384642,
+   "submitted": true,
+   "feasible": true,
+   "cost": 2506,
+   "optimal_cost": 2300,
+   "floor_cost": 2119,
+   "greedy_cost": null,
+   "real_cost": 61,
+   "hardness": {
+    "runs": 20,
+    "sets": 7,
+    "stops": 150,
+    "conflicts": 45,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 45,
+    "decisions": 31,
+    "holds": 13,
+    "short_turns": 18,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 181,
+    "optimal": 2300,
+    "greedy_gap": 0.87,
+    "closed_min": 160,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 9,
+   "checks": 7,
+   "seconds": 1418.0,
+   "input_tokens": 681832,
+   "cache_read_tokens": 557760,
+   "cache_write_tokens": 0,
+   "output_tokens": 87369,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37420",
+     "to": "BP"
+    },
+    {
+     "train": "37413",
+     "to": "ZH"
+    },
+    {
+     "train": "37422",
+     "to": "BP"
+    },
+    {
+     "train": "37415",
+     "to": "ZH"
+    },
+    {
+     "train": "37417",
+     "from": "BP"
+    },
+    {
+     "train": "37424",
+     "from": "ZH"
+    },
+    {
+     "train": "37426",
+     "from": "ZH"
+    },
+    {
+     "train": "37419",
+     "from": "BP",
+     "hold": {
+      "FWD": "08:33"
+     }
+    },
+    {
+     "train": "37319",
+     "hold": {
+      "GN": "09:13"
+     },
+     "to": "ZH"
+    },
+    {
+     "train": "37428",
+     "to": "BP"
+    },
+    {
+     "train": "37421",
+     "to": "ZH"
+    },
+    {
+     "train": "37332",
+     "from": "ZH"
+    },
+    {
+     "train": "37328",
+     "to": "HDG"
+    },
+    {
+     "train": "37323",
+     "from": "HDG"
+    },
+    {
+     "train": "37430",
+     "from": "ZH"
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "GN": "09:08"
+     },
+     "to": "BP"
+    },
+    {
+     "train": "37432",
+     "from": "BP"
+    },
+    {
+     "train": "37425",
+     "from": "BP"
+    },
+    {
+     "train": "37330",
+     "hold": {
+      "BP": "09:10"
+     }
+    },
+    {
+     "train": "37423",
+     "hold": {
+      "ZH": "09:10"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-02-15-0700-240m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-02-15",
+   "runs": 32,
+   "reward": 0.205117,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1295,
+   "optimal_cost": 858,
+   "floor_cost": 785,
+   "greedy_cost": 2986,
+   "real_cost": 76,
+   "hardness": {
+    "runs": 32,
+    "sets": 7,
+    "stops": 228,
+    "conflicts": 38,
+    "single_track": 4,
+    "headway": 21,
+    "platforms": 3,
+    "closed": 10,
+    "decisions": 37,
+    "holds": 31,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 73,
+    "optimal": 858,
+    "greedy_gap": 0.8,
+    "closed_min": 34,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 2
+   },
+   "violations": 0,
+   "agent_turns": 10,
+   "checks": 6,
+   "seconds": 1099.4,
+   "input_tokens": 816586,
+   "cache_read_tokens": 459328,
+   "cache_write_tokens": 0,
+   "output_tokens": 117268,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37413",
+     "hold": {
+      "LWC": "07:35"
+     }
+    },
+    {
+     "train": "37422",
+     "hold": {
+      "FWD": "07:35"
+     }
+    },
+    {
+     "train": "37415",
+     "hold": {
+      "BP": "07:38"
+     }
+    },
+    {
+     "train": "37426",
+     "hold": {
+      "LW": "08:10"
+     }
+    },
+    {
+     "train": "37328",
+     "hold": {
+      "BP": "08:38"
+     }
+    },
+    {
+     "train": "37423",
+     "hold": {
+      "GN": "08:55"
+     }
+    },
+    {
+     "train": "37421",
+     "hold": {
+      "BP": "08:54"
+     }
+    },
+    {
+     "train": "37319",
+     "hold": {
+      "FWD": "08:58"
+     }
+    },
+    {
+     "train": "37430",
+     "hold": {
+      "LW": "09:13"
+     }
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "FWD": "09:35"
+     }
+    },
+    {
+     "train": "37323",
+     "hold": {
+      "GN": "09:15"
+     }
+    },
+    {
+     "train": "37332",
+     "hold": {
+      "LW": "09:23",
+      "BP": "09:42"
+     }
+    },
+    {
+     "train": "37334",
+     "hold": {
+      "LW": "09:46"
+     }
+    },
+    {
+     "train": "37432",
+     "hold": {
+      "LW": "09:49"
+     }
+    },
+    {
+     "train": "37434",
+     "hold": {
+      "LW": "09:52",
+      "HDG": "10:03",
+      "ZH": "10:28"
+     }
+    },
+    {
+     "train": "37425",
+     "hold": {
+      "FWD": "10:00"
+     }
+    },
+    {
+     "train": "37325",
+     "hold": {
+      "FWD": "10:06"
+     }
+    },
+    {
+     "train": "37327",
+     "hold": {
+      "ZH": "10:19"
+     }
+    },
+    {
+     "train": "37336",
+     "hold": {
+      "BP": "10:42"
+     }
+    },
+    {
+     "train": "37436",
+     "hold": {
+      "BP": "10:45"
+     }
+    },
+    {
+     "train": "37438",
+     "hold": {
+      "HDG": "11:06"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-02-15-1630-150m-loop-0",
+   "split": "eval",
+   "difficulty": "loop",
+   "day": "2025-02-15",
+   "runs": 26,
+   "reward": 0.146154,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 275,
+   "floor_cost": 234,
+   "greedy_cost": 1464,
+   "real_cost": 35,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 174,
+    "conflicts": 10,
+    "single_track": 3,
+    "headway": 5,
+    "platforms": 2,
+    "closed": 0,
+    "decisions": 52,
+    "holds": 50,
+    "short_turns": 2,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 41,
+    "optimal": 275,
+    "greedy_gap": 0.8,
+    "closed_min": 0,
+    "slow_min": 25,
+    "track_min": 140,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 7,
+   "agent_turns": 12,
+   "checks": 10,
+   "seconds": 2729.5,
+   "input_tokens": 1198098,
+   "cache_read_tokens": 773888,
+   "cache_write_tokens": 0,
+   "output_tokens": 172158,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "to": "HDG",
+     "train": "37353"
+    },
+    {
+     "hold": {
+      "GN": "17:08"
+     },
+     "train": "37455"
+    },
+    {
+     "hold": {
+      "ZH": "17:24"
+     },
+     "train": "37362"
+    },
+    {
+     "hold": {
+      "GN": "17:19"
+     },
+     "train": "37355"
+    },
+    {
+     "hold": {
+      "GN": "17:27"
+     },
+     "train": "37457"
+    },
+    {
+     "from": "HDG",
+     "hold": {
+      "GK": "18:06"
+     },
+     "train": "37464"
+    },
+    {
+     "hold": {
+      "LW": "17:56"
+     },
+     "train": "37366"
+    },
+    {
+     "hold": {
+      "LW": "18:02"
+     },
+     "train": "37466"
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-02-16-1530-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-02-16",
+   "runs": 18,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 273,
+   "optimal_cost": 273,
+   "floor_cost": 269,
+   "greedy_cost": 2157,
+   "real_cost": 38,
+   "hardness": {
+    "runs": 18,
+    "sets": 3,
+    "stops": 122,
+    "conflicts": 5,
+    "single_track": 2,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 3,
+    "decisions": 9,
+    "holds": 5,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 4,
+    "optimal": 273,
+    "greedy_gap": 0.8,
+    "closed_min": 21,
+    "slow_min": 80,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 4,
+   "checks": 3,
+   "seconds": 1301.4,
+   "input_tokens": 141359,
+   "cache_read_tokens": 55744,
+   "cache_write_tokens": 0,
+   "output_tokens": 92010,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37447",
+     "to": "HDG"
+    },
+    {
+     "train": "37458",
+     "from": "HDG"
+    },
+    {
+     "train": "37349",
+     "to": "HDG"
+    },
+    {
+     "train": "37360",
+     "from": "HDG"
+    },
+    {
+     "train": "37353",
+     "hold": {
+      "FWD": "17:05"
+     }
+    },
+    {
+     "train": "37455",
+     "hold": {
+      "FWD": "17:29"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-02-16-1700-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-02-16",
+   "runs": 16,
+   "reward": 0.796473,
+   "submitted": true,
+   "feasible": true,
+   "cost": 812,
+   "optimal_cost": 796,
+   "floor_cost": 787,
+   "greedy_cost": 1089,
+   "real_cost": 90,
+   "hardness": {
+    "runs": 16,
+    "sets": 3,
+    "stops": 104,
+    "conflicts": 31,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 31,
+    "decisions": 13,
+    "holds": 6,
+    "short_turns": 6,
+    "cancels": 1,
+    "turn_points": 2,
+    "avoidable": 9,
+    "optimal": 796,
+    "greedy_gap": 0.7963,
+    "closed_min": 92,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 4,
+   "seconds": 1349.0,
+   "input_tokens": 183931,
+   "cache_read_tokens": 158720,
+   "cache_write_tokens": 0,
+   "output_tokens": 71331,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37455",
+     "to": "ZH"
+    },
+    {
+     "train": "37466",
+     "cancel": true
+    },
+    {
+     "train": "37361",
+     "from": "ZH"
+    },
+    {
+     "train": "37462",
+     "to": "BP"
+    },
+    {
+     "train": "37357",
+     "from": "BP"
+    },
+    {
+     "train": "37368",
+     "hold": {
+      "BP": "18:46"
+     },
+     "to": "ZH"
+    },
+    {
+     "train": "37463",
+     "from": "ZH"
+    },
+    {
+     "train": "37364",
+     "to": "BP"
+    },
+    {
+     "train": "37459",
+     "from": "BP"
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-02-16-1730-240m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-02-16",
+   "runs": 19,
+   "reward": 0.20046,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1044,
+   "optimal_cost": 656,
+   "floor_cost": 652,
+   "greedy_cost": null,
+   "real_cost": 147,
+   "hardness": {
+    "runs": 19,
+    "sets": 3,
+    "stops": 126,
+    "conflicts": 14,
+    "single_track": 8,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 6,
+    "decisions": 21,
+    "holds": 11,
+    "short_turns": 10,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 4,
+    "optimal": 656,
+    "greedy_gap": 0.9579,
+    "closed_min": 36,
+    "slow_min": 210,
+    "track_min": 235,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 12,
+   "checks": 10,
+   "seconds": 861.6,
+   "input_tokens": 806897,
+   "cache_read_tokens": 399936,
+   "cache_write_tokens": 0,
+   "output_tokens": 89811,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37364",
+     "to": "ZH"
+    },
+    {
+     "train": "37459",
+     "from": "ZH"
+    },
+    {
+     "train": "37357",
+     "to": "BP",
+     "hold": {
+      "GN": "18:16"
+     }
+    },
+    {
+     "train": "37368",
+     "from": "BP",
+     "hold": {
+      "BP": "18:43"
+     }
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "FWD": "19:05"
+     }
+    },
+    {
+     "train": "37470",
+     "hold": {
+      "HDG": "19:07"
+     }
+    },
+    {
+     "train": "37463",
+     "hold": {
+      "HDG": "19:39"
+     }
+    },
+    {
+     "train": "37365",
+     "to": "BP"
+    },
+    {
+     "train": "37376",
+     "from": "BP",
+     "hold": {
+      "BP": "20:35"
+     }
+    },
+    {
+     "train": "37369",
+     "to": "BP",
+     "hold": {
+      "GN": "20:52"
+     }
+    },
+    {
+     "train": "37380",
+     "from": "BP"
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-03-10-0700-210m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-03-10",
+   "runs": 34,
+   "reward": 0.562025,
+   "submitted": true,
+   "feasible": true,
+   "cost": 522,
+   "optimal_cost": 455,
+   "floor_cost": 386,
+   "greedy_cost": null,
+   "real_cost": 157,
+   "hardness": {
+    "runs": 34,
+    "sets": 7,
+    "stops": 226,
+    "conflicts": 17,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 32,
+    "holds": 26,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 69,
+    "optimal": 455,
+    "greedy_gap": 0.8294,
+    "closed_min": 23,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 11,
+   "checks": 10,
+   "seconds": 1146.9,
+   "input_tokens": 1063905,
+   "cache_read_tokens": 731264,
+   "cache_write_tokens": 0,
+   "output_tokens": 103346,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "hold": {
+      "BP": "07:41",
+      "DWE": "07:34"
+     },
+     "to": "ZH",
+     "train": "37422"
+    },
+    {
+     "to": "HDG",
+     "train": "37313"
+    },
+    {
+     "from": "HDG",
+     "hold": {
+      "BP": "07:58",
+      "HDG": "07:34"
+     },
+     "train": "37424"
+    },
+    {
+     "hold": {
+      "BP": "07:34"
+     },
+     "train": "37315"
+    },
+    {
+     "hold": {
+      "BP": "07:37",
+      "FWD": "07:45"
+     },
+     "to": "HDG",
+     "train": "37415"
+    },
+    {
+     "hold": {
+      "LW": "07:37"
+     },
+     "train": "37324"
+    },
+    {
+     "from": "HDG",
+     "hold": {
+      "FWD": "07:58",
+      "HDG": "07:52"
+     },
+     "train": "37326"
+    },
+    {
+     "hold": {
+      "BP": "08:16",
+      "LW": "07:53"
+     },
+     "train": "37426"
+    },
+    {
+     "hold": {
+      "FWD": "07:57"
+     },
+     "train": "37417"
+    },
+    {
+     "from": "ZH",
+     "train": "37419"
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-03-11-0730-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-03-11",
+   "runs": 26,
+   "reward": 0.184615,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 2043,
+   "floor_cost": 1851,
+   "greedy_cost": null,
+   "real_cost": 201,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 174,
+    "conflicts": 72,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 72,
+    "decisions": 35,
+    "holds": 19,
+    "short_turns": 12,
+    "cancels": 4,
+    "turn_points": 2,
+    "avoidable": 192,
+    "optimal": 2043,
+    "greedy_gap": 0.9,
+    "closed_min": 130,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 1,
+   "agent_turns": 11,
+   "checks": 8,
+   "seconds": 1716.5,
+   "input_tokens": 1289819,
+   "cache_read_tokens": 902848,
+   "cache_write_tokens": 0,
+   "output_tokens": 155551,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "hold": {
+      "FWD": "07:39"
+     },
+     "to": "BP",
+     "train": "37424"
+    },
+    {
+     "to": "BP",
+     "train": "37324"
+    },
+    {
+     "cancel": true,
+     "train": "37317"
+    },
+    {
+     "cancel": true,
+     "train": "37428"
+    },
+    {
+     "from": "BP",
+     "train": "37319"
+    },
+    {
+     "from": "BP",
+     "train": "37421"
+    },
+    {
+     "cancel": true,
+     "train": "37326"
+    },
+    {
+     "cancel": true,
+     "train": "37321"
+    },
+    {
+     "cancel": true,
+     "train": "37426"
+    },
+    {
+     "cancel": true,
+     "train": "37423"
+    },
+    {
+     "to": "BP",
+     "train": "37328"
+    },
+    {
+     "from": "BP",
+     "train": "37323"
+    },
+    {
+     "hold": {
+      "BP": "09:50",
+      "LW": "08:55"
+     },
+     "to": "ZH",
+     "train": "37430"
+    },
+    {
+     "from": "ZH",
+     "train": "37427"
+    },
+    {
+     "hold": {
+      "BP": "09:44"
+     },
+     "train": "37332"
+    },
+    {
+     "hold": {
+      "BP": "10:06",
+      "LW": "09:45"
+     },
+     "train": "37432"
+    },
+    {
+     "cancel": true,
+     "train": "37419"
+    },
+    {
+     "cancel": true,
+     "train": "37330"
+    },
+    {
+     "hold": {
+      "GN": "09:55",
+      "ZH": "10:20"
+     },
+     "train": "37425"
+    },
+    {
+     "hold": {
+      "GN": "09:50",
+      "ZH": "10:02"
+     },
+     "train": "37325"
+    },
+    {
+     "hold": {
+      "FWD": "10:12",
+      "LW": "09:55"
+     },
+     "train": "37334"
+    },
+    {
+     "hold": {
+      "BP": "10:25",
+      "FWD": "10:16",
+      "LW": "09:59"
+     },
+     "train": "37434"
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-03-12-1530-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-03-12",
+   "runs": 30,
+   "reward": 0.046667,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 806,
+   "floor_cost": 730,
+   "greedy_cost": 1632,
+   "real_cost": 98,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 31,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 31,
+    "decisions": 36,
+    "holds": 28,
+    "short_turns": 8,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 76,
+    "optimal": 806,
+    "greedy_gap": 0.7999,
+    "closed_min": 25,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 55,
+   "agent_turns": 12,
+   "checks": 8,
+   "seconds": 2751.1,
+   "input_tokens": 1847641,
+   "cache_read_tokens": 1065536,
+   "cache_write_tokens": 0,
+   "output_tokens": 232792,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "hold": {
+      "LWC": "16:00"
+     },
+     "train": "37447"
+    },
+    {
+     "hold": {
+      "FWD": "16:00"
+     },
+     "train": "37347"
+    },
+    {
+     "hold": {
+      "FWD": "16:00"
+     },
+     "train": "37456"
+    },
+    {
+     "hold": {
+      "BP": "16:00"
+     },
+     "train": "37356"
+    },
+    {
+     "hold": {
+      "GN": "15:53",
+      "ZH": "16:02",
+      "FWD": "16:22"
+     },
+     "train": "37349"
+    },
+    {
+     "hold": {
+      "ZH": "16:03",
+      "LWC": "16:35"
+     },
+     "train": "37449"
+    },
+    {
+     "hold": {
+      "ZH": "16:15",
+      "HDG": "16:43"
+     },
+     "train": "37451"
+    },
+    {
+     "hold": {
+      "ZH": "16:36"
+     },
+     "train": "37351"
+    },
+    {
+     "hold": {
+      "LW": "16:08"
+     },
+     "train": "37358"
+    },
+    {
+     "hold": {
+      "BP": "17:03"
+     },
+     "train": "37460"
+    },
+    {
+     "hold": {
+      "LW": "16:45",
+      "BP": "17:08"
+     },
+     "train": "37360"
+    },
+    {
+     "hold": {
+      "ZH": "16:42"
+     },
+     "train": "37453"
+    },
+    {
+     "hold": {
+      "FWD": "17:12"
+     },
+     "train": "37353"
+    },
+    {
+     "hold": {
+      "LW": "16:55"
+     },
+     "train": "37362"
+    },
+    {
+     "hold": {
+      "GK": "17:30"
+     },
+     "train": "37462"
+    },
+    {
+     "hold": {
+      "ZH": "17:27"
+     },
+     "train": "37355"
+    },
+    {
+     "hold": {
+      "ZH": "17:39"
+     },
+     "train": "37457"
+    },
+    {
+     "hold": {
+      "GN": "17:45"
+     },
+     "train": "37357"
+    },
+    {
+     "hold": {
+      "LW": "17:31",
+      "BP": "18:03"
+     },
+     "train": "37364"
+    },
+    {
+     "hold": {
+      "BP": "18:04"
+     },
+     "train": "37366"
+    },
+    {
+     "hold": {
+      "GK": "18:08"
+     },
+     "train": "37464"
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-03-12-1730-210m-loop-0",
+   "split": "eval",
+   "difficulty": "loop",
+   "day": "2025-03-12",
+   "runs": 33,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 166,
+   "optimal_cost": 166,
+   "floor_cost": 158,
+   "greedy_cost": 826,
+   "real_cost": 64,
+   "hardness": {
+    "runs": 33,
+    "sets": 7,
+    "stops": 208,
+    "conflicts": 11,
+    "single_track": 2,
+    "headway": 8,
+    "platforms": 1,
+    "closed": 0,
+    "decisions": 35,
+    "holds": 33,
+    "short_turns": 2,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 8,
+    "optimal": 166,
+    "greedy_gap": 0.8,
+    "closed_min": 0,
+    "slow_min": 0,
+    "track_min": 10,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 8,
+   "checks": 6,
+   "seconds": 541.4,
+   "input_tokens": 307018,
+   "cache_read_tokens": 212800,
+   "cache_write_tokens": 0,
+   "output_tokens": 55783,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37464",
+     "hold": {
+      "ZH": "18:00"
+     }
+    },
+    {
+     "train": "37357",
+     "hold": {
+      "GN": "18:04",
+      "FWD": "18:29"
+     },
+     "to": "HDG"
+    },
+    {
+     "train": "37468",
+     "from": "HDG"
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-03-13-0706-180m-real-0",
+   "split": "eval",
+   "difficulty": "real",
+   "day": "2025-03-13",
+   "runs": 26,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 378,
+   "optimal_cost": 378,
+   "floor_cost": 378,
+   "greedy_cost": null,
+   "real_cost": 554,
+   "hardness": {
+    "runs": 26,
+    "sets": 6,
+    "stops": 177,
+    "conflicts": 18,
+    "single_track": 1,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 27,
+    "holds": 19,
+    "short_turns": 8,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 0,
+    "optimal": 378,
+    "greedy_gap": 0.8077,
+    "closed_min": 59,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 3,
+   "seconds": 801.9,
+   "input_tokens": 163759,
+   "cache_read_tokens": 34112,
+   "cache_write_tokens": 0,
+   "output_tokens": 52952,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37413",
+     "to": "HDG"
+    },
+    {
+     "train": "37313",
+     "to": "HDG"
+    },
+    {
+     "train": "37415",
+     "to": "HDG"
+    },
+    {
+     "train": "37315",
+     "to": "HDG"
+    },
+    {
+     "train": "37324",
+     "from": "HDG"
+    },
+    {
+     "train": "37424",
+     "from": "HDG"
+    },
+    {
+     "train": "37326",
+     "from": "HDG"
+    },
+    {
+     "train": "37426",
+     "from": "HDG"
+    },
+    {
+     "train": "37417",
+     "hold": {
+      "HDG": "08:00"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-03-16-1630-180m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-03-16",
+   "runs": 15,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1259,
+   "optimal_cost": 1259,
+   "floor_cost": 1256,
+   "greedy_cost": null,
+   "real_cost": 73,
+   "hardness": {
+    "runs": 15,
+    "sets": 3,
+    "stops": 100,
+    "conflicts": 53,
+    "single_track": 3,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 50,
+    "decisions": 15,
+    "holds": 3,
+    "short_turns": 10,
+    "cancels": 2,
+    "turn_points": 2,
+    "avoidable": 3,
+    "optimal": 1259,
+    "greedy_gap": 0.8533,
+    "closed_min": 149,
+    "slow_min": 95,
+    "track_min": 31,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 4,
+   "seconds": 999.6,
+   "input_tokens": 295609,
+   "cache_read_tokens": 269952,
+   "cache_write_tokens": 0,
+   "output_tokens": 102800,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37360",
+     "to": "BP"
+    },
+    {
+     "train": "37455",
+     "from": "BP"
+    },
+    {
+     "train": "37466",
+     "to": "BP"
+    },
+    {
+     "train": "37361",
+     "from": "BP"
+    },
+    {
+     "train": "37462",
+     "to": "BP"
+    },
+    {
+     "train": "37357",
+     "from": "BP",
+     "hold": {
+      "FWD": "18:05"
+     }
+    },
+    {
+     "train": "37368",
+     "to": "BP"
+    },
+    {
+     "train": "37463",
+     "from": "BP"
+    },
+    {
+     "train": "37353",
+     "to": "ZH"
+    },
+    {
+     "train": "37364",
+     "cancel": true
+    },
+    {
+     "train": "37459",
+     "cancel": true
+    },
+    {
+     "train": "37470",
+     "from": "ZH"
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-03-16-1700-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-03-16",
+   "runs": 16,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 529,
+   "optimal_cost": 529,
+   "floor_cost": 529,
+   "greedy_cost": 2995,
+   "real_cost": 86,
+   "hardness": {
+    "runs": 16,
+    "sets": 3,
+    "stops": 104,
+    "conflicts": 13,
+    "single_track": 8,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 5,
+    "decisions": 20,
+    "holds": 12,
+    "short_turns": 8,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 0,
+    "optimal": 529,
+    "greedy_gap": 0.8,
+    "closed_min": 35,
+    "slow_min": 210,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 12,
+   "checks": 10,
+   "seconds": 1382.6,
+   "input_tokens": 968306,
+   "cache_read_tokens": 578816,
+   "cache_write_tokens": 0,
+   "output_tokens": 112982,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37353",
+     "to": "HDG"
+    },
+    {
+     "train": "37364",
+     "from": "HDG"
+    },
+    {
+     "train": "37455",
+     "hold": {
+      "HDG": "17:35"
+     }
+    },
+    {
+     "train": "37357",
+     "to": "HDG"
+    },
+    {
+     "train": "37368",
+     "from": "HDG"
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "FWD": "19:10"
+     },
+     "to": "HDG"
+    },
+    {
+     "train": "37372",
+     "from": "HDG"
+    },
+    {
+     "train": "37365",
+     "hold": {
+      "FWD": "20:10"
+     },
+     "to": "HDG"
+    },
+    {
+     "train": "37376",
+     "from": "HDG"
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-04-23-1630-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-04-23",
+   "runs": 26,
+   "reward": 0.588891,
+   "submitted": true,
+   "feasible": true,
+   "cost": 2014,
+   "optimal_cost": 1926,
+   "floor_cost": 1782,
+   "greedy_cost": null,
+   "real_cost": 40,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 174,
+    "conflicts": 18,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 18,
+    "decisions": 26,
+    "holds": 12,
+    "short_turns": 14,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 144,
+    "optimal": 1926,
+    "greedy_gap": 0.8385,
+    "closed_min": 120,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 12,
+   "checks": 10,
+   "seconds": 1578.7,
+   "input_tokens": 1516054,
+   "cache_read_tokens": 1099008,
+   "cache_write_tokens": 0,
+   "output_tokens": 159216,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37457",
+     "to": "BP"
+    },
+    {
+     "train": "37368",
+     "from": "BP"
+    },
+    {
+     "train": "37364",
+     "to": "HDG"
+    },
+    {
+     "train": "37359",
+     "from": "HDG"
+    },
+    {
+     "train": "37470",
+     "hold": {
+      "HDG": "19:12"
+     }
+    },
+    {
+     "train": "37464",
+     "from": "BP",
+     "hold": {
+      "GK": "17:57"
+     }
+    },
+    {
+     "train": "37357",
+     "to": "BP",
+     "hold": {
+      "ZH": "18:04"
+     }
+    },
+    {
+     "train": "37468",
+     "from": "BP"
+    },
+    {
+     "train": "37462",
+     "to": "HDG"
+    },
+    {
+     "train": "37459",
+     "from": "HDG"
+    },
+    {
+     "train": "37370",
+     "hold": {
+      "LW": "19:26"
+     }
+    },
+    {
+     "train": "37455",
+     "to": "BP"
+    },
+    {
+     "train": "37366",
+     "from": "BP"
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "FWD": "19:10"
+     }
+    },
+    {
+     "train": "37355",
+     "to": "BP",
+     "hold": {
+      "ZH": "17:55"
+     }
+    },
+    {
+     "train": "37466",
+     "from": "BP"
+    },
+    {
+     "train": "37353",
+     "to": "BP"
+    },
+    {
+     "train": "37461",
+     "hold": {
+      "FWD": "19:15"
+     }
+    },
+    {
+     "train": "37463",
+     "hold": {
+      "HDG": "19:32"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-04-25-1730-210m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-04-25",
+   "runs": 33,
+   "reward": 0.805679,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1386,
+   "optimal_cost": 1370,
+   "floor_cost": 1355,
+   "greedy_cost": null,
+   "real_cost": 51,
+   "hardness": {
+    "runs": 33,
+    "sets": 7,
+    "stops": 208,
+    "conflicts": 33,
+    "single_track": 5,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 28,
+    "decisions": 25,
+    "holds": 11,
+    "short_turns": 14,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 15,
+    "optimal": 1370,
+    "greedy_gap": 0.8424,
+    "closed_min": 66,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 7,
+   "checks": 4,
+   "seconds": 1605.8,
+   "input_tokens": 552735,
+   "cache_read_tokens": 389760,
+   "cache_write_tokens": 0,
+   "output_tokens": 110085,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "hold": {
+      "GN": "18:42"
+     },
+     "to": "ZH",
+     "train": "37357"
+    },
+    {
+     "from": "ZH",
+     "train": "37368"
+    },
+    {
+     "to": "ZH",
+     "train": "37457"
+    },
+    {
+     "to": "ZH",
+     "train": "37459"
+    },
+    {
+     "from": "ZH",
+     "train": "37468"
+    },
+    {
+     "from": "ZH",
+     "train": "37370"
+    },
+    {
+     "to": "BP",
+     "train": "37364"
+    },
+    {
+     "from": "BP",
+     "hold": {
+      "BP": "18:27"
+     },
+     "train": "37359"
+    },
+    {
+     "to": "BP",
+     "train": "37464"
+    },
+    {
+     "from": "BP",
+     "hold": {
+      "BP": "18:45"
+     },
+     "train": "37461"
+    },
+    {
+     "hold": {
+      "FWD": "18:40"
+     },
+     "to": "BP",
+     "train": "37366"
+    },
+    {
+     "from": "BP",
+     "hold": {
+      "BP": "18:56"
+     },
+     "train": "37361"
+    },
+    {
+     "hold": {
+      "BP": "18:46",
+      "FWD": "18:20"
+     },
+     "to": "ZH",
+     "train": "37466"
+    },
+    {
+     "from": "ZH",
+     "hold": {
+      "ZH": "19:02"
+     },
+     "train": "37463"
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-04-26-0630-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-04-26",
+   "runs": 20,
+   "reward": 0.533739,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1120,
+   "optimal_cost": 1047,
+   "floor_cost": 980,
+   "greedy_cost": 3569,
+   "real_cost": 88,
+   "hardness": {
+    "runs": 20,
+    "sets": 7,
+    "stops": 150,
+    "conflicts": 35,
+    "single_track": 9,
+    "headway": 19,
+    "platforms": 1,
+    "closed": 6,
+    "decisions": 38,
+    "holds": 30,
+    "short_turns": 8,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 67,
+    "optimal": 1047,
+    "greedy_gap": 0.8,
+    "closed_min": 59,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 11,
+   "checks": 8,
+   "seconds": 1470.1,
+   "input_tokens": 987253,
+   "cache_read_tokens": 479616,
+   "cache_write_tokens": 0,
+   "output_tokens": 134995,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37420",
+     "to": "BP"
+    },
+    {
+     "train": "37417",
+     "from": "BP"
+    },
+    {
+     "train": "37413",
+     "to": "HDG"
+    },
+    {
+     "train": "37424",
+     "from": "HDG",
+     "hold": {
+      "HDG": "07:34"
+     }
+    },
+    {
+     "train": "37415",
+     "hold": {
+      "FWD": "07:37"
+     }
+    },
+    {
+     "train": "37422",
+     "to": "BP",
+     "hold": {
+      "LW": "07:29",
+      "HDG": "07:40"
+     }
+    },
+    {
+     "train": "37419",
+     "from": "BP",
+     "hold": {
+      "BP": "08:15"
+     }
+    },
+    {
+     "train": "37426",
+     "hold": {
+      "LW": "07:52"
+     }
+    },
+    {
+     "train": "37319",
+     "to": "HDG",
+     "hold": {
+      "ZH": "08:44"
+     }
+    },
+    {
+     "train": "37430",
+     "from": "HDG"
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "GN": "08:40"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-04-26-1700-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-04-26",
+   "runs": 30,
+   "reward": 0.836855,
+   "submitted": true,
+   "feasible": true,
+   "cost": 460,
+   "optimal_cost": 447,
+   "floor_cost": 433,
+   "greedy_cost": 2402,
+   "real_cost": 59,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 10,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 10,
+    "decisions": 31,
+    "holds": 25,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 14,
+    "optimal": 447,
+    "greedy_gap": 0.8,
+    "closed_min": 36,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 9,
+   "checks": 6,
+   "seconds": 1114.6,
+   "input_tokens": 701913,
+   "cache_read_tokens": 471360,
+   "cache_write_tokens": 0,
+   "output_tokens": 100582,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37362",
+     "to": "ZH"
+    },
+    {
+     "train": "37357",
+     "from": "ZH"
+    },
+    {
+     "train": "37462",
+     "to": "ZH"
+    },
+    {
+     "train": "37459",
+     "from": "ZH"
+    },
+    {
+     "train": "37457",
+     "hold": {
+      "GN": "17:56",
+      "ZH": "18:06"
+     },
+     "to": "BP"
+    },
+    {
+     "train": "37368",
+     "from": "BP"
+    },
+    {
+     "train": "37364",
+     "hold": {
+      "BP": "17:52"
+     }
+    },
+    {
+     "train": "37466",
+     "hold": {
+      "GK": "18:23"
+     }
+    },
+    {
+     "train": "37366",
+     "hold": {
+      "GK": "18:09"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-04-27-0800-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-04-27",
+   "runs": 15,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 382,
+   "optimal_cost": 382,
+   "floor_cost": 378,
+   "greedy_cost": 1155,
+   "real_cost": 39,
+   "hardness": {
+    "runs": 15,
+    "sets": 3,
+    "stops": 100,
+    "conflicts": 20,
+    "single_track": 3,
+    "headway": 14,
+    "platforms": 0,
+    "closed": 3,
+    "decisions": 20,
+    "holds": 16,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 4,
+    "optimal": 382,
+    "greedy_gap": 0.8,
+    "closed_min": 36,
+    "slow_min": 80,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 9,
+   "checks": 8,
+   "seconds": 1018.8,
+   "input_tokens": 634980,
+   "cache_read_tokens": 450176,
+   "cache_write_tokens": 0,
+   "output_tokens": 114618,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37426",
+     "hold": {
+      "ZH": "08:41"
+     }
+    },
+    {
+     "train": "37328",
+     "to": "BP"
+    },
+    {
+     "train": "37321",
+     "to": "HDG"
+    },
+    {
+     "train": "37423",
+     "from": "BP"
+    },
+    {
+     "train": "37332",
+     "from": "HDG"
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-04-27-0830-210m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-04-27",
+   "runs": 18,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1283,
+   "optimal_cost": 1283,
+   "floor_cost": 1283,
+   "greedy_cost": 1624,
+   "real_cost": 45,
+   "hardness": {
+    "runs": 18,
+    "sets": 3,
+    "stops": 122,
+    "conflicts": 10,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 10,
+    "decisions": 15,
+    "holds": 3,
+    "short_turns": 12,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 0,
+    "optimal": 1283,
+    "greedy_gap": 0.7991,
+    "closed_min": 157,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": false,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 4,
+   "seconds": 1068.3,
+   "input_tokens": 309443,
+   "cache_read_tokens": 283328,
+   "cache_write_tokens": 0,
+   "output_tokens": 102450,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37430",
+     "to": "HDG"
+    },
+    {
+     "train": "37325",
+     "from": "HDG"
+    },
+    {
+     "train": "37336",
+     "to": "BP",
+     "hold": {
+      "FWD": "11:17"
+     }
+    },
+    {
+     "train": "37431",
+     "from": "BP"
+    },
+    {
+     "train": "37321",
+     "to": "BP"
+    },
+    {
+     "train": "37332",
+     "from": "BP"
+    },
+    {
+     "train": "37427",
+     "to": "BP"
+    },
+    {
+     "train": "37438",
+     "from": "BP"
+    },
+    {
+     "train": "37423",
+     "to": "BP"
+    },
+    {
+     "train": "37434",
+     "from": "BP"
+    },
+    {
+     "train": "37329",
+     "to": "HDG",
+     "hold": {
+      "BP": "11:12"
+     }
+    },
+    {
+     "train": "37340",
+     "from": "HDG"
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-05-26-0730-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-26",
+   "runs": 26,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 857,
+   "optimal_cost": 857,
+   "floor_cost": 848,
+   "greedy_cost": null,
+   "real_cost": 165,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 174,
+    "conflicts": 24,
+    "single_track": 3,
+    "headway": 4,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 32,
+    "holds": 14,
+    "short_turns": 18,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 9,
+    "optimal": 857,
+    "greedy_gap": 0.8231,
+    "closed_min": 130,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 4,
+   "checks": 3,
+   "seconds": 1176.7,
+   "input_tokens": 235497,
+   "cache_read_tokens": 141504,
+   "cache_write_tokens": 0,
+   "output_tokens": 95844,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "hold": {
+      "FWD": "07:56"
+     },
+     "train": "37326"
+    },
+    {
+     "to": "HDG",
+     "train": "37315"
+    },
+    {
+     "from": "HDG",
+     "train": "37426"
+    },
+    {
+     "to": "HDG",
+     "train": "37417"
+    },
+    {
+     "from": "HDG",
+     "train": "37328"
+    },
+    {
+     "to": "HDG",
+     "train": "37317"
+    },
+    {
+     "from": "HDG",
+     "hold": {
+      "HDG": "08:29"
+     },
+     "train": "37428"
+    },
+    {
+     "hold": {
+      "GN": "07:57"
+     },
+     "to": "HDG",
+     "train": "37419"
+    },
+    {
+     "to": "HDG",
+     "train": "37319"
+    },
+    {
+     "from": "HDG",
+     "train": "37330"
+    },
+    {
+     "from": "HDG",
+     "train": "37430"
+    },
+    {
+     "to": "HDG",
+     "train": "37421"
+    },
+    {
+     "from": "HDG",
+     "train": "37332"
+    },
+    {
+     "to": "HDG",
+     "train": "37321"
+    },
+    {
+     "from": "HDG",
+     "train": "37432"
+    },
+    {
+     "to": "HDG",
+     "train": "37423"
+    },
+    {
+     "from": "HDG",
+     "train": "37334"
+    },
+    {
+     "to": "HDG",
+     "train": "37323"
+    },
+    {
+     "from": "HDG",
+     "train": "37434"
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-05-26-1630-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-26",
+   "runs": 26,
+   "reward": 0.902352,
+   "submitted": true,
+   "feasible": true,
+   "cost": 265,
+   "optimal_cost": 254,
+   "floor_cost": 185,
+   "greedy_cost": null,
+   "real_cost": 55,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 174,
+    "conflicts": 8,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 8,
+    "decisions": 27,
+    "holds": 25,
+    "short_turns": 2,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 69,
+    "optimal": 254,
+    "greedy_gap": 0.8,
+    "closed_min": 10,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 10,
+   "checks": 9,
+   "seconds": 1592.2,
+   "input_tokens": 1119010,
+   "cache_read_tokens": 557952,
+   "cache_write_tokens": 0,
+   "output_tokens": 139854,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37460",
+     "hold": {
+      "BP": "17:04"
+     }
+    },
+    {
+     "train": "37360",
+     "hold": {
+      "ZH": "17:00"
+     }
+    },
+    {
+     "train": "37353",
+     "hold": {
+      "ZH": "17:00"
+     },
+     "to": "HDG"
+    },
+    {
+     "train": "37464",
+     "from": "HDG",
+     "hold": {
+      "HDG": "17:31"
+     }
+    },
+    {
+     "train": "37455",
+     "hold": {
+      "GN": "17:00"
+     }
+    },
+    {
+     "train": "37362",
+     "hold": {
+      "FWD": "17:04"
+     }
+    },
+    {
+     "train": "37462",
+     "hold": {
+      "FWD": "17:07",
+      "GK": "17:23"
+     }
+    },
+    {
+     "train": "37355",
+     "hold": {
+      "GN": "17:12"
+     }
+    },
+    {
+     "train": "37457",
+     "hold": {
+      "FWD": "17:56"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-05-26-1800-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-26",
+   "runs": 25,
+   "reward": 0.957344,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1018,
+   "optimal_cost": 1014,
+   "floor_cost": 968,
+   "greedy_cost": null,
+   "real_cost": 41,
+   "hardness": {
+    "runs": 25,
+    "sets": 7,
+    "stops": 158,
+    "conflicts": 17,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 31,
+    "holds": 17,
+    "short_turns": 12,
+    "cancels": 2,
+    "turn_points": 1,
+    "avoidable": 46,
+    "optimal": 1014,
+    "greedy_gap": 0.824,
+    "closed_min": 130,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 9,
+   "checks": 7,
+   "seconds": 1064.5,
+   "input_tokens": 617538,
+   "cache_read_tokens": 502976,
+   "cache_write_tokens": 0,
+   "output_tokens": 97233,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37357",
+     "to": "HDG"
+    },
+    {
+     "train": "37459",
+     "to": "HDG"
+    },
+    {
+     "train": "37359",
+     "to": "HDG"
+    },
+    {
+     "train": "37461",
+     "to": "HDG"
+    },
+    {
+     "train": "37361",
+     "to": "HDG"
+    },
+    {
+     "train": "37463",
+     "to": "HDG"
+    },
+    {
+     "train": "37465",
+     "to": "HDG"
+    },
+    {
+     "train": "37468",
+     "from": "HDG"
+    },
+    {
+     "train": "37370",
+     "from": "HDG"
+    },
+    {
+     "train": "37470",
+     "from": "HDG"
+    },
+    {
+     "train": "37372",
+     "from": "HDG"
+    },
+    {
+     "train": "37472",
+     "from": "HDG"
+    },
+    {
+     "train": "37374",
+     "from": "HDG"
+    },
+    {
+     "train": "37376",
+     "from": "HDG",
+     "hold": {
+      "HDG": "20:24",
+      "BP": "20:36"
+     }
+    },
+    {
+     "train": "37365",
+     "hold": {
+      "FWD": "20:22"
+     }
+    },
+    {
+     "train": "37474",
+     "hold": {
+      "LWC": "20:15"
+     }
+    },
+    {
+     "train": "37467",
+     "hold": {
+      "FWD": "20:27"
+     }
+    },
+    {
+     "train": "37368",
+     "cancel": true
+    },
+    {
+     "train": "37363",
+     "cancel": true
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-05-27-0830-210m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-27",
+   "runs": 34,
+   "reward": 0.204943,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1118,
+   "optimal_cost": 795,
+   "floor_cost": 768,
+   "greedy_cost": null,
+   "real_cost": 285,
+   "hardness": {
+    "runs": 34,
+    "sets": 7,
+    "stops": 226,
+    "conflicts": 28,
+    "single_track": 1,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 27,
+    "decisions": 44,
+    "holds": 30,
+    "short_turns": 12,
+    "cancels": 2,
+    "turn_points": 1,
+    "avoidable": 27,
+    "optimal": 795,
+    "greedy_gap": 0.8529,
+    "closed_min": 98,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 9,
+   "checks": 7,
+   "seconds": 1943.1,
+   "input_tokens": 1119913,
+   "cache_read_tokens": 779008,
+   "cache_write_tokens": 0,
+   "output_tokens": 151967,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "hold": {
+      "HDG": "08:32"
+     },
+     "to": "ZH",
+     "train": "37428"
+    },
+    {
+     "hold": {
+      "FWD": "08:35"
+     },
+     "train": "37319"
+    },
+    {
+     "to": "ZH",
+     "train": "37330"
+    },
+    {
+     "hold": {
+      "BP": "09:28"
+     },
+     "to": "ZH",
+     "train": "37430"
+    },
+    {
+     "to": "ZH",
+     "train": "37432"
+    },
+    {
+     "hold": {
+      "BP": "10:00"
+     },
+     "to": "ZH",
+     "train": "37332"
+    },
+    {
+     "cancel": true,
+     "train": "37423"
+    },
+    {
+     "cancel": true,
+     "train": "37334"
+    },
+    {
+     "cancel": true,
+     "train": "37323"
+    },
+    {
+     "cancel": true,
+     "train": "37434"
+    },
+    {
+     "from": "ZH",
+     "hold": {
+      "ZH": "09:32"
+     },
+     "train": "37425"
+    },
+    {
+     "from": "ZH",
+     "hold": {
+      "ZH": "09:44"
+     },
+     "train": "37325"
+    },
+    {
+     "from": "ZH",
+     "hold": {
+      "ZH": "10:03"
+     },
+     "train": "37427"
+    },
+    {
+     "from": "ZH",
+     "hold": {
+      "ZH": "10:33"
+     },
+     "train": "37429"
+    },
+    {
+     "from": "ZH",
+     "hold": {
+      "ZH": "10:15"
+     },
+     "train": "37327"
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-05-27-1700-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-27",
+   "runs": 30,
+   "reward": 0.200001,
+   "submitted": true,
+   "feasible": true,
+   "cost": 5393,
+   "optimal_cost": 791,
+   "floor_cost": 670,
+   "greedy_cost": null,
+   "real_cost": 253,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 17,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 27,
+    "holds": 21,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 121,
+    "optimal": 791,
+    "greedy_gap": 0.8467,
+    "closed_min": 35,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 11,
+   "checks": 9,
+   "seconds": 1430.6,
+   "input_tokens": 1297298,
+   "cache_read_tokens": 877376,
+   "cache_write_tokens": 0,
+   "output_tokens": 141128,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37462",
+     "hold": {
+      "BP": "17:55"
+     }
+    },
+    {
+     "train": "37357",
+     "hold": {
+      "GN": "18:20"
+     }
+    },
+    {
+     "train": "37459",
+     "hold": {
+      "GN": "18:23"
+     }
+    },
+    {
+     "train": "37366",
+     "hold": {
+      "LW": "19:03"
+     }
+    },
+    {
+     "train": "37464",
+     "hold": {
+      "LW": "19:06"
+     }
+    },
+    {
+     "train": "37457",
+     "cancel": true
+    },
+    {
+     "train": "37368",
+     "cancel": true
+    },
+    {
+     "train": "37363",
+     "cancel": true
+    },
+    {
+     "train": "37474",
+     "cancel": true
+    },
+    {
+     "train": "37364",
+     "cancel": true
+    },
+    {
+     "train": "37359",
+     "cancel": true
+    },
+    {
+     "train": "37470",
+     "cancel": true
+    },
+    {
+     "train": "37467",
+     "cancel": true
+    },
+    {
+     "train": "37468",
+     "cancel": true
+    },
+    {
+     "train": "37465",
+     "cancel": true
+    },
+    {
+     "train": "37370",
+     "cancel": true
+    },
+    {
+     "train": "37365",
+     "cancel": true
+    },
+    {
+     "train": "37361",
+     "cancel": true
+    },
+    {
+     "train": "37472",
+     "cancel": true
+    },
+    {
+     "train": "37355",
+     "cancel": true
+    },
+    {
+     "train": "37466",
+     "cancel": true
+    },
+    {
+     "train": "37463",
+     "cancel": true
+    },
+    {
+     "train": "37374",
+     "cancel": true
+    },
+    {
+     "train": "37461",
+     "cancel": true
+    },
+    {
+     "train": "37372",
+     "cancel": true
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-05-27-1830-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-27",
+   "runs": 27,
+   "reward": 0.200136,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1186,
+   "optimal_cost": 596,
+   "floor_cost": 560,
+   "greedy_cost": null,
+   "real_cost": 170,
+   "hardness": {
+    "runs": 27,
+    "sets": 7,
+    "stops": 162,
+    "conflicts": 25,
+    "single_track": 8,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 27,
+    "holds": 17,
+    "short_turns": 10,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 36,
+    "optimal": 596,
+    "greedy_gap": 0.8593,
+    "closed_min": 59,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 9,
+   "checks": 8,
+   "seconds": 1361.1,
+   "input_tokens": 771094,
+   "cache_read_tokens": 499392,
+   "cache_write_tokens": 0,
+   "output_tokens": 121409,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "hold": {
+      "HDG": "18:35"
+     },
+     "train": "37459"
+    },
+    {
+     "hold": {
+      "FWD": "18:38"
+     },
+     "train": "37359"
+    },
+    {
+     "hold": {
+      "BP": "18:41"
+     },
+     "train": "37368"
+    },
+    {
+     "hold": {
+      "GN": "18:51"
+     },
+     "to": "HDG",
+     "train": "37361"
+    },
+    {
+     "to": "HDG",
+     "train": "37461"
+    },
+    {
+     "cancel": true,
+     "train": "37470"
+    },
+    {
+     "from": "HDG",
+     "train": "37372"
+    },
+    {
+     "from": "HDG",
+     "train": "37472"
+    },
+    {
+     "to": "HDG",
+     "train": "37463"
+    },
+    {
+     "to": "HDG",
+     "train": "37363"
+    },
+    {
+     "from": "HDG",
+     "train": "37374"
+    },
+    {
+     "from": "HDG",
+     "train": "37474"
+    },
+    {
+     "cancel": true,
+     "train": "37467"
+    },
+    {
+     "hold": {
+      "LW": "20:10"
+     },
+     "to": "HDG",
+     "train": "37370"
+    },
+    {
+     "from": "HDG",
+     "hold": {
+      "HDG": "20:22"
+     },
+     "train": "37365"
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-05-28-1830-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-05-28",
+   "runs": 31,
+   "reward": 0.256318,
+   "submitted": true,
+   "feasible": true,
+   "cost": 639,
+   "optimal_cost": 436,
+   "floor_cost": 383,
+   "greedy_cost": 1271,
+   "real_cost": 69,
+   "hardness": {
+    "runs": 31,
+    "sets": 7,
+    "stops": 186,
+    "conflicts": 23,
+    "single_track": 10,
+    "headway": 11,
+    "platforms": 1,
+    "closed": 1,
+    "decisions": 36,
+    "holds": 32,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 53,
+    "optimal": 436,
+    "greedy_gap": 0.8,
+    "closed_min": 10,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 12,
+   "checks": 10,
+   "seconds": 1101.4,
+   "input_tokens": 1230524,
+   "cache_read_tokens": 898496,
+   "cache_write_tokens": 0,
+   "output_tokens": 127399,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37368",
+     "hold": {
+      "BP": "18:52"
+     }
+    },
+    {
+     "train": "37370",
+     "hold": {
+      "HDG": "18:58"
+     }
+    },
+    {
+     "train": "37461",
+     "hold": {
+      "HDG": "19:11"
+     }
+    },
+    {
+     "train": "37470",
+     "hold": {
+      "ZH": "19:35"
+     }
+    },
+    {
+     "train": "37465",
+     "hold": {
+      "ZH": "19:34",
+      "FWD": "19:59"
+     }
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "ZH": "19:08",
+      "HDG": "19:29"
+     }
+    },
+    {
+     "train": "37463",
+     "hold": {
+      "BP": "19:22",
+      "FWD": "19:31"
+     }
+    },
+    {
+     "train": "37363",
+     "hold": {
+      "GN": "19:13",
+      "FWD": "19:37"
+     }
+    },
+    {
+     "train": "37472",
+     "hold": {
+      "LW": "19:49"
+     }
+    },
+    {
+     "train": "37365",
+     "hold": {
+      "ZH": "19:49"
+     }
+    },
+    {
+     "train": "37367",
+     "hold": {
+      "ZH": "20:19"
+     }
+    },
+    {
+     "train": "37467",
+     "hold": {
+      "GN": "19:57"
+     }
+    },
+    {
+     "train": "37474",
+     "hold": {
+      "LW": "19:52",
+      "HDG": "20:03"
+     }
+    },
+    {
+     "train": "37374",
+     "hold": {
+      "BP": "20:04"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-05-30-0630-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-30",
+   "runs": 29,
+   "reward": 0.055172,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 454,
+   "floor_cost": 385,
+   "greedy_cost": 1397,
+   "real_cost": 1128,
+   "hardness": {
+    "runs": 29,
+    "sets": 7,
+    "stops": 201,
+    "conflicts": 13,
+    "single_track": 1,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 12,
+    "decisions": 37,
+    "holds": 33,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 69,
+    "optimal": 454,
+    "greedy_gap": 0.8,
+    "closed_min": 28,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 35,
+   "agent_turns": 12,
+   "checks": 8,
+   "seconds": 3464.6,
+   "input_tokens": 2341854,
+   "cache_read_tokens": 798336,
+   "cache_write_tokens": 0,
+   "output_tokens": 358306,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "hold": {
+      "BP": "07:04",
+      "GK": "07:19",
+      "HDG": "06:31",
+      "ZH": "07:23"
+     },
+     "train": "37420"
+    },
+    {
+     "hold": {
+      "BP": "06:58",
+      "GK": "07:10"
+     },
+     "train": "37320"
+    },
+    {
+     "hold": {
+      "ZH": "06:58"
+     },
+     "train": "37413"
+    },
+    {
+     "hold": {
+      "FWD": "07:26",
+      "HDG": "07:29",
+      "LWC": "07:34",
+      "ZH": "07:08"
+     },
+     "train": "37313"
+    },
+    {
+     "hold": {
+      "ZH": "07:16"
+     },
+     "train": "37415"
+    },
+    {
+     "hold": {
+      "BP": "07:12",
+      "GK": "07:28",
+      "ZH": "07:32"
+     },
+     "train": "37322"
+    },
+    {
+     "hold": {
+      "BP": "07:23",
+      "GK": "07:39"
+     },
+     "train": "37422"
+    },
+    {
+     "hold": {
+      "FWD": "08:11",
+      "HDG": "08:17",
+      "ZH": "07:52"
+     },
+     "train": "37317"
+    },
+    {
+     "hold": {
+      "GK": "08:11",
+      "LW": "07:45",
+      "LWC": "07:48"
+     },
+     "train": "37324"
+    },
+    {
+     "hold": {
+      "FWD": "08:10",
+      "LW": "07:55",
+      "LWC": "07:59"
+     },
+     "train": "37326"
+    },
+    {
+     "hold": {
+      "FWD": "08:13",
+      "LW": "07:47",
+      "LWC": "07:54"
+     },
+     "train": "37424"
+    },
+    {
+     "hold": {
+      "HDG": "08:30",
+      "LWC": "08:13"
+     },
+     "train": "37426"
+    },
+    {
+     "hold": {
+      "ZH": "08:35"
+     },
+     "train": "37319"
+    },
+    {
+     "hold": {
+      "GK": "09:09",
+      "LW": "08:39"
+     },
+     "train": "37328"
+    },
+    {
+     "hold": {
+      "GK": "09:05",
+      "LWC": "08:35"
+     },
+     "train": "37428"
+    },
+    {
+     "hold": {
+      "GN": "08:47",
+      "ZH": "08:56"
+     },
+     "train": "37421"
+    },
+    {
+     "hold": {
+      "ZH": "09:00"
+     },
+     "train": "37321"
+    },
+    {
+     "hold": {
+      "GK": "09:19"
+     },
+     "train": "37330"
+    },
+    {
+     "hold": {
+      "GK": "09:25"
+     },
+     "train": "37430"
+    },
+    {
+     "hold": {
+      "FWD": "09:54",
+      "ZH": "09:32"
+     },
+     "train": "37425"
+    },
+    {
+     "hold": {
+      "FWD": "09:57",
+      "ZH": "09:35"
+     },
+     "train": "37323"
+    },
+    {
+     "hold": {
+      "LWC": "09:37"
+     },
+     "train": "37332"
+    },
+    {
+     "hold": {
+      "FWD": "09:53",
+      "LWC": "09:43"
+     },
+     "train": "37432"
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-05-31-0800-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-05-31",
+   "runs": 32,
+   "reward": 0.175,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 1179,
+   "floor_cost": 1017,
+   "greedy_cost": 5859,
+   "real_cost": 90,
+   "hardness": {
+    "runs": 32,
+    "sets": 7,
+    "stops": 218,
+    "conflicts": 43,
+    "single_track": 6,
+    "headway": 16,
+    "platforms": 2,
+    "closed": 19,
+    "decisions": 30,
+    "holds": 20,
+    "short_turns": 10,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 162,
+    "optimal": 1179,
+    "greedy_gap": 0.8,
+    "closed_min": 39,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 2
+   },
+   "violations": 2,
+   "agent_turns": 12,
+   "checks": 10,
+   "seconds": 1819.8,
+   "input_tokens": 1798455,
+   "cache_read_tokens": 1311552,
+   "cache_write_tokens": 0,
+   "output_tokens": 146813,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37419",
+     "to": "BP",
+     "hold": {
+      "GK": "08:50"
+     }
+    },
+    {
+     "train": "37426",
+     "to": "ZH",
+     "hold": {
+      "BP": "08:50"
+     }
+    },
+    {
+     "train": "37328",
+     "to": "ZH",
+     "hold": {
+      "BP": "09:06"
+     }
+    },
+    {
+     "train": "37428",
+     "to": "ZH",
+     "hold": {
+      "FWD": "09:11",
+      "BP": "09:20"
+     }
+    },
+    {
+     "train": "37319",
+     "to": "BP",
+     "hold": {
+      "GN": "08:50",
+      "ZH": "09:03"
+     }
+    },
+    {
+     "train": "37421",
+     "to": "HDG",
+     "hold": {
+      "GN": "08:56",
+      "ZH": "09:06"
+     }
+    },
+    {
+     "train": "37321",
+     "to": "BP",
+     "hold": {
+      "GN": "09:06",
+      "ZH": "09:17"
+     }
+    },
+    {
+     "train": "37330",
+     "from": "BP",
+     "hold": {
+      "BP": "09:13"
+     }
+    },
+    {
+     "train": "37423",
+     "from": "ZH",
+     "hold": {
+      "ZH": "09:09"
+     }
+    },
+    {
+     "train": "37323",
+     "from": "ZH",
+     "hold": {
+      "ZH": "09:24"
+     }
+    },
+    {
+     "train": "37425",
+     "from": "ZH",
+     "hold": {
+      "ZH": "09:39",
+      "FWD": "10:00"
+     }
+    },
+    {
+     "train": "37430",
+     "from": "BP",
+     "hold": {
+      "BP": "09:26"
+     }
+    },
+    {
+     "train": "37332",
+     "from": "HDG",
+     "hold": {
+      "HDG": "09:42"
+     }
+    },
+    {
+     "train": "37432",
+     "from": "BP",
+     "hold": {
+      "BP": "09:55"
+     }
+    },
+    {
+     "train": "37325",
+     "hold": {
+      "GN": "09:49",
+      "FWD": "10:21"
+     }
+    },
+    {
+     "train": "37334",
+     "hold": {
+      "LW": "09:52"
+     }
+    },
+    {
+     "train": "37434",
+     "hold": {
+      "LW": "10:11"
+     }
+    },
+    {
+     "train": "37336",
+     "hold": {
+      "LW": "10:27",
+      "BP": "10:45"
+     }
+    },
+    {
+     "train": "37436",
+     "hold": {
+      "LW": "11:00",
+      "BP": "11:20"
+     }
+    },
+    {
+     "train": "37427",
+     "hold": {
+      "ZH": "10:08",
+      "HDG": "10:33"
+     }
+    },
+    {
+     "train": "37327",
+     "hold": {
+      "GN": "10:16"
+     }
+    },
+    {
+     "train": "37429",
+     "hold": {
+      "ZH": "10:43",
+      "FWD": "11:04"
+     }
+    },
+    {
+     "train": "37329",
+     "hold": {
+      "ZH": "10:58",
+      "BP": "11:10",
+      "FWD": "11:18"
+     }
+    },
+    {
+     "train": "37338",
+     "hold": {
+      "LW": "10:48"
+     }
+    },
+    {
+     "train": "37340",
+     "hold": {
+      "LW": "11:28"
+     }
+    },
+    {
+     "train": "37431",
+     "hold": {
+      "FWD": "11:31"
+     }
+    },
+    {
+     "train": "37331",
+     "hold": {
+      "FWD": "11:38"
+     }
+    },
+    {
+     "train": "37433",
+     "hold": {
+      "GN": "11:47"
+     }
+    },
+    {
+     "train": "37440",
+     "hold": {
+      "LW": "11:43"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-05-31-0900-180m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-05-31",
+   "runs": 30,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 226,
+   "optimal_cost": 226,
+   "floor_cost": 216,
+   "greedy_cost": 1092,
+   "real_cost": 76,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 14,
+    "single_track": 3,
+    "headway": 5,
+    "platforms": 0,
+    "closed": 6,
+    "decisions": 49,
+    "holds": 45,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 10,
+    "optimal": 226,
+    "greedy_gap": 0.8,
+    "closed_min": 26,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 6,
+   "checks": 4,
+   "seconds": 853.0,
+   "input_tokens": 302199,
+   "cache_read_tokens": 55616,
+   "cache_write_tokens": 0,
+   "output_tokens": 80956,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37430",
+     "hold": {
+      "HDG": "09:01"
+     }
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "FWD": "09:04"
+     }
+    },
+    {
+     "train": "37423",
+     "to": "HDG"
+    },
+    {
+     "train": "37334",
+     "from": "HDG"
+    },
+    {
+     "train": "37323",
+     "to": "HDG"
+    },
+    {
+     "train": "37434",
+     "from": "HDG",
+     "hold": {
+      "HDG": "09:59"
+     }
+    },
+    {
+     "train": "37425",
+     "hold": {
+      "GN": "09:27"
+     }
+    }
+   ]
+  },
+  {
+   "model": "hf:Qwen/Qwen3.8-2.4T-A95B:together@default",
+   "task_id": "gnlw-2025-06-22-1600-240m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-06-22",
+   "runs": 18,
+   "reward": 1.0,
+   "submitted": true,
+   "feasible": true,
+   "cost": 668,
+   "optimal_cost": 668,
+   "floor_cost": 668,
+   "greedy_cost": null,
+   "real_cost": 27,
+   "hardness": {
+    "runs": 18,
+    "sets": 3,
+    "stops": 108,
+    "conflicts": 22,
+    "single_track": 1,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 21,
+    "decisions": 22,
+    "holds": 16,
+    "short_turns": 4,
+    "cancels": 2,
+    "turn_points": 1,
+    "avoidable": 0,
+    "optimal": 668,
+    "greedy_gap": 0.8444,
+    "closed_min": 92,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 3,
+   "checks": 2,
+   "seconds": 628.5,
+   "input_tokens": 86175,
+   "cache_read_tokens": 31680,
+   "cache_write_tokens": 0,
+   "output_tokens": 46905,
+   "served_by": [
+    "Qwen/Qwen3.8-2.4T-A95B"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37458",
+     "to": "BP"
+    },
+    {
+     "train": "37353",
+     "from": "BP"
+    },
+    {
+     "train": "37360",
+     "to": "BP"
+    },
+    {
+     "train": "37455",
+     "from": "BP"
+    },
+    {
+     "train": "37451",
+     "cancel": true
+    },
+    {
+     "train": "37462",
+     "cancel": true
+    },
+    {
+     "train": "37364",
+     "hold": {
+      "BP": "17:42"
+     }
+    }
+   ]
+  }
+ ]
+}
