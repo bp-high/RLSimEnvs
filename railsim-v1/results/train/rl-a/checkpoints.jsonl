@@ -1,0 +1,1 @@
+{"name": "000003", "batch": 3, "final": false, "state_path": "tinker://946e3809-b8a7-5a52-943e-7817d9a99297:train:0/weights/000003", "tokens": {"sampled": 4506763, "prefill_cached": 17226112, "prefill_uncached": 7024739, "trained": 7846556}, "val_reward": null}
