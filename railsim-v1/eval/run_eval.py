@@ -5,12 +5,18 @@
         --models claude-sonnet-5-5@high --split eval --concurrency 6
     envs/rail_ops/.venv/bin/python eval/run_eval.py --run 2026-10-08-glm-5-3-flash-eval45 \
         --models hf:zai-org/GLM-5.3-Flash:novita --bill-to DeepPPT --split eval
+    envs/rail_ops/.venv/bin/python eval/run_eval.py --run 2026-11-12-inkling-2-small-rl-a-eval45 \
+        --models "tinker:thinkingmachines/Inkling-2-Small#rl-a@high" --split eval --concurrency 45
 
 A model is `<model id>[@effort]`. Claude models (effort defaults to high) use the Anthropic API, keyed from
 ANTHROPIC_API_KEY or LLM_API_KEY. `hf:<model id>[:<provider>]` models use Hugging Face's OpenAI-compatible router
 (`rail_openenv.agent_openai`), keyed from HF_TOKEN or HUGGING_FACE_API_KEY and billed to --bill-to (or HF_BILL_TO);
 their effort defaults to "default" (the provider's own reasoning setting; anything else is sent as reasoning_effort).
-Starts a server in this process unless --server is given.
+`tinker:<base model>[#<checkpoint>]` models are sampled through the Tinker API (`rail_openenv.agent_tinker`, keyed
+from TINKER_API_KEY; effort defaults to high): the base model, or with `#<run>` the checkpoint that
+`train/train_rl.py --run <run>` saved. Their episodes have a context window (see agent_tinker), so their rows are
+not comparable with the others'.
+Starts a server in this process unless --server is given (Tinker episodes run the environment in this process).
 Rollouts go to results/rollouts/<run>/<model>/<task>.json (git-ignored) with an index.json and board.md per run;
 existing episodes are skipped (resume), --force reruns them.
 index.json keeps each episode's submitted plan, so the map replay (/twin/) can show it without the transcripts.
@@ -34,6 +40,8 @@ sys.path.insert(0, str(ROOT / "eval"))
 from rail_core import load_pack  # noqa: E402
 from rail_openenv import agent, agent_openai  # noqa: E402
 from report import board  # noqa: E402
+
+TINKER = "tinker:"   # rail_openenv.agent_tinker is imported only for these specs: it needs tinker and its cookbook
 
 _LOCK = threading.Lock()
 
@@ -60,12 +68,20 @@ def start_server() -> str:
 
 
 def parse_spec(spec: str) -> tuple[str, str]:
-    model, _, effort = spec.partition("@")
+    model, _, effort = spec.rpartition("@") if "@" in spec else (spec, "", "")
     return model, effort or ("default" if agent_openai.is_openai_spec(model) else "high")
 
 
+def harness_for(model: str):
+    if model.startswith(TINKER):
+        from rail_openenv import agent_tinker
+
+        return agent_tinker
+    return agent_openai if agent_openai.is_openai_spec(model) else agent
+
+
 def slug(spec: str) -> str:
-    return spec.replace("/", "_").replace(":", "_").replace("@", "_")
+    return spec.replace("/", "_").replace(":", "_").replace("@", "_").replace("#", "_")
 
 
 def submitted_plan(record: dict):
@@ -124,11 +140,12 @@ def main():
     ap.add_argument("--server", default=None)
     ap.add_argument("--concurrency", type=int, default=6, help="episodes in flight per model")
     ap.add_argument("--max-turns", type=int, default=12)
-    ap.add_argument("--max-tokens", type=int, default=64000)
+    ap.add_argument("--max-tokens", type=int, default=None,
+                    help="output tokens per turn (default: 64,000; 8,192 for tinker: models)")
     ap.add_argument("--wall-clock", type=float, default=3600.0, help="seconds per episode before it is cut off")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--bill-to", default=None, help="Hugging Face organisation billed for hf: models (X-HF-Bill-To)")
-    ap.add_argument("--progress", action="store_true", help="print a line after every turn (hf: models)")
+    ap.add_argument("--progress", action="store_true", help="print a line after every turn (hf: and tinker: models)")
     ap.add_argument("--reindex", action="store_true", help="rebuild index.json and board.md from the transcripts")
     args = ap.parse_args()
     if args.reindex:
@@ -148,7 +165,8 @@ def main():
     if (run_dir / "index.json").is_file():
         for r in json.loads((run_dir / "index.json").read_text())["episodes"]:
             rows[f"{r['model']}|{r['task_id']}"] = r
-    base = args.server or start_server()
+    local_only = all(parse_spec(m)[0].startswith(TINKER) for m in args.models)   # no server needed
+    base = args.server or (None if local_only else start_server())
     print(f"server {base}; {len(tasks)} tasks x {len(args.models)} models -> {run_dir}", flush=True)
 
     jobs = []
@@ -163,20 +181,24 @@ def main():
             jobs.append((m, t, path))
     write_index(run_dir, rows)
     clients = {}
-    if any(not agent_openai.is_openai_spec(parse_spec(m)[0]) for m, _, _ in jobs):
-        clients[agent] = agent.make_client(max_retries=8)
-    if any(agent_openai.is_openai_spec(parse_spec(m)[0]) for m, _, _ in jobs):
-        clients[agent_openai] = agent_openai.make_openai_client(max_retries=8, bill_to=args.bill_to)
+    for h in {harness_for(parse_spec(m)[0]) for m, _, _ in jobs}:
+        if h is agent:
+            clients[h] = agent.make_client(max_retries=8)
+        elif h is agent_openai:
+            clients[h] = agent_openai.make_openai_client(max_retries=8, bill_to=args.bill_to)
+        else:
+            clients[h] = h.make_tinker_client()
 
     def work(m, t, path):
         model, effort = parse_spec(m)
-        harness = agent_openai if agent_openai.is_openai_spec(model) else agent
+        harness = harness_for(model)
         extra = {"progress": lambda line: print(f"  {m} {line}", flush=True)} \
-            if args.progress and harness is agent_openai else {}
+            if args.progress and harness is not agent else {}
+        if args.max_tokens is not None:
+            extra["max_tokens"] = args.max_tokens
         try:
             rec = harness.run_episode(base, t.task_id, model=model, effort=effort, max_turns=args.max_turns,
-                                      max_tokens=args.max_tokens, wall_clock_s=args.wall_clock,
-                                      client=clients[harness], **extra)
+                                      wall_clock_s=args.wall_clock, client=clients[harness], **extra)
         except Exception as e:  # an API or session failure: record it so the resume reruns this episode
             rec = {"task_id": t.task_id, "model": model, "effort": effort, "steps": [], "reward": 0.0,
                    "end_reason": "error", "errors": [f"{type(e).__name__}: {e}"[:2000]], "final": None, "turns": 0,
