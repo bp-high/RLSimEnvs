@@ -127,6 +127,32 @@ The same tasks under the lazy policies (the stored optimum scores 1.0 by constru
 - **Train split:** 159 tasks on 84 other days, all proven optimal.
 - **Read one episode** tool by tool in [results/example_episode.md](results/example_episode.md).
 
+## Reinforcement learning on the train split
+
+The train split is there to be trained on. `train/train_rl.py` fine-tunes a model hosted on Thinking Machines'
+[Tinker](https://tinker-docs.thinkingmachines.ai/) API with policy gradients on the environment's own reward, and
+`eval/run_eval.py` measures it on the eval split before and after ([the recipe](./train/README.md)).
+
+**Inkling 2 Small** (`thinkingmachines/Inkling-2-Small`), a rank-8 LoRA, 23 steps of 16 train tasks x 4 episodes:
+
+| 45 eval tasks, one rollout each | before RL | after RL |
+|---|---:|---:|
+| mean reward (95% CI) | **0.119** (0.082-0.166) | **0.186** (0.142-0.242) |
+| submitted a plan | 34 | 45 |
+| legal plans | 9 | 13 |
+| at the proven optimum | 0 | 1 |
+| turns cut at the token limit | 32 % | 4 % |
+| output tokens per episode | 22,900 | 11,700 |
+
+**+0.067 per task** (95% interval +0.024 to +0.115, paired over tasks): better on 30, worse on 12, the same on 3.
+Most of the gain is the model learning to work inside its budget, checking more drafts and always submitting; the
+plans themselves are still weak (32 of 45 break a rule). Runs: `results/rollouts/2026-11-12-inkling-2-small-base-eval45`
+and `...-rl-a-eval45` (its `analysis.md` has every task and the learning curve); training: `results/train/rl-a`.
+
+**These rows are not on the board above:** Tinker trains this model in a 65,536-token context, so these episodes
+have that window and 8,192 output tokens per turn (effort high), where the board's rows had a million tokens and
+64,000 per turn.
+
 ## Watch a plan run
 
 <img src="./assets/twin_station.webp" alt="The line twin at Hurdegaryp on 1 May 2025: a train about to leave again after the optimum turned it back short of Leeuwarden, with the village, the N31 and the canal from OpenStreetMap" width="100%">
@@ -228,9 +254,12 @@ railsim-v1/
 ├── README.md, DESIGN.md       this page; how the tasks, physics, rules, reward, solver and selection work
 ├── project.yaml               manifest
 ├── data/gnlw/                 curated 2025 record, network.json, derived runtimes/links, SOURCE.md
-├── eval/                      run_eval.py (rollouts through the server), report.py (the board), analyze.py
+├── eval/                      run_eval.py (rollouts through the server), report.py (the board), analyze.py,
+│                              compare.py (two runs task by task)
+├── train/                     train_rl.py (RL on the train split through Tinker) and its README
 ├── results/rollouts/          one directory per run: index.json (with each submitted plan), board.md (transcripts
 │                              are git-ignored)
+├── results/train/             one directory per training run: config, metrics and episodes per step, checkpoints
 ├── space/                     the Hugging Face Space: its card, app.py, and build.py (assembles and pushes it)
 └── envs/rail_ops/
     ├── core/                  rail_core: data, generator, physics/checker, CP-SAT reference, reward, prompts,

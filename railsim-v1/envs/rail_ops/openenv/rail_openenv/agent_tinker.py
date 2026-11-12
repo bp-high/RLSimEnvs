@@ -54,7 +54,8 @@ except ImportError:  # flat layout
     from session import LocalSession
 
 DEFAULT_MODEL = "thinkingmachines/Inkling-2-Small"
-EFFORT = {"none": 0.0, "minimal": 0.1, "low": 0.2, "medium": 0.7, "high": 0.9, "xhigh": 0.99, "default": 0.9}
+EFFORT = {"none": 0.0, "minimal": 0.1, "low": 0.2, "medium": 0.7, "high": 0.9, "xhigh": 0.99, "max": 0.99,
+          "default": 0.9}   # "max" = xhigh: the renderer takes effort < 1.0, and 0.99 is its highest preset
 MAX_TOKENS = 8192            # per turn; the cookbook's Inkling recipes use the same
 MIN_TURN_TOKENS = 1024       # less room than this for a turn ends the episode (context_length)
 RESULT_RESERVE = 10000       # tokens kept free for one more check result (the largest in the packs is 10,644)

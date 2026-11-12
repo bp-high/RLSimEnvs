@@ -10,6 +10,28 @@ rank-8 LoRA trained through the [Tinker](https://tinker-docs.thinkingmachines.ai
 | `train_rl.py` | the RL loop, with a spending cap |
 | `../eval/run_eval.py` | `tinker:` model specs: the base model, or a checkpoint of a training run |
 
+## Result: Inkling 2 Small, run `rl-a`
+
+| 45 eval tasks, one rollout each | before RL | after RL |
+|---|---:|---:|
+| mean reward (95% CI) | **0.119** (0.082-0.166) | **0.186** (0.142-0.242) |
+| submitted a plan | 34 | 45 |
+| legal plans | 9 | 13 |
+| turns cut at the 8,192-token limit | 84 of 263 | 10 of 284 |
+| output tokens per episode | 22,900 | 11,700 |
+
++0.067 per task (95% interval +0.024 to +0.115, paired over tasks). 23 steps, 1,472 episodes, 62.9M trained tokens;
+3 hours of sampling and half an hour of training. The held-out train tasks went from 0.061 to 0.169, and from 62 %
+of episodes submitting to all of them. Details and every task:
+`../results/rollouts/2026-11-12-inkling-2-small-rl-a-eval45/analysis.md`; the run: `../results/train/rl-a/`.
+
+What that run taught about the settings:
+- **lr 1e-4, not 4e-5.** Six steps at 4e-5 moved nothing measurable; at 1e-4 the behaviour changed within four.
+  The default here is now 1e-4.
+- **Save the state every step** (`--save-every 1`, now the default): a state save takes 30 s, and the container
+  restarted once mid-run.
+- **Compare tasks, not means.** One rollout per task is noisy; `eval/compare.py` pairs the two runs.
+
 ## Setup
 
 ```bash
@@ -32,6 +54,12 @@ envs/rail_ops/.venv/bin/python train/train_rl.py --run rl-a --max-credits 150
 # 3. the trained checkpoint on the same 45 tasks
 envs/rail_ops/.venv/bin/python eval/run_eval.py --run 2026-11-12-inkling-2-small-rl-a-eval45 \
     --models "tinker:thinkingmachines/Inkling-2-Small#rl-a@high" --split eval --concurrency 45
+```
+
+```bash
+# 4. the two runs, task by task
+envs/rail_ops/.venv/bin/python eval/compare.py 2026-11-12-inkling-2-small-base-eval45 \
+    2026-11-12-inkling-2-small-rl-a-eval45
 ```
 
 `#rl-a` is the last sampler checkpoint in `results/train/rl-a/checkpoints.jsonl`; `#rl-a:000012` names one, and
@@ -72,7 +100,8 @@ the eval split. The reward is the environment's own (0 without a submit, below 0
 |---|---|---|
 | `--groups`, `--group-size` | 16, 4 | 64 episodes a step |
 | `--steps` | 36 | the budget usually ends the run first |
-| `--lr`, `--lora-rank` | 4e-5, 8 | checkpoint size grows with the rank (below) |
+| `--lr`, `--lora-rank` | 1e-4, 8 | checkpoint size grows with the rank (below) |
+| `--save-every` | 1 | steps between saved states: a restart resumes from the last |
 | `--effort` | high | train at the effort you evaluate at: it is part of the prompt |
 | `--val-tasks`, `--val-every` | 16, 6 | |
 | `--max-credits` / `--max-train-tokens` | required | stop before a step that would pass it |

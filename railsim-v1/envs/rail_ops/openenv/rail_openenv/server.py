@@ -78,6 +78,10 @@ def model_name(spec: str) -> str:
         version = ".".join(p for p in parts if p.isdigit())
         name = f"Claude {family} {version}".strip()
         return f"{name} (effort {effort})" if effort and effort != "default" else name
+    if model.startswith("tinker:"):                 # "tinker:org/Inkling-2-Small#rl-a" -> "Inkling 2 Small, RL rl-a"
+        base, _, ckpt = model[7:].partition("#")
+        name = base.split(":")[0].split("/")[-1].replace("-", " ")
+        return f"{name}, RL {ckpt}" if ckpt else name
     return model
 
 
