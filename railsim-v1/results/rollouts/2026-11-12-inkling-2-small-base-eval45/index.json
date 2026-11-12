@@ -1,0 +1,4720 @@
+{
+ "run": "2026-11-12-inkling-2-small-base-eval45",
+ "episodes": [
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-01-20-1800-180m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-20",
+   "runs": 24,
+   "reward": 0.125,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 664,
+   "floor_cost": 539,
+   "greedy_cost": 2501,
+   "real_cost": 64,
+   "hardness": {
+    "runs": 24,
+    "sets": 6,
+    "stops": 147,
+    "conflicts": 11,
+    "single_track": 5,
+    "headway": 3,
+    "platforms": 0,
+    "closed": 3,
+    "decisions": 43,
+    "holds": 36,
+    "short_turns": 7,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 125,
+    "optimal": 664,
+    "greedy_gap": 0.7999,
+    "closed_min": 46,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 1
+   },
+   "violations": 15,
+   "agent_turns": 6,
+   "checks": 2,
+   "seconds": 352.3,
+   "input_tokens": 140978,
+   "cache_read_tokens": 100608,
+   "cache_write_tokens": 0,
+   "output_tokens": 29012,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37357",
+     "to": "HDG",
+     "hold": {
+      "FWD": "18:51"
+     }
+    },
+    {
+     "train": "37468",
+     "from": "HDG"
+    },
+    {
+     "train": "37459",
+     "to": "BP"
+    },
+    {
+     "train": "37370",
+     "from": "BP"
+    },
+    {
+     "train": "37359",
+     "hold": {
+      "ZH": "18:40"
+     }
+    },
+    {
+     "train": "37461",
+     "hold": {
+      "FWD": "19:01"
+     }
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "FWD": "19:04"
+     }
+    },
+    {
+     "train": "37365",
+     "hold": {
+      "BP": "20:00"
+     }
+    },
+    {
+     "train": "37372",
+     "hold": {
+      "BP": "19:38"
+     }
+    },
+    {
+     "train": "37470",
+     "hold": {
+      "LW": "19:19"
+     }
+    },
+    {
+     "train": "37472",
+     "hold": {
+      "LW": "19:22"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-01-21-0626-180m-real-0",
+   "split": "eval",
+   "difficulty": "real",
+   "day": "2025-01-21",
+   "runs": 29,
+   "reward": 0.089655,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 445,
+   "floor_cost": 356,
+   "greedy_cost": 1980,
+   "real_cost": 1308,
+   "hardness": {
+    "runs": 29,
+    "sets": 7,
+    "stops": 199,
+    "conflicts": 18,
+    "single_track": 14,
+    "headway": 4,
+    "platforms": 0,
+    "closed": 0,
+    "decisions": 21,
+    "holds": 17,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 89,
+    "optimal": 445,
+    "greedy_gap": 0.8,
+    "closed_min": 0,
+    "slow_min": 69,
+    "track_min": 0,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 23,
+   "agent_turns": 6,
+   "checks": 2,
+   "seconds": 187.4,
+   "input_tokens": 127945,
+   "cache_read_tokens": 90240,
+   "cache_write_tokens": 0,
+   "output_tokens": 17299,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37413",
+     "hold": {
+      "ZH": "06:44"
+     }
+    },
+    {
+     "train": "37313",
+     "hold": {
+      "GN": "06:43"
+     }
+    },
+    {
+     "train": "37415",
+     "hold": {
+      "GN": "07:00"
+     }
+    },
+    {
+     "train": "37315",
+     "hold": {
+      "GN": "07:14"
+     }
+    },
+    {
+     "train": "37324",
+     "hold": {
+      "BP": "07:45"
+     }
+    },
+    {
+     "train": "37417",
+     "hold": {
+      "GN": "07:36"
+     }
+    },
+    {
+     "train": "37422",
+     "hold": {
+      "LW": "06:58"
+     }
+    },
+    {
+     "train": "37326",
+     "hold": {
+      "LW": "07:54"
+     }
+    },
+    {
+     "train": "37426",
+     "hold": {
+      "HDG": "08:09"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-01-22-1600-240m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-22",
+   "runs": 38,
+   "reward": 0.073684,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 670,
+   "floor_cost": 627,
+   "greedy_cost": 5661,
+   "real_cost": 112,
+   "hardness": {
+    "runs": 38,
+    "sets": 7,
+    "stops": 252,
+    "conflicts": 28,
+    "single_track": 7,
+    "headway": 10,
+    "platforms": 0,
+    "closed": 11,
+    "decisions": 24,
+    "holds": 18,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 43,
+    "optimal": 670,
+    "greedy_gap": 0.8,
+    "closed_min": 36,
+    "slow_min": 33,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 57,
+   "agent_turns": 5,
+   "checks": 3,
+   "seconds": 214.7,
+   "input_tokens": 133067,
+   "cache_read_tokens": 86016,
+   "cache_write_tokens": 0,
+   "output_tokens": 22945,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37458",
+     "hold": {
+      "BP": "16:35"
+     }
+    },
+    {
+     "train": "37358",
+     "hold": {
+      "ZH": "16:54"
+     }
+    },
+    {
+     "train": "37360",
+     "hold": {
+      "ZH": "17:00"
+     }
+    },
+    {
+     "train": "37362",
+     "hold": {
+      "LW": "17:02"
+     }
+    },
+    {
+     "train": "37453",
+     "hold": {
+      "GN": "16:46"
+     }
+    },
+    {
+     "train": "37351",
+     "hold": {
+      "GN": "16:52"
+     }
+    },
+    {
+     "train": "37353",
+     "hold": {
+      "GN": "16:55"
+     }
+    },
+    {
+     "train": "37455",
+     "hold": {
+      "GN": "17:10",
+      "FWD": "17:44"
+     }
+    },
+    {
+     "train": "37355",
+     "hold": {
+      "HDG": "17:48"
+     }
+    },
+    {
+     "train": "37462",
+     "hold": {
+      "LW": "17:44"
+     }
+    },
+    {
+     "train": "37364",
+     "hold": {
+      "LW": "17:47"
+     }
+    },
+    {
+     "train": "37464",
+     "hold": {
+      "LW": "17:50"
+     }
+    },
+    {
+     "train": "37466",
+     "hold": {
+      "HDG": "18:05"
+     }
+    },
+    {
+     "train": "37459",
+     "hold": {
+      "GN": "18:16"
+     }
+    },
+    {
+     "train": "37370",
+     "hold": {
+      "LW": "19:00"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-01-22-1800-150m-loop-0",
+   "split": "eval",
+   "difficulty": "loop",
+   "day": "2025-01-22",
+   "runs": 25,
+   "reward": 0.485304,
+   "submitted": true,
+   "feasible": true,
+   "cost": 480,
+   "optimal_cost": 397,
+   "floor_cost": 336,
+   "greedy_cost": 562,
+   "real_cost": 79,
+   "hardness": {
+    "runs": 25,
+    "sets": 7,
+    "stops": 158,
+    "conflicts": 18,
+    "single_track": 18,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 0,
+    "decisions": 19,
+    "holds": 19,
+    "short_turns": 0,
+    "cancels": 0,
+    "turn_points": 0,
+    "avoidable": 61,
+    "optimal": 397,
+    "greedy_gap": 0.697,
+    "closed_min": 0,
+    "slow_min": 138,
+    "track_min": 10,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 6,
+   "checks": 3,
+   "seconds": 159.6,
+   "input_tokens": 120974,
+   "cache_read_tokens": 85248,
+   "cache_write_tokens": 0,
+   "output_tokens": 17531,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37370",
+     "hold": {
+      "LW": "18:48",
+      "GK": "19:19",
+      "ZH": "19:20"
+     }
+    },
+    {
+     "train": "37372",
+     "hold": {
+      "LW": "19:19",
+      "GK": "19:48"
+     }
+    },
+    {
+     "train": "37374",
+     "hold": {
+      "LW": "19:49",
+      "GK": "20:19",
+      "ZH": "20:21"
+     }
+    },
+    {
+     "train": "37376",
+     "hold": {
+      "LW": "20:20"
+     }
+    },
+    {
+     "train": "37468",
+     "hold": {
+      "HDG": "18:34",
+      "GK": "19:05",
+      "ZH": "19:05"
+     }
+    },
+    {
+     "train": "37470",
+     "hold": {
+      "HDG": "19:04",
+      "GK": "19:35",
+      "ZH": "19:35"
+     }
+    },
+    {
+     "train": "37472",
+     "hold": {
+      "HDG": "19:34",
+      "GK": "20:05",
+      "ZH": "20:05"
+     }
+    },
+    {
+     "train": "37474",
+     "hold": {
+      "HDG": "20:04"
+     }
+    },
+    {
+     "train": "37368",
+     "hold": {
+      "GK": "18:48"
+     }
+    },
+    {
+     "train": "37466",
+     "hold": {
+      "ZH": "18:35"
+     }
+    },
+    {
+     "train": "37467",
+     "hold": {
+      "FWD": "20:28"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-01-23-0800-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-23",
+   "runs": 34,
+   "reward": 0.058824,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 894,
+   "floor_cost": 841,
+   "greedy_cost": 4449,
+   "real_cost": 83,
+   "hardness": {
+    "runs": 34,
+    "sets": 7,
+    "stops": 226,
+    "conflicts": 51,
+    "single_track": 17,
+    "headway": 20,
+    "platforms": 0,
+    "closed": 14,
+    "decisions": 29,
+    "holds": 18,
+    "short_turns": 11,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 53,
+    "optimal": 894,
+    "greedy_gap": 0.8,
+    "closed_min": 24,
+    "slow_min": 69,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 46,
+   "agent_turns": 5,
+   "checks": 1,
+   "seconds": 236.3,
+   "input_tokens": 113479,
+   "cache_read_tokens": 73216,
+   "cache_write_tokens": 0,
+   "output_tokens": 24061,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37419",
+     "to": "BP"
+    },
+    {
+     "train": "37330",
+     "from": "BP",
+     "hold": {
+      "BP": "09:09"
+     }
+    },
+    {
+     "train": "37328",
+     "hold": {
+      "LW": "08:44"
+     }
+    },
+    {
+     "train": "37428",
+     "hold": {
+      "LW": "08:47"
+     }
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "GN": "08:52"
+     }
+    },
+    {
+     "train": "37426",
+     "hold": {
+      "HDG": "08:02"
+     }
+    },
+    {
+     "train": "37325",
+     "hold": {
+      "GN": "09:47"
+     }
+    },
+    {
+     "train": "37327",
+     "hold": {
+      "GN": "10:13"
+     }
+    },
+    {
+     "train": "37421",
+     "hold": {
+      "FWD": "08:57"
+     }
+    },
+    {
+     "train": "37332",
+     "hold": {
+      "LW": "09:25"
+     }
+    },
+    {
+     "train": "37430",
+     "hold": {
+      "LW": "09:30"
+     }
+    },
+    {
+     "train": "37423",
+     "hold": {
+      "GK": "09:18"
+     }
+    },
+    {
+     "train": "37427",
+     "hold": {
+      "GK": "10:20"
+     }
+    },
+    {
+     "train": "37425",
+     "hold": {
+      "GK": "09:57"
+     }
+    },
+    {
+     "train": "37429",
+     "hold": {
+      "ZH": "10:33"
+     }
+    },
+    {
+     "train": "37336",
+     "hold": {
+      "ZH": "10:52"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-01-23-0900-180m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-23",
+   "runs": 30,
+   "reward": 0.0,
+   "submitted": false,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 853,
+   "floor_cost": 704,
+   "greedy_cost": 3025,
+   "real_cost": 61,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 41,
+    "single_track": 29,
+    "headway": 5,
+    "platforms": 0,
+    "closed": 7,
+    "decisions": 31,
+    "holds": 17,
+    "short_turns": 14,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 149,
+    "optimal": 853,
+    "greedy_gap": 0.8,
+    "closed_min": 23,
+    "slow_min": 150,
+    "track_min": 10,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 1,
+   "seconds": 268.2,
+   "input_tokens": 100140,
+   "cache_read_tokens": 65536,
+   "cache_write_tokens": 0,
+   "output_tokens": 24769,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "no_tool_call",
+   "errors": 0,
+   "plan": null
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-01-25-0630-180m-loop-0",
+   "split": "eval",
+   "difficulty": "loop",
+   "day": "2025-01-25",
+   "runs": 20,
+   "reward": 0.804203,
+   "submitted": true,
+   "feasible": true,
+   "cost": 132,
+   "optimal_cost": 116,
+   "floor_cost": 102,
+   "greedy_cost": 518,
+   "real_cost": 62,
+   "hardness": {
+    "runs": 20,
+    "sets": 7,
+    "stops": 150,
+    "conflicts": 3,
+    "single_track": 3,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 0,
+    "decisions": 23,
+    "holds": 23,
+    "short_turns": 0,
+    "cancels": 0,
+    "turn_points": 0,
+    "avoidable": 14,
+    "optimal": 116,
+    "greedy_gap": 0.7993,
+    "closed_min": 0,
+    "slow_min": 69,
+    "track_min": 10,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 8,
+   "checks": 4,
+   "seconds": 241.4,
+   "input_tokens": 179020,
+   "cache_read_tokens": 140160,
+   "cache_write_tokens": 0,
+   "output_tokens": 20974,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37426",
+     "hold": {
+      "HDG": "08:03"
+     }
+    },
+    {
+     "train": "37428",
+     "hold": {
+      "HDG": "08:36"
+     }
+    },
+    {
+     "train": "37424",
+     "hold": {
+      "ZH": "08:02"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-01-25-0730-180m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-25",
+   "runs": 26,
+   "reward": 0.038462,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 1302,
+   "floor_cost": 1218,
+   "greedy_cost": null,
+   "real_cost": 129,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 184,
+    "conflicts": 55,
+    "single_track": 10,
+    "headway": 19,
+    "platforms": 2,
+    "closed": 24,
+    "decisions": 26,
+    "holds": 11,
+    "short_turns": 15,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 84,
+    "optimal": 1302,
+    "greedy_gap": 0.8846,
+    "closed_min": 111,
+    "slow_min": 100,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 2
+   },
+   "violations": 59,
+   "agent_turns": 5,
+   "checks": 2,
+   "seconds": 198.5,
+   "input_tokens": 121132,
+   "cache_read_tokens": 77824,
+   "cache_write_tokens": 0,
+   "output_tokens": 21023,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37415",
+     "hold": {
+      "HDG": "09:21"
+     }
+    },
+    {
+     "train": "37417",
+     "hold": {
+      "HDG": "09:26"
+     }
+    },
+    {
+     "train": "37419",
+     "hold": {
+      "FWD": "09:26",
+      "HDG": "09:31"
+     }
+    },
+    {
+     "train": "37319",
+     "hold": {
+      "BP": "09:28",
+      "HDG": "09:37"
+     }
+    },
+    {
+     "train": "37421",
+     "hold": {
+      "BP": "09:35",
+      "HDG": "09:44"
+     }
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "FWD": "09:41",
+      "HDG": "09:48"
+     }
+    },
+    {
+     "train": "37428",
+     "hold": {
+      "LW": "09:55"
+     }
+    },
+    {
+     "train": "37430",
+     "hold": {
+      "LW": "10:11"
+     }
+    },
+    {
+     "train": "37332",
+     "hold": {
+      "LW": "10:16"
+     }
+    },
+    {
+     "train": "37432",
+     "hold": {
+      "LW": "10:21"
+     }
+    },
+    {
+     "train": "37323",
+     "hold": {
+      "GN": "10:18"
+     }
+    },
+    {
+     "train": "37423",
+     "hold": {
+      "GN": "10:24"
+     }
+    },
+    {
+     "train": "37325",
+     "hold": {
+      "GN": "10:30"
+     }
+    },
+    {
+     "train": "37425",
+     "hold": {
+      "GN": "10:22"
+     }
+    },
+    {
+     "train": "37427",
+     "hold": {
+      "GN": "10:34"
+     }
+    },
+    {
+     "train": "37327",
+     "hold": {
+      "GN": "10:38"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-01-25-1700-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-01-25",
+   "runs": 30,
+   "reward": 0.0,
+   "submitted": false,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 320,
+   "floor_cost": 275,
+   "greedy_cost": 1591,
+   "real_cost": 74,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 11,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 11,
+    "decisions": 51,
+    "holds": 49,
+    "short_turns": 2,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 45,
+    "optimal": 320,
+    "greedy_gap": 0.8,
+    "closed_min": 15,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 6,
+   "checks": 2,
+   "seconds": 301.5,
+   "input_tokens": 136809,
+   "cache_read_tokens": 96512,
+   "cache_write_tokens": 0,
+   "output_tokens": 28577,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "max_turns",
+   "errors": 0,
+   "plan": null
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-01-26-1700-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-01-26",
+   "runs": 16,
+   "reward": 0.226291,
+   "submitted": true,
+   "feasible": true,
+   "cost": 840,
+   "optimal_cost": 618,
+   "floor_cost": 588,
+   "greedy_cost": 928,
+   "real_cost": 58,
+   "hardness": {
+    "runs": 16,
+    "sets": 3,
+    "stops": 104,
+    "conflicts": 10,
+    "single_track": 3,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 7,
+    "decisions": 21,
+    "holds": 12,
+    "short_turns": 9,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 30,
+    "optimal": 618,
+    "greedy_gap": 0.7932,
+    "closed_min": 104,
+    "slow_min": 100,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 8,
+   "checks": 5,
+   "seconds": 216.9,
+   "input_tokens": 164844,
+   "cache_read_tokens": 128512,
+   "cache_write_tokens": 0,
+   "output_tokens": 19956,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37353",
+     "to": "HDG"
+    },
+    {
+     "train": "37364",
+     "from": "HDG"
+    },
+    {
+     "train": "37455",
+     "to": "HDG"
+    },
+    {
+     "train": "37466",
+     "from": "HDG"
+    },
+    {
+     "train": "37357",
+     "to": "HDG",
+     "hold": {
+      "ZH": "17:53"
+     }
+    },
+    {
+     "train": "37368",
+     "from": "HDG"
+    },
+    {
+     "train": "37459",
+     "hold": {
+      "HDG": "18:49"
+     }
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "ZH": "18:54"
+     }
+    },
+    {
+     "train": "37365",
+     "hold": {
+      "ZH": "19:57"
+     }
+    },
+    {
+     "train": "37463",
+     "hold": {
+      "FWD": "19:34",
+      "HDG": "19:38"
+     }
+    },
+    {
+     "train": "37474",
+     "hold": {
+      "GK": "20:21"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-02-11-0900-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-02-11",
+   "runs": 23,
+   "reward": 0.173913,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 725,
+   "floor_cost": 721,
+   "greedy_cost": null,
+   "real_cost": 318,
+   "hardness": {
+    "runs": 23,
+    "sets": 6,
+    "stops": 152,
+    "conflicts": 32,
+    "single_track": 3,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 29,
+    "decisions": 37,
+    "holds": 23,
+    "short_turns": 14,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 4,
+    "optimal": 725,
+    "greedy_gap": 0.8174,
+    "closed_min": 120,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 2,
+   "agent_turns": 7,
+   "checks": 3,
+   "seconds": 204.1,
+   "input_tokens": 169227,
+   "cache_read_tokens": 131200,
+   "cache_write_tokens": 0,
+   "output_tokens": 22702,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37421",
+     "to": "HDG"
+    },
+    {
+     "train": "37321",
+     "to": "HDG",
+     "hold": {
+      "FWD": "09:07"
+     }
+    },
+    {
+     "train": "37323",
+     "to": "HDG",
+     "hold": {
+      "GN": "09:12"
+     }
+    },
+    {
+     "train": "37325",
+     "to": "HDG"
+    },
+    {
+     "train": "37425",
+     "to": "HDG"
+    },
+    {
+     "train": "37427",
+     "to": "HDG"
+    },
+    {
+     "train": "37327",
+     "to": "HDG"
+    },
+    {
+     "train": "37429",
+     "hold": {
+      "HDG": "11:10"
+     }
+    },
+    {
+     "train": "37332",
+     "from": "HDG"
+    },
+    {
+     "train": "37432",
+     "from": "HDG"
+    },
+    {
+     "train": "37434",
+     "from": "HDG"
+    },
+    {
+     "train": "37336",
+     "from": "HDG"
+    },
+    {
+     "train": "37436",
+     "from": "HDG"
+    },
+    {
+     "train": "37338",
+     "from": "HDG"
+    },
+    {
+     "train": "37438",
+     "from": "HDG"
+    },
+    {
+     "train": "37340",
+     "hold": {
+      "LW": "11:32"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-02-12-0900-180m-real-0",
+   "split": "eval",
+   "difficulty": "real",
+   "day": "2025-02-12",
+   "runs": 31,
+   "reward": 0.0,
+   "submitted": false,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 643,
+   "floor_cost": 529,
+   "greedy_cost": null,
+   "real_cost": 363,
+   "hardness": {
+    "runs": 31,
+    "sets": 7,
+    "stops": 204,
+    "conflicts": 16,
+    "single_track": 8,
+    "headway": 3,
+    "platforms": 0,
+    "closed": 5,
+    "decisions": 38,
+    "holds": 32,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 114,
+    "optimal": 643,
+    "greedy_gap": 0.8452,
+    "closed_min": 30,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": false,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 6,
+   "checks": 3,
+   "seconds": 256.7,
+   "input_tokens": 147909,
+   "cache_read_tokens": 100480,
+   "cache_write_tokens": 0,
+   "output_tokens": 25114,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "max_turns",
+   "errors": 0,
+   "plan": null
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-02-13-0954-180m-real-0",
+   "split": "eval",
+   "difficulty": "real",
+   "day": "2025-02-13",
+   "runs": 30,
+   "reward": 0.0,
+   "submitted": false,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 172,
+   "floor_cost": 154,
+   "greedy_cost": 1960,
+   "real_cost": 215,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 195,
+    "conflicts": 13,
+    "single_track": 3,
+    "headway": 7,
+    "platforms": 3,
+    "closed": 0,
+    "decisions": 45,
+    "holds": 45,
+    "short_turns": 0,
+    "cancels": 0,
+    "turn_points": 0,
+    "avoidable": 18,
+    "optimal": 172,
+    "greedy_gap": 0.8,
+    "closed_min": 0,
+    "slow_min": 25,
+    "track_min": 0,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 6,
+   "checks": 3,
+   "seconds": 243.3,
+   "input_tokens": 129537,
+   "cache_read_tokens": 88320,
+   "cache_write_tokens": 0,
+   "output_tokens": 24330,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "max_turns",
+   "errors": 0,
+   "plan": null
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-02-13-1530-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-02-13",
+   "runs": 30,
+   "reward": 0.0,
+   "submitted": false,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 648,
+   "floor_cost": 588,
+   "greedy_cost": 1690,
+   "real_cost": 151,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 25,
+    "single_track": 5,
+    "headway": 5,
+    "platforms": 1,
+    "closed": 14,
+    "decisions": 37,
+    "holds": 29,
+    "short_turns": 8,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 60,
+    "optimal": 648,
+    "greedy_gap": 0.8,
+    "closed_min": 24,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 2,
+   "seconds": 212.5,
+   "input_tokens": 110942,
+   "cache_read_tokens": 73344,
+   "cache_write_tokens": 0,
+   "output_tokens": 23300,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "max_turns",
+   "errors": 0,
+   "plan": null
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-02-14-1730-210m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-02-14",
+   "runs": 33,
+   "reward": 0.0,
+   "submitted": false,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 875,
+   "floor_cost": 776,
+   "greedy_cost": null,
+   "real_cost": 191,
+   "hardness": {
+    "runs": 33,
+    "sets": 7,
+    "stops": 208,
+    "conflicts": 33,
+    "single_track": 7,
+    "headway": 19,
+    "platforms": 3,
+    "closed": 4,
+    "decisions": 35,
+    "holds": 25,
+    "short_turns": 10,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 99,
+    "optimal": 875,
+    "greedy_gap": 0.8909,
+    "closed_min": 38,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": false,
+    "mid_line": true,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 4,
+   "checks": 1,
+   "seconds": 297.2,
+   "input_tokens": 77040,
+   "cache_read_tokens": 46592,
+   "cache_write_tokens": 0,
+   "output_tokens": 24850,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "no_tool_call",
+   "errors": 0,
+   "plan": null
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-02-15-0630-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-02-15",
+   "runs": 20,
+   "reward": 0.0,
+   "submitted": false,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 2300,
+   "floor_cost": 2119,
+   "greedy_cost": null,
+   "real_cost": 61,
+   "hardness": {
+    "runs": 20,
+    "sets": 7,
+    "stops": 150,
+    "conflicts": 45,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 45,
+    "decisions": 31,
+    "holds": 13,
+    "short_turns": 18,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 181,
+    "optimal": 2300,
+    "greedy_gap": 0.87,
+    "closed_min": 160,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 3,
+   "checks": 0,
+   "seconds": 190.0,
+   "input_tokens": 30064,
+   "cache_read_tokens": 15232,
+   "cache_write_tokens": 0,
+   "output_tokens": 16419,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "no_tool_call",
+   "errors": 0,
+   "plan": null
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-02-15-0700-240m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-02-15",
+   "runs": 32,
+   "reward": 0.09375,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 858,
+   "floor_cost": 785,
+   "greedy_cost": 2986,
+   "real_cost": 76,
+   "hardness": {
+    "runs": 32,
+    "sets": 7,
+    "stops": 228,
+    "conflicts": 38,
+    "single_track": 4,
+    "headway": 21,
+    "platforms": 3,
+    "closed": 10,
+    "decisions": 37,
+    "holds": 31,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 73,
+    "optimal": 858,
+    "greedy_gap": 0.8,
+    "closed_min": 34,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 2
+   },
+   "violations": 21,
+   "agent_turns": 5,
+   "checks": 2,
+   "seconds": 174.8,
+   "input_tokens": 114224,
+   "cache_read_tokens": 75136,
+   "cache_write_tokens": 0,
+   "output_tokens": 15874,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37422",
+     "hold": {
+      "FWD": "07:34"
+     }
+    },
+    {
+     "train": "37413",
+     "hold": {
+      "LWC": "07:34"
+     }
+    },
+    {
+     "train": "37415",
+     "hold": {
+      "BP": "07:34",
+      "HDG": "07:49"
+     }
+    },
+    {
+     "train": "37319",
+     "hold": {
+      "GN": "08:37"
+     }
+    },
+    {
+     "train": "37323",
+     "hold": {
+      "GN": "09:12"
+     }
+    },
+    {
+     "train": "37430",
+     "hold": {
+      "GK": "09:37"
+     }
+    },
+    {
+     "train": "37432",
+     "hold": {
+      "LW": "09:49"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-02-15-1630-150m-loop-0",
+   "split": "eval",
+   "difficulty": "loop",
+   "day": "2025-02-15",
+   "runs": 26,
+   "reward": 0.130769,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 275,
+   "floor_cost": 234,
+   "greedy_cost": 1464,
+   "real_cost": 35,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 174,
+    "conflicts": 10,
+    "single_track": 3,
+    "headway": 5,
+    "platforms": 2,
+    "closed": 0,
+    "decisions": 52,
+    "holds": 50,
+    "short_turns": 2,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 41,
+    "optimal": 275,
+    "greedy_gap": 0.8,
+    "closed_min": 0,
+    "slow_min": 25,
+    "track_min": 140,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 29,
+   "agent_turns": 7,
+   "checks": 4,
+   "seconds": 264.8,
+   "input_tokens": 164719,
+   "cache_read_tokens": 118400,
+   "cache_write_tokens": 0,
+   "output_tokens": 23876,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37455",
+     "hold": {
+      "GN": "17:37"
+     }
+    },
+    {
+     "train": "37464",
+     "hold": {
+      "LW": "17:45"
+     }
+    },
+    {
+     "train": "37366",
+     "hold": {
+      "LW": "18:17"
+     }
+    },
+    {
+     "train": "37461",
+     "hold": {
+      "GN": "18:46"
+     }
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "GN": "18:58"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-02-16-1530-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-02-16",
+   "runs": 18,
+   "reward": 0.0,
+   "submitted": false,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 273,
+   "floor_cost": 269,
+   "greedy_cost": 2157,
+   "real_cost": 38,
+   "hardness": {
+    "runs": 18,
+    "sets": 3,
+    "stops": 122,
+    "conflicts": 5,
+    "single_track": 2,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 3,
+    "decisions": 9,
+    "holds": 5,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 4,
+    "optimal": 273,
+    "greedy_gap": 0.8,
+    "closed_min": 21,
+    "slow_min": 80,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 7,
+   "checks": 4,
+   "seconds": 293.9,
+   "input_tokens": 164612,
+   "cache_read_tokens": 123904,
+   "cache_write_tokens": 0,
+   "output_tokens": 31455,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "max_turns",
+   "errors": 0,
+   "plan": null
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-02-16-1700-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-02-16",
+   "runs": 16,
+   "reward": 0.200001,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1744,
+   "optimal_cost": 796,
+   "floor_cost": 787,
+   "greedy_cost": 1089,
+   "real_cost": 90,
+   "hardness": {
+    "runs": 16,
+    "sets": 3,
+    "stops": 104,
+    "conflicts": 31,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 31,
+    "decisions": 13,
+    "holds": 6,
+    "short_turns": 6,
+    "cancels": 1,
+    "turn_points": 2,
+    "avoidable": 9,
+    "optimal": 796,
+    "greedy_gap": 0.7963,
+    "closed_min": 92,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 7,
+   "checks": 3,
+   "seconds": 321.9,
+   "input_tokens": 153985,
+   "cache_read_tokens": 110976,
+   "cache_write_tokens": 0,
+   "output_tokens": 28008,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37455",
+     "to": "ZH"
+    },
+    {
+     "train": "37466",
+     "cancel": true
+    },
+    {
+     "train": "37361",
+     "from": "ZH",
+     "hold": {
+      "ZH": "18:42"
+     }
+    },
+    {
+     "train": "37462",
+     "to": "BP"
+    },
+    {
+     "train": "37357",
+     "from": "BP",
+     "hold": {
+      "BP": "18:42"
+     }
+    },
+    {
+     "train": "37368",
+     "cancel": true
+    },
+    {
+     "train": "37463",
+     "cancel": true
+    },
+    {
+     "train": "37364",
+     "to": "BP"
+    },
+    {
+     "train": "37459",
+     "from": "BP",
+     "hold": {
+      "BP": "18:45"
+     }
+    },
+    {
+     "train": "37470",
+     "cancel": true
+    },
+    {
+     "train": "37365",
+     "cancel": true
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-02-16-1730-240m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-02-16",
+   "runs": 19,
+   "reward": 0.157895,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 656,
+   "floor_cost": 652,
+   "greedy_cost": null,
+   "real_cost": 147,
+   "hardness": {
+    "runs": 19,
+    "sets": 3,
+    "stops": 126,
+    "conflicts": 14,
+    "single_track": 8,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 6,
+    "decisions": 21,
+    "holds": 11,
+    "short_turns": 10,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 4,
+    "optimal": 656,
+    "greedy_gap": 0.9579,
+    "closed_min": 36,
+    "slow_min": 210,
+    "track_min": 235,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 2,
+   "agent_turns": 6,
+   "checks": 4,
+   "seconds": 215.8,
+   "input_tokens": 148976,
+   "cache_read_tokens": 109440,
+   "cache_write_tokens": 0,
+   "output_tokens": 22179,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37364",
+     "to": "ZH"
+    },
+    {
+     "train": "37459",
+     "from": "ZH"
+    },
+    {
+     "train": "37357",
+     "cancel": true
+    },
+    {
+     "train": "37368",
+     "cancel": true
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "HDG": "19:07"
+     }
+    },
+    {
+     "train": "37463",
+     "hold": {
+      "HDG": "19:40"
+     }
+    },
+    {
+     "train": "37365",
+     "hold": {
+      "FWD": "20:13"
+     }
+    },
+    {
+     "train": "37467",
+     "hold": {
+      "HDG": "20:44"
+     }
+    },
+    {
+     "train": "37369",
+     "hold": {
+      "HDG": "21:16"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-03-10-0700-210m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-03-10",
+   "runs": 34,
+   "reward": 0.088235,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 455,
+   "floor_cost": 386,
+   "greedy_cost": null,
+   "real_cost": 157,
+   "hardness": {
+    "runs": 34,
+    "sets": 7,
+    "stops": 226,
+    "conflicts": 17,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 32,
+    "holds": 26,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 69,
+    "optimal": 455,
+    "greedy_gap": 0.8294,
+    "closed_min": 23,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 27,
+   "agent_turns": 6,
+   "checks": 2,
+   "seconds": 221.2,
+   "input_tokens": 139790,
+   "cache_read_tokens": 99840,
+   "cache_write_tokens": 0,
+   "output_tokens": 22279,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37422",
+     "hold": {
+      "DWE": "07:33"
+     }
+    },
+    {
+     "train": "37313",
+     "hold": {
+      "FWD": "07:33"
+     }
+    },
+    {
+     "train": "37415",
+     "hold": {
+      "BP": "07:33"
+     }
+    },
+    {
+     "train": "37315",
+     "hold": {
+      "BP": "07:45"
+     }
+    },
+    {
+     "train": "37324",
+     "hold": {
+      "LW": "07:44"
+     }
+    },
+    {
+     "train": "37424",
+     "hold": {
+      "LW": "07:47"
+     }
+    },
+    {
+     "train": "37326",
+     "hold": {
+      "LW": "07:57"
+     }
+    },
+    {
+     "train": "37426",
+     "hold": {
+      "LW": "08:01"
+     }
+    },
+    {
+     "train": "37417",
+     "hold": {
+      "BP": "08:16"
+     }
+    },
+    {
+     "train": "37317",
+     "hold": {
+      "BP": "08:20"
+     }
+    },
+    {
+     "train": "37419",
+     "hold": {
+      "ZH": "08:20"
+     }
+    },
+    {
+     "train": "37319",
+     "hold": {
+      "ZH": "08:33"
+     }
+    },
+    {
+     "train": "37330",
+     "hold": {
+      "LW": "08:58"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-03-11-0730-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-03-11",
+   "runs": 26,
+   "reward": 0.0,
+   "submitted": false,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 2043,
+   "floor_cost": 1851,
+   "greedy_cost": null,
+   "real_cost": 201,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 174,
+    "conflicts": 72,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 72,
+    "decisions": 35,
+    "holds": 19,
+    "short_turns": 12,
+    "cancels": 4,
+    "turn_points": 2,
+    "avoidable": 192,
+    "optimal": 2043,
+    "greedy_gap": 0.9,
+    "closed_min": 130,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 1,
+   "seconds": 328.1,
+   "input_tokens": 96130,
+   "cache_read_tokens": 62208,
+   "cache_write_tokens": 0,
+   "output_tokens": 30138,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "no_tool_call",
+   "errors": 0,
+   "plan": null
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-03-12-1530-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-03-12",
+   "runs": 30,
+   "reward": 0.08,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 806,
+   "floor_cost": 730,
+   "greedy_cost": 1632,
+   "real_cost": 98,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 31,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 31,
+    "decisions": 36,
+    "holds": 28,
+    "short_turns": 8,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 76,
+    "optimal": 806,
+    "greedy_gap": 0.7999,
+    "closed_min": 25,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 54,
+   "agent_turns": 6,
+   "checks": 2,
+   "seconds": 200.7,
+   "input_tokens": 145497,
+   "cache_read_tokens": 102528,
+   "cache_write_tokens": 0,
+   "output_tokens": 21322,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37347",
+     "hold": {
+      "FWD": "16:00"
+     }
+    },
+    {
+     "train": "37449",
+     "hold": {
+      "ZH": "16:00"
+     }
+    },
+    {
+     "train": "37456",
+     "hold": {
+      "FWD": "16:00",
+      "BP": "16:12"
+     }
+    },
+    {
+     "train": "37356",
+     "hold": {
+      "BP": "16:08"
+     }
+    },
+    {
+     "train": "37447",
+     "hold": {
+      "LWC": "16:00"
+     }
+    },
+    {
+     "train": "37349",
+     "hold": {
+      "ZH": "16:06",
+      "FWD": "16:27"
+     }
+    },
+    {
+     "train": "37451",
+     "hold": {
+      "ZH": "16:11"
+     }
+    },
+    {
+     "train": "37358",
+     "hold": {
+      "LW": "16:09"
+     }
+    },
+    {
+     "train": "37458",
+     "hold": {
+      "LW": "16:43"
+     }
+    },
+    {
+     "train": "37360",
+     "hold": {
+      "LW": "16:46"
+     }
+    },
+    {
+     "train": "37460",
+     "hold": {
+      "LW": "16:49"
+     }
+    },
+    {
+     "train": "37362",
+     "hold": {
+      "LW": "16:52"
+     }
+    },
+    {
+     "train": "37351",
+     "hold": {
+      "GN": "16:33",
+      "FWD": "17:01"
+     }
+    },
+    {
+     "train": "37355",
+     "hold": {
+      "GN": "17:15"
+     }
+    },
+    {
+     "train": "37357",
+     "hold": {
+      "GN": "17:43"
+     }
+    },
+    {
+     "train": "37453",
+     "hold": {
+      "FWD": "17:15"
+     }
+    },
+    {
+     "train": "37353",
+     "hold": {
+      "FWD": "17:17"
+     }
+    },
+    {
+     "train": "37462",
+     "hold": {
+      "LW": "17:22"
+     }
+    },
+    {
+     "train": "37364",
+     "hold": {
+      "LW": "17:26"
+     }
+    },
+    {
+     "train": "37464",
+     "hold": {
+      "LW": "17:29"
+     }
+    },
+    {
+     "train": "37366",
+     "hold": {
+      "LW": "17:55"
+     }
+    },
+    {
+     "train": "37466",
+     "hold": {
+      "LW": "17:58"
+     }
+    },
+    {
+     "train": "37455",
+     "hold": {
+      "FWD": "17:40"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-03-12-1730-210m-loop-0",
+   "split": "eval",
+   "difficulty": "loop",
+   "day": "2025-03-12",
+   "runs": 33,
+   "reward": 0.0,
+   "submitted": false,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 166,
+   "floor_cost": 158,
+   "greedy_cost": 826,
+   "real_cost": 64,
+   "hardness": {
+    "runs": 33,
+    "sets": 7,
+    "stops": 208,
+    "conflicts": 11,
+    "single_track": 2,
+    "headway": 8,
+    "platforms": 1,
+    "closed": 0,
+    "decisions": 35,
+    "holds": 33,
+    "short_turns": 2,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 8,
+    "optimal": 166,
+    "greedy_gap": 0.8,
+    "closed_min": 0,
+    "slow_min": 0,
+    "track_min": 10,
+    "single_closed": false,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 6,
+   "checks": 3,
+   "seconds": 281.6,
+   "input_tokens": 160153,
+   "cache_read_tokens": 117248,
+   "cache_write_tokens": 0,
+   "output_tokens": 30221,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "max_turns",
+   "errors": 0,
+   "plan": null
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-03-13-0706-180m-real-0",
+   "split": "eval",
+   "difficulty": "real",
+   "day": "2025-03-13",
+   "runs": 26,
+   "reward": 0.221859,
+   "submitted": true,
+   "feasible": true,
+   "cost": 558,
+   "optimal_cost": 378,
+   "floor_cost": 378,
+   "greedy_cost": null,
+   "real_cost": 554,
+   "hardness": {
+    "runs": 26,
+    "sets": 6,
+    "stops": 177,
+    "conflicts": 18,
+    "single_track": 1,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 27,
+    "holds": 19,
+    "short_turns": 8,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 0,
+    "optimal": 378,
+    "greedy_gap": 0.8077,
+    "closed_min": 59,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 2,
+   "seconds": 203.7,
+   "input_tokens": 102338,
+   "cache_read_tokens": 64384,
+   "cache_write_tokens": 0,
+   "output_tokens": 16893,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37413",
+     "to": "HDG"
+    },
+    {
+     "train": "37313",
+     "to": "HDG"
+    },
+    {
+     "train": "37415",
+     "to": "HDG"
+    },
+    {
+     "train": "37315",
+     "to": "HDG"
+    },
+    {
+     "train": "37417",
+     "to": "HDG"
+    },
+    {
+     "train": "37317",
+     "to": "HDG"
+    },
+    {
+     "train": "37324",
+     "from": "HDG"
+    },
+    {
+     "train": "37424",
+     "from": "HDG"
+    },
+    {
+     "train": "37326",
+     "from": "HDG"
+    },
+    {
+     "train": "37426",
+     "from": "HDG"
+    },
+    {
+     "train": "37328",
+     "from": "HDG"
+    },
+    {
+     "train": "37428",
+     "from": "HDG"
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-03-16-1630-180m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-03-16",
+   "runs": 15,
+   "reward": 0.304144,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1364,
+   "optimal_cost": 1259,
+   "floor_cost": 1256,
+   "greedy_cost": null,
+   "real_cost": 73,
+   "hardness": {
+    "runs": 15,
+    "sets": 3,
+    "stops": 100,
+    "conflicts": 53,
+    "single_track": 3,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 50,
+    "decisions": 15,
+    "holds": 3,
+    "short_turns": 10,
+    "cancels": 2,
+    "turn_points": 2,
+    "avoidable": 3,
+    "optimal": 1259,
+    "greedy_gap": 0.8533,
+    "closed_min": 149,
+    "slow_min": 95,
+    "track_min": 31,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 7,
+   "checks": 3,
+   "seconds": 272.2,
+   "input_tokens": 142801,
+   "cache_read_tokens": 112128,
+   "cache_write_tokens": 0,
+   "output_tokens": 23897,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37360",
+     "to": "BP"
+    },
+    {
+     "train": "37455",
+     "from": "BP"
+    },
+    {
+     "train": "37353",
+     "cancel": true
+    },
+    {
+     "train": "37462",
+     "to": "BP"
+    },
+    {
+     "train": "37357",
+     "from": "BP",
+     "hold": {
+      "FWD": "18:14"
+     }
+    },
+    {
+     "train": "37364",
+     "cancel": true
+    },
+    {
+     "train": "37466",
+     "to": "BP"
+    },
+    {
+     "train": "37361",
+     "from": "BP"
+    },
+    {
+     "train": "37459",
+     "cancel": true
+    },
+    {
+     "train": "37368",
+     "to": "BP"
+    },
+    {
+     "train": "37463",
+     "from": "BP"
+    },
+    {
+     "train": "37470",
+     "cancel": true
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-03-16-1700-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-03-16",
+   "runs": 16,
+   "reward": 0.0625,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 529,
+   "floor_cost": 529,
+   "greedy_cost": 2995,
+   "real_cost": 86,
+   "hardness": {
+    "runs": 16,
+    "sets": 3,
+    "stops": 104,
+    "conflicts": 13,
+    "single_track": 8,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 5,
+    "decisions": 20,
+    "holds": 12,
+    "short_turns": 8,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 0,
+    "optimal": 529,
+    "greedy_gap": 0.8,
+    "closed_min": 35,
+    "slow_min": 210,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 50,
+   "agent_turns": 7,
+   "checks": 3,
+   "seconds": 240.3,
+   "input_tokens": 140434,
+   "cache_read_tokens": 101504,
+   "cache_write_tokens": 0,
+   "output_tokens": 20560,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37353",
+     "hold": {
+      "FWD": "17:35"
+     }
+    },
+    {
+     "train": "37455",
+     "hold": {
+      "FWD": "17:38"
+     }
+    },
+    {
+     "train": "37364",
+     "hold": {
+      "LW": "18:20"
+     }
+    },
+    {
+     "train": "37466",
+     "hold": {
+      "LW": "18:24"
+     }
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "GN": "19:05"
+     }
+    },
+    {
+     "train": "37459",
+     "hold": {
+      "GN": "19:08"
+     }
+    },
+    {
+     "train": "37470",
+     "hold": {
+      "LW": "19:55"
+     }
+    },
+    {
+     "train": "37372",
+     "hold": {
+      "LW": "19:58"
+     }
+    },
+    {
+     "train": "37467",
+     "hold": {
+      "GN": "20:50"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-04-23-1630-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-04-23",
+   "runs": 26,
+   "reward": 0.0,
+   "submitted": false,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 1926,
+   "floor_cost": 1782,
+   "greedy_cost": null,
+   "real_cost": 40,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 174,
+    "conflicts": 18,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 18,
+    "decisions": 26,
+    "holds": 12,
+    "short_turns": 14,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 144,
+    "optimal": 1926,
+    "greedy_gap": 0.8385,
+    "closed_min": 120,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 3,
+   "checks": 0,
+   "seconds": 197.4,
+   "input_tokens": 33539,
+   "cache_read_tokens": 17280,
+   "cache_write_tokens": 0,
+   "output_tokens": 16419,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "no_tool_call",
+   "errors": 0,
+   "plan": null
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-04-25-1730-210m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-04-25",
+   "runs": 33,
+   "reward": 0.030303,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 1370,
+   "floor_cost": 1355,
+   "greedy_cost": null,
+   "real_cost": 51,
+   "hardness": {
+    "runs": 33,
+    "sets": 7,
+    "stops": 208,
+    "conflicts": 33,
+    "single_track": 5,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 28,
+    "decisions": 25,
+    "holds": 11,
+    "short_turns": 14,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 15,
+    "optimal": 1370,
+    "greedy_gap": 0.8424,
+    "closed_min": 66,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 1
+   },
+   "violations": 68,
+   "agent_turns": 6,
+   "checks": 2,
+   "seconds": 252.9,
+   "input_tokens": 160758,
+   "cache_read_tokens": 107904,
+   "cache_write_tokens": 0,
+   "output_tokens": 22570,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37457",
+     "hold": {
+      "GK": "18:46"
+     }
+    },
+    {
+     "train": "37364",
+     "hold": {
+      "BP": "18:56"
+     }
+    },
+    {
+     "train": "37464",
+     "hold": {
+      "DWE": "18:53"
+     }
+    },
+    {
+     "train": "37466",
+     "hold": {
+      "BP": "19:02"
+     }
+    },
+    {
+     "train": "37366",
+     "hold": {
+      "FWD": "18:50"
+     }
+    },
+    {
+     "train": "37357",
+     "hold": {
+      "GN": "18:46"
+     }
+    },
+    {
+     "train": "37459",
+     "hold": {
+      "GN": "18:50"
+     }
+    },
+    {
+     "train": "37461",
+     "hold": {
+      "GN": "19:26"
+     }
+    },
+    {
+     "train": "37463",
+     "hold": {
+      "GN": "19:30"
+     }
+    },
+    {
+     "train": "37372",
+     "hold": {
+      "LW": "19:57"
+     }
+    },
+    {
+     "train": "37374",
+     "hold": {
+      "LW": "20:01"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-04-26-0630-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-04-26",
+   "runs": 20,
+   "reward": 0.08,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 1047,
+   "floor_cost": 980,
+   "greedy_cost": 3569,
+   "real_cost": 88,
+   "hardness": {
+    "runs": 20,
+    "sets": 7,
+    "stops": 150,
+    "conflicts": 35,
+    "single_track": 9,
+    "headway": 19,
+    "platforms": 1,
+    "closed": 6,
+    "decisions": 38,
+    "holds": 30,
+    "short_turns": 8,
+    "cancels": 0,
+    "turn_points": 3,
+    "avoidable": 67,
+    "optimal": 1047,
+    "greedy_gap": 0.8,
+    "closed_min": 59,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 23,
+   "agent_turns": 6,
+   "checks": 2,
+   "seconds": 298.3,
+   "input_tokens": 126216,
+   "cache_read_tokens": 85504,
+   "cache_write_tokens": 0,
+   "output_tokens": 26278,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37413",
+     "hold": {
+      "HDG": "07:31"
+     }
+    },
+    {
+     "train": "37415",
+     "hold": {
+      "FWD": "07:40"
+     }
+    },
+    {
+     "train": "37422",
+     "hold": {
+      "LW": "07:51"
+     }
+    },
+    {
+     "train": "37424",
+     "hold": {
+      "LW": "07:54"
+     }
+    },
+    {
+     "train": "37426",
+     "hold": {
+      "LW": "07:57"
+     }
+    },
+    {
+     "train": "37417",
+     "hold": {
+      "GN": "08:28"
+     }
+    },
+    {
+     "train": "37319",
+     "hold": {
+      "GN": "08:31"
+     }
+    },
+    {
+     "train": "37421",
+     "hold": {
+      "GN": "08:37"
+     }
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "GN": "08:42"
+     }
+    },
+    {
+     "train": "37430",
+     "hold": {
+      "LW": "09:15"
+     }
+    },
+    {
+     "train": "37328",
+     "hold": {
+      "LW": "09:18",
+      "HDG": "09:30"
+     }
+    },
+    {
+     "train": "37330",
+     "hold": {
+      "LW": "09:40"
+     }
+    },
+    {
+     "train": "37332",
+     "hold": {
+      "LW": "09:43"
+     }
+    },
+    {
+     "train": "37432",
+     "hold": {
+      "LW": "09:46"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-04-26-1700-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-04-26",
+   "runs": 30,
+   "reward": 0.08,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 447,
+   "floor_cost": 433,
+   "greedy_cost": 2402,
+   "real_cost": 59,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 10,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 10,
+    "decisions": 31,
+    "holds": 25,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 14,
+    "optimal": 447,
+    "greedy_gap": 0.8,
+    "closed_min": 36,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 51,
+   "agent_turns": 6,
+   "checks": 2,
+   "seconds": 243.7,
+   "input_tokens": 148404,
+   "cache_read_tokens": 104832,
+   "cache_write_tokens": 0,
+   "output_tokens": 24478,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37362",
+     "hold": {
+      "ZH": "17:56"
+     }
+    },
+    {
+     "train": "37462",
+     "hold": {
+      "ZH": "17:59"
+     }
+    },
+    {
+     "train": "37464",
+     "hold": {
+      "ZH": "18:02"
+     }
+    },
+    {
+     "train": "37364",
+     "hold": {
+      "BP": "17:56"
+     }
+    },
+    {
+     "train": "37457",
+     "hold": {
+      "GN": "17:56",
+      "ZH": "18:06"
+     }
+    },
+    {
+     "train": "37357",
+     "hold": {
+      "GN": "17:59"
+     }
+    },
+    {
+     "train": "37459",
+     "hold": {
+      "GN": "18:02"
+     }
+    },
+    {
+     "train": "37359",
+     "hold": {
+      "GN": "18:22",
+      "FWD": "18:49"
+     }
+    },
+    {
+     "train": "37366",
+     "hold": {
+      "GK": "18:27"
+     }
+    },
+    {
+     "train": "37466",
+     "hold": {
+      "GK": "18:27"
+     }
+    },
+    {
+     "train": "37368",
+     "hold": {
+      "LW": "18:53"
+     }
+    },
+    {
+     "train": "37468",
+     "hold": {
+      "LW": "18:48",
+      "GK": "19:14"
+     }
+    },
+    {
+     "train": "37470",
+     "hold": {
+      "LW": "19:02"
+     }
+    },
+    {
+     "train": "37463",
+     "hold": {
+      "ZH": "19:04"
+     }
+    },
+    {
+     "train": "37363",
+     "hold": {
+      "ZH": "19:27"
+     }
+    },
+    {
+     "train": "37461",
+     "hold": {
+      "FWD": "18:59"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-04-27-0800-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-04-27",
+   "runs": 15,
+   "reward": 0.200001,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1162,
+   "optimal_cost": 382,
+   "floor_cost": 378,
+   "greedy_cost": 1155,
+   "real_cost": 39,
+   "hardness": {
+    "runs": 15,
+    "sets": 3,
+    "stops": 100,
+    "conflicts": 20,
+    "single_track": 3,
+    "headway": 14,
+    "platforms": 0,
+    "closed": 3,
+    "decisions": 20,
+    "holds": 16,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 4,
+    "optimal": 382,
+    "greedy_gap": 0.8,
+    "closed_min": 36,
+    "slow_min": 80,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 8,
+   "checks": 5,
+   "seconds": 314.7,
+   "input_tokens": 192849,
+   "cache_read_tokens": 149632,
+   "cache_write_tokens": 0,
+   "output_tokens": 24505,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37426",
+     "hold": {
+      "ZH": "08:41"
+     }
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "GN": "08:53"
+     }
+    },
+    {
+     "train": "37332",
+     "hold": {
+      "LW": "09:30"
+     }
+    },
+    {
+     "train": "37423",
+     "hold": {
+      "GN": "09:32"
+     }
+    },
+    {
+     "train": "37336",
+     "hold": {
+      "LW": "10:24"
+     }
+    },
+    {
+     "train": "37431",
+     "hold": {
+      "GN": "11:00"
+     }
+    },
+    {
+     "train": "37340",
+     "hold": {
+      "LW": "11:42"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-04-27-0830-210m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-04-27",
+   "runs": 18,
+   "reward": 0.314963,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1380,
+   "optimal_cost": 1283,
+   "floor_cost": 1283,
+   "greedy_cost": 1624,
+   "real_cost": 45,
+   "hardness": {
+    "runs": 18,
+    "sets": 3,
+    "stops": 122,
+    "conflicts": 10,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 10,
+    "decisions": 15,
+    "holds": 3,
+    "short_turns": 12,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 0,
+    "optimal": 1283,
+    "greedy_gap": 0.7991,
+    "closed_min": 157,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": false,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 1,
+   "seconds": 147.1,
+   "input_tokens": 82749,
+   "cache_read_tokens": 58496,
+   "cache_write_tokens": 0,
+   "output_tokens": 19122,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37430",
+     "to": "HDG"
+    },
+    {
+     "train": "37325",
+     "from": "HDG"
+    },
+    {
+     "train": "37336",
+     "to": "HDG"
+    },
+    {
+     "train": "37431",
+     "from": "HDG"
+    },
+    {
+     "train": "37321",
+     "to": "BP"
+    },
+    {
+     "train": "37332",
+     "from": "BP"
+    },
+    {
+     "train": "37427",
+     "to": "BP"
+    },
+    {
+     "train": "37438",
+     "from": "BP"
+    },
+    {
+     "train": "37423",
+     "to": "BP"
+    },
+    {
+     "train": "37434",
+     "from": "BP"
+    },
+    {
+     "train": "37329",
+     "to": "BP"
+    },
+    {
+     "train": "37340",
+     "from": "BP"
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-05-26-0730-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-26",
+   "runs": 26,
+   "reward": 0.184615,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 857,
+   "floor_cost": 848,
+   "greedy_cost": null,
+   "real_cost": 165,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 174,
+    "conflicts": 24,
+    "single_track": 3,
+    "headway": 4,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 32,
+    "holds": 14,
+    "short_turns": 18,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 9,
+    "optimal": 857,
+    "greedy_gap": 0.8231,
+    "closed_min": 130,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 1,
+   "agent_turns": 8,
+   "checks": 5,
+   "seconds": 220.0,
+   "input_tokens": 198406,
+   "cache_read_tokens": 152960,
+   "cache_write_tokens": 0,
+   "output_tokens": 21271,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37315",
+     "to": "HDG"
+    },
+    {
+     "train": "37417",
+     "to": "HDG"
+    },
+    {
+     "train": "37317",
+     "to": "HDG"
+    },
+    {
+     "train": "37419",
+     "to": "HDG",
+     "hold": {
+      "GN": "08:00"
+     }
+    },
+    {
+     "train": "37421",
+     "to": "HDG"
+    },
+    {
+     "train": "37321",
+     "to": "HDG"
+    },
+    {
+     "train": "37423",
+     "to": "HDG"
+    },
+    {
+     "train": "37323",
+     "to": "HDG"
+    },
+    {
+     "train": "37319",
+     "to": "HDG"
+    },
+    {
+     "train": "37326",
+     "hold": {
+      "BP": "08:06"
+     }
+    },
+    {
+     "train": "37426",
+     "from": "HDG"
+    },
+    {
+     "train": "37328",
+     "from": "HDG"
+    },
+    {
+     "train": "37428",
+     "from": "HDG",
+     "hold": {
+      "HDG": "08:31"
+     }
+    },
+    {
+     "train": "37330",
+     "from": "HDG"
+    },
+    {
+     "train": "37430",
+     "from": "HDG"
+    },
+    {
+     "train": "37332",
+     "from": "HDG"
+    },
+    {
+     "train": "37432",
+     "from": "HDG"
+    },
+    {
+     "train": "37334",
+     "from": "HDG"
+    },
+    {
+     "train": "37434",
+     "from": "HDG"
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-05-26-1630-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-26",
+   "runs": 26,
+   "reward": 0.115385,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 254,
+   "floor_cost": 185,
+   "greedy_cost": null,
+   "real_cost": 55,
+   "hardness": {
+    "runs": 26,
+    "sets": 7,
+    "stops": 174,
+    "conflicts": 8,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 8,
+    "decisions": 27,
+    "holds": 25,
+    "short_turns": 2,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 69,
+    "optimal": 254,
+    "greedy_gap": 0.8,
+    "closed_min": 10,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 26,
+   "agent_turns": 6,
+   "checks": 2,
+   "seconds": 302.6,
+   "input_tokens": 144625,
+   "cache_read_tokens": 102912,
+   "cache_write_tokens": 0,
+   "output_tokens": 27163,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37460",
+     "hold": {
+      "BP": "17:00"
+     }
+    },
+    {
+     "train": "37362",
+     "hold": {
+      "DWE": "17:01"
+     }
+    },
+    {
+     "train": "37360",
+     "hold": {
+      "ZH": "17:00"
+     }
+    },
+    {
+     "train": "37353",
+     "hold": {
+      "ZH": "17:00",
+      "FWD": "17:24"
+     }
+    },
+    {
+     "train": "37455",
+     "hold": {
+      "GN": "17:09"
+     }
+    },
+    {
+     "train": "37355",
+     "hold": {
+      "GN": "17:17"
+     }
+    },
+    {
+     "train": "37464",
+     "hold": {
+      "LW": "17:57"
+     }
+    },
+    {
+     "train": "37366",
+     "hold": {
+      "LW": "18:00"
+     }
+    },
+    {
+     "train": "37466",
+     "hold": {
+      "LW": "18:03"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-05-26-1800-150m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-26",
+   "runs": 25,
+   "reward": 0.072,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 1014,
+   "floor_cost": 968,
+   "greedy_cost": null,
+   "real_cost": 41,
+   "hardness": {
+    "runs": 25,
+    "sets": 7,
+    "stops": 158,
+    "conflicts": 17,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 31,
+    "holds": 17,
+    "short_turns": 12,
+    "cancels": 2,
+    "turn_points": 1,
+    "avoidable": 46,
+    "optimal": 1014,
+    "greedy_gap": 0.824,
+    "closed_min": 130,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 39,
+   "agent_turns": 6,
+   "checks": 2,
+   "seconds": 380.4,
+   "input_tokens": 148907,
+   "cache_read_tokens": 104576,
+   "cache_write_tokens": 0,
+   "output_tokens": 36334,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37357",
+     "to": "HDG"
+    },
+    {
+     "train": "37468",
+     "from": "HDG"
+    },
+    {
+     "train": "37459",
+     "hold": {
+      "HDG": "20:15"
+     }
+    },
+    {
+     "train": "37359",
+     "hold": {
+      "FWD": "20:17"
+     }
+    },
+    {
+     "train": "37368",
+     "hold": {
+      "LW": "20:23"
+     }
+    },
+    {
+     "train": "37461",
+     "hold": {
+      "HDG": "20:33"
+     }
+    },
+    {
+     "train": "37463",
+     "hold": {
+      "DWE": "20:29"
+     }
+    },
+    {
+     "train": "37470",
+     "hold": {
+      "LW": "20:41"
+     }
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "FWD": "20:46"
+     }
+    },
+    {
+     "train": "37363",
+     "hold": {
+      "BP": "20:47"
+     }
+    },
+    {
+     "train": "37472",
+     "hold": {
+      "LW": "20:59"
+     }
+    },
+    {
+     "train": "37465",
+     "hold": {
+      "HDG": "21:09"
+     }
+    },
+    {
+     "train": "37372",
+     "hold": {
+      "LW": "21:11"
+     }
+    },
+    {
+     "train": "37365",
+     "hold": {
+      "BP": "21:11"
+     }
+    },
+    {
+     "train": "37374",
+     "hold": {
+      "LW": "21:23"
+     }
+    },
+    {
+     "train": "37474",
+     "hold": {
+      "LW": "21:29"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-05-27-0830-210m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-27",
+   "runs": 34,
+   "reward": 0.023529,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 795,
+   "floor_cost": 768,
+   "greedy_cost": null,
+   "real_cost": 285,
+   "hardness": {
+    "runs": 34,
+    "sets": 7,
+    "stops": 226,
+    "conflicts": 28,
+    "single_track": 1,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 27,
+    "decisions": 44,
+    "holds": 30,
+    "short_turns": 12,
+    "cancels": 2,
+    "turn_points": 1,
+    "avoidable": 27,
+    "optimal": 795,
+    "greedy_gap": 0.8529,
+    "closed_min": 98,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 0
+   },
+   "violations": 130,
+   "agent_turns": 5,
+   "checks": 1,
+   "seconds": 203.0,
+   "input_tokens": 108877,
+   "cache_read_tokens": 70656,
+   "cache_write_tokens": 0,
+   "output_tokens": 20117,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37428",
+     "hold": {
+      "ZH": "10:38"
+     }
+    },
+    {
+     "train": "37330",
+     "hold": {
+      "FWD": "10:26"
+     }
+    },
+    {
+     "train": "37430",
+     "hold": {
+      "BP": "10:32"
+     }
+    },
+    {
+     "train": "37432",
+     "hold": {
+      "HDG": "10:24"
+     }
+    },
+    {
+     "train": "37332",
+     "hold": {
+      "HDG": "10:31"
+     }
+    },
+    {
+     "train": "37334",
+     "hold": {
+      "BP": "10:44"
+     }
+    },
+    {
+     "train": "37434",
+     "hold": {
+      "ZH": "10:56"
+     }
+    },
+    {
+     "train": "37423",
+     "hold": {
+      "GN": "10:38"
+     }
+    },
+    {
+     "train": "37323",
+     "hold": {
+      "GN": "10:41"
+     }
+    },
+    {
+     "train": "37325",
+     "hold": {
+      "GN": "10:44"
+     }
+    },
+    {
+     "train": "37327",
+     "hold": {
+      "GN": "10:47"
+     }
+    },
+    {
+     "train": "37429",
+     "hold": {
+      "GN": "10:50"
+     }
+    },
+    {
+     "train": "37425",
+     "hold": {
+      "GN": "10:53"
+     }
+    },
+    {
+     "train": "37427",
+     "hold": {
+      "GN": "10:56"
+     }
+    },
+    {
+     "train": "37329",
+     "hold": {
+      "GN": "11:00"
+     }
+    },
+    {
+     "train": "37431",
+     "hold": {
+      "GN": "11:03"
+     }
+    },
+    {
+     "train": "37331",
+     "hold": {
+      "GN": "11:06"
+     }
+    },
+    {
+     "train": "37333",
+     "hold": {
+      "GN": "11:09"
+     }
+    },
+    {
+     "train": "37433",
+     "hold": {
+      "GN": "11:12"
+     }
+    },
+    {
+     "train": "37435",
+     "hold": {
+      "GN": "11:15"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-05-27-1700-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-27",
+   "runs": 30,
+   "reward": 0.093333,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 791,
+   "floor_cost": 670,
+   "greedy_cost": null,
+   "real_cost": 253,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 17,
+    "single_track": 0,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 27,
+    "holds": 21,
+    "short_turns": 6,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 121,
+    "optimal": 791,
+    "greedy_gap": 0.8467,
+    "closed_min": 35,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 20,
+   "agent_turns": 6,
+   "checks": 2,
+   "seconds": 297.2,
+   "input_tokens": 136416,
+   "cache_read_tokens": 97152,
+   "cache_write_tokens": 0,
+   "output_tokens": 22258,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37364",
+     "hold": {
+      "BP": "17:55"
+     }
+    },
+    {
+     "train": "37462",
+     "hold": {
+      "BP": "17:58"
+     }
+    },
+    {
+     "train": "37464",
+     "hold": {
+      "FWD": "17:57"
+     }
+    },
+    {
+     "train": "37366",
+     "hold": {
+      "FWD": "18:05"
+     }
+    },
+    {
+     "train": "37355",
+     "hold": {
+      "ZH": "17:55"
+     }
+    },
+    {
+     "train": "37457",
+     "hold": {
+      "ZH": "17:58"
+     }
+    },
+    {
+     "train": "37357",
+     "hold": {
+      "GN": "18:02"
+     }
+    },
+    {
+     "train": "37359",
+     "hold": {
+      "GN": "18:18"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-05-27-1830-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-27",
+   "runs": 27,
+   "reward": 0.155556,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 596,
+   "floor_cost": 560,
+   "greedy_cost": null,
+   "real_cost": 170,
+   "hardness": {
+    "runs": 27,
+    "sets": 7,
+    "stops": 162,
+    "conflicts": 25,
+    "single_track": 8,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 17,
+    "decisions": 27,
+    "holds": 17,
+    "short_turns": 10,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 36,
+    "optimal": 596,
+    "greedy_gap": 0.8593,
+    "closed_min": 59,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 2,
+   "agent_turns": 6,
+   "checks": 2,
+   "seconds": 198.4,
+   "input_tokens": 133829,
+   "cache_read_tokens": 91520,
+   "cache_write_tokens": 0,
+   "output_tokens": 21041,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37459",
+     "hold": {
+      "HDG": "18:41"
+     }
+    },
+    {
+     "train": "37468",
+     "hold": {
+      "HDG": "18:36"
+     }
+    },
+    {
+     "train": "37361",
+     "to": "HDG",
+     "hold": {
+      "ZH": "18:59"
+     }
+    },
+    {
+     "train": "37463",
+     "to": "HDG",
+     "hold": {
+      "GN": "18:57"
+     }
+    },
+    {
+     "train": "37363",
+     "to": "HDG"
+    },
+    {
+     "train": "37461",
+     "to": "HDG"
+    },
+    {
+     "train": "37370",
+     "cancel": true
+    },
+    {
+     "train": "37365",
+     "cancel": true
+    },
+    {
+     "train": "37470",
+     "to": "HDG",
+     "hold": {
+      "LW": "19:49"
+     }
+    },
+    {
+     "train": "37467",
+     "from": "HDG"
+    },
+    {
+     "train": "37372",
+     "from": "HDG"
+    },
+    {
+     "train": "37472",
+     "from": "HDG"
+    },
+    {
+     "train": "37374",
+     "from": "HDG"
+    },
+    {
+     "train": "37474",
+     "from": "HDG"
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-05-28-1830-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-05-28",
+   "runs": 31,
+   "reward": 0.122581,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 436,
+   "floor_cost": 383,
+   "greedy_cost": 1271,
+   "real_cost": 69,
+   "hardness": {
+    "runs": 31,
+    "sets": 7,
+    "stops": 186,
+    "conflicts": 23,
+    "single_track": 10,
+    "headway": 11,
+    "platforms": 1,
+    "closed": 1,
+    "decisions": 36,
+    "holds": 32,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 53,
+    "optimal": 436,
+    "greedy_gap": 0.8,
+    "closed_min": 10,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 13,
+   "agent_turns": 6,
+   "checks": 2,
+   "seconds": 301.2,
+   "input_tokens": 142332,
+   "cache_read_tokens": 97664,
+   "cache_write_tokens": 0,
+   "output_tokens": 25358,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37368",
+     "hold": {
+      "BP": "18:40"
+     }
+    },
+    {
+     "train": "37359",
+     "hold": {
+      "FWD": "18:55"
+     }
+    },
+    {
+     "train": "37461",
+     "hold": {
+      "ZH": "18:57"
+     }
+    },
+    {
+     "train": "37361",
+     "hold": {
+      "ZH": "19:11"
+     }
+    },
+    {
+     "train": "37463",
+     "hold": {
+      "GN": "19:14",
+      "HDG": "19:52"
+     }
+    },
+    {
+     "train": "37365",
+     "hold": {
+      "GN": "19:45"
+     }
+    },
+    {
+     "train": "37465",
+     "hold": {
+      "ZH": "19:37"
+     }
+    },
+    {
+     "train": "37372",
+     "hold": {
+      "LW": "19:41"
+     }
+    },
+    {
+     "train": "37472",
+     "hold": {
+      "LW": "19:44"
+     }
+    },
+    {
+     "train": "37374",
+     "hold": {
+      "HDG": "20:04",
+      "FWD": "20:10"
+     }
+    },
+    {
+     "train": "37474",
+     "hold": {
+      "FWD": "20:13"
+     }
+    },
+    {
+     "train": "37469",
+     "hold": {
+      "GN": "20:37"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-05-30-0630-180m-blockage-0",
+   "split": "eval",
+   "difficulty": "blockage",
+   "day": "2025-05-30",
+   "runs": 29,
+   "reward": 0.117241,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 454,
+   "floor_cost": 385,
+   "greedy_cost": 1397,
+   "real_cost": 1128,
+   "hardness": {
+    "runs": 29,
+    "sets": 7,
+    "stops": 201,
+    "conflicts": 13,
+    "single_track": 1,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 12,
+    "decisions": 37,
+    "holds": 33,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 69,
+    "optimal": 454,
+    "greedy_gap": 0.8,
+    "closed_min": 28,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": true,
+    "late_sets": 0
+   },
+   "violations": 28,
+   "agent_turns": 5,
+   "checks": 2,
+   "seconds": 249.8,
+   "input_tokens": 116533,
+   "cache_read_tokens": 72192,
+   "cache_write_tokens": 0,
+   "output_tokens": 23201,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37420",
+     "hold": {
+      "HDG": "06:32",
+      "BP": "06:58"
+     }
+    },
+    {
+     "train": "37320",
+     "hold": {
+      "BP": "06:58"
+     }
+    },
+    {
+     "train": "37413",
+     "hold": {
+      "ZH": "06:58"
+     }
+    },
+    {
+     "train": "37313",
+     "hold": {
+      "ZH": "06:58"
+     }
+    },
+    {
+     "train": "37322",
+     "hold": {
+      "FWD": "06:58"
+     }
+    },
+    {
+     "train": "37315",
+     "hold": {
+      "GN": "07:22"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-05-31-0800-210m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-05-31",
+   "runs": 32,
+   "reward": 0.05625,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 1179,
+   "floor_cost": 1017,
+   "greedy_cost": 5859,
+   "real_cost": 90,
+   "hardness": {
+    "runs": 32,
+    "sets": 7,
+    "stops": 218,
+    "conflicts": 43,
+    "single_track": 6,
+    "headway": 16,
+    "platforms": 2,
+    "closed": 19,
+    "decisions": 30,
+    "holds": 20,
+    "short_turns": 10,
+    "cancels": 0,
+    "turn_points": 2,
+    "avoidable": 162,
+    "optimal": 1179,
+    "greedy_gap": 0.8,
+    "closed_min": 39,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 2
+   },
+   "violations": 43,
+   "agent_turns": 5,
+   "checks": 2,
+   "seconds": 186.6,
+   "input_tokens": 129015,
+   "cache_read_tokens": 83328,
+   "cache_write_tokens": 0,
+   "output_tokens": 17202,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37419",
+     "hold": {
+      "GK": "08:49"
+     }
+    },
+    {
+     "train": "37426",
+     "hold": {
+      "BP": "08:49"
+     }
+    },
+    {
+     "train": "37328",
+     "hold": {
+      "BP": "08:52"
+     }
+    },
+    {
+     "train": "37428",
+     "hold": {
+      "FWD": "08:49"
+     }
+    },
+    {
+     "train": "37319",
+     "hold": {
+      "GN": "08:49"
+     }
+    },
+    {
+     "train": "37421",
+     "hold": {
+      "GN": "08:52"
+     }
+    },
+    {
+     "train": "37321",
+     "hold": {
+      "GN": "09:16"
+     }
+    },
+    {
+     "train": "37323",
+     "hold": {
+      "GN": "09:20"
+     }
+    },
+    {
+     "train": "37423",
+     "hold": {
+      "GN": "09:25"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-05-31-0900-180m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-05-31",
+   "runs": 30,
+   "reward": 0.113333,
+   "submitted": true,
+   "feasible": false,
+   "cost": null,
+   "optimal_cost": 226,
+   "floor_cost": 216,
+   "greedy_cost": 1092,
+   "real_cost": 76,
+   "hardness": {
+    "runs": 30,
+    "sets": 7,
+    "stops": 200,
+    "conflicts": 14,
+    "single_track": 3,
+    "headway": 5,
+    "platforms": 0,
+    "closed": 6,
+    "decisions": 49,
+    "holds": 45,
+    "short_turns": 4,
+    "cancels": 0,
+    "turn_points": 1,
+    "avoidable": 10,
+    "optimal": 226,
+    "greedy_gap": 0.8,
+    "closed_min": 26,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 10,
+   "agent_turns": 6,
+   "checks": 2,
+   "seconds": 227.3,
+   "input_tokens": 141326,
+   "cache_read_tokens": 100096,
+   "cache_write_tokens": 0,
+   "output_tokens": 21496,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37430",
+     "hold": {
+      "HDG": "09:06"
+     }
+    },
+    {
+     "train": "37323",
+     "to": "HDG"
+    },
+    {
+     "train": "37423",
+     "to": "HDG"
+    },
+    {
+     "train": "37434",
+     "from": "HDG",
+     "hold": {
+      "HDG": "10:02"
+     }
+    },
+    {
+     "train": "37334",
+     "from": "HDG",
+     "hold": {
+      "HDG": "09:59"
+     }
+    },
+    {
+     "train": "37425",
+     "hold": {
+      "GN": "09:27"
+     }
+    },
+    {
+     "train": "37336",
+     "hold": {
+      "LW": "10:20"
+     }
+    },
+    {
+     "train": "37436",
+     "hold": {
+      "LW": "10:24"
+     }
+    },
+    {
+     "train": "37427",
+     "hold": {
+      "HDG": "10:35"
+     }
+    },
+    {
+     "train": "37327",
+     "hold": {
+      "HDG": "10:48"
+     }
+    },
+    {
+     "train": "37338",
+     "hold": {
+      "LW": "10:58"
+     }
+    },
+    {
+     "train": "37438",
+     "hold": {
+      "LW": "11:01"
+     }
+    }
+   ]
+  },
+  {
+   "model": "tinker:thinkingmachines/Inkling-2-Small@high",
+   "task_id": "gnlw-2025-06-22-1600-240m-compound-0",
+   "split": "eval",
+   "difficulty": "compound",
+   "day": "2025-06-22",
+   "runs": 18,
+   "reward": 0.200001,
+   "submitted": true,
+   "feasible": true,
+   "cost": 1457,
+   "optimal_cost": 668,
+   "floor_cost": 668,
+   "greedy_cost": null,
+   "real_cost": 27,
+   "hardness": {
+    "runs": 18,
+    "sets": 3,
+    "stops": 108,
+    "conflicts": 22,
+    "single_track": 1,
+    "headway": 0,
+    "platforms": 0,
+    "closed": 21,
+    "decisions": 22,
+    "holds": 16,
+    "short_turns": 4,
+    "cancels": 2,
+    "turn_points": 1,
+    "avoidable": 0,
+    "optimal": 668,
+    "greedy_gap": 0.8444,
+    "closed_min": 92,
+    "slow_min": 0,
+    "track_min": 0,
+    "single_closed": true,
+    "mid_line": false,
+    "late_sets": 1
+   },
+   "violations": 0,
+   "agent_turns": 5,
+   "checks": 3,
+   "seconds": 121.8,
+   "input_tokens": 72474,
+   "cache_read_tokens": 52608,
+   "cache_write_tokens": 0,
+   "output_tokens": 13527,
+   "served_by": [
+    "tinker:thinkingmachines/Inkling-2-Small"
+   ],
+   "end_reason": "submitted",
+   "errors": 0,
+   "plan": [
+    {
+     "train": "37458",
+     "hold": {
+      "BP": "17:45"
+     }
+    },
+    {
+     "train": "37360",
+     "hold": {
+      "BP": "17:42"
+     }
+    },
+    {
+     "train": "37451",
+     "cancel": true
+    },
+    {
+     "train": "37462",
+     "cancel": true
+    },
+    {
+     "train": "37455",
+     "cancel": true
+    },
+    {
+     "train": "37466",
+     "cancel": true
+    },
+    {
+     "train": "37353",
+     "cancel": true
+    },
+    {
+     "train": "37364",
+     "cancel": true
+    }
+   ]
+  }
+ ]
+}

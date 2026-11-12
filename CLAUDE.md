@@ -12,6 +12,10 @@ Quick facts:
 - **Evals:** `railsim-v1/eval/run_eval.py`. Claude models through `rail_openenv/agent.py`; open models as
   `hf:<model>:<provider>` through Hugging Face's router (`agent_openai.py`, billed with `--bill-to`). The results
   table is in `railsim-v1/README.md`; each run's `index.json`, `board.md` and `analysis.md` are committed.
+- **RL:** `railsim-v1/train/train_rl.py` trains a Tinker-hosted model (Inkling 2 Small) on the train split and
+  `run_eval.py --models "tinker:<base model>[#<run>]@high"` evaluates the base model or a checkpoint; recipe in
+  `railsim-v1/train/README.md`. Needs `tinker tinker-cookbook` in the venv and `TINKER_API_KEY`. Every run needs a
+  spending cap (`--max-credits`); read `railsim-v1/train/README.md` before spending.
 - **Packs:** changing generator, physics, rule or solver code changes task content, so the packs in `tasks/` must be
   rebuilt (and the eval re-selected). Prompt changes do not.
 - **Space:** [bpHigh/RailSimEnv](https://huggingface.co/spaces/bpHigh/RailSimEnv) (private), a Gradio-SDK Space on
