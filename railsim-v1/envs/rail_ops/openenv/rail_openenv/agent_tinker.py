@@ -20,7 +20,8 @@ Differences forced by the API:
   the final answer the next turn is announced as the last (`RESULT_RESERVE`). A prompt that leaves no room at all ends
   the episode as `context_length`, as in `agent_openai`.
 - **A turn that cannot be parsed** (cut at the token limit, or a tool call that is not valid JSON) runs no tool. Its
-  text stays in the history and the model is told what happened.
+  tokens stay in the context as the model wrote them (a cut turn is closed with the end-of-turn tokens) and the model
+  is told what happened.
 - Reasoning effort is the renderer's float (`EFFORT`); the per-turn output limit defaults to 8,192 tokens.
 
 A model spec is `tinker:<base model>[#<checkpoint>]`, for example `tinker:thinkingmachines/Inkling-2-Small` (the base
@@ -153,6 +154,9 @@ class RailEnv(Env):
         self.idle = 0
         self.done = False
         self.ob: tinker.ModelInput | None = None
+        # the two tokens that end a model turn (end of message, end of sampling), read off a rendered turn
+        self.end_message, self.end_turn = self._render(
+            [Message(role="user", content="."), Message(role="assistant", content=".")])[-2:]
 
     # ------------------------------------------------------------ observations
 
@@ -170,18 +174,19 @@ class RailEnv(Env):
         self.ob = tinker.ModelInput.from_ints(self._render(self.messages))
         return self.ob, self.stop
 
-    def _next_observation(self, action: list[int], clean: bool, n_before: int) -> tinker.ModelInput:
-        """The next prompt. After a turn that parsed, it is the previous prompt, the sampled tokens and the new
-        messages' tokens: the model reads back exactly what it wrote (a re-rendered tool call can differ in spacing),
-        and every prompt extends the one before. After a turn that did not parse there is no faithful way to close
-        the model's message, so the conversation is rendered afresh from its text."""
+    def _next_observation(self, action: list[int], n_before: int) -> tinker.ModelInput:
+        """The next prompt: the previous prompt, the tokens the model sampled, and the new messages' tokens. The
+        model reads back exactly what it wrote (re-rendered from its parsed form, a tool call can differ in spacing
+        and a cut turn has no parsed form at all), and every prompt extends the one before, which is what makes an
+        episode one training sequence. A turn cut at the token limit is first closed as the model would have."""
         full = self._render(self.messages)
-        if not clean:
-            return tinker.ModelInput.from_ints(full)
         seen = self.ob.to_ints() + list(action)
         if full[: len(seen)] == seen:
             return tinker.ModelInput.from_ints(full)
-        boundary = len(self._render(self.messages[: n_before + 1]))   # the history through the model's message
+        if not action or action[-1] != self.end_turn:
+            between = not action or action[-1] == self.end_message       # cut between two of its messages
+            seen += ([] if between else [self.end_message]) + [self.end_turn]
+        boundary = len(self._render(self.messages[: n_before + 1]))       # the history through the model's turn
         return tinker.ModelInput.from_ints(seen + full[boundary:])
 
     # ------------------------------------------------------------ one turn
@@ -208,7 +213,7 @@ class RailEnv(Env):
         new_tokens = 0     # an estimate of what this turn's replies add to the context
         if clean:
             self.messages.append(message)
-        else:   # keep what the model wrote as text; nothing in it is run
+        else:   # the transcript keeps what the model wrote as text; nothing in it is run
             raw = self.renderer.tokenizer.decode(list(action))
             text = plain_text(message) if not isinstance(message.get("content"), str) else _SPECIAL.sub(" ", raw)
             self.messages.append(Message(role="assistant", content=text.strip() or "(no output)"))
@@ -273,7 +278,7 @@ class RailEnv(Env):
             note += (" The context window is almost full." if tight else "") + \
                     " This is your last turn: call submit_plan now."
         self.messages.append(Message(role="user", content=note))
-        self.ob = self._next_observation(list(action), clean, n_before)
+        self.ob = self._next_observation(list(action), n_before)
         if self.context - self.ob.length < MIN_TURN_TOKENS:
             self._finish("context_length")
             return self._result()

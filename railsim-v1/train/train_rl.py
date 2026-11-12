@@ -29,9 +29,11 @@ Files, in `results/train/<run>/`: `config.json`, `metrics.jsonl` (a row per step
 `rollouts/` (a few full transcripts per step, git-ignored). The run resumes from its last saved state when started
 again with the same `--run`.
 
-Checkpoints are large (a rank-32 adapter for this model has 4.2 billion parameters) and a free Tinker plan holds
-100 GB: only the newest training state is kept, and of the sampler checkpoints the newest `--keep-samplers` and the
-best on validation. The final ones have no expiry; the others expire after `--ttl-days`.
+Checkpoints are large and a free Tinker plan holds 100 GB: at rank 32 a training state of this model is 50 GB and
+a sampler checkpoint 17 GB (measured), so two states never fit side by side. Hence rank 8 by default (a quarter of
+that), and only the newest training state is kept, and of the sampler checkpoints (saved at validations and at the
+end) the newest `--keep-samplers` and the best on validation. The final ones have no expiry; the others expire after
+`--ttl-days`.
 
 Needs `tinker` and `tinker-cookbook` (see README.md here) and `TINKER_API_KEY`.
 """
@@ -222,14 +224,15 @@ def load_rows(path: Path) -> list[dict]:
 async def prune(rest, run_dir: Path, keep_samplers: int) -> None:
     """Delete what is no longer needed on Tinker: every training state but the newest, and sampler checkpoints
     other than the newest `keep_samplers` and the best on validation. Deleted paths are recorded, so they are not
-    asked for again and the eval's `#<run>` never resolves to one."""
+    asked for again and the eval's `#<run>` never resolves to one. Called before a save too (with one sampler
+    fewer), so the new checkpoint has room."""
     path = run_dir / "checkpoints.jsonl"
     rows = load_rows(path)
     states = [r for r in rows if r.get("state_path")]
     samplers = [r for r in rows if r.get("sampler_path")]
     scored = [r for r in samplers if r.get("val_reward") is not None]
     best = max(scored, key=lambda r: (r["val_reward"], r["batch"]))["name"] if scored else None
-    keep = {r["name"] for r in samplers[-keep_samplers:]} | {best}
+    keep = {r["name"] for r in samplers[len(samplers) - keep_samplers:]} | {best} if keep_samplers > 0 else {best}
     changed = False
     for r in rows:
         drop = []
@@ -284,8 +287,11 @@ async def train(args) -> None:
         name = f"{step:06d}" + ("-final" if final else "")
         state = {"batch": step, "tokens": {k: getattr(budget.used, k) for k in KINDS}, "val_reward": val_reward,
                  "final": final}
+        sampler_too = final or val_reward is not None        # between validations only the state, for a resume
+        if sampler_too:
+            await prune(rest, run_dir, args.keep_samplers - 1)
         await checkpoint_utils.save_checkpoint_async(
-            training, name=name, log_path=str(run_dir), loop_state=state, kind="both",
+            training, name=name, log_path=str(run_dir), loop_state=state, kind="both" if sampler_too else "state",
             ttl_seconds=None if final else int(args.ttl_days * 86400))
         await prune(rest, run_dir, args.keep_samplers)
 
@@ -368,7 +374,7 @@ def main():
     ap.add_argument("--group-size", type=int, default=4, help="episodes per task; rewards are centred within a task")
     ap.add_argument("--steps", type=int, default=36)
     ap.add_argument("--lr", type=float, default=4e-5)
-    ap.add_argument("--lora-rank", type=int, default=32)
+    ap.add_argument("--lora-rank", type=int, default=8, help="checkpoint size grows with it: see above")
     ap.add_argument("--loss", default="importance_sampling", choices=["importance_sampling", "ppo", "cispo"])
     ap.add_argument("--substeps", type=int, default=1, help="optimizer steps per batch")
     ap.add_argument("--temperature", type=float, default=1.0)

@@ -117,8 +117,14 @@ def test_a_cut_turn_runs_nothing_and_two_end_the_episode(pack, renderer):
     assert rec["reward"] == 0.0 and rec["end_reason"] == "no_tool_call" and rec["turns"] == 2 and rec["steps"] == []
     nudge = [m["content"] for m in rec["messages"] if m["role"] == "user"][1]
     assert "4,000-token limit" in nudge and "11 turns left" in nudge
-    assert "<|" not in rec["messages"][-1]["content"]          # the cut turn is kept as plain text
+    assert "<|" not in rec["messages"][-1]["content"]          # the transcript keeps the cut turn as plain text
     assert len(trajectory.transitions) == 2 and trajectory.transitions[-1].episode_done
+    # the context keeps the tokens the model wrote, closed as a turn, so the episode is still one training sequence
+    first, second = trajectory.transitions
+    seen = first.ob.to_ints() + first.ac.tokens
+    assert second.ob.to_ints()[: len(seen) + 2] == seen + [env.end_message, env.end_turn]
+    assert env.renderer.tokenizer.decode(second.ob.to_ints()[len(seen) + 2:]).startswith("<|message_user|>")
+    assert len(trajectory_to_data(trajectory, -0.1)) == 1
 
 
 def test_a_tool_call_that_is_not_json_is_named_and_can_be_retried(pack, renderer):
@@ -130,10 +136,11 @@ def test_a_tool_call_that_is_not_json_is_named_and_can_be_retried(pack, renderer
         text = env.renderer.tokenizer.decode(good).replace('"plan":[]', '"plan":[{"train":')
         return [(env.renderer.tokenizer.encode(text), "stop"), call("submit_plan", {"plan": optimum})]
 
-    env, _, _ = play(pack, renderer, task, script)
+    env, _, trajectory = play(pack, renderer, task, script)
     rec = env.record
     assert rec["reward"] == pytest.approx(1.0) and rec["turns"] == 2
     assert [s["tool"] for s in rec["steps"]] == ["submit_plan"]           # the broken call ran nothing
+    assert len(trajectory_to_data(trajectory, 0.5)) == 1                   # and the episode is one sequence
     assert "valid JSON" in [m["content"] for m in rec["messages"] if m["role"] == "user"][1]
 
 
@@ -237,3 +244,7 @@ def test_prune_keeps_the_newest_state_and_the_best_sampler(tmp_path):
     assert len(Rest.deleted) == 4 + 2 and kept[0]["deleted"] == ["tinker://r/weights/3", "tinker://r/sampler_weights/3"]
     asyncio.run(train_rl.prune(Rest(), tmp_path, keep_samplers=2))                               # nothing more to do
     assert len(Rest.deleted) == 6
+    asyncio.run(train_rl.prune(Rest(), tmp_path, keep_samplers=1))                               # room for a save
+    kept = train_rl.load_rows(tmp_path / "checkpoints.jsonl")
+    assert [r["name"] for r in kept if r.get("sampler_path")] == ["000006", "000015"] and len(Rest.deleted) == 7
+    assert [r["name"] for r in kept if r.get("state_path")] == ["000015"]                        # still resumable

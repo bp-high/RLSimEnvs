@@ -2,7 +2,7 @@
 
 Fine-tune a Tinker-hosted model on RailSimEnv's train split with reinforcement learning, and measure it on the eval
 split before and after. Built for Thinking Machines' **Inkling 2 Small** (`thinkingmachines/Inkling-2-Small`), a
-rank-32 LoRA trained through the [Tinker](https://tinker-docs.thinkingmachines.ai/) API.
+rank-8 LoRA trained through the [Tinker](https://tinker-docs.thinkingmachines.ai/) API.
 
 | file | |
 |---|---|
@@ -72,7 +72,7 @@ the eval split. The reward is the environment's own (0 without a submit, below 0
 |---|---|---|
 | `--groups`, `--group-size` | 16, 4 | 64 episodes a step |
 | `--steps` | 36 | the budget usually ends the run first |
-| `--lr`, `--lora-rank` | 4e-5, 32 | |
+| `--lr`, `--lora-rank` | 4e-5, 8 | checkpoint size grows with the rank (below) |
 | `--effort` | high | train at the effort you evaluate at: it is part of the prompt |
 | `--val-tasks`, `--val-every` | 16, 6 | |
 | `--max-credits` / `--max-train-tokens` | required | stop before a step that would pass it |
@@ -84,10 +84,11 @@ when the run starts) and stops before a step that would pass the cap; it then sa
 is the larger part: every episode is trained on once, at up to one context of tokens. Files record tokens and time,
 never prices.
 
-Checkpoints are large (a rank-32 adapter for this model has 4.2 billion parameters), and a free Tinker plan holds
-100 GB or 100 checkpoints. The loop keeps the newest training state, the two newest sampler checkpoints and the best
-on validation, and deletes the rest. The final ones have no expiry: delete them when done
-(`tinker checkpoint list`, `tinker checkpoint delete`).
+Checkpoints are large, and a free Tinker plan holds 100 GB or 100 checkpoints. Measured at rank 32: a training state
+is 50 GB and a sampler checkpoint 17 GB, so a second state does not fit beside the first and the run would stop.
+Rank 8, the default, is a quarter of that. The loop keeps the newest training state, the two newest sampler
+checkpoints (saved at validations and at the end) and the best on validation, and deletes the rest. The final ones
+have no expiry: delete them when done (`tinker checkpoint list`, `tinker checkpoint delete`).
 
 ## Files of a run
 
