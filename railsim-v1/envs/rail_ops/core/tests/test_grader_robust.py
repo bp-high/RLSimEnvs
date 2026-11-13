@@ -265,6 +265,8 @@ def test_hostile_plans_never_crash_or_pass(sample):
         rid = task.runs[0].id
         cases = list(HOSTILE) + [[{"train": rid, "hold": {task.runs[0].route[0]: "07:00"}}] * 50,
                                  [{"train": rid}, {"train": rid}], json.dumps([{"train": rid, "bogus": 1}])]
+        for r in task.runs:   # a run started at its own last point (an RL policy found this; it used to crash)
+            cases += [[{"train": r.id, "from": r.route[-1]}], [{"train": r.id, "from": r.route[-1], "to": r.route[-1]}]]
         for raw in cases:
             try:
                 plan, problems = parse_plan(task, raw)

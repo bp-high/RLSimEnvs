@@ -113,6 +113,9 @@ def served_part(task: Task, r: Run, o: Order) -> tuple[int, int, list[str]]:
     if o.end and o.end != r.dest and not net.by_code[o.end].turn:
         probs.append(f"{r.id} cannot end at {o.end}: trains can only be turned at "
                      + ", ".join(p.code for p in net.points if p.turn))
+    if s >= len(r.route) - 1:          # 'from' its own last point: nothing left to run
+        probs.append(f"{r.id} cannot start at {r.route[s]}: that is where it ends")
+        s = 0
     if e <= s:
         probs.append(f"{r.id}: 'to' {r.route[e]} must come after where it starts ({r.route[s]})")
         e = len(r.route) - 1
