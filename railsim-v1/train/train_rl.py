@@ -283,15 +283,16 @@ async def train(args) -> None:
     print(f"{args.run}: {len(train_tasks)} training tasks, {len(val_tasks)} held out; {args.groups} x "
           f"{args.group_size} episodes a step, up to {args.steps} steps; used so far: {budget.line()}", flush=True)
 
-    async def save(step: int, val_reward: float | None, final: bool = False) -> None:
+    async def save(step: int, val_reward: float | None, kind: str, final: bool = False) -> None:
+        """`state` right after each training step (what a resume starts from), `sampler` after a validation (what
+        the eval reads, with its validation reward), `both` at the end."""
         name = f"{step:06d}" + ("-final" if final else "")
         state = {"batch": step, "tokens": {k: getattr(budget.used, k) for k in KINDS}, "val_reward": val_reward,
                  "final": final}
-        sampler_too = final or val_reward is not None        # between validations only the state, for a resume
-        if sampler_too:
+        if kind != "state":
             await prune(rest, run_dir, args.keep_samplers - 1)
         await checkpoint_utils.save_checkpoint_async(
-            training, name=name, log_path=str(run_dir), loop_state=state, kind="both" if sampler_too else "state",
+            training, name=name, log_path=str(run_dir), loop_state=state, kind=kind,
             ttl_seconds=None if final else int(args.ttl_days * 86400))
         await prune(rest, run_dir, args.keep_samplers)
 
@@ -317,8 +318,8 @@ async def train(args) -> None:
         val_reward = None
         if args.val_every and step % args.val_every == 0 and step not in validated:
             val_reward = await validate(sampler, step)
-        if step > start and (val_reward is not None or step % args.save_every == 0):
-            await save(step, val_reward)
+            if step > 0:
+                await save(step, val_reward, "sampler")
         stopped = budget.refuses(first_guess)
         if stopped:
             print(f"stopping before step {step}: {stopped}", flush=True)
@@ -343,6 +344,8 @@ async def train(args) -> None:
             await train_step(data, training, args.lr, args.substeps, args.loss, metrics=metrics)
             sampler = await training.save_weights_and_get_sampling_client()
         budget.add(usage)
+        if (step + 1) % args.save_every == 0:   # before anything else: a restart from here loses nothing trained
+            await save(step + 1, None, "state")
         s = summarize(rows)
         append(run_dir / "metrics.jsonl", {
             "step": step, "phase": "train", **s, "groups_trained": len(kept), "groups_dropped": len(groups) - len(kept),
@@ -358,7 +361,7 @@ async def train(args) -> None:
     done = step if stopped else args.steps
     if done > start:
         val_reward = await validate(sampler, done) if args.val_every and done not in validated else None
-        await save(done, val_reward, final=True)
+        await save(done, val_reward, "both", final=True)
         print(f"saved the final checkpoint at step {done}; used: {budget.line()}", flush=True)
         print(f'evaluate it with --models "tinker:{args.model}#{args.run}@{args.effort}"', flush=True)
     else:
