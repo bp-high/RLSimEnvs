@@ -350,10 +350,13 @@ async def train(args) -> None:
     sampler = await training.save_weights_and_get_sampling_client()
     step, stopped = start, None
     validated = {r["step"] for r in load_rows(run_dir / "metrics.jsonl") if r.get("phase") == "val"}
+    scores = {r["step"]: r.get("reward_mean") for r in load_rows(run_dir / "metrics.jsonl") if r.get("phase") == "val"}
     for step in range(start, args.steps):
         val_reward = None
         if args.val_every and step % args.val_every == 0 and step not in validated:
             val_reward = await validate(sampler, step)
+            validated.add(step)                 # the final validation below must not play it again
+            scores[step] = val_reward
             if step > 0:
                 await save(step, val_reward, "sampler")
         stopped = budget.refuses(first_guess)
@@ -397,7 +400,7 @@ async def train(args) -> None:
         step += 1
     done = step if stopped else args.steps
     if done > start:
-        val_reward = await validate(sampler, done) if args.val_every and done not in validated else None
+        val_reward = await validate(sampler, done) if args.val_every and done not in validated else scores.get(done)
         await save(done, val_reward, "both", final=True)
         print(f"saved the final checkpoint at step {done}; used: {budget.line()}", flush=True)
         print(f'evaluate it with --models "tinker:{args.model}#{args.run}@{args.effort}"', flush=True)
