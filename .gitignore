@@ -15,4 +15,5 @@ railsim-v1/dist/
 
 # railsim RL runs: transcripts and smoke tests (config, metrics, episodes and checkpoints.jsonl per run are committed)
 railsim-v1/results/train/*/rollouts/
+railsim-v1/results/train/*/cache/
 railsim-v1/results/train/smoke-*/

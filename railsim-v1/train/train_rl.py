@@ -27,7 +27,8 @@ stored here). `--max-train-tokens` is the same guard in tokens. What is written 
 Files, in `results/train/<run>/`: `config.json`, `metrics.jsonl` (a row per step and per validation),
 `episodes.jsonl` (a row per episode), `checkpoints.jsonl` (the `tinker://` paths; the eval's `#<run>` reads it),
 `rollouts/` (a few full transcripts per step, git-ignored). The run resumes from its last saved state when started
-again with the same `--run`.
+again with the same `--run`, and reuses the episodes of the interrupted step that had finished (`cache/`, cleared once
+a step is saved), so a restart of the machine costs only the episodes in flight.
 
 Checkpoints are large and a free Tinker plan holds 100 GB: at rank 32 a training state of this model is 50 GB and
 a sampler checkpoint 17 GB (measured), so two states never fit side by side. Hence rank 8 by default (a quarter of
@@ -43,6 +44,8 @@ from __future__ import annotations
 import argparse
 import asyncio
 import json
+import pickle
+import shutil
 import random
 import statistics
 import time
@@ -165,6 +168,31 @@ def summarize(rows: list[dict]) -> dict:
     return out
 
 
+def cache_dir(run_dir: Path, step: int, phase: str) -> Path:
+    return run_dir / "cache" / f"step-{step:04d}-{phase}"
+
+
+def save_cached(path: Path, item: tuple) -> None:
+    """One finished episode (trajectory, row, usage), written atomically."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(".tmp")
+    tmp.write_bytes(pickle.dumps(item))
+    tmp.replace(path)
+
+
+def load_cached(path: Path) -> tuple | None:
+    """An episode finished before a restart, or None. Its sampling ids belong to the old session, so they are
+    dropped: the datum then trains without provenance (fine for importance_sampling, ppo and cispo)."""
+    try:
+        trajectory, row, usage = pickle.loads(path.read_bytes())
+    except (OSError, pickle.UnpicklingError, EOFError, ValueError):
+        return None
+    if trajectory is not None:
+        for t in trajectory.transitions:
+            t.ac.sequence_id = None
+    return trajectory, {**row, "reused": True}, usage
+
+
 class Runner:
     def __init__(self, args, pack, run_dir: Path):
         self.args = args
@@ -175,9 +203,14 @@ class Runner:
         self.sem = asyncio.Semaphore(args.concurrency)
         self.label = f"tinker:{args.model}"
 
-    async def episode(self, task, sampler, step: int, phase: str, keep: int) -> tuple:
-        """Play one episode: (trajectory or None, episode row, token usage)."""
+    async def episode(self, task, sampler, step: int, phase: str, keep: int, idx: int) -> tuple:
+        """Play one episode: (trajectory or None, episode row, token usage). Each finished episode is cached on disk
+        until its step is saved, so a restart reuses it instead of sampling (and paying for) it again: the run
+        resumes from the state saved before this step, which is the weights the episode was sampled with."""
         a = self.args
+        cached = cache_dir(self.run_dir, step, phase) / f"{task.task_id}-{idx}.pkl"
+        if cached.is_file() and (item := load_cached(cached)) is not None:
+            return item
         async with self.sem:
             env = at.RailEnv(LocalSession(self.pack), task.task_id, self.renderer, model=self.label, effort=a.effort,
                              max_turns=a.max_turns, max_tokens=a.max_tokens, context=self.context)
@@ -196,14 +229,16 @@ class Runner:
             path = self.run_dir / "rollouts" / f"step-{step:04d}-{phase}" / f"{task.task_id}-{keep}.json"
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(json.dumps(record, indent=1, ensure_ascii=False, default=str))
-        return trajectory, episode_row(record, task, step, phase), episode_usage(record)
+        item = (trajectory, episode_row(record, task, step, phase), episode_usage(record))
+        save_cached(cached, item)
+        return item
 
     async def collect(self, tasks: list, sampler, step: int, phase: str, group_size: int):
         """Play every task `group_size` times, all at once: (per-task lists of trajectories, episode rows, token
         usage)."""
         keep = self.args.keep_transcripts
-        jobs = [self.episode(t, sampler, step, phase, (i * group_size + j + 1) if i * group_size + j < keep else 0)
-                for i, t in enumerate(tasks) for j in range(group_size)]
+        jobs = [self.episode(t, sampler, step, phase, (i * group_size + j + 1) if i * group_size + j < keep else 0,
+                             i * group_size + j) for i, t in enumerate(tasks) for j in range(group_size)]
         results = await asyncio.gather(*jobs)
         usage = TokenUsage()
         for _, _, u in results:
@@ -305,6 +340,7 @@ async def train(args) -> None:
         for r in rows:
             append(run_dir / "episodes.jsonl", r)
         s = summarize(rows)
+        shutil.rmtree(cache_dir(run_dir, step, "val"), ignore_errors=True)
         append(run_dir / "metrics.jsonl", {"step": step, "phase": "val", **s, "seconds": round(time.time() - t0),
                                            "tokens": {k: getattr(usage, k) for k in KINDS}})
         print(f"[val  {step:3d}] reward {s['reward_mean']:.3f}  submitted {s['submitted']:.0%}  feasible "
@@ -346,6 +382,7 @@ async def train(args) -> None:
         budget.add(usage)
         if (step + 1) % args.save_every == 0:   # before anything else: a restart from here loses nothing trained
             await save(step + 1, None, "state")
+            shutil.rmtree(cache_dir(run_dir, step, "train"), ignore_errors=True)
         s = summarize(rows)
         append(run_dir / "metrics.jsonl", {
             "step": step, "phase": "train", **s, "groups_trained": len(kept), "groups_dropped": len(groups) - len(kept),

@@ -248,3 +248,22 @@ def test_prune_keeps_the_newest_state_and_the_best_sampler(tmp_path):
     kept = train_rl.load_rows(tmp_path / "checkpoints.jsonl")
     assert [r["name"] for r in kept if r.get("sampler_path")] == ["000006", "000015"] and len(Rest.deleted) == 7
     assert [r["name"] for r in kept if r.get("state_path")] == ["000015"]                        # still resumable
+
+
+def test_finished_episodes_survive_a_restart(pack, renderer, tmp_path):
+    """An episode cached on disk comes back as it was, without the old session's sampling ids, marked as reused."""
+    task = pack.tasks[0]
+    env, _, trajectory = play(pack, renderer, task, [call("submit_plan", {"plan": task.reference["optimal_plan"]})])
+    for t in trajectory.transitions:
+        t.ac.sequence_id = "seq-from-the-old-session"
+    row = train_rl.episode_row(env.record, task, 7, "train")
+    path = train_rl.cache_dir(tmp_path, 7, "train") / f"{task.task_id}-3.pkl"
+    train_rl.save_cached(path, (trajectory, row, train_rl.episode_usage(env.record)))
+    again, row2, usage = train_rl.load_cached(path)
+    assert row2["reused"] and row2["reward"] == row["reward"] == pytest.approx(1.0)
+    assert usage == train_rl.episode_usage(env.record)
+    assert [t.ac.tokens for t in again.transitions] == [t.ac.tokens for t in trajectory.transitions]
+    assert all(t.ac.sequence_id is None for t in again.transitions)
+    assert len(trajectory_to_data(again, 0.5)) == 1
+    path.write_bytes(b"cut off mid-write")
+    assert train_rl.load_cached(path) is None                # a broken file is sampled again, not trusted
