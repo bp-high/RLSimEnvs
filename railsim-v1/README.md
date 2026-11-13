@@ -149,9 +149,14 @@ Most of the gain is the model learning to work inside its budget, checking more 
 plans themselves are still weak (32 of 45 break a rule). Runs: `results/rollouts/2026-11-12-inkling-2-small-base-eval45`
 and `...-rl-a-eval45` (its `analysis.md` has every task and the learning curve); training: `results/train/rl-a`.
 
-**These rows are not on the board above:** Tinker trains this model in a 65,536-token context, so these episodes
-have that window and 8,192 output tokens per turn (effort high), where the board's rows had a million tokens and
-64,000 per turn.
+**With a longer context it does better, and RL helps less clearly.** The 262,144-token variant at effort max, with
+32,768 tokens a turn, scores **0.259** untrained (25 legal plans of 45). Twelve RL steps on it (`rl-b`, 8 tasks x 4)
+give **0.316**: +0.056 per task, 95% interval -0.008 to +0.126 (better on 22, worse on 13), so suggestive, not
+settled. The gain is in plan cost (legal plans 23 % over the optimum, median, against 37 %), not legality.
+Runs: `...-256k-max-eval45` and `...-256k-max-rl-b-eval45`; training: `results/train/rl-b`.
+
+**These rows are not on the board above:** they ran in a 65,536- or 262,144-token context with 8,192 or 32,768 output
+tokens per turn, where the board's rows had a million tokens and 64,000 per turn.
 
 ## Watch a plan run
 
