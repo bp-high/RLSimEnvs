@@ -32,17 +32,37 @@ Things you can write:
 - **A video or GIF:** put it in `public/media/` and use the `<figure class="video-figure">` block from chapter 6.
 - Headings `##` and `###` make the table of contents.
 
-## See it, then publish
+## Edit, review, publish
+
+There are two private Spaces: a **draft** to review on any device, and the **real** one.
+
+| Space | address | who pushes to it |
+|---|---|---|
+| draft | [bpHigh/RailSimEnv-Inkling-draft](https://huggingface.co/spaces/bpHigh/RailSimEnv-Inkling-draft) | `--draft`, any time |
+| real | [bpHigh/RailSimEnv-Inkling](https://huggingface.co/spaces/bpHigh/RailSimEnv-Inkling) | `--publish`, only a build already on the draft |
 
 ```bash
 cd railsim-v1
-envs/rail_ops/.venv/bin/python blog/site/build.py --serve                 # preview on http://127.0.0.1:4321
-envs/rail_ops/.venv/bin/python blog/site/build.py --push bpHigh/RailSimEnv-Inkling -m "Edit the intro"   # private
-envs/rail_ops/.venv/bin/python blog/site/build.py --push bpHigh/RailSimEnv-Inkling --public -m "Publish"
+envs/rail_ops/.venv/bin/python blog/site/build.py --dev                            # edit: live reload on :4321
+envs/rail_ops/.venv/bin/python blog/site/build.py --diff                           # what changed since the real Space
+envs/rail_ops/.venv/bin/python blog/site/build.py --draft -m "Edit the intro"      # push to the draft, review it there
+envs/rail_ops/.venv/bin/python blog/site/build.py --publish -m "Edit the intro"    # same build to the real Space
+envs/rail_ops/.venv/bin/python blog/site/build.py --publish --public -m "Publish"  # ... and make it public
 ```
 
-The private Space is visible to you when you are logged in to Hugging Face. Making it public is the `--public` flag
-(or Settings → Change visibility on the Space). The build needs node and npm and a Hugging Face token that can write.
+1. **Edit** the files in `content/`. With `--dev` running, the page at http://127.0.0.1:4321 reloads on every save.
+   From a Claude session, ask for the change in words ("shorten the intro", "add a footnote to round 2 saying ...");
+   the session edits these files and the preview shows the result. You can also edit the `.mdx` files on GitHub on
+   the working branch and ask the session to pull them.
+2. **Review**: `--diff` lists the text changes, word by word, against the commit the real Space was built from.
+   `--draft` pushes the build to the draft Space; open it while logged in to Hugging Face, on any device.
+3. **Publish**: `--publish` rebuilds and pushes to the real Space, and refuses unless the draft Space has exactly the
+   same build. Each push writes `build.json` (a fingerprint of everything that goes into the page, the git commit and
+   whether there were uncommitted changes); the check compares fingerprints, so a change made after the draft was
+   pushed has to go to the draft first. `--push REPO` pushes anywhere without the check.
+
+`--serve` shows the exact build that would be pushed (scripts inlined) on :4321. The build needs node and npm and a
+Hugging Face token that can write.
 
 ## Rebuild the figures
 
