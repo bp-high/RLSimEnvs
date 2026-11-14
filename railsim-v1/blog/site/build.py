@@ -58,6 +58,30 @@ def check(folder: Path) -> None:
         raise SystemExit(f"refusing to build: {bad} mention something that stays out of the Space")
 
 
+# A private Space is shown in a third-party iframe, where a browser that blocks third-party storage makes every
+# `localStorage` access throw. The template's theme toggle reads it unguarded, and since its script shares a bundle
+# with the table of contents, one throw left the page with no contents and a dead toggle.
+STORAGE_GUARDS = {
+    "src/components/ThemeToggle.astro": [
+        ('const saved = localStorage.getItem("theme");',
+         'let saved = null;\n    try { saved = localStorage.getItem("theme"); } catch (e) {}'),
+        ('localStorage.setItem("theme", next);',
+         'try { localStorage.setItem("theme", next); } catch (e) {}'),
+    ],
+}
+
+
+def guard_storage(app: Path) -> None:
+    for rel, edits in STORAGE_GUARDS.items():
+        f = app / rel
+        s = f.read_text("utf-8")
+        for old, new in edits:
+            if old not in s:
+                raise SystemExit(f"{rel}: expected {old!r}; the template changed, update STORAGE_GUARDS")
+            s = s.replace(old, new)
+        f.write_text(s, "utf-8")
+
+
 def build() -> Path:
     check(HERE / "content")
     src = template()
@@ -65,6 +89,7 @@ def build() -> Path:
         shutil.rmtree(WORK)
     shutil.copytree(src, WORK, symlinks=True, ignore=shutil.ignore_patterns("node_modules", "dist", ".astro"))
     (WORK / "node_modules").symlink_to(src / "node_modules")
+    guard_storage(WORK)
     content = WORK / "src" / "content"
     shutil.rmtree(content)
     shutil.copytree(HERE / "content", content)

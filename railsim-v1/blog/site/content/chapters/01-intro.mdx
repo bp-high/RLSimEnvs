@@ -1,9 +1,8 @@
 import Note from '../../components/Note.astro';
 import Sidenote from '../../components/Sidenote.astro';
-import Wide from '../../components/Wide.astro';
 
 <style>{`
-  .video-figure { margin: 1.5rem 0 2rem; }
+  .video-figure { margin: 1.5rem auto 2rem; max-width: 100%; }
   .video-figure video { display: block; width: 100%; height: auto; border-radius: 10px; background: #0b0f14;
     box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 8px 28px rgba(0,0,0,.12); }
   .video-figure figcaption { margin-top: .6rem; color: var(--muted-color); font-size: .92em; line-height: 1.5; }
@@ -22,7 +21,6 @@ grades every plan against the best plan possible, proven by a solver. We took Th
 **Inkling 2 Small**, measured it, and fine-tuned it on the environment with reinforcement learning through the Tinker
 API [@tinker2026]. This is what happened, in plain terms, and what we noticed along the way.
 
-<Wide>
   <figure class="video-figure">
     <video src="/media/hero.mp4" poster="/media/hero.webp" autoplay muted loop playsinline controls preload="metadata"></video>
     <figcaption>
@@ -32,7 +30,6 @@ API [@tinker2026]. This is what happened, in plain terms, and what we noticed al
       plan, drawn on OpenStreetMap [@osm].
     </figcaption>
   </figure>
-</Wide>
 
 <Note variant="info" emoji="🚆" title="In one paragraph">
   Inkling 2 Small started at <b>0.119</b> on the 45 hard evaluation tasks, below a simple rule-based dispatcher (0.180).

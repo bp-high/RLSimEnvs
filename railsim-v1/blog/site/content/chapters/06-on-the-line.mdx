@@ -1,6 +1,5 @@
 import Image from '../../components/Image.astro';
 import Stack from '../../components/Stack.astro';
-import Wide from '../../components/Wide.astro';
 import Note from '../../components/Note.astro';
 import Sidenote from '../../components/Sidenote.astro';
 import g0313b from '../assets/image/graph-0313-262k-base.webp';
@@ -21,19 +20,16 @@ the [RailSimEnv Space](https://huggingface.co/spaces/bpHigh/RailSimEnv), first t
 
 A real breakdown closed Leeuwarden - Hurdegaryp from 07:01 to 08:00, with 26 trains to plan.
 
-<Wide>
 <Stack layout="2-column" gap="medium">
   <Image src={g0313b} alt="Train graph of the base model's plan for 13 March: trains held at Hurdegaryp, Feanwalden and Buitenpost, and red dashed lines after 10:00 where trains meet head-on" caption="<b>Before RL: 0.131.</b> The base model holds trains at Hurdegaryp, Feanwalden and Buitenpost and waits the closure out. The waiting ripples on: after 10:00 trains meet head-on on single track (red dashes), 16 rule breaks in all." zoomable />
   <Image src={g0313r} alt="Train graph of the fine-tuned model's plan for 13 March: eight trains turned back at Hurdegaryp, a clean timetable afterwards" caption="<b>After RL: 0.938.</b> The fine-tuned model turns eight trains back at Hurdegaryp (the circles) so each train set's next run starts on time from there. Cost 382 stop-minutes against a proven optimum of 378." zoomable />
 </Stack>
-</Wide>
 
 The difference is a decision a human dispatcher would recognise: when a section is closed for an hour, do not queue
 trains in front of it, turn them back where they can be turned and keep the rest of the timetable intact. The base
 plan's queue does not hurt during the closure; it hurts two and a half hours later, when the delayed trains collide
 with the timetable coming the other way.
 
-<Wide>
   <figure class="video-figure">
     <video src="/media/duel.mp4" poster="/media/duel.webp" autoplay muted loop playsinline controls preload="metadata"></video>
     <figcaption>
@@ -43,7 +39,6 @@ with the timetable coming the other way.
       37430 on time and is already back in Leeuwarden for its next run, 37427.
     </figcaption>
   </figure>
-</Wide>
 
 <figure class="video-figure">
   <video src="/media/cab.mp4" poster="/media/cab.webp" autoplay muted loop playsinline controls preload="metadata"></video>
@@ -57,23 +52,19 @@ with the timetable coming the other way.
 
 Litter on the track closed Buitenpost - Groningen from 17:10 to 18:42: half the line, in the evening rush.
 
-<Wide>
 <Stack layout="2-column" gap="medium">
   <Image src={g0216b} alt="Train graph of the base model's plan for 16 February: five trains cancelled" caption="<b>Before RL: 0.200.</b> Legal, but the base model cancels five trains: 1,140 of its 1,468 stop-minutes are stops nobody served." zoomable />
   <Image src={g0216r} alt="Train graph of the fine-tuned model's plan for 16 February: one cancellation and six short-turns, the proven optimum" caption="<b>After RL: 1.000.</b> The fine-tuned model cancels one train and short-turns six instead, serving what can be served: 796 stop-minutes, exactly the proven optimum." zoomable />
 </Stack>
-</Wide>
 
 ### 31 May 2025, 09:00: where training made it worse
 
 Not every task improved. A defective track closed Leeuwarden - Hurdegaryp from 09:30 to 09:56, a short closure.
 
-<Wide>
 <Stack layout="2-column" gap="medium">
   <Image src={g0531b} alt="Train graph of the base model's plan for 31 May: four short-turns" caption="<b>Before RL: 0.756.</b> The base model short-turns four trains: 246 stop-minutes against an optimum of 226." zoomable />
   <Image src={g0531r} alt="Train graph of the fine-tuned model's plan for 31 May: every train held, none turned" caption="<b>After RL: 0.200.</b> The fine-tuned model holds every train through the closure and turns none back: legal, but 708 stop-minutes of delay." zoomable />
 </Stack>
-</Wide>
 
 <Note variant="neutral" emoji="🔍" title="What this shows">
   On a 26-minute closure, waiting is a reasonable instinct; the optimum mixes a few short-turns with short holds. The
