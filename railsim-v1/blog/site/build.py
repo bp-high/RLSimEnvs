@@ -105,6 +105,7 @@ def build() -> Path:
         shutil.rmtree(OUT)
     shutil.copytree(WORK / "dist", OUT)
     shutil.copy2(HERE / "space-card.md", OUT / "README.md")
+    run(["node", str(HERE / "tools" / "flatten.cjs"), str(OUT), str(src)], ROOT)   # see the note in flatten.cjs
     check(OUT)
     n = sum(1 for p in OUT.rglob("*") if p.is_file())
     size = sum(p.stat().st_size for p in OUT.rglob("*") if p.is_file())
