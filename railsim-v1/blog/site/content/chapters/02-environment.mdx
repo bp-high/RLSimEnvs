@@ -1,0 +1,46 @@
+import HtmlEmbed from '../../components/HtmlEmbed.astro';
+import Sidenote from '../../components/Sidenote.astro';
+import Glossary from '../../components/Glossary.astro';
+
+## The environment
+
+### What the model sees and does
+
+Each task is one real disruption window: the line as it stood at that minute, every train's timetable and position,
+the closure or the lost passing track, and the train sets that work chains of runs. The model plans every train with
+three levers: **hold** it at a station until a minute, **short-turn** it at Hurdegaryp, Buitenpost or Zuidhorn (and
+start its set's next run from there), or **cancel** it. Trains it leaves alone run as early as the physics allow,
+never ahead of the timetable.
+
+It has three tools. `get_situation()` describes the line, the closures and every train. `check_plan(plan)` simulates
+a draft and lists every train's times, every rule it breaks and the cost; it can be called ten times. `submit_plan(plan)`
+ends the episode with one grade.
+
+<Sidenote>
+  The rules: no two opposing trains in a single-track section at once; three minutes between trains going the same
+  way; never more trains at a station than tracks; no train in a closed section; every train set ends the window
+  where its next run leaves; no stop more than two hours late.
+</Sidenote>
+
+### How a plan is scored
+
+The cost is counted in <Glossary term="stop-minutes" definition="One minute of delay at one stop served. A stop not served at all costs 30, and lateness handed on to the next window counts too.">stop-minutes</Glossary>,
+the delay passengers feel. A solver (CP-SAT from OR-Tools [@ortools]) has proven the cheapest possible plan for
+every task, so the reward is honest:
+
+- a plan that breaks any rule scores **below 0.2**;
+- a legal plan scores **0.2 to 1.0**, and **1.0** means it matched the proven optimum.
+
+The 45 evaluation tasks were chosen for hardness from days the training tasks never use[^days]. Larger models do fine
+but not great on them, and a simple rule-based dispatcher stays near 0.2:
+
+<HtmlEmbed
+  src="d3-railsim-results.html"
+  data="results.csv"
+  title="Mean reward on the 45 evaluation tasks"
+  desc="One rollout per task, 95% bootstrap intervals over tasks. The larger models ran with a 1M-token context and 64K output tokens per turn; Inkling 2 Small ran with 64K or 262K of context and 8K or 32K per turn (next sections). Hover a row for its numbers."
+  wide
+/>
+
+[^days]: Training tasks come from 84 days of January to June 2025, evaluation tasks from held-out weeks of the same
+months. Each task is a 150 to 240 minute window with 15 to 38 trains.

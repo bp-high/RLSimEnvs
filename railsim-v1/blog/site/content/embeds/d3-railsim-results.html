@@ -1,0 +1,90 @@
+<div class="d3-railsim-results"></div>
+<style>
+  .d3-railsim-results { position: relative; color: var(--text-color); font-size: 12px; }
+  .d3-railsim-results svg { display: block; width: 100%; overflow: visible; }
+  .d3-railsim-results .axis path, .d3-railsim-results .axis line { stroke: var(--axis-color); }
+  .d3-railsim-results .axis text { fill: var(--tick-color); }
+  .d3-railsim-results .grid line { stroke: var(--grid-color); }
+  .d3-railsim-results .grid path { display: none; }
+  .d3-railsim-results .row-label { fill: var(--text-color); font-size: 12px; }
+  .d3-railsim-results .row-label.muted { fill: var(--muted-color); }
+  .d3-railsim-results .value { fill: var(--muted-color); font-size: 11px; font-variant-numeric: tabular-nums; }
+  .d3-railsim-results .whisker { stroke-width: 2; stroke-linecap: round; }
+  .d3-railsim-results .axis-label { fill: var(--muted-color); font-size: 11px; }
+  .d3-railsim-results .hit { fill: transparent; cursor: default; }
+  .d3-railsim-results .row-bg { fill: var(--primary-color); opacity: 0; }
+  .d3-railsim-results .row-bg.on { opacity: 0.06; }
+  .d3-railsim-results .legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-bottom: 10px; color: var(--muted-color); }
+  .d3-railsim-results .legend .item { display: inline-flex; align-items: center; gap: 6px; }
+  .d3-railsim-results .swatch { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
+  .d3-railsim-results .d3-tooltip { position: absolute; top: 0; left: 0; pointer-events: none; opacity: 0; padding: 8px 10px; border-radius: 8px;
+    border: 1px solid var(--border-color); background: var(--surface-bg); color: var(--text-color); box-shadow: 0 4px 24px rgba(0,0,0,.18);
+    line-height: 1.4; white-space: nowrap; transition: opacity .12s ease; }
+  @media (prefers-reduced-motion: reduce) { .d3-railsim-results .d3-tooltip { transition: none; } }
+</style>
+<script>
+  Embed.mount('d3-railsim-results', async (ctx) => {
+    const rows = (await ctx.data()).map((r) => ({ ...r, lo: r.lo === null || r.lo === '' ? null : +r.lo, hi: r.hi === null || r.hi === '' ? null : +r.hi }));
+    const GROUPS = [
+      { key: 'after RL', label: 'Inkling 2 Small after RL' },
+      { key: 'Inkling', label: 'Inkling 2 Small, no training' },
+      { key: 'frontier', label: 'Larger models (1M context, 64K a turn)' },
+      { key: 'baseline', label: 'Rule-based baselines' },
+    ];
+    const fmt = d3.format('.3f');
+    const esc = (s) => String(s).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
+    const best = rows.find((r) => r.group === 'after RL');
+    ctx.describe(`Mean reward on the 45 RailSimEnv eval tasks with 95% intervals for ${rows.length} systems. ` +
+      `Inkling 2 Small rises from ${fmt(rows.find((r) => r.model.includes('64K · base') && !r.model.includes('max')).reward)} to ${fmt(best.reward)} after reinforcement learning with a longer context; GLM-5.3-Flash scores ${fmt(rows.find((r) => r.model.startsWith('GLM')).reward)}.`);
+    const legend = d3.select(ctx.root).append('div').attr('class', 'legend');
+    const svg = d3.select(ctx.root).append('svg');
+    const gGrid = svg.append('g').attr('class', 'grid');
+    const gx = svg.append('g').attr('class', 'axis');
+    const gRows = svg.append('g');
+    const xTitle = svg.append('text').attr('class', 'axis-label').attr('text-anchor', 'end');
+    const tip = d3.select(ctx.root).append('div').attr('class', 'd3-tooltip');
+    return ({ width }) => {
+      const cat = ctx.colors('categorical', 2);
+      const muted = getComputedStyle(ctx.root).getPropertyValue('--muted-color').trim() || '#888';
+      const color = { 'after RL': cat[0], Inkling: cat[1], frontier: muted, baseline: muted };
+      legend.html(GROUPS.map((g) => `<span class="item"><span class="swatch" style="background:${color[g.key]};${g.key === 'baseline' ? 'opacity:.5' : ''}"></span>${esc(g.label)}</span>`).join(''));
+      const narrow = width < 560;
+      const m = { top: 6, right: 54, bottom: 36, left: narrow ? 150 : 250 };
+      const rowH = 26, innerH = rows.length * rowH, height = innerH + m.top + m.bottom;
+      const x = d3.scaleLinear().domain([0, 0.7]).range([m.left, width - m.right]);
+      svg.attr('viewBox', `0 0 ${width} ${height}`).attr('height', height);
+      gGrid.attr('transform', `translate(0,${m.top})`).call(d3.axisBottom(x).ticks(7).tickSize(innerH).tickFormat(''));
+      gx.attr('transform', `translate(0,${m.top + innerH})`).call(d3.axisBottom(x).ticks(7).tickFormat(d3.format('.1f')).tickSizeOuter(0));
+      xTitle.attr('x', width - m.right).attr('y', height - 4).text('mean reward (1.0 = the proven optimum on every task)');
+      const g = gRows.selectAll('g.row').data(rows, (d) => d.model).join((e) => {
+        const r = e.append('g').attr('class', 'row');
+        r.append('rect').attr('class', 'row-bg');
+        r.append('text').attr('class', 'row-label');
+        r.append('line').attr('class', 'whisker');
+        r.append('circle');
+        r.append('text').attr('class', 'value');
+        r.append('rect').attr('class', 'hit');
+        return r;
+      }).attr('transform', (d, i) => `translate(0,${m.top + i * rowH})`);
+      const label = (d) => (narrow ? d.model.replace('Inkling 2 Small · ', 'Inkling ').replace(' (rules)', '') : d.model);
+      g.select('.row-bg').attr('x', 0).attr('y', 1).attr('width', width).attr('height', rowH - 2).attr('rx', 4);
+      g.select('.row-label').classed('muted', (d) => d.group === 'baseline').attr('x', m.left - 10).attr('y', rowH / 2).attr('dy', '0.35em')
+        .attr('text-anchor', 'end').style('font-weight', (d) => (d.group === 'after RL' ? 700 : 400)).text(label);
+      g.select('.whisker').attr('x1', (d) => x(d.lo ?? d.reward)).attr('x2', (d) => x(d.hi ?? d.reward)).attr('y1', rowH / 2).attr('y2', rowH / 2)
+        .attr('stroke', (d) => color[d.group]).attr('stroke-opacity', (d) => (d.group === 'frontier' ? 0.45 : 0.6));
+      g.select('circle').attr('cx', (d) => x(d.reward)).attr('cy', rowH / 2).attr('r', (d) => (d.group === 'after RL' ? 6 : 5))
+        .attr('fill', (d) => color[d.group]).attr('fill-opacity', (d) => (d.group === 'baseline' ? 0.5 : 1))
+        .attr('stroke', 'var(--surface-bg, #fff)').attr('stroke-width', 2);
+      g.select('.value').attr('x', (d) => x(d.hi ?? d.reward) + 8).attr('y', rowH / 2).attr('dy', '0.35em').text((d) => fmt(d.reward));
+      g.select('.hit').attr('x', 0).attr('y', 0).attr('width', width).attr('height', rowH)
+        .on('pointermove', function (event, d) {
+          d3.select(this.parentNode).select('.row-bg').classed('on', true);
+          tip.html(`<b>${esc(d.model)}</b><br/>mean reward <b>${fmt(d.reward)}</b>` + (d.lo !== null ? `<br/>95% interval ${fmt(d.lo)} to ${fmt(d.hi)}` : ''));
+          const [cx, cy] = d3.pointer(event, ctx.root);
+          const left = Math.min(cx + 12, ctx.root.clientWidth - tip.node().offsetWidth - 4);
+          tip.style('transform', `translate(${Math.max(0, left)}px, ${cy + 12}px)`).style('opacity', 1);
+        })
+        .on('pointerleave', function () { d3.select(this.parentNode).select('.row-bg').classed('on', false); tip.style('opacity', 0); });
+    };
+  });
+</script>

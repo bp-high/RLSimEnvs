@@ -1,0 +1,51 @@
+import Note from '../../components/Note.astro';
+import Sidenote from '../../components/Sidenote.astro';
+
+## What we noticed
+
+### Room to reason beat effort to reason
+
+Turning the effort up without more room per turn made things worse (0.119 to 0.111). Giving the model four times the
+room per turn more than doubled its score without any training (0.119 to 0.259). **The biggest gain of the project
+came from a setting, not from reinforcement learning.** Before training a model on an agentic task, it is worth
+checking whether it is simply being cut off.
+
+### Reinforcement learning learns the easy lesson first
+
+On the 64K model nearly all of the gain was "stop running out of tokens, always submit a plan": useful, but it is
+format, not skill. On the long-context model, where that lesson was already learned, the gains came more slowly and
+were about the plans themselves: fewer cancellations, more short-turns, cheaper legal plans.
+
+### Small samples mislead in both directions
+
+Training batches draw different tasks every step, so a batch swung from 0.18 to 0.38 by luck. The 16 held-out tasks
+and the 45 evaluation tasks sometimes disagreed. Comparing the same tasks before and after[^paired], rather than two
+averages, was the only reliable way to see an effect, and even that leaves the second round's gain on the edge.
+
+[^paired]: A paired bootstrap: resample tasks, and for each resample average the per-task difference (after minus
+before). It removes the spread between easy and hard tasks, which is most of the spread in a single run's mean.
+
+### The model found a bug in the grader
+
+During training the model tried a plan that starts a train at its own final station, leaving nothing to run. The
+simulator crashed instead of calling it a broken rule. Reinforcement learning is very good at finding the corners of
+an environment that nobody tested. The fix and a test for it went in the same night.
+
+### Some habits never changed
+
+Every episode, before and after training, begins by calling `get_situation`, though the situation is already in
+the first message. Each call costs about 4,000 tokens of context, and neither round of training removed it.
+
+<Sidenote>
+  It may survive because it is harmless to the reward: the context lost is rarely the context that runs out.
+</Sidenote>
+
+### The plumbing is half the work
+
+<Note variant="neutral" emoji="🧰" title="Infrastructure notes">
+  <ul>
+    <li><b>Checkpoints are large.</b> A rank-32 adapter's training state for this model is 50 GB and a sampler copy 17 GB; Tinker's free storage is 100 GB. Rank 8 brought the state to 12.5 GB.</li>
+    <li><b>The machine running the loop is not the machine doing the training.</b> Tinker never failed us. The cloud container that ran our loop restarted several times in one night, each time losing the episodes in flight. The loop now saves its state the moment a step finishes and keeps every finished episode on disk, so a restart costs only the few episodes still running.</li>
+    <li><b>One episode, one training sequence.</b> Each prompt must extend the previous one token for token; re-writing a cut-off turn split episodes into several sequences and multiplied the training tokens until we fixed it.</li>
+  </ul>
+</Note>

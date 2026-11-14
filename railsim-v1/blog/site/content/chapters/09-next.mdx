@@ -1,0 +1,22 @@
+## What's next
+
+1. **Settle round two:** one more rollout of both 262K evaluations, before and after.
+2. **Train longer at 262K:** round one needed about a dozen steps before anything moved; round two stopped at twelve.
+3. **Try high effort at 262K:** perhaps the room matters and maximum effort does not.
+4. **Teach the length of a closure:** the 31 May regression suggests the model has not learned when waiting beats
+   turning back.
+
+## Try it
+
+Everything is open:
+
+- **The environment** and its tasks, on the [RailSimEnv Space](https://huggingface.co/spaces/bpHigh/RailSimEnv): an
+  OpenEnv server you can connect an agent to, an eval explorer, a train graph, and a 3D replay whose first tab plays
+  every Inkling 2 Small plan from this post.
+- **The code** on [GitHub](https://github.com/bp-high/RLSimEnvs): the environment, the Tinker harness and the training
+  loop (`railsim-v1/train/train_rl.py`), and every evaluation run with each plan the model submitted.
+
+## Data and credits
+
+Train services, delays and disruptions: Rijden de Treinen open data (CC BY 4.0) [@rdt2025]. Map: © OpenStreetMap
+contributors (ODbL) [@osm]. Inkling 2 Small and Tinker: Thinking Machines Lab [@inkling2026; @tinker2026].

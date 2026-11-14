@@ -1,0 +1,40 @@
+import Note from '../../components/Note.astro';
+import Sidenote from '../../components/Sidenote.astro';
+import Accordion from '../../components/Accordion.astro';
+
+## The model and the training loop
+
+**Inkling 2 Small** [@inkling2026] is a mixture-of-experts model from Thinking Machines Lab: 594 billion parameters,
+17 billion active per token. Tinker trains a LoRA adapter on it [@hu2021lora], a small set of extra weights, while
+Thinking Machines runs the hardware. We used rank 8 throughout.
+
+The loop is plain policy-gradient reinforcement learning with group-relative advantages, in the spirit of GRPO
+[@shao2024deepseekmath]:
+
+1. pick a handful of training tasks;
+2. let the model play each one **4 times** with the current weights;
+3. compare the four scores: attempts that beat their siblings are pushed up, worse ones pushed down;
+4. one optimizer step, then repeat with the new weights.
+
+Every token the model wrote in an episode (its reasoning, its tool calls, its final plan) is one training sequence,
+and the reward is the environment's own score. There are no human labels and no judge model.
+
+<Sidenote>
+  An episode is one sequence because each turn's prompt is the previous prompt, the tokens the model sampled and the
+  new tool results, token for token. A turn cut off at the token limit is closed with the model's own end-of-turn
+  tokens instead of being re-written.
+</Sidenote>
+
+<Accordion title="The details: rules of an episode and of a training step">
+
+- **An episode:** 12 turns at most, `check_plan` up to 10 times, `submit_plan` once. Two turns in a row without a tool
+  call end it; no plan scores 0. After every turn the model is told how many turns and how much context it has left,
+  and when another check would no longer fit beside the final answer the next turn is announced as the last.
+- **A step:** 16 tasks × 4 episodes (64K run) or 8 tasks × 4 (262K run); rewards centred within each task's group;
+  groups whose four rewards are equal carry no signal and are skipped; one `importance_sampling` step at learning
+  rate 1e-4.
+- **Tracking progress honestly:** 16 training tasks are held out and played once every 6 steps; the 45 evaluation
+  tasks are only played before and after.
+- **A spending cap** stops the run before a step that would pass it.
+
+</Accordion>

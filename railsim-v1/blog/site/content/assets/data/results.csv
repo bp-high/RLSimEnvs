@@ -1,0 +1,12 @@
+model,group,reward,lo,hi
+Qwen3.8-2.4T-A95B,frontier,0.5564,0.4522,0.665
+DeepSeek-V4.1-Flash,frontier,0.5337,0.4267,0.6432
+Claude Sonnet 5.5,frontier,0.4672,0.3844,0.5528
+GLM-5.3-Flash,frontier,0.36,0.2506,0.4774
+Inkling 2 Small · 262K · after RL,after RL,0.3159,0.231,0.4074
+Inkling 2 Small · 262K · base,Inkling,0.2594,0.1923,0.3369
+Inkling 2 Small · 64K · after RL,after RL,0.1861,0.1418,0.2424
+Greedy dispatcher (rules),baseline,0.18,,
+Inkling 2 Small · 64K · base,Inkling,0.1194,0.0817,0.1664
+"Inkling 2 Small · 64K · base, max effort",Inkling,0.1114,0.0539,0.187
+Change nothing,baseline,0.105,,

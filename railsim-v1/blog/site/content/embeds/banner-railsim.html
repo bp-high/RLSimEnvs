@@ -1,0 +1,73 @@
+<div class="banner-railsim"></div>
+<style>
+  .banner-railsim { width: 100%; aspect-ratio: 5 / 2; overflow: hidden; position: relative; }
+  .banner-railsim svg { width: 100%; height: 100%; display: block; }
+  .banner-railsim .stn { stroke: var(--grid-color); stroke-width: 1; }
+  .banner-railsim .stn-label { fill: var(--muted-color); font-size: 11px; font-weight: 600; letter-spacing: 0.04em; }
+  .banner-railsim .run { fill: none; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+  .banner-railsim .closure { stroke: var(--danger-color); stroke-width: 1.2; stroke-opacity: 0.7; }
+  .banner-railsim .closure-label { fill: var(--danger-color); font-size: 11px; font-weight: 600; }
+  .banner-railsim .clock-line { stroke: var(--text-color); stroke-opacity: 0.45; stroke-width: 1; stroke-dasharray: 2 3; }
+  .banner-railsim .clock { fill: var(--text-color); font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+</style>
+<script>
+  Embed.mount('banner-railsim', async (ctx) => {
+    // The hero passes no data prop, so the banner reads its file from /data/ (written by make_data.py).
+    const B = ctx.files.length ? await ctx.data()
+      : await (await fetch(new URL('data/banner.json', document.baseURI), { signal: ctx.signal })).json();
+    const uid = Math.random().toString(36).slice(2, 8);
+    const svg = d3.select(ctx.root).append('svg').attr('preserveAspectRatio', 'none');
+    const defs = svg.append('defs');
+    const hatch = defs.append('pattern').attr('id', `hatch-${uid}`).attr('patternUnits', 'userSpaceOnUse')
+      .attr('width', 7).attr('height', 7).attr('patternTransform', 'rotate(45)');
+    const hatchLine = hatch.append('line').attr('x1', 0).attr('y1', 0).attr('x2', 0).attr('y2', 7).attr('stroke-width', 2);
+    const clip = defs.append('clipPath').attr('id', `reveal-${uid}`).append('rect');
+    const gStations = svg.append('g');
+    const gClosure = svg.append('g');
+    const gRuns = svg.append('g').attr('clip-path', `url(#reveal-${uid})`);
+    const clockLine = svg.append('line').attr('class', 'clock-line');
+    const clockText = svg.append('text').attr('class', 'clock');
+    const t0 = B.start, t1 = B.end + 30;
+    const hhmm = (m) => `${String(Math.floor(m / 60) % 24).padStart(2, '0')}:${String(Math.floor(m % 60)).padStart(2, '0')}`;
+    ctx.describe(`Train graph of Inkling 2 Small's plan after reinforcement learning for 13 March 2025, ${hhmm(B.start)} to ${hhmm(B.end)}: ${B.runs.length} trains between Leeuwarden and Groningen, drawn as time runs, around a closure of Leeuwarden to Hurdegaryp.`);
+    let x, y, now = t0;
+    const draw = () => {
+      const w = x.range()[1] - x.range()[0];
+      clip.attr('x', x.range()[0] - 4).attr('y', 0).attr('width', Math.max(0, x(now) - x.range()[0] + 4)).attr('height', 9999);
+      clockLine.attr('x1', x(now)).attr('x2', x(now)).attr('y1', y.range()[0] - 6).attr('y2', y.range()[1] + 6);
+      clockText.attr('x', Math.min(x(now) + 6, x.range()[1] - 40)).attr('y', y.range()[0] - 10).text(hhmm(now));
+      return w;
+    };
+    if (!ctx.reducedMotion) {
+      ctx.animate((time) => {
+        const span = t1 - t0, period = 16000;
+        now = t0 + span * Math.min(1, ((time % period) / (period * 0.85)));
+        if (x) draw();
+      });
+    } else now = t1;
+    return ({ width, height }) => {
+      const [stopColor, fastColor] = ctx.colors('categorical', 2);
+      const narrow = width < 520;
+      const m = { top: 26, right: 10, bottom: 10, left: narrow ? 34 : 46 };
+      x = d3.scaleLinear().domain([t0, t1]).range([m.left, width - m.right]);
+      y = d3.scaleLinear().domain([0, B.length]).range([m.top, height - m.bottom]);
+      svg.attr('viewBox', `0 0 ${width} ${height}`);
+      hatchLine.attr('stroke', getComputedStyle(ctx.root).getPropertyValue('--danger-color') || '#c33');
+      gStations.selectAll('line').data(B.stations).join('line').attr('class', 'stn')
+        .attr('x1', m.left).attr('x2', width - m.right).attr('y1', (d) => y(d.km)).attr('y2', (d) => y(d.km));
+      const shown = B.stations.filter((d) => ['LW', 'HDG', 'BP', 'GK', 'ZH', 'GN'].includes(d.code));
+      gStations.selectAll('text').data(shown).join('text').attr('class', 'stn-label')
+        .attr('x', 2).attr('y', (d) => y(d.km)).attr('dy', '0.35em').text((d) => d.code);
+      gClosure.selectAll('rect').data(B.closures).join('rect').attr('class', 'closure')
+        .attr('x', (d) => x(d.start)).attr('width', (d) => x(d.end) - x(d.start))
+        .attr('y', (d) => y(Math.min(d.from, d.to))).attr('height', (d) => Math.abs(y(d.to) - y(d.from)))
+        .attr('fill', `url(#hatch-${uid})`).attr('fill-opacity', 0.35);
+      gClosure.selectAll('text').data(narrow ? [] : B.closures).join('text').attr('class', 'closure-label')
+        .attr('x', (d) => x(d.start) + 6).attr('y', (d) => y(Math.min(d.from, d.to)) + 14).text('closed: broken-down train');
+      const line = d3.line().x((p) => x(p[0])).y((p) => y(p[1]));
+      gRuns.selectAll('path').data(B.runs, (d) => d.train).join('path').attr('class', 'run')
+        .attr('stroke', (d) => (d.kind === 'fast' ? fastColor : stopColor)).attr('d', (d) => line(d.pts));
+      draw();
+    };
+  }, { resize: 'size', lazy: false });
+</script>

@@ -1,0 +1,38 @@
+import Note from '../../components/Note.astro';
+import Sidenote from '../../components/Sidenote.astro';
+
+## Round 1: a 64K context and 8K words a turn
+
+Tinker's standard Inkling 2 Small has a 65,536-token context. A single `check_plan` report can be 10,000 tokens, so
+we gave the model 8,192 tokens of output per turn, at its default reasoning effort ("high").
+
+### Before training: 0.119
+
+That is below the rule-based dispatcher. Reading the transcripts showed why: **the model thought too long.** A third
+of its turns hit the 8,192-token limit in the middle of reasoning, before it called any tool, and 11 of 45 episodes
+ended without a plan at all.
+
+The obvious fix, maximum effort instead of high, made it worse: **0.111**, with 21 episodes ending without a plan.
+More thinking in the same small box only meant running out of room sooner.
+
+### After 23 steps of RL: 0.186
+
+On the same 45 tasks the trained model is better by **+0.067 per task** (95% interval +0.024 to +0.115, comparing
+each task with itself), better on 30 tasks and worse on 12. What it learned is clearest in how it behaves:
+
+| | before RL | after RL |
+|---|---:|---:|
+| episodes that submitted a plan | 34 of 45 | **45 of 45** |
+| turns cut off at the token limit | 32 % | **4 %** |
+| output tokens per episode | 22,900 | **11,700** |
+| `check_plan` calls per episode | 2.4 | **4.1** |
+| legal plans | 9 | **13** |
+
+It learned to **budget**: shorter reasoning, more drafts checked, always a plan at the end. The plans themselves
+improved much less. That is typical of what reinforcement learning finds first: the cheapest way to stop losing
+points.
+
+<Note variant="neutral" emoji="⚙️" title="The learning rate mattered">
+  The first six steps ran at a learning rate of 4e-5 and moved the held-out tasks by +0.022 (standard error 0.020):
+  nothing. At 1e-4 the behaviour changed within four steps. The run resumed from its saved state with the new rate.
+</Note>

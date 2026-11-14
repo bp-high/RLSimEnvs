@@ -1,0 +1,9 @@
+series,x,y
+64K run (rl-a),0,0.061
+64K run (rl-a),6,0.083
+64K run (rl-a),12,0.125
+64K run (rl-a),18,0.1948
+64K run (rl-a),23,0.1693
+262K run (rl-b),0,0.2464
+262K run (rl-b),6,0.2357
+262K run (rl-b),12,0.2438

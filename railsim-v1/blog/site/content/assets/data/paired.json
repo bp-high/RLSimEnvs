@@ -1,0 +1,816 @@
+{
+ "64K": [
+  {
+   "task": "gnlw-2025-01-20-1800-180m-compound-0",
+   "day": "2025-01-20",
+   "tier": "compound",
+   "before": 0.125,
+   "after": 0.1333,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-01-21-0626-180m-real-0",
+   "day": "2025-01-21",
+   "tier": "real",
+   "before": 0.0897,
+   "after": 0.131,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-01-22-1600-240m-compound-0",
+   "day": "2025-01-22",
+   "tier": "compound",
+   "before": 0.0737,
+   "after": 0.1211,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-01-22-1800-150m-loop-0",
+   "day": "2025-01-22",
+   "tier": "loop",
+   "before": 0.4853,
+   "after": 0.168,
+   "legal_before": true,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-01-23-0800-210m-compound-0",
+   "day": "2025-01-23",
+   "tier": "compound",
+   "before": 0.0588,
+   "after": 0.0471,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-01-23-0900-180m-compound-0",
+   "day": "2025-01-23",
+   "tier": "compound",
+   "before": 0.0,
+   "after": 0.0267,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-01-25-0630-180m-loop-0",
+   "day": "2025-01-25",
+   "tier": "loop",
+   "before": 0.8042,
+   "after": 0.716,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-01-25-0730-180m-compound-0",
+   "day": "2025-01-25",
+   "tier": "compound",
+   "before": 0.0385,
+   "after": 0.1308,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-01-25-1700-180m-blockage-0",
+   "day": "2025-01-25",
+   "tier": "blockage",
+   "before": 0.0,
+   "after": 0.18,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-01-26-1700-210m-compound-0",
+   "day": "2025-01-26",
+   "tier": "compound",
+   "before": 0.2263,
+   "after": 0.2,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-02-11-0900-150m-blockage-0",
+   "day": "2025-02-11",
+   "tier": "blockage",
+   "before": 0.1739,
+   "after": 0.4523,
+   "legal_before": false,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-02-12-0900-180m-real-0",
+   "day": "2025-02-12",
+   "tier": "real",
+   "before": 0.0,
+   "after": 0.129,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-02-13-0954-180m-real-0",
+   "day": "2025-02-13",
+   "tier": "real",
+   "before": 0.0,
+   "after": 0.1533,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-02-13-1530-180m-blockage-0",
+   "day": "2025-02-13",
+   "tier": "blockage",
+   "before": 0.0,
+   "after": 0.1,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-02-14-1730-210m-blockage-0",
+   "day": "2025-02-14",
+   "tier": "blockage",
+   "before": 0.0,
+   "after": 0.0727,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-02-15-0630-180m-blockage-0",
+   "day": "2025-02-15",
+   "tier": "blockage",
+   "before": 0.0,
+   "after": 0.12,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-02-15-0700-240m-compound-0",
+   "day": "2025-02-15",
+   "tier": "compound",
+   "before": 0.0938,
+   "after": 0.0563,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-02-15-1630-150m-loop-0",
+   "day": "2025-02-15",
+   "tier": "loop",
+   "before": 0.1308,
+   "after": 0.1385,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-02-16-1530-210m-compound-0",
+   "day": "2025-02-16",
+   "tier": "compound",
+   "before": 0.0,
+   "after": 0.1556,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-02-16-1700-210m-compound-0",
+   "day": "2025-02-16",
+   "tier": "compound",
+   "before": 0.2,
+   "after": 0.15,
+   "legal_before": true,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-02-16-1730-240m-compound-0",
+   "day": "2025-02-16",
+   "tier": "compound",
+   "before": 0.1579,
+   "after": 0.1684,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-03-10-0700-210m-blockage-0",
+   "day": "2025-03-10",
+   "tier": "blockage",
+   "before": 0.0882,
+   "after": 0.1353,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-03-11-0730-150m-blockage-0",
+   "day": "2025-03-11",
+   "tier": "blockage",
+   "before": 0.0,
+   "after": 0.1231,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-03-12-1530-180m-blockage-0",
+   "day": "2025-03-12",
+   "tier": "blockage",
+   "before": 0.08,
+   "after": 0.0667,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-03-12-1730-210m-loop-0",
+   "day": "2025-03-12",
+   "tier": "loop",
+   "before": 0.0,
+   "after": 0.212,
+   "legal_before": false,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-03-13-0706-180m-real-0",
+   "day": "2025-03-13",
+   "tier": "real",
+   "before": 0.2219,
+   "after": 1.0,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-03-16-1630-180m-compound-0",
+   "day": "2025-03-16",
+   "tier": "compound",
+   "before": 0.3041,
+   "after": 0.2,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-03-16-1700-210m-compound-0",
+   "day": "2025-03-16",
+   "tier": "compound",
+   "before": 0.0625,
+   "after": 0.2,
+   "legal_before": false,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-04-23-1630-150m-blockage-0",
+   "day": "2025-04-23",
+   "tier": "blockage",
+   "before": 0.0,
+   "after": 0.1308,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-04-25-1730-210m-blockage-0",
+   "day": "2025-04-25",
+   "tier": "blockage",
+   "before": 0.0303,
+   "after": 0.1152,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-04-26-0630-180m-blockage-0",
+   "day": "2025-04-26",
+   "tier": "blockage",
+   "before": 0.08,
+   "after": 0.07,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-04-26-1700-180m-blockage-0",
+   "day": "2025-04-26",
+   "tier": "blockage",
+   "before": 0.08,
+   "after": 0.2037,
+   "legal_before": false,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-04-27-0800-210m-compound-0",
+   "day": "2025-04-27",
+   "tier": "compound",
+   "before": 0.2,
+   "after": 0.2,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-04-27-0830-210m-blockage-0",
+   "day": "2025-04-27",
+   "tier": "blockage",
+   "before": 0.315,
+   "after": 0.315,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-05-26-0730-150m-blockage-0",
+   "day": "2025-05-26",
+   "tier": "blockage",
+   "before": 0.1846,
+   "after": 0.2,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-05-26-1630-150m-blockage-0",
+   "day": "2025-05-26",
+   "tier": "blockage",
+   "before": 0.1154,
+   "after": 0.1538,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-05-26-1800-150m-blockage-0",
+   "day": "2025-05-26",
+   "tier": "blockage",
+   "before": 0.072,
+   "after": 0.16,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-05-27-0830-210m-blockage-0",
+   "day": "2025-05-27",
+   "tier": "blockage",
+   "before": 0.0235,
+   "after": 0.2,
+   "legal_before": false,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-05-27-1700-180m-blockage-0",
+   "day": "2025-05-27",
+   "tier": "blockage",
+   "before": 0.0933,
+   "after": 0.08,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-05-27-1830-180m-blockage-0",
+   "day": "2025-05-27",
+   "tier": "blockage",
+   "before": 0.1556,
+   "after": 0.0593,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-05-28-1830-210m-compound-0",
+   "day": "2025-05-28",
+   "tier": "compound",
+   "before": 0.1226,
+   "after": 0.1161,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-05-30-0630-180m-blockage-0",
+   "day": "2025-05-30",
+   "tier": "blockage",
+   "before": 0.1172,
+   "after": 0.1241,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-05-31-0800-210m-compound-0",
+   "day": "2025-05-31",
+   "tier": "compound",
+   "before": 0.0563,
+   "after": 0.0563,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-05-31-0900-180m-compound-0",
+   "day": "2025-05-31",
+   "tier": "compound",
+   "before": 0.1133,
+   "after": 0.5052,
+   "legal_before": false,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-06-22-1600-240m-compound-0",
+   "day": "2025-06-22",
+   "tier": "compound",
+   "before": 0.2,
+   "after": 0.2,
+   "legal_before": true,
+   "legal_after": true
+  }
+ ],
+ "262K": [
+  {
+   "task": "gnlw-2025-01-20-1800-180m-compound-0",
+   "day": "2025-01-20",
+   "tier": "compound",
+   "before": 0.2,
+   "after": 0.2,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-01-21-0626-180m-real-0",
+   "day": "2025-01-21",
+   "tier": "real",
+   "before": 0.0966,
+   "after": 0.069,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-01-22-1600-240m-compound-0",
+   "day": "2025-01-22",
+   "tier": "compound",
+   "before": 0.2,
+   "after": 0.1632,
+   "legal_before": true,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-01-22-1800-150m-loop-0",
+   "day": "2025-01-22",
+   "tier": "loop",
+   "before": 0.3196,
+   "after": 0.7938,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-01-23-0800-210m-compound-0",
+   "day": "2025-01-23",
+   "tier": "compound",
+   "before": 0.1118,
+   "after": 0.1,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-01-23-0900-180m-compound-0",
+   "day": "2025-01-23",
+   "tier": "compound",
+   "before": 0.08,
+   "after": 0.0667,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-01-25-0630-180m-loop-0",
+   "day": "2025-01-25",
+   "tier": "loop",
+   "before": 1.0,
+   "after": 1.0,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-01-25-0730-180m-compound-0",
+   "day": "2025-01-25",
+   "tier": "compound",
+   "before": 0.1538,
+   "after": 0.2,
+   "legal_before": false,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-01-25-1700-180m-blockage-0",
+   "day": "2025-01-25",
+   "tier": "blockage",
+   "before": 0.1667,
+   "after": 0.1867,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-01-26-1700-210m-compound-0",
+   "day": "2025-01-26",
+   "tier": "compound",
+   "before": 0.2039,
+   "after": 0.3282,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-02-11-0900-150m-blockage-0",
+   "day": "2025-02-11",
+   "tier": "blockage",
+   "before": 0.86,
+   "after": 0.86,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-02-12-0900-180m-real-0",
+   "day": "2025-02-12",
+   "tier": "real",
+   "before": 0.0,
+   "after": 0.0968,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-02-13-0954-180m-real-0",
+   "day": "2025-02-13",
+   "tier": "real",
+   "before": 0.2006,
+   "after": 0.4894,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-02-13-1530-180m-blockage-0",
+   "day": "2025-02-13",
+   "tier": "blockage",
+   "before": 0.1,
+   "after": 0.08,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-02-14-1730-210m-blockage-0",
+   "day": "2025-02-14",
+   "tier": "blockage",
+   "before": 0.103,
+   "after": 0.1091,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-02-15-0630-180m-blockage-0",
+   "day": "2025-02-15",
+   "tier": "blockage",
+   "before": 0.24,
+   "after": 0.2608,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-02-15-0700-240m-compound-0",
+   "day": "2025-02-15",
+   "tier": "compound",
+   "before": 0.1062,
+   "after": 0.1875,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-02-15-1630-150m-loop-0",
+   "day": "2025-02-15",
+   "tier": "loop",
+   "before": 0.1769,
+   "after": 0.1769,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-02-16-1530-210m-compound-0",
+   "day": "2025-02-16",
+   "tier": "compound",
+   "before": 0.2,
+   "after": 0.2054,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-02-16-1700-210m-compound-0",
+   "day": "2025-02-16",
+   "tier": "compound",
+   "before": 0.2,
+   "after": 1.0,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-02-16-1730-240m-compound-0",
+   "day": "2025-02-16",
+   "tier": "compound",
+   "before": 0.2,
+   "after": 0.2,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-03-10-0700-210m-blockage-0",
+   "day": "2025-03-10",
+   "tier": "blockage",
+   "before": 0.0765,
+   "after": 0.1059,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-03-11-0730-150m-blockage-0",
+   "day": "2025-03-11",
+   "tier": "blockage",
+   "before": 0.2,
+   "after": 0.2015,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-03-12-1530-180m-blockage-0",
+   "day": "2025-03-12",
+   "tier": "blockage",
+   "before": 0.06,
+   "after": 0.1467,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-03-12-1730-210m-loop-0",
+   "day": "2025-03-12",
+   "tier": "loop",
+   "before": 0.8898,
+   "after": 0.8898,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-03-13-0706-180m-real-0",
+   "day": "2025-03-13",
+   "tier": "real",
+   "before": 0.1308,
+   "after": 0.9385,
+   "legal_before": false,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-03-16-1630-180m-compound-0",
+   "day": "2025-03-16",
+   "tier": "compound",
+   "before": 0.324,
+   "after": 0.912,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-03-16-1700-210m-compound-0",
+   "day": "2025-03-16",
+   "tier": "compound",
+   "before": 0.2,
+   "after": 0.2,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-04-23-1630-150m-blockage-0",
+   "day": "2025-04-23",
+   "tier": "blockage",
+   "before": 0.4191,
+   "after": 0.219,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-04-25-1730-210m-blockage-0",
+   "day": "2025-04-25",
+   "tier": "blockage",
+   "before": 0.2,
+   "after": 0.2,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-04-26-0630-180m-blockage-0",
+   "day": "2025-04-26",
+   "tier": "blockage",
+   "before": 0.0,
+   "after": 0.18,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-04-26-1700-180m-blockage-0",
+   "day": "2025-04-26",
+   "tier": "blockage",
+   "before": 0.25,
+   "after": 0.12,
+   "legal_before": true,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-04-27-0800-210m-compound-0",
+   "day": "2025-04-27",
+   "tier": "compound",
+   "before": 0.4382,
+   "after": 0.3653,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-04-27-0830-210m-blockage-0",
+   "day": "2025-04-27",
+   "tier": "blockage",
+   "before": 0.315,
+   "after": 0.315,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-05-26-0730-150m-blockage-0",
+   "day": "2025-05-26",
+   "tier": "blockage",
+   "before": 0.3506,
+   "after": 0.2002,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-05-26-1630-150m-blockage-0",
+   "day": "2025-05-26",
+   "tier": "blockage",
+   "before": 0.1692,
+   "after": 0.1385,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-05-26-1800-150m-blockage-0",
+   "day": "2025-05-26",
+   "tier": "blockage",
+   "before": 0.2048,
+   "after": 0.232,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-05-27-0830-210m-blockage-0",
+   "day": "2025-05-27",
+   "tier": "blockage",
+   "before": 0.2,
+   "after": 0.2009,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-05-27-1700-180m-blockage-0",
+   "day": "2025-05-27",
+   "tier": "blockage",
+   "before": 0.1533,
+   "after": 0.0933,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-05-27-1830-180m-blockage-0",
+   "day": "2025-05-27",
+   "tier": "blockage",
+   "before": 0.1333,
+   "after": 0.228,
+   "legal_before": false,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-05-28-1830-210m-compound-0",
+   "day": "2025-05-28",
+   "tier": "compound",
+   "before": 0.1226,
+   "after": 0.0,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-05-30-0630-180m-blockage-0",
+   "day": "2025-05-30",
+   "tier": "blockage",
+   "before": 0.1034,
+   "after": 0.1724,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-05-31-0800-210m-compound-0",
+   "day": "2025-05-31",
+   "tier": "compound",
+   "before": 0.0563,
+   "after": 0.1812,
+   "legal_before": false,
+   "legal_after": false
+  },
+  {
+   "task": "gnlw-2025-05-31-0900-180m-compound-0",
+   "day": "2025-05-31",
+   "tier": "compound",
+   "before": 0.7561,
+   "after": 0.2001,
+   "legal_before": true,
+   "legal_after": true
+  },
+  {
+   "task": "gnlw-2025-06-22-1600-240m-compound-0",
+   "day": "2025-06-22",
+   "tier": "compound",
+   "before": 1.0,
+   "after": 1.0,
+   "legal_before": true,
+   "legal_after": true
+  }
+ ]
+}

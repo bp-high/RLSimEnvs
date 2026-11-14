@@ -1,0 +1,105 @@
+<div class="d3-railsim-paired"></div>
+<style>
+  .d3-railsim-paired { position: relative; color: var(--text-color); font-size: 12px; }
+  .d3-railsim-paired svg { display: block; width: 100%; overflow: visible; }
+  .d3-railsim-paired .axis path, .d3-railsim-paired .axis line { stroke: var(--axis-color); }
+  .d3-railsim-paired .axis text { fill: var(--tick-color); }
+  .d3-railsim-paired .grid line { stroke: var(--grid-color); }
+  .d3-railsim-paired .grid path { display: none; }
+  .d3-railsim-paired .task-label { fill: var(--muted-color); font-size: 10.5px; font-variant-numeric: tabular-nums; }
+  .d3-railsim-paired .link { stroke-width: 2; stroke-linecap: round; }
+  .d3-railsim-paired .axis-label { fill: var(--muted-color); font-size: 11px; }
+  .d3-railsim-paired .zone { fill: var(--danger-color); opacity: 0.06; }
+  .d3-railsim-paired .zone-label { fill: var(--muted-color); font-size: 10.5px; }
+  .d3-railsim-paired .hit { fill: transparent; }
+  .d3-railsim-paired .row-bg { fill: var(--primary-color); opacity: 0; }
+  .d3-railsim-paired .row-bg.on { opacity: 0.07; }
+  .d3-railsim-paired .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-bottom: 10px; }
+  .d3-railsim-paired .seg { display: inline-flex; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
+  .d3-railsim-paired .seg button { all: unset; cursor: pointer; padding: 5px 12px; color: var(--muted-color); font-size: 12px; }
+  .d3-railsim-paired .seg button[aria-pressed="true"] { background: color-mix(in srgb, var(--primary-color) 22%, transparent); color: var(--text-color); font-weight: 600; }
+  .d3-railsim-paired .seg button:focus-visible { outline: 2px solid var(--primary-color); outline-offset: -2px; }
+  .d3-railsim-paired .summary { color: var(--muted-color); }
+  .d3-railsim-paired .legend { display: inline-flex; gap: 14px; color: var(--muted-color); }
+  .d3-railsim-paired .legend .item { display: inline-flex; align-items: center; gap: 6px; }
+  .d3-railsim-paired .swatch { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
+  .d3-railsim-paired .d3-tooltip { position: absolute; top: 0; left: 0; pointer-events: none; opacity: 0; padding: 8px 10px; border-radius: 8px;
+    border: 1px solid var(--border-color); background: var(--surface-bg); color: var(--text-color); box-shadow: 0 4px 24px rgba(0,0,0,.18);
+    line-height: 1.4; white-space: nowrap; transition: opacity .12s ease; }
+  @media (prefers-reduced-motion: reduce) { .d3-railsim-paired .d3-tooltip { transition: none; } }
+</style>
+<script>
+  Embed.mount('d3-railsim-paired', async (ctx) => {
+    const all = await ctx.data();
+    let round = ctx.config.round || '262K';
+    const fmt = d3.format('.3f'), sfmt = d3.format('+.3f');
+    const esc = (s) => String(s).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
+    const TIER = { real: 'real', blockage: 'blockage', loop: 'lost loop', compound: 'compound' };
+    const short = (d) => {
+      const [, , mo, da, hm] = d.task.split('-');
+      return `${+da} ${['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'][+mo]} ${hm.slice(0, 2)}:${hm.slice(2)} · ${TIER[d.tier] || d.tier}`;
+    };
+    const controls = d3.select(ctx.root).append('div').attr('class', 'controls');
+    const seg = controls.append('div').attr('class', 'seg').attr('role', 'group').attr('aria-label', 'Which run');
+    const btn = seg.selectAll('button').data(['64K', '262K']).join('button').attr('type', 'button').text((d) => `${d} context`)
+      .on('click', (e, d) => { round = d; ctx.rerender(); });
+    const legend = controls.append('span').attr('class', 'legend');
+    const summary = controls.append('span').attr('class', 'summary');
+    const svg = d3.select(ctx.root).append('svg');
+    const gZone = svg.append('g'), gGrid = svg.append('g').attr('class', 'grid'), gx = svg.append('g').attr('class', 'axis');
+    const gRows = svg.append('g');
+    const xTitle = svg.append('text').attr('class', 'axis-label').attr('text-anchor', 'end');
+    const tip = d3.select(ctx.root).append('div').attr('class', 'd3-tooltip');
+    const describe = () => {
+      const rows = all[round], d = rows.map((r) => r.after - r.before);
+      ctx.describe(`Each of the 45 eval tasks before and after reinforcement learning (${round} context): mean change ${sfmt(d3.mean(d))}; better on ${d.filter((v) => v > 1e-9).length}, worse on ${d.filter((v) => v < -1e-9).length}.`);
+    };
+    return ({ width }) => {
+      describe();
+      const [after, before] = ctx.colors('categorical', 2);
+      const muted = getComputedStyle(ctx.root).getPropertyValue('--muted-color').trim() || '#888';
+      btn.attr('aria-pressed', (d) => String(d === round));
+      legend.html(`<span class="item"><span class="swatch" style="background:${muted}"></span>before</span><span class="item"><span class="swatch" style="background:${after}"></span>after RL</span>`);
+      const rows = [...all[round]].sort((a, b) => (b.after - b.before) - (a.after - a.before) || b.after - a.after);
+      const dv = rows.map((r) => r.after - r.before);
+      summary.text(`mean change ${sfmt(d3.mean(dv))} · better on ${dv.filter((v) => v > 1e-9).length}, worse on ${dv.filter((v) => v < -1e-9).length}, same on ${dv.filter((v) => Math.abs(v) <= 1e-9).length}`);
+      const narrow = width < 520;
+      const m = { top: 18, right: 16, bottom: 36, left: narrow ? 104 : 150 };
+      const rowH = 15, innerH = rows.length * rowH, height = innerH + m.top + m.bottom;
+      const x = d3.scaleLinear().domain([0, 1]).range([m.left, width - m.right]);
+      svg.attr('viewBox', `0 0 ${width} ${height}`).attr('height', height);
+      gZone.selectAll('rect').data([0]).join('rect').attr('class', 'zone').attr('x', x(0)).attr('width', x(0.2) - x(0)).attr('y', m.top).attr('height', innerH);
+      gZone.selectAll('text').data(narrow ? [] : [0]).join('text').attr('class', 'zone-label').attr('x', x(0.1)).attr('y', m.top - 5).attr('text-anchor', 'middle').text('illegal plans');
+      gGrid.attr('transform', `translate(0,${m.top})`).call(d3.axisBottom(x).ticks(5).tickSize(innerH).tickFormat(''));
+      gx.attr('transform', `translate(0,${m.top + innerH})`).call(d3.axisBottom(x).ticks(5).tickFormat(d3.format('.1f')).tickSizeOuter(0));
+      xTitle.attr('x', width - m.right).attr('y', height - 4).text('reward on the task (one rollout)');
+      const g = gRows.selectAll('g.r').data(rows, (d) => d.task).join((e) => {
+        const r = e.append('g').attr('class', 'r');
+        r.append('rect').attr('class', 'row-bg');
+        r.append('text').attr('class', 'task-label');
+        r.append('line').attr('class', 'link');
+        r.append('circle').attr('class', 'b');
+        r.append('circle').attr('class', 'a');
+        r.append('rect').attr('class', 'hit');
+        return r;
+      }).attr('transform', (d, i) => `translate(0,${m.top + i * rowH})`);
+      g.select('.row-bg').attr('x', 0).attr('width', width).attr('height', rowH).attr('rx', 3);
+      g.select('.task-label').attr('x', m.left - 8).attr('y', rowH / 2).attr('dy', '0.35em').attr('text-anchor', 'end').text(short);
+      g.select('.link').attr('x1', (d) => x(d.before)).attr('x2', (d) => x(d.after)).attr('y1', rowH / 2).attr('y2', rowH / 2)
+        .attr('stroke', (d) => (d.after >= d.before ? after : muted)).attr('stroke-opacity', 0.45);
+      g.select('.b').attr('cx', (d) => x(d.before)).attr('cy', rowH / 2).attr('r', 4).attr('fill', muted);
+      g.select('.a').attr('cx', (d) => x(d.after)).attr('cy', rowH / 2).attr('r', 4.5).attr('fill', after)
+        .attr('stroke', 'var(--surface-bg, #fff)').attr('stroke-width', 1.5);
+      g.select('.hit').attr('x', 0).attr('width', width).attr('height', rowH)
+        .on('pointermove', function (event, d) {
+          d3.select(this.parentNode).select('.row-bg').classed('on', true);
+          tip.html(`<b>${esc(d.day)}</b>, ${esc(short(d).split(' · ')[1])} disruption<br/>before <b>${fmt(d.before)}</b>${d.legal_before ? '' : ' (illegal)'}` +
+            `<br/>after RL <b>${fmt(d.after)}</b>${d.legal_after ? '' : ' (illegal)'}<br/>change ${sfmt(d.after - d.before)}`);
+          const [cx, cy] = d3.pointer(event, ctx.root);
+          const left = Math.min(cx + 12, ctx.root.clientWidth - tip.node().offsetWidth - 4);
+          tip.style('transform', `translate(${Math.max(0, left)}px, ${cy + 12}px)`).style('opacity', 1);
+        })
+        .on('pointerleave', function () { d3.select(this.parentNode).select('.row-bg').classed('on', false); tip.style('opacity', 0); });
+    };
+  });
+</script>

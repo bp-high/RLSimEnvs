@@ -1,0 +1,60 @@
+---
+title: "Teaching a small model\nto run a railway"
+subtitle: "Inkling 2 Small dispatches trains on a real Dutch single-track line, before and after reinforcement learning on Tinker"
+description: "RailSimEnv rebuilds real 2025 train disruptions on the Leeuwarden - Groningen line and grades every plan against a proven optimum. We fine-tuned Thinking Machines' Inkling 2 Small on it with reinforcement learning: 0.119 to 0.316."
+authors:
+  - name: "bpHigh"
+    url: "https://huggingface.co/bpHigh"
+    affiliations: [1]
+affiliations:
+  - name: "RLSimEnv"
+    url: "https://huggingface.co/spaces/bpHigh/RailSimEnv"
+published: "Nov. 14, 2026"
+licence: >
+  Text and charts are licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
+  Train data: <a href="https://www.rijdendetreinen.nl/en/open-data" target="_blank" rel="noopener noreferrer">Rijden de Treinen</a> (CC BY 4.0).
+  Map in the 3D replays: © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a> (ODbL).
+  Page built with the <a href="https://huggingface.co/spaces/tfrere/research-article-template" target="_blank" rel="noopener noreferrer">research article template</a> by Thibaud Frere (CC BY 4.0).
+tags:
+  - reinforcement-learning
+  - rl-environments
+  - railways
+banner: "banner-railsim.html"
+tocExpanded: true
+showPdf: false
+links:
+  - label: "Environment (Space)"
+    url: "https://huggingface.co/spaces/bpHigh/RailSimEnv"
+  - label: "Code"
+    url: "https://github.com/bp-high/RLSimEnvs"
+  - label: "Tinker"
+    url: "https://tinker-docs.thinkingmachines.ai/"
+---
+
+import Intro from "./chapters/01-intro.mdx";
+import Environment from "./chapters/02-environment.mdx";
+import Setup from "./chapters/03-setup.mdx";
+import RoundOne from "./chapters/04-round-64k.mdx";
+import RoundTwo from "./chapters/05-round-262k.mdx";
+import OnTheLine from "./chapters/06-on-the-line.mdx";
+import Lessons from "./chapters/07-lessons.mdx";
+import Cost from "./chapters/08-what-it-took.mdx";
+import Next from "./chapters/09-next.mdx";
+
+<Intro />
+
+<Environment />
+
+<Setup />
+
+<RoundOne />
+
+<RoundTwo />
+
+<OnTheLine />
+
+<Lessons />
+
+<Cost />
+
+<Next />
