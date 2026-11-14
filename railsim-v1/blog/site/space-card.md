@@ -1,6 +1,6 @@
 ---
 title: "Teaching a small model to run a railway"
-short_description: "Inkling 2 Small dispatches real Dutch trains, before and after RL"
+short_description: "A small model learns to dispatch real Dutch trains"
 emoji: 🚆
 colorFrom: blue
 colorTo: indigo

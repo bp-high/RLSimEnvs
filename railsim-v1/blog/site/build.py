@@ -44,6 +44,7 @@ def template() -> Path:
         CACHE.parent.mkdir(parents=True, exist_ok=True)
         run(["git", "clone", "-q", TEMPLATE, str(CACHE)], ROOT)
     run(["git", "-c", "advice.detachedHead=false", "checkout", "-q", TEMPLATE_REV], CACHE)
+    run(["git", "lfs", "pull", "--include", "app/public/*"], CACHE)     # icons are LFS files; the Hub refuses pointers
     if not (CACHE / "app" / "node_modules").is_dir():
         run(["npm", "ci", "--no-audit", "--no-fund"], CACHE / "app")
     return CACHE / "app"
