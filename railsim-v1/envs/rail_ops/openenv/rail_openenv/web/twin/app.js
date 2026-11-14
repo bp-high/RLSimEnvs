@@ -1,5 +1,6 @@
 // The line twin: pick a task and a plan, and watch it run on the real line. Data: /api (rail_core.replay, the grader's
 // own simulation) and ./twin.json.gz (OpenStreetMap). URL: ?task=<id>&plan=<id>&t=<HH:MM>&follow=<unit>&cam=map|chase|cab
+// &models=<text> (only the model plans whose run or model contains <text>, e.g. models=Inkling)
 
 import { Line } from "./geo.js";
 import { buildSim, hhmm, SLOT_M, TRAIN_M } from "./motion.js";
@@ -170,7 +171,9 @@ function seek(t) {
 async function loadPlans(taskId, want) {
   const all = await json(`/api/tasks/${encodeURIComponent(taskId)}/plans`);
   const models = all.filter((p) => p.id.startsWith("run:") || p.id.startsWith("episode:"));
-  const plans = models.length ? models : all;
+  const only = params.get("models");
+  const picked = only ? models.filter((p) => p.id.includes(only)).sort((a, b) => a.label.localeCompare(b.label)) : models;
+  const plans = picked.length ? picked : models.length ? models : all;
   $("#plan").innerHTML = plans.map((p) => `<option value="${p.id}">${p.label}${p.reward !== null && p.reward !== undefined ? ` · ${(+p.reward).toFixed(3)}` : ""}</option>`).join("");
   $("#plan").value = plans.some((p) => p.id === want) ? want : plans[0].id;
 }

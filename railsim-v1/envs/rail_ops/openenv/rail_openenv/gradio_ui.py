@@ -1,5 +1,5 @@
-"""The "Explore" tab of OpenEnv's web UI (/web): the eval explorer, the 3D replay and the train graph, each the
-server's own page in a frame, one tab each. OpenEnv's Playground tab (reset, step and the MCP tools) stays next to it.
+"""The "Explore" tab of OpenEnv's web UI (/web): the Inkling 2 Small runs in the 3D replay, the eval explorer, the 3D
+replay and the train graph, each the server's own page in a frame, one tab each. OpenEnv's Playground tab (reset, step and the MCP tools) stays next to it.
 
 A frame is only created when its tab is first opened, so the 3D replay does not start WebGL in a hidden tab.
 """
@@ -25,7 +25,8 @@ def version() -> str:
 
 
 V = version()
-PAGES = [("Eval explorer", f"/explorer/?embed=1&v={V}"), ("3D replay", f"/twin/?v={V}"),
+PAGES = [("Inkling 2 Small", f"/twin/?models=Inkling&v={V}"),   # the 3D replay of the Inkling runs only (first: the default)
+         ("Eval explorer", f"/explorer/?embed=1&v={V}"), ("3D replay", f"/twin/?v={V}"),
          ("Train graph", f"/viewer/?embed=1&v={V}")]
 # OpenEnv's page caps the container width; the pages want the full window.
 STYLE = ("<style>.gradio-container .main.fillable{max-width:none!important;padding-left:12px!important;"

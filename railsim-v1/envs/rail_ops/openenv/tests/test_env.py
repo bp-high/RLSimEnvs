@@ -177,8 +177,10 @@ def test_model_names():
     assert model_name("hf:Qwen/Qwen3.8-2.4T-A95B:together@default") == "Qwen3.8-2.4T-A95B (Together)"
     assert model_name("claude-sonnet-5-5@high") == "Claude Sonnet 5.5 (effort high)"
     assert model_name("claude-opus-5-5@default") == "Claude Opus 5.5"
-    assert model_name("tinker:thinkingmachines/Inkling-2-Small@high") == "Inkling 2 Small"
-    assert model_name("tinker:thinkingmachines/Inkling-2-Small#rl-a@high") == "Inkling 2 Small, RL rl-a"
+    assert model_name("tinker:thinkingmachines/Inkling-2-Small@high") == "Inkling 2 Small 64K (effort high)"
+    assert model_name("tinker:thinkingmachines/Inkling-2-Small#rl-a@high") == "Inkling 2 Small 64K, RL rl-a (effort high)"
+    assert (model_name("tinker:thinkingmachines/Inkling-2-Small:peft:262144#rl-b@max")
+            == "Inkling 2 Small 262K, RL rl-b (effort max)")
     assert model_name("some-model") == "some-model"
 
 

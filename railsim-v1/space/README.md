@@ -23,7 +23,7 @@ tasks on other days.
 
 | page | what |
 |---|---|
-| `/web` | OpenEnv's web UI. **Explore**: the eval explorer, the 3D replay and the train graph. **Playground**: reset, step and the MCP tools by hand |
+| `/web` | OpenEnv's web UI. **Explore**: the Inkling 2 Small runs in 3D (the first tab), the eval explorer, the 3D replay and the train graph. **Playground**: reset, step and the MCP tools by hand |
 | `/explorer/` | the leaderboard and every model's plan on every eval task; pick one to watch it |
 | `/twin/` | the 3D replay: each model's plan on every eval task, on the line's real track from OpenStreetMap (plus a few drawn sidings outside each terminal, where a set waits when both platform tracks are taken), with signals, level crossings, closures, the train graph and the cost as it accrues |
 | `/viewer/` | the train graph (time across, distance down) of any plan, with the plan's holds, short-turns and rule breaks |
@@ -74,6 +74,22 @@ One rollout per model, the same rules for every model (12 turns, 64k output toke
 | change nothing | 0.105 | 0 | 0 |
 
 Every plan is in the eval explorer, and replays in 3D exactly as it was graded.
+
+### Inkling 2 Small, before and after reinforcement learning
+
+Thinking Machines' Inkling 2 Small, fine-tuned with reinforcement learning on the train split through the Tinker API
+(a rank-8 LoRA, the environment's own reward). Its context window and output budget per turn differ from the rows
+above, so these rows compare with each other:
+
+| Inkling 2 Small | context, output per turn, effort | mean reward (95% CI) | legal plans | at the optimum |
+|---|---|---|---:|---:|
+| base | 64K, 8K, high | 0.119 (0.082-0.166) | 9 | 0 |
+| base | 64K, 8K, max | 0.111 (0.054-0.187) | 7 | 1 |
+| after RL (23 steps) | 64K, 8K, high | 0.186 (0.142-0.242) | 13 | 1 |
+| base | 262K, 32K, max | 0.259 (0.192-0.337) | 25 | 2 |
+| after RL (12 steps) | 262K, 32K, max | **0.316** (0.231-0.407) | 26 | 3 |
+
+The **Inkling 2 Small** tab replays every one of these plans on the map.
 
 ## Connect an agent
 
