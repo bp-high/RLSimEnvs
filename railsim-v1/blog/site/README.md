@@ -35,6 +35,7 @@ Things you can write:
 ## Edit, review, publish
 
 There are two private Spaces: a **draft** to review on any device, and the **real** one.
+The draft Space can be deleted once a build is published: the next `--draft` creates it again (private).
 
 | Space | address | who pushes to it |
 |---|---|---|
