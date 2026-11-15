@@ -45,7 +45,7 @@ def pill(draw, xy, text, f, fill=(15, 18, 24, 205), ink=(255, 255, 255, 255), pa
 def label(plan: dict) -> tuple[str, str]:
     name = plan["label"].split(" · ")[0].replace(" (effort max)", "")
     tag = "after RL" if ", RL" in name else "no training"
-    return f"Inkling 2 Small 262K · {tag}", f"reward {plan['reward']:.2f}" + ("" if plan["feasible"] else " · breaks rules")
+    return f"Inkling 2 Small 256K · {tag}", f"reward {plan['reward']:.2f}" + ("" if plan["feasible"] else " · breaks rules")
 
 
 def frame(img: Image.Image, plan: dict, t: float, scale: float, clock: bool = True) -> Image.Image:

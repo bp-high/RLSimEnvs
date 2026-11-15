@@ -3,7 +3,7 @@
 All of the training ran on Tinker; the loop, the environment and the grader ran on one small cloud machine. In tokens
 and time:
 
-| | 64K run (`rl-a`) | 262K run (`rl-b`) |
+| | 64K run (`rl-a`) | 256K run (`rl-b`) |
 |---|---:|---:|
 | RL steps | 23 | 12 |
 | episodes per step | 16 tasks × 4 | 8 tasks × 4 |
@@ -13,6 +13,6 @@ and time:
 | average training sequence | 44k tokens | 143k tokens |
 | hours of sampling / of training | 3.0 / 0.5 | 6.0 / 0.5 |
 
-Each evaluation of 45 tasks took 7 minutes at 64K and 30 minutes at 262K, with all 45 episodes in flight at once.
-At 262K most of the training cost is training itself: the sequences are three times longer and long-context training
+Each evaluation of 45 tasks took 7 minutes at 64K and 30 minutes at 256K, with all 45 episodes in flight at once.
+At 256K most of the training cost is training itself: the sequences are three times longer and long-context training
 is priced higher per token.

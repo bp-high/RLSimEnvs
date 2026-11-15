@@ -180,7 +180,7 @@ def test_model_names():
     assert model_name("tinker:thinkingmachines/Inkling-2-Small@high") == "Inkling 2 Small 64K (effort high)"
     assert model_name("tinker:thinkingmachines/Inkling-2-Small#rl-a@high") == "Inkling 2 Small 64K, RL rl-a (effort high)"
     assert (model_name("tinker:thinkingmachines/Inkling-2-Small:peft:262144#rl-b@max")
-            == "Inkling 2 Small 262K, RL rl-b (effort max)")
+            == "Inkling 2 Small 256K, RL rl-b (effort max)")
     assert model_name("some-model") == "some-model"
 
 

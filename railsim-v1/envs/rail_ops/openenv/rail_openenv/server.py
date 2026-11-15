@@ -78,11 +78,11 @@ def model_name(spec: str) -> str:
         version = ".".join(p for p in parts if p.isdigit())
         name = f"Claude {family} {version}".strip()
         return f"{name} (effort {effort})" if effort and effort != "default" else name
-    if model.startswith("tinker:"):    # "tinker:org/Inkling-2-Small:peft:262144#rl-b@max" -> "Inkling 2 Small 262K, RL rl-b (effort max)"
+    if model.startswith("tinker:"):    # "tinker:org/Inkling-2-Small:peft:262144#rl-b@max" -> "Inkling 2 Small 256K, RL rl-b (effort max)"
         base, _, ckpt = model[7:].partition("#")
         name = base.split(":")[0].split("/")[-1].replace("-", " ")
         ctx = base.split(":peft:")[1] if ":peft:" in base else "65536"
-        size = {"65536": "64K", "262144": "262K"}.get(ctx, f"{int(ctx) // 1000}K")   # as the notes and READMEs say
+        size = {"65536": "64K", "262144": "256K"}.get(ctx, f"{int(ctx) // 1024}K")   # K = 1,024 tokens, as Tinker lists them
         name = f"{name} {size}" + (f", RL {ckpt}" if ckpt else "")
         return f"{name} (effort {effort})" if effort and effort != "default" else name
     return model

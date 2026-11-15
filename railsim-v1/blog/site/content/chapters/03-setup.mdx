@@ -30,7 +30,7 @@ and the reward is the environment's own score.
 - **An episode:** 12 turns at most, `check_plan` up to 10 times, `submit_plan` once. Two turns in a row without a tool
   call end it; no plan scores 0. After every turn the model is told how many turns and how much context it has left,
   and when another check would no longer fit beside the final answer the next turn is announced as the last.
-- **A step:** 16 tasks × 4 episodes (64K run) or 8 tasks × 4 (262K run); rewards centred within each task's group;
+- **A step:** 16 tasks × 4 episodes (64K run) or 8 tasks × 4 (256K run); rewards centred within each task's group;
   groups whose four rewards are equal carry no signal and are skipped; one `importance_sampling` step at learning
   rate 1e-4.
 - **Tracking progress honestly:** 16 training tasks are held out and played once every 6 steps; the 45 evaluation

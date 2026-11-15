@@ -31,7 +31,7 @@
 <script>
   Embed.mount('d3-railsim-paired', async (ctx) => {
     const all = await ctx.data();
-    let round = ctx.config.round || '262K';
+    let round = ctx.config.round || '256K';
     const fmt = d3.format('.3f'), sfmt = d3.format('+.3f');
     const esc = (s) => String(s).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
     const TIER = { real: 'real', blockage: 'blockage', loop: 'lost loop', compound: 'compound' };
@@ -41,7 +41,7 @@
     };
     const controls = d3.select(ctx.root).append('div').attr('class', 'controls');
     const seg = controls.append('div').attr('class', 'seg').attr('role', 'group').attr('aria-label', 'Which run');
-    const btn = seg.selectAll('button').data(['64K', '262K']).join('button').attr('type', 'button').text((d) => `${d} context`)
+    const btn = seg.selectAll('button').data(['64K', '256K']).join('button').attr('type', 'button').text((d) => `${d} context`)
       .on('click', (e, d) => { round = d; ctx.rerender(); });
     const legend = controls.append('span').attr('class', 'legend');
     const summary = controls.append('span').attr('class', 'summary');

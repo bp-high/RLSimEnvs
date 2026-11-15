@@ -86,8 +86,8 @@ above, so these rows compare with each other:
 | base | 64K, 8K, high | 0.119 (0.082-0.166) | 9 | 0 |
 | base | 64K, 8K, max | 0.111 (0.054-0.187) | 7 | 1 |
 | after RL (23 steps) | 64K, 8K, high | 0.186 (0.142-0.242) | 13 | 1 |
-| base | 262K, 32K, max | 0.259 (0.192-0.337) | 25 | 2 |
-| after RL (12 steps) | 262K, 32K, max | **0.316** (0.231-0.407) | 26 | 3 |
+| base | 256K, 32K, max | 0.259 (0.192-0.337) | 25 | 2 |
+| after RL (12 steps) | 256K, 32K, max | **0.316** (0.231-0.407) | 26 | 3 |
 
 The **Inkling 2 Small** tab replays every one of these plans on the map.
 

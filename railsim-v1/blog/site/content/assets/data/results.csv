@@ -1,6 +1,6 @@
 model,group,reward,lo,hi
-Inkling 2 Small · 262K · after RL,after RL,0.3159,0.231,0.4074
-Inkling 2 Small · 262K · base,Inkling,0.2594,0.1923,0.3369
+Inkling 2 Small · 256K · after RL,after RL,0.3159,0.231,0.4074
+Inkling 2 Small · 256K · base,Inkling,0.2594,0.1923,0.3369
 Inkling 2 Small · 64K · after RL,after RL,0.1861,0.1418,0.2424
 Greedy dispatcher (rules),baseline,0.18,,
 Inkling 2 Small · 64K · base,Inkling,0.1194,0.0817,0.1664

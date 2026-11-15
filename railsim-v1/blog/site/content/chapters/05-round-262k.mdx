@@ -4,7 +4,7 @@ import Sidenote from '../../components/Sidenote.astro';
 
 ## Round 2: give it room to think
 
-If the problem was room, the fix was room. Tinker also serves Inkling 2 Small with a **262,144-token** context. We
+If the problem was room, the fix was room. Tinker also serves Inkling 2 Small with a **262,144-token** context (256K, as Tinker lists it: 256 × 1,024). We
 ran it at maximum effort with **32,768** output tokens per turn.
 
 ### Before any training: 0.259
@@ -27,7 +27,7 @@ was not about budget (the model already submitted almost every time) but about p
 <HtmlEmbed
   src="d3-railsim-paired.html"
   data="paired.json"
-  config={{ round: '262K' }}
+  config={{ round: '256K' }}
   title="Every evaluation task, before and after RL"
   desc="Each row is one task: grey is the base model, coloured the fine-tuned one. Rows are sorted by how much the task changed. Switch between the two rounds above the chart; hover a row for its numbers. Plans left of 0.2 broke a rule."
 />
@@ -37,5 +37,5 @@ was not about budget (the model already submitted almost every time) but about p
   data="curves.csv"
   config={{ xLabel: 'RL step', yLabel: 'Mean reward on 16 held-out training tasks' }}
   title="The held-out tasks during training"
-  desc="Both runs, played once every six steps (and at the end). The 64K run climbs once the learning rate was raised at step 6; the 262K run starts higher and stays flat on these 16 tasks."
+  desc="Both runs, played once every six steps (and at the end). The 64K run climbs once the learning rate was raised at step 6; the 256K run starts higher and stays flat on these 16 tasks."
 />

@@ -4,7 +4,7 @@
 effort max (0.99), **32,768 output tokens per turn**, a 262,144-token context, 12 turns, temperature 1. Run to decide
 whether to do RL in this setting.
 
-| 45 eval tasks | base, 64K, high, 8K/turn | base, 64K, max, 8K/turn | after RL (`rl-a`), 64K, high, 8K/turn | **base, 262K, max, 32K/turn** |
+| 45 eval tasks | base, 64K, high, 8K/turn | base, 64K, max, 8K/turn | after RL (`rl-a`), 64K, high, 8K/turn | **base, 256K, max, 32K/turn** |
 |---|---:|---:|---:|---:|
 | mean reward (95% CI) | 0.119 (0.082-0.166) | 0.111 (0.054-0.187) | 0.186 (0.142-0.242) | **0.259** (0.192-0.337) |
 | median | 0.088 | | 0.138 | 0.200 |

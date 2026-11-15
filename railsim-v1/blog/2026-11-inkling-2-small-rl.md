@@ -93,8 +93,8 @@ about 0.22 to 0.31. One more rollout of each evaluation would settle it.
 | base | 64K | 8K | high | 0.119 |
 | base | 64K | 8K | max | 0.111 |
 | after RL (23 steps) | 64K | 8K | high | 0.186 |
-| base | 262K | 32K | max | 0.259 |
-| after RL (12 steps) | 262K | 32K | max | **0.316** |
+| base | 256K | 32K | max | 0.259 |
+| after RL (12 steps) | 256K | 32K | max | **0.316** |
 
 For scale: the best trained Inkling sits between the rule-based dispatcher (0.180) and GLM-5.3-Flash (0.360), a model
 of similar active size, which ran with four times the room (a million tokens of context and 64,000 per turn).
@@ -131,7 +131,7 @@ so a restart now costs only the few episodes in flight.
 
 ## What it took
 
-| | 64K run | 262K run |
+| | 64K run | 256K run |
 |---|---:|---:|
 | RL steps | 23 | 12 |
 | episodes played (training) | 1,472 | 384 |
@@ -141,9 +141,9 @@ so a restart now costs only the few episodes in flight.
 
 ## What's next
 
-1. **Settle round 2:** one more rollout of the 262K evaluations, before and after.
-2. **Train longer at 262K:** round 1 needed about 12 steps before anything moved; round 2 stopped at 12.
-3. **Try high effort at 262K:** maybe the room matters and maximum effort does not.
+1. **Settle round 2:** one more rollout of the 256K evaluations, before and after.
+2. **Train longer at 256K:** round 1 needed about 12 steps before anything moved; round 2 stopped at 12.
+3. **Try high effort at 256K:** maybe the room matters and maximum effort does not.
 4. **Tell the model the situation is already there,** or let RL learn to skip `get_situation`.
 
 Everything is open: the environment and its tasks, the training script (`railsim-v1/train/train_rl.py`), every

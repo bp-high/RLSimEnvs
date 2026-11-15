@@ -1,4 +1,4 @@
-# Inkling 2 Small 262K at max effort, after RL (`rl-b`), on rail-v1-eval (45 tasks, one rollout each)
+# Inkling 2 Small 256K at max effort, after RL (`rl-b`), on rail-v1-eval (45 tasks, one rollout each)
 
 `thinkingmachines/Inkling-2-Small:peft:262144` with the adapter of training run `rl-b` (`results/train/rl-b`, the
 sampler checkpoint saved at its step-12 validation), sampled through the Tinker API: effort max (0.99), 32,768 output

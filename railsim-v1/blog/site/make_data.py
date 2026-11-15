@@ -27,8 +27,8 @@ INK = {  # run -> (label, short label)
     f"{P}base-eval45": ("Inkling 2 Small · 64K · base", "64K base"),
     f"{P}base-max-eval45": ("Inkling 2 Small · 64K · base, max effort", "64K base, max effort"),
     f"{P}rl-a-eval45": ("Inkling 2 Small · 64K · after RL", "64K after RL"),
-    f"{P}256k-max-eval45": ("Inkling 2 Small · 262K · base", "262K base"),
-    f"{P}256k-max-rl-b-eval45": ("Inkling 2 Small · 262K · after RL", "262K after RL"),
+    f"{P}256k-max-eval45": ("Inkling 2 Small · 256K · base", "256K base"),
+    f"{P}256k-max-rl-b-eval45": ("Inkling 2 Small · 256K · after RL", "256K after RL"),
 }
 
 
@@ -60,7 +60,7 @@ def results() -> None:
 
 def curves() -> None:
     rows = []
-    for run, label in (("rl-a", "64K run (rl-a)"), ("rl-b", "262K run (rl-b)")):
+    for run, label in (("rl-a", "64K run (rl-a)"), ("rl-b", "256K run (rl-b)")):
         seen = {}
         for line in (ROOT / "results" / "train" / run / "metrics.jsonl").read_text().splitlines():
             r = json.loads(line)
@@ -76,7 +76,7 @@ def curves() -> None:
 def paired() -> None:
     out = {}
     for key, (a, b) in {"64K": (f"{P}base-eval45", f"{P}rl-a-eval45"),
-                        "262K": (f"{P}256k-max-eval45", f"{P}256k-max-rl-b-eval45")}.items():
+                        "256K": (f"{P}256k-max-eval45", f"{P}256k-max-rl-b-eval45")}.items():
         before = {e["task_id"]: e for e in episodes(a)}
         after = {e["task_id"]: e for e in episodes(b)}
         out[key] = [{"task": t, "day": before[t]["day"], "tier": before[t]["difficulty"],
