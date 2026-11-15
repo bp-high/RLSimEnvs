@@ -102,12 +102,13 @@ def banner(server: str = "http://127.0.0.1:8031") -> None:
                 if t is not None:
                     pts.append([t, km[r["route"][i]]])
         if len(pts) > 1:
-            runs.append({"train": r["train"], "kind": r["kind"], "pts": pts})
+            runs.append({"train": r["train"], "unit": r["unit"], "kind": r["kind"], "dir": r["dir"], "pts": pts})
     body = {"task": task, "start": R["start"], "end": R["end"], "length": max(km.values()),
             "stations": [{"code": p["code"], "name": p["name"], "km": p["km"]} for p in R["points"]
                          if p["kind"] != "junction"],
             "closures": [{"from": km[c["where"][0]], "to": km[c["where"][-1]], "start": c["start"], "end": c["end"]}
                          for c in R["closures"] if c["kind"] == "closed"],
+            "sections": [{"from": km[x["a"]], "to": km[x["b"]], "single": x["single"]} for x in R["sections"]],
             "runs": runs}
     (OUT / "banner.json").write_text(json.dumps(body, separators=(",", ":")))
 

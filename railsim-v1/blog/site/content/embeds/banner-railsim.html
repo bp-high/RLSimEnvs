@@ -1,73 +1,243 @@
-<div class="banner-railsim"></div>
+<div class="banner-railsim">
+  <div class="br-plot"></div>
+  <div class="br-key" aria-hidden="true">
+    <span><i class="sw sw-stop"></i>stopping train</span>
+    <span><i class="sw sw-fast"></i>fast train</span>
+    <span><i class="sw sw-set"></i><span><b class="br-set-name">one train set</b> going back and forth (tap a line to follow another)</span></span>
+    <span>↓ towards Groningen · ↑ towards Leeuwarden</span>
+    <span>flat = standing at a station</span>
+    <span>lines cross = trains pass, only where there are two tracks</span>
+    <span><i class="trk trk-2"></i>two tracks <i class="trk trk-1"></i>one track</span>
+  </div>
+</div>
 <style>
-  .banner-railsim { width: 100%; aspect-ratio: 5 / 2; overflow: hidden; position: relative; }
-  .banner-railsim svg { width: 100%; height: 100%; display: block; }
+  .banner-railsim { width: 100%; position: relative; }
+  .banner-railsim .br-plot { width: 100%; aspect-ratio: 16 / 7; position: relative; }
+  .banner-railsim svg { width: 100%; height: 100%; display: block; overflow: visible; }
   .banner-railsim .stn { stroke: var(--grid-color); stroke-width: 1; }
-  .banner-railsim .stn-label { fill: var(--muted-color); font-size: 11px; font-weight: 600; letter-spacing: 0.04em; }
-  .banner-railsim .run { fill: none; stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+  .banner-railsim .stn-label { fill: var(--muted-color); font-size: 11px; font-weight: 600; letter-spacing: 0.02em; }
+  .banner-railsim .stn-label.terminal { fill: var(--text-color); }
+  .banner-railsim .tick { fill: var(--muted-color); font-size: 10px; font-variant-numeric: tabular-nums; }
+  .banner-railsim .axis-note { fill: var(--muted-color); font-size: 10px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+  .banner-railsim .track { stroke: var(--text-color); stroke-opacity: 0.55; stroke-width: 1.4; stroke-linecap: round; }
+  .banner-railsim .run { fill: none; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; transition: stroke-opacity .2s, stroke-width .2s; }
+  .banner-railsim .run.faded { stroke-opacity: 0.28; }
+  .banner-railsim .run.hl { stroke-width: 3.4; }
+  .banner-railsim .turn { fill: none; stroke: var(--text-color); stroke-opacity: 0.55; stroke-width: 2; stroke-dasharray: 2 3; }
+  .banner-railsim .hit { fill: none; stroke: transparent; stroke-width: 12; cursor: pointer; pointer-events: stroke; }
   .banner-railsim .closure { stroke: var(--danger-color); stroke-width: 1.2; stroke-opacity: 0.7; }
   .banner-railsim .closure-label { fill: var(--danger-color); font-size: 11px; font-weight: 600; }
   .banner-railsim .clock-line { stroke: var(--text-color); stroke-opacity: 0.45; stroke-width: 1; stroke-dasharray: 2 3; }
   .banner-railsim .clock { fill: var(--text-color); font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .banner-railsim .dot { stroke: var(--page-bg, #fff); stroke-width: 1.5; }
+  .banner-railsim .dot.hl { stroke: var(--text-color); stroke-width: 2; }
+  .banner-railsim .note { fill: var(--text-color); font-size: 11px; font-weight: 600; paint-order: stroke; stroke: var(--page-bg, #fff); stroke-width: 4px; stroke-linejoin: round; }
+  .banner-railsim .note-line { stroke: var(--text-color); stroke-opacity: 0.6; stroke-width: 1; }
+  .banner-railsim .note-dot { fill: var(--text-color); }
+  .banner-railsim .br-key { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 16px; margin-top: 8px;
+    font-size: 12px; line-height: 1.5; color: var(--muted-color); }
+  .banner-railsim .br-key > span { white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; }
+  .banner-railsim .br-key b { color: var(--text-color); font-weight: 600; }
+  .banner-railsim .sw { display: inline-block; width: 16px; height: 0; border-top: 2px solid currentColor; }
+  .banner-railsim .sw-set { border-top-width: 4px; }
+  .banner-railsim .trk { display: inline-block; width: 14px; height: 6px; }
+  .banner-railsim .trk-2 { border-top: 1.5px solid var(--text-color); border-bottom: 1.5px solid var(--text-color); opacity: .6; }
+  .banner-railsim .trk-1 { height: 0; border-top: 1.5px solid var(--text-color); opacity: .6; }
+  @media (max-width: 640px) {
+    .banner-railsim .br-plot { aspect-ratio: 4 / 3; }
+    .banner-railsim .br-key { font-size: 11px; gap: 2px 12px; }
+    .banner-railsim .br-key > span { white-space: normal; }
+  }
 </style>
 <script>
   Embed.mount('banner-railsim', async (ctx) => {
     // The hero passes no data prop, so the banner reads its file from /data/ (written by make_data.py).
     const B = ctx.files.length ? await ctx.data()
       : await (await fetch(new URL('data/banner.json', document.baseURI), { signal: ctx.signal })).json();
+    const plot = ctx.root.querySelector('.br-plot') || ctx.root;
+    const keyEl = ctx.root.querySelector('.br-key');
+    const setName = ctx.root.querySelector('.br-set-name');
     const uid = Math.random().toString(36).slice(2, 8);
-    const svg = d3.select(ctx.root).append('svg').attr('preserveAspectRatio', 'none');
+    const hhmm = (m) => `${String(Math.floor(m / 60) % 24).padStart(2, '0')}:${String(Math.floor(m % 60)).padStart(2, '0')}`;
+    const stnAt = (km) => B.stations.reduce((a, s) => (Math.abs(s.km - km) < Math.abs(a.km - km) ? s : a));
+    const twoTracks = new Set(['HDG', 'FWD', 'DWE', 'BP', 'GK', 'ZH']);
+
+    // A train set's day: its runs in order, joined where it turns round at a station.
+    const units = d3.groups(B.runs, (r) => r.unit).map(([unit, runs]) => {
+      runs = runs.slice().sort((a, b) => a.pts[0][0] - b.pts[0][0]);
+      const turns = [];
+      for (let i = 1; i < runs.length; i++) {
+        const a = runs[i - 1].pts.at(-1), b = runs[i].pts[0];
+        if (Math.abs(a[1] - b[1]) < 0.01) turns.push({ t0: a[0], t1: b[0], km: a[1] });
+      }
+      const pts = runs.flatMap((r) => r.pts);
+      return { unit, runs, turns, pts, label: runs.map((r) => r.train).join(' → ') };
+    });
+    const byUnit = new Map(units.map((u) => [u.unit, u]));
+    const posAt = (u, t) => {                                // km at time t, or null outside the set's day
+      const p = u.pts;
+      if (t < p[0][0] || t > p.at(-1)[0]) return null;
+      for (let i = 1; i < p.length; i++) {
+        if (t <= p[i][0]) {
+          const [ta, ka] = p[i - 1], [tb, kb] = p[i];
+          if (tb - ta < 1e-6) return kb;
+          const gap = tb - ta > 1 && Math.abs(kb - ka) < 0.01;
+          return gap ? ka : ka + (kb - ka) * (t - ta) / (tb - ta);
+        }
+      }
+      return p.at(-1)[1];
+    };
+    const kindAt = (u, t) => (u.runs.find((r) => t >= r.pts[0][0] && t <= r.pts.at(-1)[0]) || u.runs.find((r) => r.pts[0][0] >= t) || u.runs.at(-1)).kind;
+
+    // What the highlighted set does, as notes on the graph: where it waits, turns back and passes another train.
+    const notesFor = (u) => {
+      const out = [];
+      const wait = u.runs.flatMap((r) => r.pts.slice(1).map((p, i) => [r.pts[i], p]))
+        .filter(([a, b]) => Math.abs(a[1] - b[1]) < 0.01 && b[0] - a[0] >= 3)
+        .sort((x, y) => (y[1][0] - y[0][0]) - (x[1][0] - x[0][0]))[0];
+      if (wait) out.push({ t: (wait[0][0] + wait[1][0]) / 2, km: wait[0][1], text: `waits ${Math.round(wait[1][0] - wait[0][0])} min at ${stnAt(wait[0][1]).name}` });
+      const turn = u.turns.find((x) => x.km > 0.01 && x.km < B.length - 0.01) || u.turns[0];
+      if (turn) out.push({ t: (turn.t0 + turn.t1) / 2, km: turn.km, text: `turns back at ${stnAt(turn.km).name}` });
+      for (const r of u.runs) {                             // first passing with a train going the other way
+        const pass = B.runs.filter((o) => o.unit !== u.unit && o.dir !== r.dir).flatMap((o) =>
+          r.pts.filter((p) => twoTracks.has(stnAt(p[1]).code) && Math.abs(stnAt(p[1]).km - p[1]) < 0.01)
+            .filter((p) => o.pts.some((q) => Math.abs(q[1] - p[1]) < 0.01 && Math.abs(q[0] - p[0]) <= 1))
+            .map((p) => ({ t: p[0], km: p[1], text: `passes ${o.train} at ${stnAt(p[1]).name}` })))[0];
+        if (pass && !out.some((n) => Math.abs(n.t - pass.t) < 12)) { out.push(pass); break; }
+      }
+      return out;
+    };
+
+    let hl = byUnit.has('T06') ? 'T06' : units[0].unit;
+    const svg = d3.select(plot).append('svg').attr('preserveAspectRatio', 'none');
     const defs = svg.append('defs');
     const hatch = defs.append('pattern').attr('id', `hatch-${uid}`).attr('patternUnits', 'userSpaceOnUse')
       .attr('width', 7).attr('height', 7).attr('patternTransform', 'rotate(45)');
     const hatchLine = hatch.append('line').attr('x1', 0).attr('y1', 0).attr('x2', 0).attr('y2', 7).attr('stroke-width', 2);
     const clip = defs.append('clipPath').attr('id', `reveal-${uid}`).append('rect');
     const gStations = svg.append('g');
+    const gTrack = svg.append('g');
+    const gTicks = svg.append('g');
     const gClosure = svg.append('g');
     const gRuns = svg.append('g').attr('clip-path', `url(#reveal-${uid})`);
+    const gNotes = svg.append('g');
+    const gHit = svg.append('g');
     const clockLine = svg.append('line').attr('class', 'clock-line');
     const clockText = svg.append('text').attr('class', 'clock');
-    const t0 = B.start, t1 = B.end + 30;
-    const hhmm = (m) => `${String(Math.floor(m / 60) % 24).padStart(2, '0')}:${String(Math.floor(m % 60)).padStart(2, '0')}`;
-    ctx.describe(`Train graph of Inkling 2 Small's plan after reinforcement learning for 13 March 2025, ${hhmm(B.start)} to ${hhmm(B.end)}: ${B.runs.length} trains between Leeuwarden and Groningen, drawn as time runs, around a closure of Leeuwarden to Hurdegaryp.`);
-    let x, y, now = t0;
+    const gDots = svg.append('g');
+    const t0 = B.start, t1 = B.end + 30, tEnd = B.end + 5;   // the clock stops while most sets still run
+    ctx.describe(`Train graph of Inkling 2 Small's plan after reinforcement learning for 13 March 2025, ${hhmm(B.start)} to ${hhmm(B.end)}: ${B.runs.length} trains between Leeuwarden (top) and Groningen (bottom), time running left to right, around a closure of Leeuwarden to Hurdegaryp. One train set is highlighted; a strip at the left shows where every train is at the moving clock.`);
+
+    let x, y, stripX, notes = [], now = t0, colors = {};
     const draw = () => {
-      const w = x.range()[1] - x.range()[0];
       clip.attr('x', x.range()[0] - 4).attr('y', 0).attr('width', Math.max(0, x(now) - x.range()[0] + 4)).attr('height', 9999);
-      clockLine.attr('x1', x(now)).attr('x2', x(now)).attr('y1', y.range()[0] - 6).attr('y2', y.range()[1] + 6);
+      clockLine.attr('x1', x(now)).attr('x2', x(now)).attr('y1', y.range()[0] - 6).attr('y2', y.range()[1] + 4);
       clockText.attr('x', Math.min(x(now) + 6, x.range()[1] - 40)).attr('y', y.range()[0] - 10).text(hhmm(now));
-      return w;
+      const live = units.map((u) => ({ u, km: posAt(u, now) })).filter((d) => d.km !== null);
+      const dots = gDots.selectAll('g').data(live, (d) => d.u.unit).join((e) => {
+        const g = e.append('g');
+        g.append('circle').attr('class', 'dot strip');
+        g.append('circle').attr('class', 'dot on-graph');
+        return g;
+      });
+      dots.sort((a, b) => (a.u.unit === hl) - (b.u.unit === hl));
+      dots.select('.strip').attr('cx', stripX).attr('cy', (d) => y(d.km)).attr('r', (d) => (d.u.unit === hl ? 5.5 : 4))
+        .attr('fill', (d) => colors[kindAt(d.u, now)]).classed('hl', (d) => d.u.unit === hl);
+      dots.select('.on-graph').attr('cx', x(now)).attr('cy', (d) => y(d.km)).attr('r', (d) => (d.u.unit === hl ? 5 : 0))
+        .attr('fill', (d) => colors[kindAt(d.u, now)]).classed('hl', true);
+      gNotes.selectAll('g').attr('opacity', (d) => (now >= d.t ? 1 : 0));
     };
+    const highlight = () => {
+      gRuns.selectAll('path.run').classed('hl', (d) => d.unit === hl).classed('faded', (d) => d.unit !== hl);
+      gRuns.selectAll('path.turn').attr('display', (d) => (d.unit === hl ? null : 'none'));
+      if (setName) setName.textContent = `train set ${byUnit.get(hl).label}`;
+      notes = notesFor(byUnit.get(hl));
+    };
+
     if (!ctx.reducedMotion) {
       ctx.animate((time) => {
-        const span = t1 - t0, period = 16000;
-        now = t0 + span * Math.min(1, ((time % period) / (period * 0.85)));
+        const span = tEnd - t0, period = 20000;
+        now = t0 + span * Math.min(1, ((time % period) / (period * 0.85)));      // runs to tEnd, then holds
         if (x) draw();
       });
-    } else now = t1;
-    return ({ width, height }) => {
+    } else now = tEnd;
+
+    let layout = null;
+    const render = ({ width, height }) => {
       const [stopColor, fastColor] = ctx.colors('categorical', 2);
-      const narrow = width < 520;
-      const m = { top: 26, right: 10, bottom: 10, left: narrow ? 34 : 46 };
+      colors = { stop: stopColor, fast: fastColor };
+      if (keyEl) {
+        keyEl.querySelector('.sw-stop').style.color = stopColor;
+        keyEl.querySelector('.sw-fast').style.color = fastColor;
+        keyEl.querySelector('.sw-set').style.color = 'var(--text-color)';
+      }
+      const narrow = width < 560;
+      const labelW = narrow ? 34 : 92;
+      stripX = labelW + 10;
+      const m = { top: 26, right: 12, bottom: 22, left: stripX + 18 };
       x = d3.scaleLinear().domain([t0, t1]).range([m.left, width - m.right]);
       y = d3.scaleLinear().domain([0, B.length]).range([m.top, height - m.bottom]);
       svg.attr('viewBox', `0 0 ${width} ${height}`);
       hatchLine.attr('stroke', getComputedStyle(ctx.root).getPropertyValue('--danger-color') || '#c33');
+
+      // Stations: full names when there is room; the strip beside them is the line itself, with its tracks.
       gStations.selectAll('line').data(B.stations).join('line').attr('class', 'stn')
         .attr('x1', m.left).attr('x2', width - m.right).attr('y1', (d) => y(d.km)).attr('y2', (d) => y(d.km));
       const shown = B.stations.filter((d) => ['LW', 'HDG', 'BP', 'GK', 'ZH', 'GN'].includes(d.code));
-      gStations.selectAll('text').data(shown).join('text').attr('class', 'stn-label')
-        .attr('x', 2).attr('y', (d) => y(d.km)).attr('dy', '0.35em').text((d) => d.code);
+      gStations.selectAll('text').data(shown).join('text')
+        .attr('class', (d) => `stn-label${d.code === 'LW' || d.code === 'GN' ? ' terminal' : ''}`)
+        .attr('x', labelW).attr('text-anchor', 'end').attr('y', (d) => y(d.km)).attr('dy', '0.35em')
+        .text((d) => (narrow ? d.code : d.name));
+      const tracks = (B.sections || []).flatMap((s) => (s.single ? [0] : [-2.5, 2.5]).map((dx) => ({ ...s, dx })));
+      gTrack.selectAll('line').data(tracks).join('line').attr('class', 'track')
+        .attr('x1', (d) => stripX + d.dx).attr('x2', (d) => stripX + d.dx)
+        .attr('y1', (d) => y(d.from)).attr('y2', (d) => y(d.to));
+
+      // Time along the bottom, every half hour.
+      const ticks = d3.range(Math.ceil(t0 / 30) * 30, t1 + 1, narrow ? 60 : 30)
+        .filter((t) => x(t) < width - m.right - (narrow ? 18 : 64));     // clear of the "time" note
+      gTicks.selectAll('text.tick').data(ticks).join('text').attr('class', 'tick')
+        .attr('x', (d) => x(d)).attr('y', height - 6).attr('text-anchor', 'middle').text(hhmm);
+      gTicks.selectAll('text.axis-note').data(narrow ? [] : ['time →']).join('text').attr('class', 'axis-note')
+        .attr('x', width - m.right).attr('y', height - 6).attr('text-anchor', 'end').text((d) => d);
+
       gClosure.selectAll('rect').data(B.closures).join('rect').attr('class', 'closure')
         .attr('x', (d) => x(d.start)).attr('width', (d) => x(d.end) - x(d.start))
         .attr('y', (d) => y(Math.min(d.from, d.to))).attr('height', (d) => Math.abs(y(d.to) - y(d.from)))
         .attr('fill', `url(#hatch-${uid})`).attr('fill-opacity', 0.35);
       gClosure.selectAll('text').data(narrow ? [] : B.closures).join('text').attr('class', 'closure-label')
-        .attr('x', (d) => x(d.start) + 6).attr('y', (d) => y(Math.min(d.from, d.to)) + 14).text('closed: broken-down train');
+        .attr('x', (d) => x(d.start) + 6).attr('y', (d) => y(Math.min(d.from, d.to)) + 14).text('line closed: broken-down train');
+
       const line = d3.line().x((p) => x(p[0])).y((p) => y(p[1]));
-      gRuns.selectAll('path').data(B.runs, (d) => d.train).join('path').attr('class', 'run')
-        .attr('stroke', (d) => (d.kind === 'fast' ? fastColor : stopColor)).attr('d', (d) => line(d.pts));
+      gRuns.selectAll('path.run').data(B.runs, (d) => d.train).join('path').attr('class', 'run')
+        .attr('stroke', (d) => colors[d.kind]).attr('d', (d) => line(d.pts));
+      const turns = units.flatMap((u) => u.turns.map((tr) => ({ ...tr, unit: u.unit })));
+      gRuns.selectAll('path.turn').data(turns).join('path').attr('class', 'turn')
+        .attr('d', (d) => line([[d.t0, d.km], [d.t1, d.km]]));
+      gHit.selectAll('path').data(B.runs, (d) => d.train).join('path').attr('class', 'hit')
+        .attr('d', (d) => line(d.pts))
+        .on('click', (e, d) => { hl = d.unit; highlight(); render(layout); });
+      highlight();
+
+      // Notes beside the highlighted set, placed above or below the point, inside the plot.
+      gNotes.selectAll('g').data(narrow ? [] : notes, (d) => d.text).join((e) => {
+        const g = e.append('g');
+        g.append('line').attr('class', 'note-line');
+        g.append('circle').attr('class', 'note-dot').attr('r', 2.5);
+        g.append('text').attr('class', 'note');
+        return g;
+      }).each(function (d) {
+        const g = d3.select(this), px = x(d.t), py = y(d.km);
+        const up = py - 34 > m.top + 8;
+        const ty = up ? py - 30 : py + 36;
+        const right = px + 170 < width - m.right;
+        g.select('line').attr('x1', px).attr('y1', py).attr('x2', px).attr('y2', up ? ty + 4 : ty - 12);
+        g.select('circle').attr('cx', px).attr('cy', py);
+        g.select('text').attr('x', right ? px - 4 : px + 4).attr('y', ty).attr('text-anchor', right ? 'start' : 'end').text(d.text);
+      });
       draw();
     };
+    // The runtime measures the whole banner (key included); the graph takes the plot area above the key.
+    return () => { layout = { width: plot.clientWidth, height: plot.clientHeight }; render(layout); };
   }, { resize: 'size', lazy: false });
 </script>
