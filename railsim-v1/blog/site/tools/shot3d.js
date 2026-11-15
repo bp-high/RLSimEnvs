@@ -23,12 +23,20 @@ const hm = (s) => { const [h, m] = s.split(':').map(Number); return h * 60 + m; 
     pages[k] = pg;
   }
   const a = hm(spec.from), z = hm(spec.to), step = spec.step || 0.25;
-  let i = 0;
+  let i = 0, aimed = false;
   for (let t = a; t <= z + 1e-9; t += step, i++) {
     meta.frames.push(t);
     const files = Object.keys(pages).map((k) => `${dir}/${k}-${String(i).padStart(4, '0')}.png`);
     if (files.every((f) => fs.existsSync(f))) continue;     // kept from a run that was cut off: resume after it
     for (const pg of Object.values(pages)) await pg.evaluate((t) => twin.seek(t), t);
+    if (!aimed) {
+      // The chase camera takes its place behind the train only when it is switched on, and only if the train is
+      // drawn by then; right after loading it sometimes is not, and the camera then trails an empty spot. Switch it
+      // on again once the first frame's trains are drawn.
+      await Object.values(pages)[0].waitForTimeout(spec.settle || 450);
+      for (const pg of Object.values(pages)) await pg.evaluate((cam) => twin.setCam(cam), spec.cam);
+      aimed = true;
+    }
     await Object.values(pages)[0].waitForTimeout(spec.settle || 450);
     for (const [k, pg] of Object.entries(pages)) await pg.screenshot({ path: `${dir}/${k}-${String(i).padStart(4, '0')}.png` });
   }
