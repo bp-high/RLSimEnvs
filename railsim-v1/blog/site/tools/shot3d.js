@@ -1,5 +1,6 @@
 // node shot3d.js '<json spec>': {name, task, plans:{key:planId}, train, cam, from, to, step, w, h, settle}
 // Writes shots/<name>/<key>-NNNN.png and shots/<name>/meta.json (clock per frame, plan label and reward per key).
+// Frames already on disk are kept, so a run cut off by a restart resumes where it stopped.
 const { chromium } = require('playwright');
 const fs = require('fs');
 const spec = JSON.parse(process.argv[2]);
@@ -24,10 +25,12 @@ const hm = (s) => { const [h, m] = s.split(':').map(Number); return h * 60 + m; 
   const a = hm(spec.from), z = hm(spec.to), step = spec.step || 0.25;
   let i = 0;
   for (let t = a; t <= z + 1e-9; t += step, i++) {
+    meta.frames.push(t);
+    const files = Object.keys(pages).map((k) => `${dir}/${k}-${String(i).padStart(4, '0')}.png`);
+    if (files.every((f) => fs.existsSync(f))) continue;     // kept from a run that was cut off: resume after it
     for (const pg of Object.values(pages)) await pg.evaluate((t) => twin.seek(t), t);
     await Object.values(pages)[0].waitForTimeout(spec.settle || 450);
     for (const [k, pg] of Object.entries(pages)) await pg.screenshot({ path: `${dir}/${k}-${String(i).padStart(4, '0')}.png` });
-    meta.frames.push(t);
   }
   fs.writeFileSync(`${dir}/meta.json`, JSON.stringify(meta, null, 1));
   console.log(spec.name, i, 'frames', JSON.stringify(meta.plans));
