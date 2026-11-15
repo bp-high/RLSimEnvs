@@ -112,8 +112,8 @@ def chart_frames(tmp: Path, dur: float) -> Path:
         t = f / FPS
         im = Image.new("RGB", (W, H), BG)
         d = ImageDraw.Draw(im)
-        header(d, "RESULTS  ·  45 HELD-OUT TASKS", "More room to think did more than training",
-               "Mean reward; 1.0 = the solver's proven optimum on every task")
+        header(d, "RESULTS  ·  45 HELD-OUT TASKS", "Mean reward, before and after RL",
+               "1.0 = the solver's proven optimum on every task")
         for v in (0.0, 0.1, 0.2, 0.3, 0.4):
             d.line([(sx(v), top - 20), (sx(v), top + rh * 4 - 30)], fill=(38, 43, 52), width=2)
             d.text((sx(v), top + rh * 4 - 14), f"{v:.1f}", font=font("Regular", 24), fill=GREY, anchor="mt")
@@ -129,11 +129,6 @@ def chart_frames(tmp: Path, dur: float) -> Path:
             if p > 0:
                 d.rounded_rectangle([x0, y + 10, sx(val * p), y + 66], radius=8, fill=col)
                 d.text((sx(val * p) + 16, y + 38), f"{val * p:.3f}", font=font("Bold", 38), fill=INK, anchor="lm")
-        if t > 3.6:
-            a = min(1.0, (t - 3.6) / 0.5)
-            c = tuple(int(BG[k] + (INK[k] - BG[k]) * a) for k in range(3))
-            d.text((80, H - 110), "2.7× the starting score; the longer context alone took it from 0.119 to 0.259.",
-                   font=font("Regular", 32), fill=c)
         im.save(folder / f"{f:04d}.png")
     out = tmp / "chart.mp4"
     ffmpeg("-framerate", str(FPS), "-i", str(folder / "%04d.png"), "-vf", fades(dur), *ENC, str(out))
@@ -144,7 +139,7 @@ def caveat_bg() -> Image.Image:
     im = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(im)
     d.text((80, 56), "HONEST NUMBERS", font=font("Bold", 28), fill=ORANGE)
-    d.text((80, 100), "+0.056 per task after RL: promising, not settled", font=font("Bold", 60), fill=INK)
+    d.text((80, 100), "+0.056 per task after RL", font=font("Bold", 60), fill=INK)
     d.text((80, 180), "Better on 22 tasks, worse on 13, the same on 10; 95% interval −0.008 to +0.126.",
            font=font("Regular", 32), fill=MUTED)
     d.text((80, 226), "And on a short closure (31 May) it now waits it out instead of turning trains back:",
