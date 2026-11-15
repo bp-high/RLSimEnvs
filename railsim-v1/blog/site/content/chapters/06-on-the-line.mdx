@@ -57,6 +57,24 @@ Litter on the track closed Buitenpost - Groningen from 17:10 to 18:42: half the 
   <Image src={g0216r} alt="Train graph of the fine-tuned model's plan for 16 February: one cancellation and six short-turns, the proven optimum" caption="<b>After RL: 1.000.</b> The fine-tuned model cancels one train and short-turns six instead, serving what can be served: 796 stop-minutes, exactly the proven optimum." zoomable />
 </Stack>
 
+<figure class="video-figure">
+  <video src="/media/litter-duel.mp4" poster="/media/litter-duel.webp" autoplay muted loop playsinline controls preload="metadata"></video>
+  <figcaption>
+    <b>17:50 to 18:14 at Buitenpost, following the train set that arrived as 37462.</b> Left, the base model's plan:
+    the set stands at Buitenpost, waiting for the line to Groningen to reopen at 18:42; its next two runs, 37357 and
+    37368, are cancelled. Right, the fine-tuned model's plan: the same set turned at Buitenpost and leaves on time at
+    17:56 as 37357, back to Leeuwarden.
+  </figcaption>
+</figure>
+
+<figure class="video-figure">
+  <video src="/media/litter-cab.mp4" poster="/media/litter-cab.webp" autoplay muted loop playsinline controls preload="metadata"></video>
+  <figcaption>
+    <b>The driver's view.</b> Train 37357 under the fine-tuned plan, from 17:54: it starts at Buitenpost instead of
+    Groningen, on time, and runs west to Leeuwarden while the line east of Buitenpost is still closed.
+  </figcaption>
+</figure>
+
 ### 31 May 2025, 09:00: where training made it worse
 
 Not every task improved. A defective track closed Leeuwarden - Hurdegaryp from 09:30 to 09:56, a short closure.
@@ -65,6 +83,16 @@ Not every task improved. A defective track closed Leeuwarden - Hurdegaryp from 0
   <Image src={g0531b} alt="Train graph of the base model's plan for 31 May: four short-turns" caption="<b>Before RL: 0.756.</b> The base model short-turns four trains: 246 stop-minutes against an optimum of 226." zoomable />
   <Image src={g0531r} alt="Train graph of the fine-tuned model's plan for 31 May: every train held, none turned" caption="<b>After RL: 0.200.</b> The fine-tuned model holds every train through the closure and turns none back: legal, but 708 stop-minutes of delay." zoomable />
 </Stack>
+
+<figure class="video-figure">
+  <video src="/media/may-duel.mp4" poster="/media/may-duel.webp" autoplay muted loop playsinline controls preload="metadata"></video>
+  <figcaption>
+    <b>09:48 to 10:16, following the train set that ran 37423.</b> Left, the base model's plan: the set turned at
+    Hurdegaryp and leaves at 09:52 as 37334 to Groningen, on time. Right, the fine-tuned model's plan: the same set
+    waits at Hurdegaryp until the closure ends at 09:56, runs on into Leeuwarden and starts 37334 from there at 10:14,
+    28 minutes late.
+  </figcaption>
+</figure>
 
 <Note variant="neutral" emoji="🔍" title="What this shows">
   On a 26-minute closure, waiting is a reasonable instinct; the optimum mixes a few short-turns with short holds. The
