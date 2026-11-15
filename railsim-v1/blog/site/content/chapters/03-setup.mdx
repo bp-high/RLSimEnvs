@@ -17,7 +17,7 @@ The loop is plain policy-gradient reinforcement learning with group-relative adv
 4. one optimizer step, then repeat with the new weights.
 
 Every token the model wrote in an episode (its reasoning, its tool calls, its final plan) is one training sequence,
-and the reward is the environment's own score. There are no human labels and no judge model.
+and the reward is the environment's own score.
 
 <Sidenote>
   An episode is one sequence because each turn's prompt is the previous prompt, the tokens the model sampled and the

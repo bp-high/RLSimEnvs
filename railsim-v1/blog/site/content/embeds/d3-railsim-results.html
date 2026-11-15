@@ -28,14 +28,13 @@
     const GROUPS = [
       { key: 'after RL', label: 'Inkling 2 Small after RL' },
       { key: 'Inkling', label: 'Inkling 2 Small, no training' },
-      { key: 'frontier', label: 'Larger models (1M context, 64K a turn)' },
       { key: 'baseline', label: 'Rule-based baselines' },
     ];
     const fmt = d3.format('.3f');
     const esc = (s) => String(s).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
     const best = rows.find((r) => r.group === 'after RL');
     ctx.describe(`Mean reward on the 45 RailSimEnv eval tasks with 95% intervals for ${rows.length} systems. ` +
-      `Inkling 2 Small rises from ${fmt(rows.find((r) => r.model.includes('64K · base') && !r.model.includes('max')).reward)} to ${fmt(best.reward)} after reinforcement learning with a longer context; GLM-5.3-Flash scores ${fmt(rows.find((r) => r.model.startsWith('GLM')).reward)}.`);
+      `Inkling 2 Small rises from ${fmt(rows.find((r) => r.model.includes('64K · base') && !r.model.includes('max')).reward)} to ${fmt(best.reward)} after reinforcement learning with a longer context; the greedy rule-based dispatcher scores ${fmt(rows.find((r) => r.model.startsWith('Greedy')).reward)}.`);
     const legend = d3.select(ctx.root).append('div').attr('class', 'legend');
     const svg = d3.select(ctx.root).append('svg');
     const gGrid = svg.append('g').attr('class', 'grid');
@@ -51,7 +50,7 @@
       const narrow = width < 560;
       const m = { top: 6, right: 54, bottom: 36, left: narrow ? 150 : 250 };
       const rowH = 26, innerH = rows.length * rowH, height = innerH + m.top + m.bottom;
-      const x = d3.scaleLinear().domain([0, 0.7]).range([m.left, width - m.right]);
+      const x = d3.scaleLinear().domain([0, 0.5]).range([m.left, width - m.right]);
       svg.attr('viewBox', `0 0 ${width} ${height}`).attr('height', height);
       gGrid.attr('transform', `translate(0,${m.top})`).call(d3.axisBottom(x).ticks(7).tickSize(innerH).tickFormat(''));
       gx.attr('transform', `translate(0,${m.top + innerH})`).call(d3.axisBottom(x).ticks(7).tickFormat(d3.format('.1f')).tickSizeOuter(0));

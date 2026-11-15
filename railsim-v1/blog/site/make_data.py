@@ -30,12 +30,6 @@ INK = {  # run -> (label, short label)
     f"{P}256k-max-eval45": ("Inkling 2 Small · 262K · base", "262K base"),
     f"{P}256k-max-rl-b-eval45": ("Inkling 2 Small · 262K · after RL", "262K after RL"),
 }
-BOARD = {
-    "2026-10-08-qwen3-8-2-4t-eval45": "Qwen3.8-2.4T-A95B",
-    "2026-10-08-deepseek-v4-1-flash-eval45": "DeepSeek-V4.1-Flash",
-    "2026-10-07-sonnet-5-5-eval45": "Claude Sonnet 5.5",
-    "2026-10-08-glm-5-3-flash-eval45": "GLM-5.3-Flash",
-}
 
 
 def episodes(run: str) -> list[dict]:
@@ -50,12 +44,7 @@ def ci(xs: list[float], n: int = 2000, seed: int = 0) -> tuple[float, float]:
 
 
 def results() -> None:
-    rows = []
-    for run, name in BOARD.items():
-        r = [e["reward"] for e in episodes(run)]
-        lo, hi = ci(r)
-        rows.append({"model": name, "group": "frontier", "reward": round(statistics.mean(r), 4),
-                     "lo": round(lo, 4), "hi": round(hi, 4)})
+    rows = []                                            # Inkling 2 Small and the rule-based baselines only
     for run, (name, _) in INK.items():
         r = [e["reward"] for e in episodes(run)]
         lo, hi = ci(r)

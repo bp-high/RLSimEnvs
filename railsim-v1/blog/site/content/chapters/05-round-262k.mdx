@@ -32,12 +32,6 @@ was not about budget (the model already submitted almost every time) but about p
   desc="Each row is one task: grey is the base model, coloured the fine-tuned one. Rows are sorted by how much the task changed. Switch between the two rounds above the chart; hover a row for its numbers. Plans left of 0.2 broke a rule."
 />
 
-<Note variant="danger" emoji="⚖️" title="Not settled yet">
-  The 95% interval for the 262K gain is −0.008 to +0.126: it just touches zero. The 16 training tasks held out to
-  track progress did not move (0.246 before, 0.244 after), while the training batches climbed from about 0.22 to
-  0.31. One more rollout of both evaluations would tell whether the gain is real.
-</Note>
-
 <HtmlEmbed
   src="d3-railsim-curves.html"
   data="curves.csv"

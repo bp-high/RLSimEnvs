@@ -43,7 +43,7 @@ OUT = ROOT / "dist" / "blog-space"
 LIVE = "bpHigh/RailSimEnv-Inkling"
 DRAFT = LIVE + "-draft"
 PORT = 4321
-FORBIDDEN = re.compile(r"claude-sessions|CLAUDE\.md|Claude Code|Co-Authored-By|Claude-Session|claude\.ai/code", re.I)
+FORBIDDEN = re.compile(r"(?i:claude-sessions|CLAUDE\.md|Claude Code|Co-Authored-By|Claude-Session|claude\.ai/code)|\bClaude\b")
 # What goes into the page, for the fingerprint (make_data.py and the capture tools only feed content/).
 INPUTS = ["content", "public", "space-card.md", "build.py", "tools/flatten.cjs"]
 

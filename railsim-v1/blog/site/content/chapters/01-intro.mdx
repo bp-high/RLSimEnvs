@@ -19,7 +19,7 @@ re-plan the next three hours: hold this train at that station, turn that one bac
 It is an OpenEnv [@openenv] environment rebuilt from the public record of every train on the line [@rdt2025], and it
 grades every plan against the best plan possible, proven by a solver. We took Thinking Machines' newest small model,
 **Inkling 2 Small**, measured it, and fine-tuned it on the environment with reinforcement learning through the Tinker
-API [@tinker2026]. This is what happened, in plain terms, and what we noticed along the way.
+API [@tinker2026].
 
   <figure class="video-figure">
     <video src="/media/hero.mp4" poster="/media/hero.webp" autoplay muted loop playsinline controls preload="metadata"></video>
@@ -33,8 +33,7 @@ API [@tinker2026]. This is what happened, in plain terms, and what we noticed al
 
 <Note variant="info" emoji="🚆" title="In one paragraph">
   Inkling 2 Small started at <b>0.119</b> on the 45 hard evaluation tasks, below a simple rule-based dispatcher (0.180).
-  Reinforcement learning on other days of the same line taught it to stop running out of words: <b>0.186</b>. Giving it
-  four times the room to think did more than training: <b>0.259</b> before any training, and <b>0.316</b> after a second
-  round of reinforcement learning, close to GLM-5.3-Flash (0.360) with less room than any of the larger models had.
-  The last gain is promising but not yet settled.
+  Reinforcement learning on other days of the same line taught it to stop running out of words: <b>0.186</b>.
+  Switching to the long context model increased the score to <b>0.259</b> before any training, and <b>0.316</b> after a
+  second round of reinforcement learning. The last gain is promising but not yet settled.
 </Note>
